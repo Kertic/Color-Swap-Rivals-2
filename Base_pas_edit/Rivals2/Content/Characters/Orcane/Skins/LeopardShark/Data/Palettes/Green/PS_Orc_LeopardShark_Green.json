@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Orc_LeopardShark_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/LeopardShark/Data/Palettes/Green/PS_Orc_LeopardShark_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Orc_LeopardShark_Green_C'Default__PS_Orc_LeopardShark_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Orcane/Skins/LeopardShark/Data/Palettes/Green/PS_Orc_LeopardShark_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Orc_LeopardShark_Green_C",
+    "Name": "Default__PS_Orc_LeopardShark_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Orcane/Skins/LeopardShark/Data/Palettes/Green/PS_Orc_LeopardShark_Green.PS_Orc_LeopardShark_Green_C'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/LeopardShark/Data/Palettes/Green/PS_Orc_LeopardShark_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.019792,
+            "G": 0.019792,
+            "B": 0.019792,
+            "A": 1.0,
+            "Hex": "262626"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.39738,
+            "G": 0.55834,
+            "B": 0.361246,
+            "A": 1.0,
+            "Hex": "A9C5A2"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.100772,
+            "G": 0.300544,
+            "B": 0.039972,
+            "A": 1.0,
+            "Hex": "599538"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.036569,
+            "G": 0.065,
+            "B": 0.00182,
+            "A": 1.0,
+            "Hex": "354806"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.857,
+            "G": 0.643379,
+            "B": 0.051907,
+            "A": 1.0,
+            "Hex": "EFD240"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.01,
+            "G": 0.01,
+            "B": 0.01,
+            "A": 1.0,
+            "Hex": "191919"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.01,
+            "G": 0.01,
+            "B": 0.01,
+            "A": 1.0,
+            "Hex": "191919"
+          }
+        },
+        {
+          "Key": "Teeth",
+          "Value": {
+            "R": 0.973445,
+            "G": 0.973445,
+            "B": 0.973445,
+            "A": 1.0,
+            "Hex": "FCFCFC"
+          }
+        },
+        {
+          "Key": "Mouth",
+          "Value": {
+            "R": 0.42869,
+            "G": 0.090842,
+            "B": 0.090842,
+            "A": 1.0,
+            "Hex": "AF5555"
+          }
+        },
+        {
+          "Key": "Liner",
+          "Value": {
+            "R": 0.02257,
+            "G": 0.02257,
+            "B": 0.02257,
+            "A": 1.0,
+            "Hex": "292929"
+          }
+        }
+      ]
+    }
+  }
+]

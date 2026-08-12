@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Cla_Summer_Black_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Summer/Data/Palettes/Black/PE_Cla_Summer_Black",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Cla_Summer_Black_C'Default__PE_Cla_Summer_Black_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Clairen/Skins/Summer/Data/Palettes/Black/PE_Cla_Summer_Black.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Cla_Summer_Black_C",
+    "Name": "Default__PE_Cla_Summer_Black_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Clairen/Skins/Summer/Data/Palettes/Black/PE_Cla_Summer_Black.PE_Cla_Summer_Black_C'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Summer/Data/Palettes/Black/PE_Cla_Summer_Black",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.503,
+            "G": 0.031186,
+            "B": 0.031186,
+            "A": 1.0,
+            "Hex": "BC3131"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.251,
+            "G": 0.019829,
+            "B": 0.019829,
+            "A": 1.0,
+            "Hex": "892626"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.016,
+            "G": 0.016,
+            "B": 0.016,
+            "A": 1.0,
+            "Hex": "222222"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.016,
+            "G": 0.016,
+            "B": 0.016,
+            "A": 1.0,
+            "Hex": "222222"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Wra_Lovers_Black_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Lovers/Data/Palettes/Black/PE_Wra_Lovers_Black",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Wra_Lovers_Black_C'Default__PE_Wra_Lovers_Black_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Wrastor/Skins/Lovers/Data/Palettes/Black/PE_Wra_Lovers_Black.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Wra_Lovers_Black_C",
+    "Name": "Default__PE_Wra_Lovers_Black_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Wrastor/Skins/Lovers/Data/Palettes/Black/PE_Wra_Lovers_Black.PE_Wra_Lovers_Black_C'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Lovers/Data/Palettes/Black/PE_Wra_Lovers_Black",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.003,
+            "G": 0.003,
+            "B": 0.003,
+            "A": 1.0,
+            "Hex": "090909"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.519,
+            "G": 0.003114,
+            "B": 0.003114,
+            "A": 1.0,
+            "Hex": "BF0A0A"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.519,
+            "G": 0.003114,
+            "B": 0.003114,
+            "A": 1.0,
+            "Hex": "BF0A0A"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.338631,
+            "G": 0.288449,
+            "B": 0.623,
+            "A": 1.0,
+            "Hex": "9D92CF"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.003,
+            "G": 0.003,
+            "B": 0.003,
+            "A": 1.0,
+            "Hex": "090909"
+          }
+        }
+      ]
+    }
+  }
+]

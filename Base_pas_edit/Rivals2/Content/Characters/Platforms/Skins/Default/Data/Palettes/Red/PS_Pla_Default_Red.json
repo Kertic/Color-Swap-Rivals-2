@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Default_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Default/PS_Pla_Default_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Default_Red_C'Default__PS_Pla_Default_Red_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Default/PS_Pla_Default_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Default_Red_C",
+    "Name": "Default__PS_Pla_Default_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Default/PS_Pla_Default_Red.PS_Pla_Default_Red_C'",
+    "Package": "Rivals2/Content/Platforms/Default/PS_Pla_Default_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.151042,
+            "G": 0.106241,
+            "B": 0.098334,
+            "A": 1.0,
+            "Hex": "6C5C58"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.755208,
+            "G": 0.019667,
+            "B": 0.019667,
+            "A": 1.0,
+            "Hex": "E22626"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.119792,
+            "G": 0.058824,
+            "B": 0.030572,
+            "A": 1.0,
+            "Hex": "614431"
+          }
+        }
+      ]
+    }
+  }
+]

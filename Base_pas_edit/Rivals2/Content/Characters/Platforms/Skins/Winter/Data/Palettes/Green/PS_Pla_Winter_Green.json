@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Winter_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Winter/PS_Pla_Winter_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Winter_Green_C'Default__PS_Pla_Winter_Green_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Winter/PS_Pla_Winter_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Winter_Green_C",
+    "Name": "Default__PS_Pla_Winter_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Winter/PS_Pla_Winter_Green.PS_Pla_Winter_Green_C'",
+    "Package": "Rivals2/Content/Platforms/Winter/PS_Pla_Winter_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.333333,
+            "G": 0.292535,
+            "B": 0.170139,
+            "A": 1.0,
+            "Hex": "9C9373"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.061523,
+            "G": 0.145833,
+            "B": 0.099463,
+            "A": 1.0,
+            "Hex": "466B59"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.125,
+            "G": 0.100619,
+            "B": 0.055339,
+            "A": 1.0,
+            "Hex": "635942"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.447917,
+            "G": 0.365332,
+            "B": 0.034993,
+            "A": 1.0,
+            "Hex": "B3A334"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.021792,
+            "G": 0.025187,
+            "B": 0.017642,
+            "A": 1.0,
+            "Hex": "282C24"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.023153,
+            "G": 0.238398,
+            "B": 0.011612,
+            "A": 1.0,
+            "Hex": "2A861C"
+          }
+        },
+        {
+          "Key": "CustomColor6",
+          "Value": {
+            "R": 0.916667,
+            "G": 0.916667,
+            "B": 0.916667,
+            "A": 1.0,
+            "Hex": "F6F6F6"
+          }
+        },
+        {
+          "Key": "CustomColor7",
+          "Value": {
+            "R": 0.28125,
+            "G": 0.208652,
+            "B": 0.063457,
+            "A": 1.0,
+            "Hex": "917E47"
+          }
+        },
+        {
+          "Key": "CustomColor8",
+          "Value": {
+            "R": 0.473958,
+            "G": 0.32617,
+            "B": 0.088424,
+            "A": 1.0,
+            "Hex": "B79B54"
+          }
+        },
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.114258,
+            "G": 0.135417,
+            "B": 0.08252,
+            "A": 1.0,
+            "Hex": "5F6751"
+          }
+        }
+      ]
+    }
+  }
+]

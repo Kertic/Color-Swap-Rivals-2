@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Gal_Champion_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Galvan/Skins/Champion/Data/Palettes/Green/PE_Gal_Champion_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Gal_Champion_Green_C'Default__PE_Gal_Champion_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Galvan/Skins/Champion/Data/Palettes/Green/PE_Gal_Champion_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Gal_Champion_Green_C",
+    "Name": "Default__PE_Gal_Champion_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Galvan/Skins/Champion/Data/Palettes/Green/PE_Gal_Champion_Green.PE_Gal_Champion_Green_C'",
+    "Package": "Rivals2/Content/Characters/Galvan/Skins/Champion/Data/Palettes/Green/PE_Gal_Champion_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.391572,
+            "B": 0.06301,
+            "A": 1.0,
+            "Hex": "E9A847"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.48515,
+            "G": 0.242281,
+            "B": 0.061246,
+            "A": 1.0,
+            "Hex": "B98746"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.383212,
+            "G": 0.630208,
+            "B": 0.285563,
+            "A": 1.0,
+            "Hex": "A7D092"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.003906,
+            "G": 0.375,
+            "B": 0.059531,
+            "A": 1.0,
+            "Hex": "0CA545"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.637597,
+            "G": 0.64448,
+            "B": 0.637597,
+            "A": 1.0,
+            "Hex": "D1D2D1"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 0.276042,
+            "G": 0.276042,
+            "B": 0.276042,
+            "A": 1.0,
+            "Hex": "8F8F8F"
+          }
+        }
+      ]
+    }
+  }
+]

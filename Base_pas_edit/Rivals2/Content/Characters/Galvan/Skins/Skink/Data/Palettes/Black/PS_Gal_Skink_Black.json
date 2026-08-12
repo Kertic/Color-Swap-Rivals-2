@@ -1,0 +1,188 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gal_Skink_Black_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Galvan/Skins/Skink/Data/Palettes/Black/PS_Gal_Skink_Black",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gal_Skink_Black_C'Default__PS_Gal_Skink_Black_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Galvan/Skins/Skink/Data/Palettes/Black/PS_Gal_Skink_Black.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gal_Skink_Black_C",
+    "Name": "Default__PS_Gal_Skink_Black_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Galvan/Skins/Skink/Data/Palettes/Black/PS_Gal_Skink_Black.PS_Gal_Skink_Black_C'",
+    "Package": "Rivals2/Content/Characters/Galvan/Skins/Skink/Data/Palettes/Black/PS_Gal_Skink_Black",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.028512,
+            "G": 0.030636,
+            "B": 0.054,
+            "A": 1.0,
+            "Hex": "2F3141"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.205506,
+            "G": 0.21288,
+            "B": 0.294,
+            "A": 1.0,
+            "Hex": "7D7F94"
+          }
+        },
+        {
+          "Key": "Head",
+          "Value": {
+            "R": 0.077826,
+            "G": 0.081257,
+            "B": 0.119,
+            "A": 1.0,
+            "Hex": "4F5061"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.858,
+            "G": 0.053017,
+            "B": 0.018018,
+            "A": 1.0,
+            "Hex": "EF4124"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.005264,
+            "G": 0.005492,
+            "B": 0.008,
+            "A": 1.0,
+            "Hex": "101016"
+          }
+        },
+        {
+          "Key": "Stripes",
+          "Value": {
+            "R": 0.858,
+            "G": 0.053017,
+            "B": 0.018018,
+            "A": 1.0,
+            "Hex": "EF4124"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.005264,
+            "G": 0.005492,
+            "B": 0.008,
+            "A": 1.0,
+            "Hex": "101016"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.999,
+            "G": 0.010989,
+            "B": 0.010989,
+            "A": 1.0,
+            "Hex": "FF1B1B"
+          }
+        },
+        {
+          "Key": "Gems",
+          "Value": {
+            "R": 0.858,
+            "G": 0.053017,
+            "B": 0.018018,
+            "A": 1.0,
+            "Hex": "EF4124"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.131,
+            "G": 0.01103,
+            "B": 0.004716,
+            "A": 1.0,
+            "Hex": "651B0E"
+          }
+        },
+        {
+          "Key": "Reinforced",
+          "Value": {
+            "R": 0.858,
+            "G": 0.053017,
+            "B": 0.018018,
+            "A": 1.0,
+            "Hex": "EF4124"
+          }
+        },
+        {
+          "Key": "Rocks",
+          "Value": {
+            "R": 0.077826,
+            "G": 0.081257,
+            "B": 0.119,
+            "A": 1.0,
+            "Hex": "4F5061"
+          }
+        },
+        {
+          "Key": "GemGlow",
+          "Value": {
+            "R": 0.858,
+            "G": 0.053017,
+            "B": 0.018018,
+            "A": 1.0,
+            "Hex": "EF4124"
+          }
+        },
+        {
+          "Key": "Horn",
+          "Value": {
+            "R": 0.012983,
+            "G": 0.01096,
+            "B": 0.01096,
+            "A": 1.0,
+            "Hex": "1E1B1B"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Ran_SmokeClan_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Neutral/PE_Ran_SmokeClan_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Ran_SmokeClan_Neutral_C'Default__PE_Ran_SmokeClan_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Neutral/PE_Ran_SmokeClan_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Ran_SmokeClan_Neutral_C",
+    "Name": "Default__PE_Ran_SmokeClan_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Neutral/PE_Ran_SmokeClan_Neutral.PE_Ran_SmokeClan_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Neutral/PE_Ran_SmokeClan_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.046875,
+            "G": 0.033936,
+            "B": 0.033936,
+            "A": 1.0,
+            "Hex": "3D3333"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.1875,
+            "G": 0.110532,
+            "B": 0.099609,
+            "A": 1.0,
+            "Hex": "785D59"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.401042,
+            "G": 0.327692,
+            "B": 0.311225,
+            "A": 1.0,
+            "Hex": "AA9B97"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.734375,
+            "G": 0.575069,
+            "B": 0.539307,
+            "A": 1.0,
+            "Hex": "DFC8C2"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

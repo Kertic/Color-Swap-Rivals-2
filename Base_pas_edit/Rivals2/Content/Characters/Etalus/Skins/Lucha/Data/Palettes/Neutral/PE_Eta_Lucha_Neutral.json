@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Eta_Lucha_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Etalus/Skins/Lucha/Data/Palettes/Neutral/PE_Eta_Lucha_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Eta_Lucha_Neutral_C'Default__PE_Eta_Lucha_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Etalus/Skins/Lucha/Data/Palettes/Neutral/PE_Eta_Lucha_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Eta_Lucha_Neutral_C",
+    "Name": "Default__PE_Eta_Lucha_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Etalus/Skins/Lucha/Data/Palettes/Neutral/PE_Eta_Lucha_Neutral.PE_Eta_Lucha_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Etalus/Skins/Lucha/Data/Palettes/Neutral/PE_Eta_Lucha_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.365,
+            "G": 0.23944,
+            "B": 0.0511,
+            "A": 1.0,
+            "Hex": "A38640"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.644,
+            "G": 0.459172,
+            "B": 0.089516,
+            "A": 1.0,
+            "Hex": "D2B554"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.7,
+            "G": 0.501795,
+            "B": 0.1337,
+            "A": 1.0,
+            "Hex": "DABC66"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.841,
+            "G": 0.763586,
+            "B": 0.177451,
+            "A": 1.0,
+            "Hex": "EDE375"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

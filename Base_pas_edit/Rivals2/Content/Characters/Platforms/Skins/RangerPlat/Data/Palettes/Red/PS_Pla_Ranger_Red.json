@@ -1,0 +1,88 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Ranger_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/RangerPlat/PS_Pla_Ranger_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Ranger_Red_C'Default__PS_Pla_Ranger_Red_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/RangerPlat/PS_Pla_Ranger_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Ranger_Red_C",
+    "Name": "Default__PS_Pla_Ranger_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/RangerPlat/PS_Pla_Ranger_Red.PS_Pla_Ranger_Red_C'",
+    "Package": "Rivals2/Content/Platforms/RangerPlat/PS_Pla_Ranger_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.137,
+            "G": 0.116176,
+            "B": 0.116176,
+            "A": 1.0,
+            "Hex": "676060"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.89,
+            "G": 0.89,
+            "B": 0.89,
+            "A": 1.0,
+            "Hex": "F3F3F3"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.104167,
+            "G": 0.007053,
+            "B": 0.007053,
+            "A": 1.0,
+            "Hex": "5B1414"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 1.0,
+            "G": 0.053,
+            "B": 0.116133,
+            "A": 1.0,
+            "Hex": "FF4160"
+          }
+        },
+        {
+          "Key": "EmissiveColor",
+          "Value": {
+            "R": 0.421,
+            "G": 0.0,
+            "B": 0.007017,
+            "A": 1.0,
+            "Hex": "AE0014"
+          }
+        }
+      ]
+    }
+  }
+]

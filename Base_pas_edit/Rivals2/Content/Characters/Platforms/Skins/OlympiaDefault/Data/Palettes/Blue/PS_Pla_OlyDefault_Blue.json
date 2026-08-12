@@ -1,0 +1,78 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_OlyDefault_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/OlympiaDefault/PS_Pla_OlyDefault_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_OlyDefault_Blue_C'Default__PS_Pla_OlyDefault_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/OlympiaDefault/PS_Pla_OlyDefault_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_OlyDefault_Blue_C",
+    "Name": "Default__PS_Pla_OlyDefault_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/OlympiaDefault/PS_Pla_OlyDefault_Blue.PS_Pla_OlyDefault_Blue_C'",
+    "Package": "Rivals2/Content/Platforms/OlympiaDefault/PS_Pla_OlyDefault_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.144128,
+            "G": 0.21728,
+            "B": 0.246201,
+            "A": 1.0,
+            "Hex": "6A8088"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.223958,
+            "G": 0.39861,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "82AAFF"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.401978,
+            "G": 1.0,
+            "B": 0.863157,
+            "A": 1.0,
+            "Hex": "AAFFEF"
+          }
+        },
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.068478,
+            "G": 0.08079,
+            "B": 0.111932,
+            "A": 1.0,
+            "Hex": "4A505E"
+          }
+        }
+      ]
+    }
+  }
+]

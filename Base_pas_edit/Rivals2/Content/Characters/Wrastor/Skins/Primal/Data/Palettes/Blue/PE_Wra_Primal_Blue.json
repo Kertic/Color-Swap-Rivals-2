@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Wra_Primal_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Primal/Data/Palettes/Blue/PE_Wra_Primal_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Wra_Primal_Blue_C'Default__PE_Wra_Primal_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Wrastor/Skins/Primal/Data/Palettes/Blue/PE_Wra_Primal_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Wra_Primal_Blue_C",
+    "Name": "Default__PE_Wra_Primal_Blue_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Wrastor/Skins/Primal/Data/Palettes/Blue/PE_Wra_Primal_Blue.PE_Wra_Primal_Blue_C'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Primal/Data/Palettes/Blue/PE_Wra_Primal_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.697917,
+            "G": 0.177264,
+            "B": 0.018175,
+            "A": 1.0,
+            "Hex": "DA7524"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.015996,
+            "G": 0.020076,
+            "B": 0.097587,
+            "A": 1.0,
+            "Hex": "222658"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.03434,
+            "G": 0.049164,
+            "B": 0.212231,
+            "A": 1.0,
+            "Hex": "343E7F"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.099899,
+            "G": 0.143571,
+            "B": 0.62396,
+            "A": 1.0,
+            "Hex": "596ACF"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 0.910471,
+            "B": 0.783243,
+            "A": 1.0,
+            "Hex": "FFF5E5"
+          }
+        }
+      ]
+    }
+  }
+]

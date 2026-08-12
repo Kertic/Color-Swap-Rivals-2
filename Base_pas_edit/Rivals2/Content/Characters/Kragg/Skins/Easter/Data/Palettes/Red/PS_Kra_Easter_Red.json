@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Kra_Easter_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Kragg/Skins/Easter/Data/Palettes/Red/PS_Kra_Easter_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Kra_Easter_Red_C'Default__PS_Kra_Easter_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Kragg/Skins/Easter/Data/Palettes/Red/PS_Kra_Easter_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Kra_Easter_Red_C",
+    "Name": "Default__PS_Kra_Easter_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Kragg/Skins/Easter/Data/Palettes/Red/PS_Kra_Easter_Red.PS_Kra_Easter_Red_C'",
+    "Package": "Rivals2/Content/Characters/Kragg/Skins/Easter/Data/Palettes/Red/PS_Kra_Easter_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 1.0,
+            "G": 0.3304,
+            "B": 0.256,
+            "A": 1.0,
+            "Hex": "FF9C8B"
+          }
+        },
+        {
+          "Key": "Feet",
+          "Value": {
+            "R": 0.515,
+            "G": 0.124014,
+            "B": 0.079825,
+            "A": 1.0,
+            "Hex": "BE6350"
+          }
+        },
+        {
+          "Key": "Pattern1",
+          "Value": {
+            "R": 0.871367,
+            "G": 0.603827,
+            "B": 0.603827,
+            "A": 1.0,
+            "Hex": "F0CCCC"
+          }
+        },
+        {
+          "Key": "Shell",
+          "Value": {
+            "R": 0.857,
+            "G": 0.069658,
+            "B": 0.138915,
+            "A": 1.0,
+            "Hex": "EF4A68"
+          }
+        },
+        {
+          "Key": "Pattern2",
+          "Value": {
+            "R": 0.83,
+            "G": 0.06806,
+            "B": 0.309341,
+            "A": 1.0,
+            "Hex": "EB4A97"
+          }
+        },
+        {
+          "Key": "Pattern3",
+          "Value": {
+            "R": 0.61499,
+            "G": 0.142968,
+            "B": 0.851,
+            "A": 1.0,
+            "Hex": "CE6AEE"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.342,
+            "G": 0.074648,
+            "B": 0.033516,
+            "A": 1.0,
+            "Hex": "9E4D33"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.871367,
+            "G": 0.602986,
+            "B": 0.602986,
+            "A": 1.0,
+            "Hex": "F0CCCC"
+          }
+        }
+      ]
+    }
+  }
+]

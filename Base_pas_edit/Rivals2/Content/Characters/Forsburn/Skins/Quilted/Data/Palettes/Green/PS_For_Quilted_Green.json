@@ -1,0 +1,228 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_For_Quilted_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Quilted/Data/Palettes/Green/PS_For_Quilted_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_For_Quilted_Green_C'Default__PS_For_Quilted_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Forsburn/Skins/Quilted/Data/Palettes/Green/PS_For_Quilted_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_For_Quilted_Green_C",
+    "Name": "Default__PS_For_Quilted_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Quilted/Data/Palettes/Green/PS_For_Quilted_Green.PS_For_Quilted_Green_C'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Quilted/Data/Palettes/Green/PS_For_Quilted_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.123237,
+            "G": 0.307292,
+            "B": 0.126305,
+            "A": 1.0,
+            "Hex": "629763"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.690336,
+            "G": 0.822917,
+            "B": 0.548611,
+            "A": 1.0,
+            "Hex": "D9EAC4"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.03342,
+            "G": 0.114583,
+            "B": 0.042889,
+            "A": 1.0,
+            "Hex": "335F3A"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.911458,
+            "G": 0.706064,
+            "B": 0.351291,
+            "A": 1.0,
+            "Hex": "F5DBA0"
+          }
+        },
+        {
+          "Key": "Hair2",
+          "Value": {
+            "R": 0.57156,
+            "G": 0.895833,
+            "B": 0.247287,
+            "A": 1.0,
+            "Hex": "C7F388"
+          }
+        },
+        {
+          "Key": "Patch1",
+          "Value": {
+            "R": 0.315552,
+            "G": 0.703125,
+            "B": 0.238037,
+            "A": 1.0,
+            "Hex": "98DB86"
+          }
+        },
+        {
+          "Key": "Bone",
+          "Value": {
+            "R": 0.747932,
+            "G": 0.755208,
+            "B": 0.609673,
+            "A": 1.0,
+            "Hex": "E1E2CD"
+          }
+        },
+        {
+          "Key": "Patch2",
+          "Value": {
+            "R": 0.692708,
+            "G": 0.404594,
+            "B": 0.184271,
+            "A": 1.0,
+            "Hex": "D9AB77"
+          }
+        },
+        {
+          "Key": "Patch3",
+          "Value": {
+            "R": 0.26093,
+            "G": 0.374621,
+            "B": 0.715693,
+            "A": 1.0,
+            "Hex": "8CA5DC"
+          }
+        },
+        {
+          "Key": "Patch4",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.73215,
+            "B": 0.194618,
+            "A": 1.0,
+            "Hex": "E9DF7A"
+          }
+        },
+        {
+          "Key": "Patch5",
+          "Value": {
+            "R": 0.171441,
+            "G": 0.64448,
+            "B": 0.456411,
+            "A": 1.0,
+            "Hex": "73D2B4"
+          }
+        },
+        {
+          "Key": "CapeTrim",
+          "Value": {
+            "R": 0.019667,
+            "G": 0.124681,
+            "B": 0.130208,
+            "A": 1.0,
+            "Hex": "266365"
+          }
+        },
+        {
+          "Key": "Eyes",
+          "Value": {
+            "R": 0.904661,
+            "G": 0.417885,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "F4AD00"
+          }
+        },
+        {
+          "Key": "ClothTrim",
+          "Value": {
+            "R": 0.015734,
+            "G": 0.083533,
+            "B": 0.104167,
+            "A": 1.0,
+            "Hex": "21515B"
+          }
+        },
+        {
+          "Key": "Belt",
+          "Value": {
+            "R": 0.421875,
+            "G": 0.246407,
+            "B": 0.112225,
+            "A": 1.0,
+            "Hex": "AE885E"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.335015,
+            "G": 0.363521,
+            "B": 0.677083,
+            "A": 1.0,
+            "Hex": "9DA3D7"
+          }
+        },
+        {
+          "Key": "Mask Eyes",
+          "Value": {
+            "R": 0.189305,
+            "G": 1.0,
+            "B": 0.627718,
+            "A": 1.0,
+            "Hex": "78FFD0"
+          }
+        },
+        {
+          "Key": "White",
+          "Value": {
+            "R": 0.88368,
+            "G": 0.88368,
+            "B": 0.88368,
+            "A": 1.0,
+            "Hex": "F2F2F2"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.40531,
+            "G": 0.541667,
+            "B": 0.21441,
+            "A": 1.0,
+            "Hex": "ABC380"
+          }
+        }
+      ]
+    }
+  }
+]

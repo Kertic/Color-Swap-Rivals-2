@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Fle_Ranger_Tactical_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Tactical/PE_Fle_Ranger_Tactical",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Fle_Ranger_Tactical_C'Default__PE_Fle_Ranger_Tactical_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Tactical/PE_Fle_Ranger_Tactical.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Fle_Ranger_Tactical_C",
+    "Name": "Default__PE_Fle_Ranger_Tactical_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Tactical/PE_Fle_Ranger_Tactical.PE_Fle_Ranger_Tactical_C'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Tactical/PE_Fle_Ranger_Tactical",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.508,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "BD0000"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.913099,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "F50000"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 1.0,
+            "G": 0.058,
+            "B": 0.058,
+            "A": 1.0,
+            "Hex": "FF4444"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 1.0,
+            "G": 0.255,
+            "B": 0.255,
+            "A": 1.0,
+            "Hex": "FF8A8A"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 0.500144,
+            "G": 0.577,
+            "B": 0.064624,
+            "A": 1.0,
+            "Hex": "BCC848"
+          }
+        },
+        {
+          "Key": "Element7",
+          "Value": {
+            "R": 0.152557,
+            "G": 0.176,
+            "B": 0.019712,
+            "A": 1.0,
+            "Hex": "6D7426"
+          }
+        }
+      ]
+    }
+  }
+]

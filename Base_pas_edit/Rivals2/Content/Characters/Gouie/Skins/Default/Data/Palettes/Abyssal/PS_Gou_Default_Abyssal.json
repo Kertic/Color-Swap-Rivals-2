@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gou_Default_Abyssal_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Default/Data/Palettes/Abyssal/PS_Gou_Default_Abyssal",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gou_Default_Abyssal_C'Default__PS_Gou_Default_Abyssal_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Default/Data/Palettes/Abyssal/PS_Gou_Default_Abyssal.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gou_Default_Abyssal_C",
+    "Name": "Default__PS_Gou_Default_Abyssal_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Default/Data/Palettes/Abyssal/PS_Gou_Default_Abyssal.PS_Gou_Default_Abyssal_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Default/Data/Palettes/Abyssal/PS_Gou_Default_Abyssal",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Bone",
+          "Value": {
+            "R": 0.306144,
+            "G": 0.306144,
+            "B": 0.795,
+            "A": 1.0,
+            "Hex": "9696E7"
+          }
+        },
+        {
+          "Key": "Bill",
+          "Value": {
+            "R": 0.050056,
+            "G": 0.018603,
+            "B": 0.117,
+            "A": 1.0,
+            "Hex": "3F2560"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.04762,
+            "G": 0.015023,
+            "B": 0.117,
+            "A": 1.0,
+            "Hex": "3D2060"
+          }
+        },
+        {
+          "Key": "GooGlow",
+          "Value": {
+            "R": 0.177504,
+            "G": 0.082088,
+            "B": 0.331,
+            "A": 1.0,
+            "Hex": "75519C"
+          }
+        },
+        {
+          "Key": "Goo",
+          "Value": {
+            "R": 0.56,
+            "G": 0.02688,
+            "B": 0.419005,
+            "A": 1.0,
+            "Hex": "C62DAD"
+          }
+        },
+        {
+          "Key": "GooHighlight",
+          "Value": {
+            "R": 0.102242,
+            "G": 0.001214,
+            "B": 0.074214,
+            "A": 1.0,
+            "Hex": "5A044D"
+          }
+        },
+        {
+          "Key": "SocketR",
+          "Value": {
+            "R": 0.01,
+            "G": 0.01,
+            "B": 0.01,
+            "A": 1.0,
+            "Hex": "191919"
+          }
+        },
+        {
+          "Key": "SocketL",
+          "Value": {
+            "R": 0.01,
+            "G": 0.01,
+            "B": 0.01,
+            "A": 1.0,
+            "Hex": "191919"
+          }
+        },
+        {
+          "Key": "IrisR",
+          "Value": {
+            "R": 1.0,
+            "G": 0.5,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FFBC00"
+          }
+        },
+        {
+          "Key": "IrisL",
+          "Value": {
+            "R": 1.0,
+            "G": 0.5,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FFBC00"
+          }
+        }
+      ]
+    }
+  }
+]

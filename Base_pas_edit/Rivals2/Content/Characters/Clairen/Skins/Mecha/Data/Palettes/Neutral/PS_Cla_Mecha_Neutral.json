@@ -1,0 +1,188 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Cla_Mecha_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Mecha/Data/Palettes/Neutral/PS_Cla_Mecha_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Cla_Mecha_Neutral_C'Default__PS_Cla_Mecha_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Clairen/Skins/Mecha/Data/Palettes/Neutral/PS_Cla_Mecha_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Cla_Mecha_Neutral_C",
+    "Name": "Default__PS_Cla_Mecha_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Clairen/Skins/Mecha/Data/Palettes/Neutral/PS_Cla_Mecha_Neutral.PS_Cla_Mecha_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Mecha/Data/Palettes/Neutral/PS_Cla_Mecha_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Emissive",
+          "Value": {
+            "R": 0.014636,
+            "G": 0.25707,
+            "B": 0.984375,
+            "A": 1.0,
+            "Hex": "208BFE"
+          }
+        },
+        {
+          "Key": "Collar",
+          "Value": {
+            "R": 0.351533,
+            "G": 0.009134,
+            "B": 0.057805,
+            "A": 1.0,
+            "Hex": "A01844"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.048172,
+            "G": 0.048172,
+            "B": 0.082283,
+            "A": 1.0,
+            "Hex": "3E3E51"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.366253,
+            "B": 0.061246,
+            "A": 1.0,
+            "Hex": "E9A346"
+          }
+        },
+        {
+          "Key": "Rubber",
+          "Value": {
+            "R": 0.011612,
+            "G": 0.011612,
+            "B": 0.015209,
+            "A": 1.0,
+            "Hex": "1C1C21"
+          }
+        },
+        {
+          "Key": "EmissiveBase",
+          "Value": {
+            "R": 0.0,
+            "G": 0.020289,
+            "B": 0.030713,
+            "A": 1.0,
+            "Hex": "002731"
+          }
+        },
+        {
+          "Key": "Face",
+          "Value": {
+            "R": 0.205079,
+            "G": 0.205079,
+            "B": 0.205079,
+            "A": 1.0,
+            "Hex": "7D7D7D"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.205079,
+            "G": 0.205079,
+            "B": 0.205079,
+            "A": 1.0,
+            "Hex": "7D7D7D"
+          }
+        },
+        {
+          "Key": "Ears",
+          "Value": {
+            "R": 0.205079,
+            "G": 0.205079,
+            "B": 0.205079,
+            "A": 1.0,
+            "Hex": "7D7D7D"
+          }
+        },
+        {
+          "Key": "Spike",
+          "Value": {
+            "R": 0.205079,
+            "G": 0.205079,
+            "B": 0.205079,
+            "A": 1.0,
+            "Hex": "7D7D7D"
+          }
+        },
+        {
+          "Key": "Capes",
+          "Value": {
+            "R": 0.351533,
+            "G": 0.009134,
+            "B": 0.057805,
+            "A": 1.0,
+            "Hex": "A01844"
+          }
+        },
+        {
+          "Key": "Shoulder",
+          "Value": {
+            "R": 0.351533,
+            "G": 0.009134,
+            "B": 0.057805,
+            "A": 1.0,
+            "Hex": "A01844"
+          }
+        },
+        {
+          "Key": "CapeMetal",
+          "Value": {
+            "R": 0.205079,
+            "G": 0.205079,
+            "B": 0.205079,
+            "A": 1.0,
+            "Hex": "7D7D7D"
+          }
+        },
+        {
+          "Key": "SwordMetal",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.366253,
+            "B": 0.061246,
+            "A": 1.0,
+            "Hex": "E9A346"
+          }
+        },
+        {
+          "Key": "SwordTrim",
+          "Value": {
+            "R": 0.205079,
+            "G": 0.205079,
+            "B": 0.205079,
+            "A": 1.0,
+            "Hex": "7D7D7D"
+          }
+        }
+      ]
+    }
+  }
+]

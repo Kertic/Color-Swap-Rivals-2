@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Orc_PoolParty_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/PoolParty/Data/Palettes/Neutral/PS_Orc_PoolParty_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Orc_PoolParty_Neutral_C'Default__PS_Orc_PoolParty_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Orcane/Skins/PoolParty/Data/Palettes/Neutral/PS_Orc_PoolParty_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Orc_PoolParty_Neutral_C",
+    "Name": "Default__PS_Orc_PoolParty_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Orcane/Skins/PoolParty/Data/Palettes/Neutral/PS_Orc_PoolParty_Neutral.PS_Orc_PoolParty_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/PoolParty/Data/Palettes/Neutral/PS_Orc_PoolParty_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Nozzle",
+          "Value": {
+            "R": 0.723055,
+            "G": 0.127438,
+            "B": 0.000911,
+            "A": 1.0,
+            "Hex": "DD6403"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.023591,
+            "G": 0.060461,
+            "B": 0.761,
+            "A": 1.0,
+            "Hex": "2A45E2"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.291168,
+            "G": 0.394729,
+            "B": 0.672443,
+            "A": 1.0,
+            "Hex": "93A9D6"
+          }
+        },
+        {
+          "Key": "Teeth",
+          "Value": {
+            "R": 0.961,
+            "G": 0.961,
+            "B": 0.961,
+            "A": 1.0,
+            "Hex": "FBFBFB"
+          }
+        },
+        {
+          "Key": "Handles",
+          "Value": {
+            "R": 0.035448,
+            "G": 0.035557,
+            "B": 0.042,
+            "A": 1.0,
+            "Hex": "35353A"
+          }
+        },
+        {
+          "Key": "Tongue",
+          "Value": {
+            "R": 0.352,
+            "G": 0.080256,
+            "B": 0.137853,
+            "A": 1.0,
+            "Hex": "A05068"
+          }
+        }
+      ]
+    }
+  }
+]

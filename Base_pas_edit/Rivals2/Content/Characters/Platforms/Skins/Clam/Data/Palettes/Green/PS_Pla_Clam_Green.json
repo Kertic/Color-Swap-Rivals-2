@@ -1,0 +1,78 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Clam_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Clam/PS_Pla_Clam_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Clam_Green_C'Default__PS_Pla_Clam_Green_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Clam/PS_Pla_Clam_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Clam_Green_C",
+    "Name": "Default__PS_Pla_Clam_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Clam/PS_Pla_Clam_Green.PS_Pla_Clam_Green_C'",
+    "Package": "Rivals2/Content/Platforms/Clam/PS_Pla_Clam_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.391611,
+            "G": 0.932292,
+            "B": 0.296197,
+            "A": 1.0,
+            "Hex": "A8F894"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 1.0,
+            "G": 0.885417,
+            "B": 0.885417,
+            "A": 1.0,
+            "Hex": "FFF2F2"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.045844,
+            "G": 0.541667,
+            "B": 0.019748,
+            "A": 1.0,
+            "Hex": "3CC326"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.71875,
+            "G": 0.533822,
+            "B": 0.434245,
+            "A": 1.0,
+            "Hex": "DDC1B0"
+          }
+        }
+      ]
+    }
+  }
+]

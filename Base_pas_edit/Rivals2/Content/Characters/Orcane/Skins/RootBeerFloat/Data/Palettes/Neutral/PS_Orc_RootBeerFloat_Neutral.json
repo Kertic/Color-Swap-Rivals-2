@@ -1,0 +1,178 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Orc_RootBeerFloat_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/RootBeerFloat/Data/Palettes/Neutral/PS_Orc_RootBeerFloat_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Orc_RootBeerFloat_Neutral_C'Default__PS_Orc_RootBeerFloat_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Orcane/Skins/RootBeerFloat/Data/Palettes/Neutral/PS_Orc_RootBeerFloat_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Orc_RootBeerFloat_Neutral_C",
+    "Name": "Default__PS_Orc_RootBeerFloat_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Orcane/Skins/RootBeerFloat/Data/Palettes/Neutral/PS_Orc_RootBeerFloat_Neutral.PS_Orc_RootBeerFloat_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/RootBeerFloat/Data/Palettes/Neutral/PS_Orc_RootBeerFloat_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Ice Cream",
+          "Value": {
+            "R": 0.58774,
+            "G": 0.595486,
+            "B": 0.44476,
+            "A": 1.0,
+            "Hex": "CACBB2"
+          }
+        },
+        {
+          "Key": "Straw",
+          "Value": {
+            "R": 0.754115,
+            "G": 0.770833,
+            "B": 0.721992,
+            "A": 1.0,
+            "Hex": "E2E4DD"
+          }
+        },
+        {
+          "Key": "Cherry",
+          "Value": {
+            "R": 0.3,
+            "G": 0.0159,
+            "B": 0.0159,
+            "A": 1.0,
+            "Hex": "952222"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.090842,
+            "G": 0.019382,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "552600"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.889,
+            "G": 0.859574,
+            "B": 0.594741,
+            "A": 1.0,
+            "Hex": "F3EFCB"
+          }
+        },
+        {
+          "Key": "Stripes",
+          "Value": {
+            "R": 0.3,
+            "G": 0.006929,
+            "B": 0.020861,
+            "A": 1.0,
+            "Hex": "951327"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.16,
+            "G": 0.043325,
+            "B": 0.01168,
+            "A": 1.0,
+            "Hex": "6F3A1C"
+          }
+        },
+        {
+          "Key": "Pads",
+          "Value": {
+            "R": 0.16,
+            "G": 0.043325,
+            "B": 0.01168,
+            "A": 1.0,
+            "Hex": "6F3A1C"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 0.622826,
+            "B": 0.039143,
+            "A": 1.0,
+            "Hex": "FFCF37"
+          }
+        },
+        {
+          "Key": "Pupil",
+          "Value": {
+            "R": 0.09375,
+            "G": 0.09375,
+            "B": 0.09375,
+            "A": 1.0,
+            "Hex": "565656"
+          }
+        },
+        {
+          "Key": "Shine",
+          "Value": {
+            "R": 0.845486,
+            "G": 0.845486,
+            "B": 0.845486,
+            "A": 1.0,
+            "Hex": "EDEDED"
+          }
+        },
+        {
+          "Key": "Teeth",
+          "Value": {
+            "R": 0.845486,
+            "G": 0.845486,
+            "B": 0.845486,
+            "A": 1.0,
+            "Hex": "EDEDED"
+          }
+        },
+        {
+          "Key": "Mouth",
+          "Value": {
+            "R": 0.3,
+            "G": 0.038021,
+            "B": 0.038021,
+            "A": 1.0,
+            "Hex": "953737"
+          }
+        },
+        {
+          "Key": "Liner",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,228 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Fle_Summer_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Summer/Data/Palettes/Green/PS_Fle_Summer_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Fle_Summer_Green_C'Default__PS_Fle_Summer_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Fleet/Skins/Summer/Data/Palettes/Green/PS_Fle_Summer_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Fle_Summer_Green_C",
+    "Name": "Default__PS_Fle_Summer_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Fleet/Skins/Summer/Data/Palettes/Green/PS_Fle_Summer_Green.PS_Fle_Summer_Green_C'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Summer/Data/Palettes/Green/PS_Fle_Summer_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Skirt",
+          "Value": {
+            "R": 0.157606,
+            "G": 0.679542,
+            "B": 0.130136,
+            "A": 1.0,
+            "Hex": "6ED765"
+          }
+        },
+        {
+          "Key": "Towel",
+          "Value": {
+            "R": 0.010292,
+            "G": 0.263,
+            "B": 0.001578,
+            "A": 1.0,
+            "Hex": "1A8C05"
+          }
+        },
+        {
+          "Key": "Towel2",
+          "Value": {
+            "R": 0.697,
+            "G": 0.68823,
+            "B": 0.697,
+            "A": 1.0,
+            "Hex": "DAD9DA"
+          }
+        },
+        {
+          "Key": "Sandals",
+          "Value": {
+            "R": 0.0448,
+            "G": 0.128,
+            "B": 0.032,
+            "A": 1.0,
+            "Hex": "3B6432"
+          }
+        },
+        {
+          "Key": "Suit1",
+          "Value": {
+            "R": 0.0448,
+            "G": 0.128,
+            "B": 0.032,
+            "A": 1.0,
+            "Hex": "3B6432"
+          }
+        },
+        {
+          "Key": "Suit2",
+          "Value": {
+            "R": 0.535,
+            "G": 0.528268,
+            "B": 0.535,
+            "A": 1.0,
+            "Hex": "C2C0C2"
+          }
+        },
+        {
+          "Key": "Wrist",
+          "Value": {
+            "R": 0.157606,
+            "G": 0.679542,
+            "B": 0.130136,
+            "A": 1.0,
+            "Hex": "6ED765"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.386429,
+            "G": 0.111932,
+            "B": 0.076185,
+            "A": 1.0,
+            "Hex": "A75E4E"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.095307,
+            "G": 0.051269,
+            "B": 0.038204,
+            "A": 1.0,
+            "Hex": "574037"
+          }
+        },
+        {
+          "Key": "HairTie",
+          "Value": {
+            "R": 0.010292,
+            "G": 0.263,
+            "B": 0.001578,
+            "A": 1.0,
+            "Hex": "1A8C05"
+          }
+        },
+        {
+          "Key": "Bow",
+          "Value": {
+            "R": 0.676,
+            "G": 0.417197,
+            "B": 0.014636,
+            "A": 1.0,
+            "Hex": "D7AD20"
+          }
+        },
+        {
+          "Key": "Bow2",
+          "Value": {
+            "R": 0.913099,
+            "G": 0.226966,
+            "B": 0.005182,
+            "A": 1.0,
+            "Hex": "F58310"
+          }
+        },
+        {
+          "Key": "Bow3",
+          "Value": {
+            "R": 0.010292,
+            "G": 0.263,
+            "B": 0.001578,
+            "A": 1.0,
+            "Hex": "1A8C05"
+          }
+        },
+        {
+          "Key": "Tank",
+          "Value": {
+            "R": 0.027321,
+            "G": 0.514918,
+            "B": 0.799103,
+            "A": 1.0,
+            "Hex": "2EBEE7"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.527115,
+            "G": 0.401275,
+            "B": 0.281479,
+            "A": 1.0,
+            "Hex": "C0AA91"
+          }
+        },
+        {
+          "Key": "Paws",
+          "Value": {
+            "R": 0.462077,
+            "G": 0.194618,
+            "B": 0.184475,
+            "A": 1.0,
+            "Hex": "B57A77"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.882,
+            "G": 0.882,
+            "B": 0.882,
+            "A": 1.0,
+            "Hex": "F2F2F2"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.595,
+            "G": 0.119613,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "CB6100"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.595,
+            "G": 0.119613,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "CB6100"
+          }
+        }
+      ]
+    }
+  }
+]

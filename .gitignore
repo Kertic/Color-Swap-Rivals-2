@@ -1,0 +1,19 @@
+# Per-user configuration (mods folder path, FModel path, language)
+config.pkl
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Build staging folders created during export (regenerated every time)
+Upack/*_P/
+
+# FModel exports are never stored in the repo
+Output/
+
+# Embedded Python distribution — shipped in release zips, not in the repo
+# (clone users run setup.bat instead, or grab a release)
+python-3.12.6.amd64/
+
+# FModel installed locally by setup.ps1
+FModel/

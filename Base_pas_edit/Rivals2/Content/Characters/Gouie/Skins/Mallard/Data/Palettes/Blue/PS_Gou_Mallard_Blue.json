@@ -1,0 +1,238 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gou_Mallard_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Blue/PS_Gou_Mallard_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gou_Mallard_Blue_C'Default__PS_Gou_Mallard_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Blue/PS_Gou_Mallard_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gou_Mallard_Blue_C",
+    "Name": "Default__PS_Gou_Mallard_Blue_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Blue/PS_Gou_Mallard_Blue.PS_Gou_Mallard_Blue_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Blue/PS_Gou_Mallard_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.19,
+            "G": 0.058222,
+            "B": 0.005372,
+            "A": 1.0,
+            "Hex": "794410"
+          }
+        },
+        {
+          "Key": "Head",
+          "Value": {
+            "R": 0.0,
+            "G": 0.047833,
+            "B": 0.205,
+            "A": 1.0,
+            "Hex": "003E7D"
+          }
+        },
+        {
+          "Key": "Beak",
+          "Value": {
+            "R": 0.62396,
+            "G": 0.191202,
+            "B": 0.017642,
+            "A": 1.0,
+            "Hex": "CF7924"
+          }
+        },
+        {
+          "Key": "Mouth",
+          "Value": {
+            "R": 0.262251,
+            "G": 0.066626,
+            "B": 0.068478,
+            "A": 1.0,
+            "Hex": "8C494A"
+          }
+        },
+        {
+          "Key": "Stripe",
+          "Value": {
+            "R": 0.597202,
+            "G": 0.571125,
+            "B": 0.552011,
+            "A": 1.0,
+            "Hex": "CBC7C4"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.057805,
+            "G": 0.056128,
+            "B": 0.068478,
+            "A": 1.0,
+            "Hex": "44434A"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.027127,
+            "G": 0.008568,
+            "B": 0.042311,
+            "A": 1.0,
+            "Hex": "2E173A"
+          }
+        },
+        {
+          "Key": "Feet",
+          "Value": {
+            "R": 0.62396,
+            "G": 0.191202,
+            "B": 0.017642,
+            "A": 1.0,
+            "Hex": "CF7924"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.220223,
+            "G": 0.127438,
+            "B": 0.296138,
+            "A": 1.0,
+            "Hex": "816494"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.107593,
+            "G": 0.029557,
+            "B": 0.171441,
+            "A": 1.0,
+            "Hex": "5C3073"
+          }
+        },
+        {
+          "Key": "Goo",
+          "Value": {
+            "R": 0.039176,
+            "G": 0.299519,
+            "B": 0.664,
+            "A": 1.0,
+            "Hex": "3795D5"
+          }
+        },
+        {
+          "Key": "GooHighlight",
+          "Value": {
+            "R": 0.047672,
+            "G": 0.491197,
+            "B": 0.808,
+            "A": 1.0,
+            "Hex": "3DBAE9"
+          }
+        },
+        {
+          "Key": "SocketR",
+          "Value": {
+            "R": 0.813,
+            "G": 0.7775,
+            "B": 0.751479,
+            "A": 1.0,
+            "Hex": "E9E5E1"
+          }
+        },
+        {
+          "Key": "SocketL",
+          "Value": {
+            "R": 0.813,
+            "G": 0.7775,
+            "B": 0.751479,
+            "A": 1.0,
+            "Hex": "E9E5E1"
+          }
+        },
+        {
+          "Key": "IrisR",
+          "Value": {
+            "R": 0.015,
+            "G": 0.002,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "200600"
+          }
+        },
+        {
+          "Key": "IrisL",
+          "Value": {
+            "R": 0.015,
+            "G": 0.002,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "200600"
+          }
+        },
+        {
+          "Key": "GooGlow",
+          "Value": {
+            "R": 0.24402,
+            "G": 0.83,
+            "B": 0.810467,
+            "A": 1.0,
+            "Hex": "87EBE9"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.015,
+            "G": 0.002,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "200600"
+          }
+        },
+        {
+          "Key": "Socket",
+          "Value": {
+            "R": 0.597202,
+            "G": 0.571125,
+            "B": 0.552011,
+            "A": 1.0,
+            "Hex": "CBC7C4"
+          }
+        },
+        {
+          "Key": "Tongue",
+          "Value": {
+            "R": 0.262251,
+            "G": 0.066626,
+            "B": 0.068478,
+            "A": 1.0,
+            "Hex": "8C494A"
+          }
+        }
+      ]
+    }
+  }
+]

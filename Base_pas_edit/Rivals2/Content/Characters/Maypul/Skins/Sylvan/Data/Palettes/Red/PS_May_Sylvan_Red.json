@@ -1,0 +1,228 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_May_Sylvan_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Maypul/Skins/Sylvan/Data/Palettes/Red/PS_May_Sylvan_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_May_Sylvan_Red_C'Default__PS_May_Sylvan_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Maypul/Skins/Sylvan/Data/Palettes/Red/PS_May_Sylvan_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_May_Sylvan_Red_C",
+    "Name": "Default__PS_May_Sylvan_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Maypul/Skins/Sylvan/Data/Palettes/Red/PS_May_Sylvan_Red.PS_May_Sylvan_Red_C'",
+    "Package": "Rivals2/Content/Characters/Maypul/Skins/Sylvan/Data/Palettes/Red/PS_May_Sylvan_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Terry",
+          "Value": {
+            "R": 0.493,
+            "G": 0.013311,
+            "B": 0.013311,
+            "A": 1.0,
+            "Hex": "BB1E1E"
+          }
+        },
+        {
+          "Key": "PVine",
+          "Value": {
+            "R": 0.204,
+            "G": 0.049008,
+            "B": 0.043044,
+            "A": 1.0,
+            "Hex": "7D3E3A"
+          }
+        },
+        {
+          "Key": "Wood",
+          "Value": {
+            "R": 0.204,
+            "G": 0.049008,
+            "B": 0.043044,
+            "A": 1.0,
+            "Hex": "7D3E3A"
+          }
+        },
+        {
+          "Key": "Lily",
+          "Value": {
+            "R": 0.493,
+            "G": 0.013311,
+            "B": 0.013311,
+            "A": 1.0,
+            "Hex": "BB1E1E"
+          }
+        },
+        {
+          "Key": "Flower",
+          "Value": {
+            "R": 0.493,
+            "G": 0.013311,
+            "B": 0.013311,
+            "A": 1.0,
+            "Hex": "BB1E1E"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.828,
+            "G": 0.332856,
+            "B": 0.25668,
+            "A": 1.0,
+            "Hex": "EB9C8B"
+          }
+        },
+        {
+          "Key": "Vine",
+          "Value": {
+            "R": 0.75,
+            "G": 0.180177,
+            "B": 0.15825,
+            "A": 1.0,
+            "Hex": "E1766F"
+          }
+        },
+        {
+          "Key": "Leaf",
+          "Value": {
+            "R": 1.0,
+            "G": 0.265,
+            "B": 0.118,
+            "A": 1.0,
+            "Hex": "FF8D60"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.102,
+            "G": 0.011275,
+            "B": 0.010914,
+            "A": 1.0,
+            "Hex": "5A1B1B"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "LeftPupil",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "RightPupil",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Eyeliner",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Poppy",
+          "Value": {
+            "R": 0.493,
+            "G": 0.013311,
+            "B": 0.013311,
+            "A": 1.0,
+            "Hex": "BB1E1E"
+          }
+        },
+        {
+          "Key": "InnerEar",
+          "Value": {
+            "R": 0.102,
+            "G": 0.011275,
+            "B": 0.010914,
+            "A": 1.0,
+            "Hex": "5A1B1B"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.007,
+            "G": 0.004197,
+            "B": 0.003346,
+            "A": 1.0,
+            "Hex": "140D0B"
+          }
+        }
+      ]
+    }
+  }
+]

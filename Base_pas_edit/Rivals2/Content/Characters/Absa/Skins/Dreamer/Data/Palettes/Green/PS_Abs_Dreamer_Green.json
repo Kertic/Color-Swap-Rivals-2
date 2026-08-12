@@ -1,0 +1,218 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Abs_Dreamer_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Dreamer/Data/Palettes/Green/PS_Abs_Dreamer_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Abs_Dreamer_Green_C'Default__PS_Abs_Dreamer_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Absa/Skins/Dreamer/Data/Palettes/Green/PS_Abs_Dreamer_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Abs_Dreamer_Green_C",
+    "Name": "Default__PS_Abs_Dreamer_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Absa/Skins/Dreamer/Data/Palettes/Green/PS_Abs_Dreamer_Green.PS_Abs_Dreamer_Green_C'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Dreamer/Data/Palettes/Green/PS_Abs_Dreamer_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Cloth1",
+          "Value": {
+            "R": 0.022756,
+            "G": 0.546875,
+            "B": 0.219365,
+            "A": 1.0,
+            "Hex": "29C381"
+          }
+        },
+        {
+          "Key": "Cloth2",
+          "Value": {
+            "R": 0.84375,
+            "G": 0.351554,
+            "B": 0.082687,
+            "A": 1.0,
+            "Hex": "EDA051"
+          }
+        },
+        {
+          "Key": "Cloth3",
+          "Value": {
+            "R": 0.174889,
+            "G": 0.682292,
+            "B": 0.078179,
+            "A": 1.0,
+            "Hex": "74D84F"
+          }
+        },
+        {
+          "Key": "Cloth4",
+          "Value": {
+            "R": 0.887923,
+            "G": 0.491021,
+            "B": 0.104616,
+            "A": 1.0,
+            "Hex": "F2BA5B"
+          }
+        },
+        {
+          "Key": "Cloth5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Cloth6",
+          "Value": {
+            "R": 0.171875,
+            "G": 1.0,
+            "B": 0.711321,
+            "A": 1.0,
+            "Hex": "73FFDC"
+          }
+        },
+        {
+          "Key": "Wings",
+          "Value": {
+            "R": 0.171875,
+            "G": 1.0,
+            "B": 0.711321,
+            "A": 1.0,
+            "Hex": "73FFDC"
+          }
+        },
+        {
+          "Key": "Cloud",
+          "Value": {
+            "R": 0.171875,
+            "G": 1.0,
+            "B": 0.711321,
+            "A": 1.0,
+            "Hex": "73FFDC"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.043735,
+            "G": 0.046665,
+            "B": 0.015209,
+            "A": 1.0,
+            "Hex": "3B3D21"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.083309,
+            "G": 0.333333,
+            "B": 0.293358,
+            "A": 1.0,
+            "Hex": "519C93"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.63648,
+            "G": 0.811,
+            "B": 0.527995,
+            "A": 1.0,
+            "Hex": "D1E9C0"
+          }
+        },
+        {
+          "Key": "Hooves",
+          "Value": {
+            "R": 0.033,
+            "G": 0.021738,
+            "B": 0.013398,
+            "A": 1.0,
+            "Hex": "33281E"
+          }
+        },
+        {
+          "Key": "InnerEar",
+          "Value": {
+            "R": 0.63648,
+            "G": 0.811,
+            "B": 0.527995,
+            "A": 1.0,
+            "Hex": "D1E9C0"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.038971,
+            "G": 0.166667,
+            "B": 0.07324,
+            "A": 1.0,
+            "Hex": "37714C"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 0.807292,
+            "G": 0.176595,
+            "B": 0.455837,
+            "A": 1.0,
+            "Hex": "E875B4"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 0.807292,
+            "G": 0.176595,
+            "B": 0.455837,
+            "A": 1.0,
+            "Hex": "E875B4"
+          }
+        },
+        {
+          "Key": "Eyebrows",
+          "Value": {
+            "R": 0.036535,
+            "G": 0.15625,
+            "B": 0.068662,
+            "A": 1.0,
+            "Hex": "356E4A"
+          }
+        },
+        {
+          "Key": "Scelera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

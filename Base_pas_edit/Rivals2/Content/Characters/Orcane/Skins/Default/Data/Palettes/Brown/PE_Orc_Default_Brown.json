@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Orc_Default_Brown_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/Default/Data/Palettes/Brown/PE_Orc_Default_Brown",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Orc_Default_Brown_C'Default__PE_Orc_Default_Brown_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Orcane/Skins/Default/Data/Palettes/Brown/PE_Orc_Default_Brown.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Orc_Default_Brown_C",
+    "Name": "Default__PE_Orc_Default_Brown_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Orcane/Skins/Default/Data/Palettes/Brown/PE_Orc_Default_Brown.PE_Orc_Default_Brown_C'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/Default/Data/Palettes/Brown/PE_Orc_Default_Brown",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.053,
+            "G": 0.019589,
+            "B": 0.011236,
+            "A": 1.0,
+            "Hex": "41261B"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.149,
+            "G": 0.055071,
+            "B": 0.031588,
+            "A": 1.0,
+            "Hex": "6C4231"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 1.2,
+            "G": 1.2,
+            "B": 1.2,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.535,
+            "G": 0.315293,
+            "B": 0.20544,
+            "A": 1.0,
+            "Hex": "C2987D"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.149,
+            "G": 0.055071,
+            "B": 0.031588,
+            "A": 1.0,
+            "Hex": "6C4231"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        }
+      ]
+    }
+  }
+]

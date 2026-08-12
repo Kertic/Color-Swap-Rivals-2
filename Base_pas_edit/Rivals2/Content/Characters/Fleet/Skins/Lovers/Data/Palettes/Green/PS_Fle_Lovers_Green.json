@@ -1,0 +1,178 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Fle_Lovers_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Lovers/Data/Palettes/Green/PS_Fle_Lovers_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Fle_Lovers_Green_C'Default__PS_Fle_Lovers_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Fleet/Skins/Lovers/Data/Palettes/Green/PS_Fle_Lovers_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Fle_Lovers_Green_C",
+    "Name": "Default__PS_Fle_Lovers_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Fleet/Skins/Lovers/Data/Palettes/Green/PS_Fle_Lovers_Green.PS_Fle_Lovers_Green_C'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Lovers/Data/Palettes/Green/PS_Fle_Lovers_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Bow",
+          "Value": {
+            "R": 0.489,
+            "G": 0.481078,
+            "B": 0.013692,
+            "A": 1.0,
+            "Hex": "BAB91F"
+          }
+        },
+        {
+          "Key": "Accent",
+          "Value": {
+            "R": 0.047724,
+            "G": 0.246,
+            "B": 0.047724,
+            "A": 1.0,
+            "Hex": "3D883D"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.02603,
+            "G": 0.137,
+            "B": 0.048224,
+            "A": 1.0,
+            "Hex": "2C673E"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.13831,
+            "G": 0.3,
+            "B": 0.0447,
+            "A": 1.0,
+            "Hex": "68953B"
+          }
+        },
+        {
+          "Key": "BowDark",
+          "Value": {
+            "R": 0.011765,
+            "G": 0.011765,
+            "B": 0.011765,
+            "A": 1.0,
+            "Hex": "1C1C1C"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.679,
+            "G": 0.679,
+            "B": 0.679,
+            "A": 1.0,
+            "Hex": "D7D7D7"
+          }
+        },
+        {
+          "Key": "ArrowShaft",
+          "Value": {
+            "R": 0.043403,
+            "G": 0.028564,
+            "B": 0.007892,
+            "A": 1.0,
+            "Hex": "3A2F15"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.463,
+            "G": 0.152945,
+            "B": 0.08334,
+            "A": 1.0,
+            "Hex": "B56D51"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.095,
+            "G": 0.075025,
+            "B": 0.038,
+            "A": 1.0,
+            "Hex": "574D37"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.551,
+            "G": 0.46835,
+            "B": 0.2755,
+            "A": 1.0,
+            "Hex": "C4B68F"
+          }
+        },
+        {
+          "Key": "Paws",
+          "Value": {
+            "R": 0.462077,
+            "G": 0.194618,
+            "B": 0.184475,
+            "A": 1.0,
+            "Hex": "B57A77"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 0.999,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.871,
+            "G": 0.188715,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "F07800"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.871,
+            "G": 0.188715,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "F07800"
+          }
+        }
+      ]
+    }
+  }
+]

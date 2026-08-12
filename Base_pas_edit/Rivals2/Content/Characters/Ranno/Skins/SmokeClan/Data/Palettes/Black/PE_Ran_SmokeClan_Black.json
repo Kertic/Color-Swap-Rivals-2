@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Ran_SmokeClan_Black_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Black/PE_Ran_SmokeClan_Black",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Ran_SmokeClan_Black_C'Default__PE_Ran_SmokeClan_Black_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Black/PE_Ran_SmokeClan_Black.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Ran_SmokeClan_Black_C",
+    "Name": "Default__PE_Ran_SmokeClan_Black_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Black/PE_Ran_SmokeClan_Black.PE_Ran_SmokeClan_Black_C'",
+    "Package": "Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Black/PE_Ran_SmokeClan_Black",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.025,
+            "G": 0.006325,
+            "B": 0.006636,
+            "A": 1.0,
+            "Hex": "2B1213"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.126,
+            "G": 0.024066,
+            "B": 0.025765,
+            "A": 1.0,
+            "Hex": "632B2C"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.299,
+            "G": 0.048438,
+            "B": 0.065143,
+            "A": 1.0,
+            "Hex": "953E48"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.393,
+            "G": 0.080172,
+            "B": 0.101028,
+            "A": 1.0,
+            "Hex": "A85059"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.285,
+            "G": 0.105735,
+            "B": 0.108723,
+            "A": 1.0,
+            "Hex": "925B5D"
+          }
+        }
+      ]
+    }
+  }
+]

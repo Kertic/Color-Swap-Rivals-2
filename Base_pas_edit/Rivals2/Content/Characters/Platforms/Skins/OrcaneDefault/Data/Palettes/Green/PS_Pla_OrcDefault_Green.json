@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_OrcDefault_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/OrcaneDefault/PS_Pla_OrcDefault_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_OrcDefault_Green_C'Default__PS_Pla_OrcDefault_Green_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/OrcaneDefault/PS_Pla_OrcDefault_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_OrcDefault_Green_C",
+    "Name": "Default__PS_Pla_OrcDefault_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/OrcaneDefault/PS_Pla_OrcDefault_Green.PS_Pla_OrcDefault_Green_C'",
+    "Package": "Rivals2/Content/Platforms/OrcaneDefault/PS_Pla_OrcDefault_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "ElementColor0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "ElementColor1",
+          "Value": {
+            "R": 0.015886,
+            "G": 0.169,
+            "B": 0.032324,
+            "A": 1.0,
+            "Hex": "217232"
+          }
+        },
+        {
+          "Key": "ElementColor2",
+          "Value": {
+            "R": 0.04136,
+            "G": 0.44,
+            "B": 0.084156,
+            "A": 1.0,
+            "Hex": "39B152"
+          }
+        },
+        {
+          "Key": "ElementColor3",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "ElementColor4",
+          "Value": {
+            "R": 0.728933,
+            "G": 1.0,
+            "B": 0.572,
+            "A": 1.0,
+            "Hex": "DEFFC7"
+          }
+        },
+        {
+          "Key": "ElementColor5",
+          "Value": {
+            "R": 0.791298,
+            "G": 1.0,
+            "B": 0.42869,
+            "A": 1.0,
+            "Hex": "E6FFAF"
+          }
+        },
+        {
+          "Key": "ElementColor6",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Kra_Default_Summer_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Kragg/Skins/Default/Data/Palettes/Summer/PS_Kra_Default_Summer",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Kra_Default_Summer_C'Default__PS_Kra_Default_Summer_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Kragg/Skins/Default/Data/Palettes/Summer/PS_Kra_Default_Summer.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Kra_Default_Summer_C",
+    "Name": "Default__PS_Kra_Default_Summer_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Kragg/Skins/Default/Data/Palettes/Summer/PS_Kra_Default_Summer.PS_Kra_Default_Summer_C'",
+    "Package": "Rivals2/Content/Characters/Kragg/Skins/Default/Data/Palettes/Summer/PS_Kra_Default_Summer",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.647,
+            "G": 0.517762,
+            "B": 0.130047,
+            "A": 1.0,
+            "Hex": "D3BF65"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.02464,
+            "G": 0.4087,
+            "B": 0.56,
+            "A": 1.0,
+            "Hex": "2BABC6"
+          }
+        },
+        {
+          "Key": "Shell",
+          "Value": {
+            "R": 0.665387,
+            "G": 0.198064,
+            "B": 0.013308,
+            "A": 1.0,
+            "Hex": "D57B1E"
+          }
+        },
+        {
+          "Key": "Spikes",
+          "Value": {
+            "R": 0.02464,
+            "G": 0.4087,
+            "B": 0.56,
+            "A": 1.0,
+            "Hex": "2BABC6"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.955973,
+            "G": 0.491021,
+            "B": 0.046665,
+            "A": 1.0,
+            "Hex": "FABA3D"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Eyeliner",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_MaypulDefault_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/MaypulDefault/PS_Pla_MaypulDefault_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_MaypulDefault_Green_C'Default__PS_Pla_MaypulDefault_Green_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/MaypulDefault/PS_Pla_MaypulDefault_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_MaypulDefault_Green_C",
+    "Name": "Default__PS_Pla_MaypulDefault_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/MaypulDefault/PS_Pla_MaypulDefault_Green.PS_Pla_MaypulDefault_Green_C'",
+    "Package": "Rivals2/Content/Platforms/MaypulDefault/PS_Pla_MaypulDefault_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.834,
+            "G": 0.474963,
+            "B": 0.115926,
+            "A": 1.0,
+            "Hex": "ECB75F"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.064025,
+            "G": 0.254,
+            "B": 0.034798,
+            "A": 1.0,
+            "Hex": "478A34"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.096246,
+            "G": 0.151,
+            "B": 0.035262,
+            "A": 1.0,
+            "Hex": "576C34"
+          }
+        }
+      ]
+    }
+  }
+]

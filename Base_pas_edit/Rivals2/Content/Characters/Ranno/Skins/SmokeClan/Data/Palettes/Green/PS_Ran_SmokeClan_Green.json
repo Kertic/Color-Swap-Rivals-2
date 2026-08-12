@@ -1,0 +1,198 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Ran_SmokeClan_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Green/PS_Ran_SmokeClan_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Ran_SmokeClan_Green_C'Default__PS_Ran_SmokeClan_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Green/PS_Ran_SmokeClan_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Ran_SmokeClan_Green_C",
+    "Name": "Default__PS_Ran_SmokeClan_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Green/PS_Ran_SmokeClan_Green.PS_Ran_SmokeClan_Green_C'",
+    "Package": "Rivals2/Content/Characters/Ranno/Skins/SmokeClan/Data/Palettes/Green/PS_Ran_SmokeClan_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.225049,
+            "G": 0.345,
+            "B": 0.032085,
+            "A": 1.0,
+            "Hex": "829F32"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.658375,
+            "G": 0.658375,
+            "B": 0.658375,
+            "A": 1.0,
+            "Hex": "D4D4D4"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.007935,
+            "G": 0.069,
+            "B": 0.064929,
+            "A": 1.0,
+            "Hex": "154A48"
+          }
+        },
+        {
+          "Key": "Tongue",
+          "Value": {
+            "R": 0.020289,
+            "G": 0.665387,
+            "B": 0.068478,
+            "A": 1.0,
+            "Hex": "27D54A"
+          }
+        },
+        {
+          "Key": "Hood",
+          "Value": {
+            "R": 0.005,
+            "G": 0.024,
+            "B": 0.012917,
+            "A": 1.0,
+            "Hex": "0F2B1E"
+          }
+        },
+        {
+          "Key": "Jacket",
+          "Value": {
+            "R": 0.013455,
+            "G": 0.161458,
+            "B": 0.040589,
+            "A": 1.0,
+            "Hex": "1E7038"
+          }
+        },
+        {
+          "Key": "JacketAccent",
+          "Value": {
+            "R": 0.221586,
+            "G": 0.369792,
+            "B": 0.040446,
+            "A": 1.0,
+            "Hex": "82A438"
+          }
+        },
+        {
+          "Key": "JacketTrim",
+          "Value": {
+            "R": 0.01096,
+            "G": 0.044137,
+            "B": 0.059511,
+            "A": 1.0,
+            "Hex": "1B3B45"
+          }
+        },
+        {
+          "Key": "Underarmor",
+          "Value": {
+            "R": 0.08022,
+            "G": 0.099899,
+            "B": 0.119538,
+            "A": 1.0,
+            "Hex": "505961"
+          }
+        },
+        {
+          "Key": "Belt",
+          "Value": {
+            "R": 0.375,
+            "G": 0.148567,
+            "B": 0.007812,
+            "A": 1.0,
+            "Hex": "A56B15"
+          }
+        },
+        {
+          "Key": "Fur",
+          "Value": {
+            "R": 0.48515,
+            "G": 0.44948,
+            "B": 0.290585,
+            "A": 1.0,
+            "Hex": "B9B393"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.005,
+            "G": 0.024,
+            "B": 0.012917,
+            "A": 1.0,
+            "Hex": "0F2B1E"
+          }
+        },
+        {
+          "Key": "ArmorTrim",
+          "Value": {
+            "R": 0.215861,
+            "G": 0.191202,
+            "B": 0.215861,
+            "A": 1.0,
+            "Hex": "807980"
+          }
+        },
+        {
+          "Key": "ShinGuards",
+          "Value": {
+            "R": 0.013455,
+            "G": 0.161458,
+            "B": 0.040589,
+            "A": 1.0,
+            "Hex": "1E7038"
+          }
+        },
+        {
+          "Key": "ScleraLeft",
+          "Value": {
+            "R": 0.223228,
+            "G": 0.346704,
+            "B": 0.031896,
+            "A": 1.0,
+            "Hex": "829F32"
+          }
+        },
+        {
+          "Key": "ScleraRight",
+          "Value": {
+            "R": 0.223228,
+            "G": 0.346704,
+            "B": 0.031896,
+            "A": 1.0,
+            "Hex": "829F32"
+          }
+        }
+      ]
+    }
+  }
+]

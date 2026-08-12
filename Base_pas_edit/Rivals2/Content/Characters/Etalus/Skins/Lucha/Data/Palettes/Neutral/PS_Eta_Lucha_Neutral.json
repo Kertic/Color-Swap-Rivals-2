@@ -1,0 +1,238 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Eta_Lucha_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Etalus/Skins/Lucha/Data/Palettes/Neutral/PS_Eta_Lucha_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Eta_Lucha_Neutral_C'Default__PS_Eta_Lucha_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Etalus/Skins/Lucha/Data/Palettes/Neutral/PS_Eta_Lucha_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Eta_Lucha_Neutral_C",
+    "Name": "Default__PS_Eta_Lucha_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Etalus/Skins/Lucha/Data/Palettes/Neutral/PS_Eta_Lucha_Neutral.PS_Eta_Lucha_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Etalus/Skins/Lucha/Data/Palettes/Neutral/PS_Eta_Lucha_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Clothing",
+          "Value": {
+            "R": 0.004777,
+            "G": 0.093059,
+            "B": 0.246201,
+            "A": 1.0,
+            "Hex": "0F5688"
+          }
+        },
+        {
+          "Key": "ClothingAccent",
+          "Value": {
+            "R": 0.043735,
+            "G": 0.417885,
+            "B": 0.545724,
+            "A": 1.0,
+            "Hex": "3BADC3"
+          }
+        },
+        {
+          "Key": "Snowflake",
+          "Value": {
+            "R": 0.366253,
+            "G": 0.491021,
+            "B": 0.552011,
+            "A": 1.0,
+            "Hex": "A3BAC4"
+          }
+        },
+        {
+          "Key": "Gloves",
+          "Value": {
+            "R": 0.038204,
+            "G": 0.045186,
+            "B": 0.072272,
+            "A": 1.0,
+            "Hex": "373C4C"
+          }
+        },
+        {
+          "Key": "Gold",
+          "Value": {
+            "R": 0.44618,
+            "G": 0.334429,
+            "B": 0.075908,
+            "A": 1.0,
+            "Hex": "B29D4E"
+          }
+        },
+        {
+          "Key": "Fur",
+          "Value": {
+            "R": 0.361307,
+            "G": 0.313989,
+            "B": 0.246201,
+            "A": 1.0,
+            "Hex": "A29888"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.520996,
+            "G": 0.434154,
+            "B": 0.396755,
+            "A": 1.0,
+            "Hex": "BFB0A9"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.015625,
+            "G": 0.014364,
+            "B": 0.014242,
+            "A": 1.0,
+            "Hex": "21201F"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.026042,
+            "G": 0.019375,
+            "B": 0.019375,
+            "A": 1.0,
+            "Hex": "2C2626"
+          }
+        },
+        {
+          "Key": "Scars",
+          "Value": {
+            "R": 0.203125,
+            "G": 0.155594,
+            "B": 0.155594,
+            "A": 1.0,
+            "Hex": "7C6E6E"
+          }
+        },
+        {
+          "Key": "PawPads",
+          "Value": {
+            "R": 0.203125,
+            "G": 0.148112,
+            "B": 0.148112,
+            "A": 1.0,
+            "Hex": "7C6B6B"
+          }
+        },
+        {
+          "Key": "InnerEars",
+          "Value": {
+            "R": 0.203125,
+            "G": 0.169267,
+            "B": 0.154686,
+            "A": 1.0,
+            "Hex": "7C726E"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 0.963464,
+            "B": 0.91039,
+            "A": 1.0,
+            "Hex": "FFFBF5"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 0.498264,
+            "G": 0.480059,
+            "B": 0.453614,
+            "A": 1.0,
+            "Hex": "BBB8B4"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.116971,
+            "G": 0.366253,
+            "B": 0.564712,
+            "A": 1.0,
+            "Hex": "60A3C6"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.116971,
+            "G": 0.366253,
+            "B": 0.564712,
+            "A": 1.0,
+            "Hex": "60A3C6"
+          }
+        },
+        {
+          "Key": "LeftPupil",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "RightPupil",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Eyeliner",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Chain",
+          "Value": {
+            "R": 0.1,
+            "G": 0.1,
+            "B": 0.1,
+            "A": 1.0,
+            "Hex": "595959"
+          }
+        }
+      ]
+    }
+  }
+]

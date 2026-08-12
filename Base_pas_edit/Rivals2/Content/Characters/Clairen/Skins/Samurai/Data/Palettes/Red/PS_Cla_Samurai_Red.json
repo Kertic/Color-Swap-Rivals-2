@@ -1,0 +1,338 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Cla_Samurai_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Samurai/Data/Palettes/Red/PS_Cla_Samurai_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Cla_Samurai_Red_C'Default__PS_Cla_Samurai_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Clairen/Skins/Samurai/Data/Palettes/Red/PS_Cla_Samurai_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Cla_Samurai_Red_C",
+    "Name": "Default__PS_Cla_Samurai_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Clairen/Skins/Samurai/Data/Palettes/Red/PS_Cla_Samurai_Red.PS_Cla_Samurai_Red_C'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Samurai/Data/Palettes/Red/PS_Cla_Samurai_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.039423,
+            "G": 0.039423,
+            "B": 0.076389,
+            "A": 1.0,
+            "Hex": "38384E"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.093059,
+            "G": 0.097587,
+            "B": 0.168269,
+            "A": 1.0,
+            "Hex": "565872"
+          }
+        },
+        {
+          "Key": "Muzzle",
+          "Value": {
+            "R": 0.093059,
+            "G": 0.097587,
+            "B": 0.168269,
+            "A": 1.0,
+            "Hex": "565872"
+          }
+        },
+        {
+          "Key": "InnerEar",
+          "Value": {
+            "R": 0.162029,
+            "G": 0.093059,
+            "B": 0.191202,
+            "A": 1.0,
+            "Hex": "705679"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.191202,
+            "G": 0.117102,
+            "B": 0.181577,
+            "A": 1.0,
+            "Hex": "796076"
+          }
+        },
+        {
+          "Key": "Brows",
+          "Value": {
+            "R": 0.039423,
+            "G": 0.039423,
+            "B": 0.076389,
+            "A": 1.0,
+            "Hex": "38384E"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.022192,
+            "G": 0.022192,
+            "B": 0.043,
+            "A": 1.0,
+            "Hex": "29293A"
+          }
+        },
+        {
+          "Key": "Armor",
+          "Value": {
+            "R": 0.583333,
+            "G": 0.494213,
+            "B": 0.340278,
+            "A": 1.0,
+            "Hex": "C9BB9E"
+          }
+        },
+        {
+          "Key": "Rope",
+          "Value": {
+            "R": 0.359375,
+            "G": 0.226792,
+            "B": 0.125407,
+            "A": 1.0,
+            "Hex": "A28363"
+          }
+        },
+        {
+          "Key": "ArmorTrim",
+          "Value": {
+            "R": 0.572917,
+            "G": 0.190127,
+            "B": 0.038791,
+            "A": 1.0,
+            "Hex": "C87937"
+          }
+        },
+        {
+          "Key": "Mask",
+          "Value": {
+            "R": 0.583333,
+            "G": 0.494213,
+            "B": 0.340278,
+            "A": 1.0,
+            "Hex": "C9BB9E"
+          }
+        },
+        {
+          "Key": "MaskTeeth",
+          "Value": {
+            "R": 0.713542,
+            "G": 0.631475,
+            "B": 0.516575,
+            "A": 1.0,
+            "Hex": "DCD0BF"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.047,
+            "G": 0.01551,
+            "B": 0.020233,
+            "A": 1.0,
+            "Hex": "3D2127"
+          }
+        },
+        {
+          "Key": "ClothAccent",
+          "Value": {
+            "R": 0.135417,
+            "G": 0.005281,
+            "B": 0.005281,
+            "A": 1.0,
+            "Hex": "671010"
+          }
+        },
+        {
+          "Key": "ArmorAccent",
+          "Value": {
+            "R": 0.006995,
+            "G": 0.004777,
+            "B": 0.004777,
+            "A": 1.0,
+            "Hex": "140F0F"
+          }
+        },
+        {
+          "Key": "Shoe",
+          "Value": {
+            "R": 0.07,
+            "G": 0.03087,
+            "B": 0.047827,
+            "A": 1.0,
+            "Hex": "4B313E"
+          }
+        },
+        {
+          "Key": "Cape",
+          "Value": {
+            "R": 0.135417,
+            "G": 0.005281,
+            "B": 0.005281,
+            "A": 1.0,
+            "Hex": "671010"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 0.0,
+            "G": 0.624,
+            "B": 0.208,
+            "A": 1.0,
+            "Hex": "00CF7E"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 0.0,
+            "G": 0.624,
+            "B": 0.208,
+            "A": 1.0,
+            "Hex": "00CF7E"
+          }
+        },
+        {
+          "Key": "Eyebrows",
+          "Value": {
+            "R": 0.010417,
+            "G": 0.010417,
+            "B": 0.020833,
+            "A": 1.0,
+            "Hex": "1A1A27"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Sword",
+          "Value": {
+            "R": 0.502886,
+            "G": 0.502886,
+            "B": 0.502886,
+            "A": 1.0,
+            "Hex": "BCBCBC"
+          }
+        },
+        {
+          "Key": "Tipper",
+          "Value": {
+            "R": 1.0,
+            "G": 0.0,
+            "B": 0.016666,
+            "A": 1.0,
+            "Hex": "FF0022"
+          }
+        },
+        {
+          "Key": "SwordTrim",
+          "Value": {
+            "R": 0.015209,
+            "G": 0.015209,
+            "B": 0.015209,
+            "A": 1.0,
+            "Hex": "212121"
+          }
+        },
+        {
+          "Key": "SwordMetal",
+          "Value": {
+            "R": 0.572917,
+            "G": 0.190127,
+            "B": 0.038791,
+            "A": 1.0,
+            "Hex": "C87937"
+          }
+        },
+        {
+          "Key": "Hilt",
+          "Value": {
+            "R": 0.619792,
+            "G": 0.499492,
+            "B": 0.342177,
+            "A": 1.0,
+            "Hex": "CFBC9E"
+          }
+        },
+        {
+          "Key": "HiltAccent",
+          "Value": {
+            "R": 0.021219,
+            "G": 0.012983,
+            "B": 0.012983,
+            "A": 1.0,
+            "Hex": "281E1E"
+          }
+        },
+        {
+          "Key": "WoodPaint",
+          "Value": {
+            "R": 0.234375,
+            "G": 0.0,
+            "B": 0.003906,
+            "A": 1.0,
+            "Hex": "85000C"
+          }
+        },
+        {
+          "Key": "Wood",
+          "Value": {
+            "R": 0.635417,
+            "G": 0.409491,
+            "B": 0.211806,
+            "A": 1.0,
+            "Hex": "D1AC7F"
+          }
+        },
+        {
+          "Key": "CapsuleMetal",
+          "Value": {
+            "R": 0.546875,
+            "G": 0.267361,
+            "B": 0.022787,
+            "A": 1.0,
+            "Hex": "C38D29"
+          }
+        }
+      ]
+    }
+  }
+]

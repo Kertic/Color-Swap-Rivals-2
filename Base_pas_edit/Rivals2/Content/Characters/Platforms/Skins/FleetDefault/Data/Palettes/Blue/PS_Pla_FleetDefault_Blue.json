@@ -1,0 +1,78 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_FleetDefault_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/FleetDefault/PS_Pla_FleetDefault_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_FleetDefault_Blue_C'Default__PS_Pla_FleetDefault_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/FleetDefault/PS_Pla_FleetDefault_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_FleetDefault_Blue_C",
+    "Name": "Default__PS_Pla_FleetDefault_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/FleetDefault/PS_Pla_FleetDefault_Blue.PS_Pla_FleetDefault_Blue_C'",
+    "Package": "Rivals2/Content/Platforms/FleetDefault/PS_Pla_FleetDefault_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.375,
+            "G": 0.215925,
+            "B": 0.034125,
+            "A": 1.0,
+            "Hex": "A58034"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.123708,
+            "G": 0.131727,
+            "B": 0.244,
+            "A": 1.0,
+            "Hex": "626587"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.025884,
+            "G": 0.106747,
+            "B": 0.719,
+            "A": 1.0,
+            "Hex": "2C5CDD"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.332452,
+            "G": 0.102242,
+            "B": 0.057805,
+            "A": 1.0,
+            "Hex": "9C5A44"
+          }
+        }
+      ]
+    }
+  }
+]

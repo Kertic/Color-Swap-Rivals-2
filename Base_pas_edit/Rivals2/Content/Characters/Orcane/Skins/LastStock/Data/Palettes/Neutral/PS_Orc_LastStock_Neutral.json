@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Orc_LastStock_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/LastStock/Data/Palettes/Neutral/PS_Orc_LastStock_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Orc_LastStock_Neutral_C'Default__PS_Orc_LastStock_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Orcane/Skins/LastStock/Data/Palettes/Neutral/PS_Orc_LastStock_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Orc_LastStock_Neutral_C",
+    "Name": "Default__PS_Orc_LastStock_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Orcane/Skins/LastStock/Data/Palettes/Neutral/PS_Orc_LastStock_Neutral.PS_Orc_LastStock_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/LastStock/Data/Palettes/Neutral/PS_Orc_LastStock_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.539479,
+            "G": 0.637597,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "C2D1FF"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.000607,
+            "G": 0.006049,
+            "B": 0.035601,
+            "A": 1.0,
+            "Hex": "021235"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.539479,
+            "G": 0.637597,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "C2D1FF"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.973445,
+            "G": 0.792774,
+            "B": 0.070088,
+            "A": 1.0,
+            "Hex": "FCE74B"
+          }
+        },
+        {
+          "Key": "Eyeliner",
+          "Value": {
+            "R": 0.000607,
+            "G": 0.006049,
+            "B": 0.035601,
+            "A": 1.0,
+            "Hex": "021235"
+          }
+        },
+        {
+          "Key": "Teeth",
+          "Value": {
+            "R": 0.823,
+            "G": 0.823,
+            "B": 0.823,
+            "A": 1.0,
+            "Hex": "EAEAEA"
+          }
+        },
+        {
+          "Key": "Mouth",
+          "Value": {
+            "R": 0.000607,
+            "G": 0.006049,
+            "B": 0.035601,
+            "A": 1.0,
+            "Hex": "021235"
+          }
+        },
+        {
+          "Key": "Liner",
+          "Value": {
+            "R": 0.000607,
+            "G": 0.006049,
+            "B": 0.035601,
+            "A": 1.0,
+            "Hex": "021235"
+          }
+        }
+      ]
+    }
+  }
+]

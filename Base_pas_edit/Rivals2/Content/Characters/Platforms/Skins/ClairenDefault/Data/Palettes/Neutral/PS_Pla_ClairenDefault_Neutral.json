@@ -1,0 +1,58 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_ClairenDefault_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/ClairenDefault/PS_Pla_ClairenDefault_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_ClairenDefault_Neutral_C'Default__PS_Pla_ClairenDefault_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/ClairenDefault/PS_Pla_ClairenDefault_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_ClairenDefault_Neutral_C",
+    "Name": "Default__PS_Pla_ClairenDefault_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/ClairenDefault/PS_Pla_ClairenDefault_Neutral.PS_Pla_ClairenDefault_Neutral_C'",
+    "Package": "Rivals2/Content/Platforms/ClairenDefault/PS_Pla_ClairenDefault_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.23074,
+            "G": 0.238398,
+            "B": 0.23074,
+            "A": 1.0,
+            "Hex": "848684"
+          }
+        },
+        {
+          "Key": "EmissiveColor",
+          "Value": {
+            "R": 0.0,
+            "G": 0.707002,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "00DBFF"
+          }
+        }
+      ]
+    }
+  }
+]

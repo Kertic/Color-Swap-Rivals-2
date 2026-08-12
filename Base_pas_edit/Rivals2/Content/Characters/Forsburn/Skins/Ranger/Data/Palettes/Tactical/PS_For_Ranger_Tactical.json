@@ -1,0 +1,258 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_For_Ranger_Tactical_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Ranger/Data/Palettes/Tactical/PS_For_Ranger_Tactical",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_For_Ranger_Tactical_C'Default__PS_For_Ranger_Tactical_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Forsburn/Skins/Ranger/Data/Palettes/Tactical/PS_For_Ranger_Tactical.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_For_Ranger_Tactical_C",
+    "Name": "Default__PS_For_Ranger_Tactical_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Ranger/Data/Palettes/Tactical/PS_For_Ranger_Tactical.PS_For_Ranger_Tactical_C'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Ranger/Data/Palettes/Tactical/PS_For_Ranger_Tactical",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.425,
+            "G": 0.21204,
+            "B": 0.059925,
+            "A": 1.0,
+            "Hex": "AF7F45"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.64,
+            "G": 0.39472,
+            "B": 0.21952,
+            "A": 1.0,
+            "Hex": "D2A981"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.192,
+            "G": 0.081024,
+            "B": 0.025536,
+            "A": 1.0,
+            "Hex": "79502C"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.018,
+            "G": 0.01026,
+            "B": 0.01026,
+            "A": 1.0,
+            "Hex": "241919"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.045718,
+            "G": 0.017812,
+            "B": 0.005852,
+            "A": 1.0,
+            "Hex": "3C2411"
+          }
+        },
+        {
+          "Key": "Cape",
+          "Value": {
+            "R": 0.252,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "8A0000"
+          }
+        },
+        {
+          "Key": "Glow",
+          "Value": {
+            "R": 1.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FF0000"
+          }
+        },
+        {
+          "Key": "Chest",
+          "Value": {
+            "R": 0.585,
+            "G": 0.467064,
+            "B": 0.29016,
+            "A": 1.0,
+            "Hex": "C9B693"
+          }
+        },
+        {
+          "Key": "Suit1",
+          "Value": {
+            "R": 0.037,
+            "G": 0.017464,
+            "B": 0.00444,
+            "A": 1.0,
+            "Hex": "36230E"
+          }
+        },
+        {
+          "Key": "Holo",
+          "Value": {
+            "R": 0.252,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "8A0000"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 0.22,
+            "G": 0.22,
+            "B": 0.22,
+            "A": 1.0,
+            "Hex": "818181"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.005666,
+            "G": 0.262527,
+            "B": 0.446,
+            "A": 1.0,
+            "Hex": "118CB2"
+          }
+        },
+        {
+          "Key": "Pupil",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Brow",
+          "Value": {
+            "R": 0.07,
+            "G": 0.02954,
+            "B": 0.00931,
+            "A": 1.0,
+            "Hex": "4B3018"
+          }
+        },
+        {
+          "Key": "Suit2",
+          "Value": {
+            "R": 0.073,
+            "G": 0.065718,
+            "B": 0.043873,
+            "A": 1.0,
+            "Hex": "4C483B"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.040604,
+            "G": 0.06,
+            "B": 0.01524,
+            "A": 1.0,
+            "Hex": "384521"
+          }
+        },
+        {
+          "Key": "Shoulders",
+          "Value": {
+            "R": 0.585,
+            "G": 0.467064,
+            "B": 0.29016,
+            "A": 1.0,
+            "Hex": "C9B693"
+          }
+        },
+        {
+          "Key": "Belt",
+          "Value": {
+            "R": 0.585,
+            "G": 0.467064,
+            "B": 0.29016,
+            "A": 1.0,
+            "Hex": "C9B693"
+          }
+        },
+        {
+          "Key": "Gauntlets",
+          "Value": {
+            "R": 0.585,
+            "G": 0.467064,
+            "B": 0.29016,
+            "A": 1.0,
+            "Hex": "C9B693"
+          }
+        },
+        {
+          "Key": "Shins",
+          "Value": {
+            "R": 0.585,
+            "G": 0.467064,
+            "B": 0.29016,
+            "A": 1.0,
+            "Hex": "C9B693"
+          }
+        },
+        {
+          "Key": "Armor",
+          "Value": {
+            "R": 0.585,
+            "G": 0.467064,
+            "B": 0.29016,
+            "A": 1.0,
+            "Hex": "C9B693"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_WinterFestival_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/WinterFestival/PS_Pla_WinterFestival_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_WinterFestival_Red_C'Default__PS_Pla_WinterFestival_Red_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/WinterFestival/PS_Pla_WinterFestival_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_WinterFestival_Red_C",
+    "Name": "Default__PS_Pla_WinterFestival_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/WinterFestival/PS_Pla_WinterFestival_Red.PS_Pla_WinterFestival_Red_C'",
+    "Package": "Rivals2/Content/Platforms/WinterFestival/PS_Pla_WinterFestival_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.111932,
+            "G": 0.053412,
+            "B": 0.035601,
+            "A": 1.0,
+            "Hex": "5E4135"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.541667,
+            "G": 0.115668,
+            "B": 0.215068,
+            "A": 1.0,
+            "Hex": "C35F80"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.822786,
+            "G": 0.822786,
+            "B": 0.822786,
+            "A": 1.0,
+            "Hex": "EAEAEA"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.008023,
+            "G": 0.187821,
+            "B": 0.052972,
+            "A": 1.0,
+            "Hex": "167841"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.412543,
+            "G": 0.214675,
+            "B": 0.016807,
+            "A": 1.0,
+            "Hex": "AC8023"
+          }
+        }
+      ]
+    }
+  }
+]

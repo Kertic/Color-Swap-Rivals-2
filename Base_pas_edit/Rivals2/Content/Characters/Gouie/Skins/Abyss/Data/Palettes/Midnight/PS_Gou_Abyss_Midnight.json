@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gou_Abyss_Midnight_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Abyss/Data/Palettes/Midnight/PS_Gou_Abyss_Midnight",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gou_Abyss_Midnight_C'Default__PS_Gou_Abyss_Midnight_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Abyss/Data/Palettes/Midnight/PS_Gou_Abyss_Midnight.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gou_Abyss_Midnight_C",
+    "Name": "Default__PS_Gou_Abyss_Midnight_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Abyss/Data/Palettes/Midnight/PS_Gou_Abyss_Midnight.PS_Gou_Abyss_Midnight_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Abyss/Data/Palettes/Midnight/PS_Gou_Abyss_Midnight",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.010293,
+            "G": 0.014875,
+            "B": 0.047,
+            "A": 1.0,
+            "Hex": "1A203D"
+          }
+        },
+        {
+          "Key": "Bone",
+          "Value": {
+            "R": 0.216333,
+            "G": 0.229953,
+            "B": 0.559,
+            "A": 1.0,
+            "Hex": "8084C5"
+          }
+        },
+        {
+          "Key": "GooHighlight",
+          "Value": {
+            "R": 0.010293,
+            "G": 0.014875,
+            "B": 0.047,
+            "A": 1.0,
+            "Hex": "1A203D"
+          }
+        },
+        {
+          "Key": "Wing",
+          "Value": {
+            "R": 0.417,
+            "G": 0.034611,
+            "B": 0.056453,
+            "A": 1.0,
+            "Hex": "AD3443"
+          }
+        },
+        {
+          "Key": "Goo",
+          "Value": {
+            "R": 0.030802,
+            "G": 0.01107,
+            "B": 0.09,
+            "A": 1.0,
+            "Hex": "311B54"
+          }
+        },
+        {
+          "Key": "GooAccent",
+          "Value": {
+            "R": 0.276,
+            "G": 0.017112,
+            "B": 0.276,
+            "A": 1.0,
+            "Hex": "8F238F"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.965,
+            "G": 0.02509,
+            "B": 0.054316,
+            "A": 1.0,
+            "Hex": "FC2C42"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Orc_BlueTang_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/BlueTang/Data/Palettes/Green/PS_Orc_BlueTang_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Orc_BlueTang_Green_C'Default__PS_Orc_BlueTang_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Orcane/Skins/BlueTang/Data/Palettes/Green/PS_Orc_BlueTang_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Orc_BlueTang_Green_C",
+    "Name": "Default__PS_Orc_BlueTang_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Orcane/Skins/BlueTang/Data/Palettes/Green/PS_Orc_BlueTang_Green.PS_Orc_BlueTang_Green_C'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/BlueTang/Data/Palettes/Green/PS_Orc_BlueTang_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Main",
+          "Value": {
+            "R": 0.55834,
+            "G": 0.904661,
+            "B": 0.107023,
+            "A": 1.0,
+            "Hex": "C5F45C"
+          }
+        },
+        {
+          "Key": "Stripes",
+          "Value": {
+            "R": 0.018495,
+            "G": 0.007595,
+            "B": 0.041667,
+            "A": 1.0,
+            "Hex": "251539"
+          }
+        },
+        {
+          "Key": "Paws",
+          "Value": {
+            "R": 0.863157,
+            "G": 0.250158,
+            "B": 0.027321,
+            "A": 1.0,
+            "Hex": "EF892E"
+          }
+        },
+        {
+          "Key": "Claws",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 0.938686,
+            "A": 1.0,
+            "Hex": "FFFFF8"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 0.57375,
+            "B": 0.225,
+            "A": 1.0,
+            "Hex": "FFC882"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.008681,
+            "G": 0.005621,
+            "B": 0.002351,
+            "A": 1.0,
+            "Hex": "171107"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.008681,
+            "G": 0.005621,
+            "B": 0.002351,
+            "A": 1.0,
+            "Hex": "171107"
+          }
+        },
+        {
+          "Key": "Mouth",
+          "Value": {
+            "R": 0.421535,
+            "G": 0.683,
+            "B": 0.0808,
+            "A": 1.0,
+            "Hex": "AED850"
+          }
+        },
+        {
+          "Key": "Tongue",
+          "Value": {
+            "R": 1.0,
+            "G": 0.101,
+            "B": 0.101,
+            "A": 0.989,
+            "Hex": "FDFF5959"
+          }
+        }
+      ]
+    }
+  }
+]

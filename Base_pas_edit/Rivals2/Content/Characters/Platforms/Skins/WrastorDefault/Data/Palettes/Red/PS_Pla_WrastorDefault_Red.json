@@ -1,0 +1,88 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_WrastorDefault_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/WrastorDefault/PS_Pla_WrastorDefault_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_WrastorDefault_Red_C'Default__PS_Pla_WrastorDefault_Red_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/WrastorDefault/PS_Pla_WrastorDefault_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_WrastorDefault_Red_C",
+    "Name": "Default__PS_Pla_WrastorDefault_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/WrastorDefault/PS_Pla_WrastorDefault_Red.PS_Pla_WrastorDefault_Red_C'",
+    "Package": "Rivals2/Content/Platforms/WrastorDefault/PS_Pla_WrastorDefault_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.837,
+            "G": 0.071982,
+            "B": 0.071982,
+            "A": 1.0,
+            "Hex": "EC4C4C"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.129,
+            "G": 0.015093,
+            "B": 0.019232,
+            "A": 1.0,
+            "Hex": "642025"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.672443,
+            "G": 0.313989,
+            "B": 0.035601,
+            "A": 1.0,
+            "Hex": "D69835"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.863542,
+            "G": 0.157503,
+            "B": 0.157503,
+            "A": 1.0,
+            "Hex": "EF6E6E"
+          }
+        },
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.152777,
+            "G": 0.152777,
+            "B": 0.152777,
+            "A": 1.0,
+            "Hex": "6D6D6D"
+          }
+        }
+      ]
+    }
+  }
+]

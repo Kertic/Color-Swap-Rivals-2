@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Gou_Mallard_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Red/PE_Gou_Mallard_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Gou_Mallard_Red_C'Default__PE_Gou_Mallard_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Red/PE_Gou_Mallard_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Gou_Mallard_Red_C",
+    "Name": "Default__PE_Gou_Mallard_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Red/PE_Gou_Mallard_Red.PE_Gou_Mallard_Red_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Red/PE_Gou_Mallard_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.83,
+            "G": 0.04814,
+            "B": 0.061171,
+            "A": 1.0,
+            "Hex": "EB3E46"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.83,
+            "G": 0.17596,
+            "B": 0.18686,
+            "A": 1.0,
+            "Hex": "EB7478"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 1.0,
+            "G": 0.57,
+            "B": 0.577167,
+            "A": 1.0,
+            "Hex": "FFC7C8"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.896,
+            "G": 0.196224,
+            "B": 0.207887,
+            "A": 1.0,
+            "Hex": "F37A7E"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.935,
+            "G": 0.141185,
+            "B": 0.154415,
+            "A": 1.0,
+            "Hex": "F8696D"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

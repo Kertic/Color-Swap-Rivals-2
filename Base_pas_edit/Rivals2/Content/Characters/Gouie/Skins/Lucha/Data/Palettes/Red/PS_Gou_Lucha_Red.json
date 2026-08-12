@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gou_Lucha_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Lucha/Data/Palettes/Red/PS_Gou_Lucha_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gou_Lucha_Red_C'Default__PS_Gou_Lucha_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Lucha/Data/Palettes/Red/PS_Gou_Lucha_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gou_Lucha_Red_C",
+    "Name": "Default__PS_Gou_Lucha_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Lucha/Data/Palettes/Red/PS_Gou_Lucha_Red.PS_Gou_Lucha_Red_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Lucha/Data/Palettes/Red/PS_Gou_Lucha_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "ClothingX",
+          "Value": {
+            "R": 0.271,
+            "G": 0.006775,
+            "B": 0.006775,
+            "A": 1.0,
+            "Hex": "8E1313"
+          }
+        },
+        {
+          "Key": "Clothing0",
+          "Value": {
+            "R": 0.835,
+            "G": 0.048913,
+            "B": 0.030895,
+            "A": 1.0,
+            "Hex": "EC3E31"
+          }
+        },
+        {
+          "Key": "Clothing1",
+          "Value": {
+            "R": 0.044,
+            "G": 0.029911,
+            "B": 0.02134,
+            "A": 1.0,
+            "Hex": "3B3028"
+          }
+        },
+        {
+          "Key": "Clothing2",
+          "Value": {
+            "R": 0.051269,
+            "G": 0.048172,
+            "B": 0.045186,
+            "A": 1.0,
+            "Hex": "403E3C"
+          }
+        },
+        {
+          "Key": "Clothing3",
+          "Value": {
+            "R": 0.768151,
+            "G": 0.491021,
+            "B": 0.208637,
+            "A": 1.0,
+            "Hex": "E3BA7E"
+          }
+        },
+        {
+          "Key": "Clothing4",
+          "Value": {
+            "R": 0.533,
+            "G": 0.340707,
+            "B": 0.144768,
+            "A": 1.0,
+            "Hex": "C19E6A"
+          }
+        },
+        {
+          "Key": "MaskEyeWhite",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "MaskEyeLiner",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        }
+      ]
+    }
+  }
+]

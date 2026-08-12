@@ -1,0 +1,368 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Sla_Lovers_Black_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Lovers/Data/Palettes/Black/PS_Sla_Lovers_Black",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Sla_Lovers_Black_C'Default__PS_Sla_Lovers_Black_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Slade/Skins/Lovers/Data/Palettes/Black/PS_Sla_Lovers_Black.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Sla_Lovers_Black_C",
+    "Name": "Default__PS_Sla_Lovers_Black_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Slade/Skins/Lovers/Data/Palettes/Black/PS_Sla_Lovers_Black.PS_Sla_Lovers_Black_C'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Lovers/Data/Palettes/Black/PS_Sla_Lovers_Black",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Shirt",
+          "Value": {
+            "R": 0.01096,
+            "G": 0.009721,
+            "B": 0.011612,
+            "A": 1.0,
+            "Hex": "1B191C"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.043,
+            "G": 0.043,
+            "B": 0.043,
+            "A": 1.0,
+            "Hex": "3A3A3A"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.035692,
+            "G": 0.055275,
+            "B": 0.143,
+            "A": 1.0,
+            "Hex": "35426A"
+          }
+        },
+        {
+          "Key": "Bandana",
+          "Value": {
+            "R": 0.015,
+            "G": 0.015,
+            "B": 0.015,
+            "A": 1.0,
+            "Hex": "202020"
+          }
+        },
+        {
+          "Key": "Jacket",
+          "Value": {
+            "R": 0.073,
+            "G": 0.00657,
+            "B": 0.007679,
+            "A": 1.0,
+            "Hex": "4C1315"
+          }
+        },
+        {
+          "Key": "TopPatch",
+          "Value": {
+            "R": 0.78,
+            "G": 0.02106,
+            "B": 0.02106,
+            "A": 1.0,
+            "Hex": "E52727"
+          }
+        },
+        {
+          "Key": "BottomPatch",
+          "Value": {
+            "R": 0.0,
+            "G": 0.091282,
+            "B": 0.456411,
+            "A": 1.0,
+            "Hex": "0055B4"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.525,
+            "G": 0.273279,
+            "B": 0.053025,
+            "A": 1.0,
+            "Hex": "C08F41"
+          }
+        },
+        {
+          "Key": "Boots",
+          "Value": {
+            "R": 0.073,
+            "G": 0.073,
+            "B": 0.073,
+            "A": 1.0,
+            "Hex": "4C4C4C"
+          }
+        },
+        {
+          "Key": "Wristbands",
+          "Value": {
+            "R": 0.111,
+            "G": 0.111,
+            "B": 0.111,
+            "A": 1.0,
+            "Hex": "5D5D5D"
+          }
+        },
+        {
+          "Key": "ShurikenCase",
+          "Value": {
+            "R": 0.036842,
+            "G": 0.038016,
+            "B": 0.041667,
+            "A": 1.0,
+            "Hex": "363739"
+          }
+        },
+        {
+          "Key": "ShurikenTrim",
+          "Value": {
+            "R": 0.254152,
+            "G": 0.250158,
+            "B": 0.254152,
+            "A": 1.0,
+            "Hex": "8A898A"
+          }
+        },
+        {
+          "Key": "ShurikenCD",
+          "Value": {
+            "R": 0.394,
+            "G": 0.033096,
+            "B": 0.03911,
+            "A": 1.0,
+            "Hex": "A93337"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.052,
+            "G": 0.011908,
+            "B": 0.013206,
+            "A": 1.0,
+            "Hex": "401C1E"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.348065,
+            "G": 0.450222,
+            "B": 0.71,
+            "A": 1.0,
+            "Hex": "9FB3DC"
+          }
+        },
+        {
+          "Key": "Gills",
+          "Value": {
+            "R": 0.042893,
+            "G": 0.242849,
+            "B": 0.727,
+            "A": 1.0,
+            "Hex": "3A87DE"
+          }
+        },
+        {
+          "Key": "Gills2",
+          "Value": {
+            "R": 0.020409,
+            "G": 0.106219,
+            "B": 0.313989,
+            "A": 1.0,
+            "Hex": "275C98"
+          }
+        },
+        {
+          "Key": "Eyeliner",
+          "Value": {
+            "R": 0.042893,
+            "G": 0.242849,
+            "B": 0.727,
+            "A": 1.0,
+            "Hex": "3A87DE"
+          }
+        },
+        {
+          "Key": "Eyeliner2",
+          "Value": {
+            "R": 0.020409,
+            "G": 0.106219,
+            "B": 0.313989,
+            "A": 1.0,
+            "Hex": "275C98"
+          }
+        },
+        {
+          "Key": "SwordGem",
+          "Value": {
+            "R": 0.324,
+            "G": 0.003564,
+            "B": 0.008904,
+            "A": 1.0,
+            "Hex": "9A0B17"
+          }
+        },
+        {
+          "Key": "SwordEdge",
+          "Value": {
+            "R": 0.394,
+            "G": 0.018124,
+            "B": 0.024388,
+            "A": 1.0,
+            "Hex": "A9242B"
+          }
+        },
+        {
+          "Key": "SwordGrip",
+          "Value": {
+            "R": 0.019,
+            "G": 0.0152,
+            "B": 0.0152,
+            "A": 1.0,
+            "Hex": "252121"
+          }
+        },
+        {
+          "Key": "SwordHilt",
+          "Value": {
+            "R": 0.445,
+            "G": 0.231637,
+            "B": 0.044945,
+            "A": 1.0,
+            "Hex": "B2843C"
+          }
+        },
+        {
+          "Key": "SwordBlade",
+          "Value": {
+            "R": 0.021,
+            "G": 0.019677,
+            "B": 0.019862,
+            "A": 1.0,
+            "Hex": "272626"
+          }
+        },
+        {
+          "Key": "SwordBlade2",
+          "Value": {
+            "R": 0.324,
+            "G": 0.003564,
+            "B": 0.008904,
+            "A": 1.0,
+            "Hex": "9A0B17"
+          }
+        },
+        {
+          "Key": "SwordAccent",
+          "Value": {
+            "R": 0.006,
+            "G": 0.004703,
+            "B": 0.002886,
+            "A": 1.0,
+            "Hex": "110E09"
+          }
+        },
+        {
+          "Key": "ChestMetal",
+          "Value": {
+            "R": 0.025,
+            "G": 0.02,
+            "B": 0.02,
+            "A": 1.0,
+            "Hex": "2B2626"
+          }
+        },
+        {
+          "Key": "ChestWood",
+          "Value": {
+            "R": 0.188,
+            "G": 0.01692,
+            "B": 0.019777,
+            "A": 1.0,
+            "Hex": "782326"
+          }
+        },
+        {
+          "Key": "Boomerang",
+          "Value": {
+            "R": 0.557292,
+            "G": 0.076974,
+            "B": 0.415074,
+            "A": 1.0,
+            "Hex": "C54EAD"
+          }
+        },
+        {
+          "Key": "Coins",
+          "Value": {
+            "R": 0.822786,
+            "G": 0.337164,
+            "B": 0.035601,
+            "A": 1.0,
+            "Hex": "EA9D35"
+          }
+        },
+        {
+          "Key": "Emerald",
+          "Value": {
+            "R": 0.0,
+            "G": 0.723055,
+            "B": 0.0185,
+            "A": 1.0,
+            "Hex": "00DD25"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.496933,
+            "G": 0.011612,
+            "B": 0.027321,
+            "A": 1.0,
+            "Hex": "BB1C2E"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        }
+      ]
+    }
+  }
+]

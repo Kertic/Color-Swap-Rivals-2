@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Lox_Holiday_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Holiday/Data/Palettes/Neutral/PS_Lox_Holiday_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Lox_Holiday_Neutral_C'Default__PS_Lox_Holiday_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Loxodont/Skins/Holiday/Data/Palettes/Neutral/PS_Lox_Holiday_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Lox_Holiday_Neutral_C",
+    "Name": "Default__PS_Lox_Holiday_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Loxodont/Skins/Holiday/Data/Palettes/Neutral/PS_Lox_Holiday_Neutral.PS_Lox_Holiday_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Holiday/Data/Palettes/Neutral/PS_Lox_Holiday_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.5,
+            "G": 0.490292,
+            "B": 0.3835,
+            "A": 1.0,
+            "Hex": "BCBAA7"
+          }
+        },
+        {
+          "Key": "Tusks",
+          "Value": {
+            "R": 0.608,
+            "G": 0.608,
+            "B": 0.608,
+            "A": 1.0,
+            "Hex": "CDCDCD"
+          }
+        },
+        {
+          "Key": "Pole",
+          "Value": {
+            "R": 0.391572,
+            "G": 0.005605,
+            "B": 0.005605,
+            "A": 1.0,
+            "Hex": "A81111"
+          }
+        },
+        {
+          "Key": "Axe Head",
+          "Value": {
+            "R": 0.023153,
+            "G": 0.238398,
+            "B": 0.011612,
+            "A": 1.0,
+            "Hex": "2A861C"
+          }
+        },
+        {
+          "Key": "Bow",
+          "Value": {
+            "R": 0.64448,
+            "G": 0.296138,
+            "B": 0.095307,
+            "A": 1.0,
+            "Hex": "D29457"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.610496,
+            "G": 0.610496,
+            "B": 0.610496,
+            "A": 1.0,
+            "Hex": "CDCDCD"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.017642,
+            "G": 0.165132,
+            "B": 0.008568,
+            "A": 1.0,
+            "Hex": "247117"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.647,
+            "G": 0.297469,
+            "B": 0.095109,
+            "A": 1.0,
+            "Hex": "D39457"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.391572,
+            "G": 0.005605,
+            "B": 0.005605,
+            "A": 1.0,
+            "Hex": "A81111"
+          }
+        },
+        {
+          "Key": "ClothTrim",
+          "Value": {
+            "R": 0.017642,
+            "G": 0.165132,
+            "B": 0.008568,
+            "A": 1.0,
+            "Hex": "247117"
+          }
+        }
+      ]
+    }
+  }
+]

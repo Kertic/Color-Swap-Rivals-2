@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_BounceHouse_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_BounceHouse_Red_C'Default__PS_Pla_BounceHouse_Red_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_BounceHouse_Red_C",
+    "Name": "Default__PS_Pla_BounceHouse_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Red.PS_Pla_BounceHouse_Red_C'",
+    "Package": "Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.359375,
+            "G": 0.016846,
+            "B": 0.016846,
+            "A": 1.0,
+            "Hex": "A22323"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.755208,
+            "G": 0.172872,
+            "B": 0.011801,
+            "A": 1.0,
+            "Hex": "E2731C"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.101522,
+            "G": 0.036621,
+            "B": 0.390625,
+            "A": 1.0,
+            "Hex": "5A36A8"
+          }
+        }
+      ]
+    }
+  }
+]

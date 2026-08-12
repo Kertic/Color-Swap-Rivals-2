@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Salaryman_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Salaryman/PS_Pla_Salaryman_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Salaryman_Blue_C'Default__PS_Pla_Salaryman_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Salaryman/PS_Pla_Salaryman_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Salaryman_Blue_C",
+    "Name": "Default__PS_Pla_Salaryman_Blue_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Salaryman/PS_Pla_Salaryman_Blue.PS_Pla_Salaryman_Blue_C'",
+    "Package": "Rivals2/Content/Platforms/Salaryman/PS_Pla_Salaryman_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.22233,
+            "G": 0.268175,
+            "B": 0.328125,
+            "A": 1.0,
+            "Hex": "828D9B"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.056128,
+            "G": 0.056128,
+            "B": 0.052861,
+            "A": 1.0,
+            "Hex": "434341"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.35284,
+            "G": 0.409337,
+            "B": 0.53125,
+            "A": 1.0,
+            "Hex": "A0ACC1"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.838799,
+            "G": 0.552011,
+            "B": 0.059511,
+            "A": 1.0,
+            "Hex": "ECC445"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.450786,
+            "G": 0.450786,
+            "B": 0.450786,
+            "A": 1.0,
+            "Hex": "B3B3B3"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.730461,
+            "G": 0.208637,
+            "B": 0.287441,
+            "A": 1.0,
+            "Hex": "DE7E92"
+          }
+        },
+        {
+          "Key": "CustomColor6",
+          "Value": {
+            "R": 0.132885,
+            "G": 0.0,
+            "B": 0.351533,
+            "A": 1.0,
+            "Hex": "6600A0"
+          }
+        },
+        {
+          "Key": "CustomColor7",
+          "Value": {
+            "R": 0.514918,
+            "G": 0.436578,
+            "B": 0.201556,
+            "A": 1.0,
+            "Hex": "BEB17C"
+          }
+        },
+        {
+          "Key": "CustomColor8",
+          "Value": {
+            "R": 0.009747,
+            "G": 0.123769,
+            "B": 0.47932,
+            "A": 1.0,
+            "Hex": "1963B8"
+          }
+        }
+      ]
+    }
+  }
+]

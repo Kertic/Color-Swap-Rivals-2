@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_EtaDefault_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_EtaDefault_Green_C'Default__PS_Pla_EtaDefault_Green_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_EtaDefault_Green_C",
+    "Name": "Default__PS_Pla_EtaDefault_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Green.PS_Pla_EtaDefault_Green_C'",
+    "Package": "Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.297577,
+            "G": 0.539479,
+            "B": 0.157528,
+            "A": 1.0,
+            "Hex": "94C26E"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.025773,
+            "G": 0.213,
+            "B": 0.094403,
+            "A": 1.0,
+            "Hex": "2C7F56"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.408444,
+            "G": 0.674,
+            "B": 0.496963,
+            "A": 1.0,
+            "Hex": "ABD7BB"
+          }
+        }
+      ]
+    }
+  }
+]

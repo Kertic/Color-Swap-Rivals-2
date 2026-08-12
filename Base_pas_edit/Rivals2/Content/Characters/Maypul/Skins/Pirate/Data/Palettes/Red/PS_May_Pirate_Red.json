@@ -1,0 +1,328 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_May_Pirate_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Maypul/Skins/Pirate/Data/Palettes/Red/PS_May_Pirate_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_May_Pirate_Red_C'Default__PS_May_Pirate_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Maypul/Skins/Pirate/Data/Palettes/Red/PS_May_Pirate_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_May_Pirate_Red_C",
+    "Name": "Default__PS_May_Pirate_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Maypul/Skins/Pirate/Data/Palettes/Red/PS_May_Pirate_Red.PS_May_Pirate_Red_C'",
+    "Package": "Rivals2/Content/Characters/Maypul/Skins/Pirate/Data/Palettes/Red/PS_May_Pirate_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Buckles",
+          "Value": {
+            "R": 0.963542,
+            "G": 0.448314,
+            "B": 0.080295,
+            "A": 1.0,
+            "Hex": "FBB350"
+          }
+        },
+        {
+          "Key": "Shirt",
+          "Value": {
+            "R": 0.234375,
+            "G": 0.010986,
+            "B": 0.029603,
+            "A": 1.0,
+            "Hex": "851B30"
+          }
+        },
+        {
+          "Key": "Bandana",
+          "Value": {
+            "R": 0.442708,
+            "G": 0.032281,
+            "B": 0.039122,
+            "A": 1.0,
+            "Hex": "B23237"
+          }
+        },
+        {
+          "Key": "ShirtStripes",
+          "Value": {
+            "R": 0.013189,
+            "G": 0.010173,
+            "B": 0.015625,
+            "A": 1.0,
+            "Hex": "1E1921"
+          }
+        },
+        {
+          "Key": "Leather",
+          "Value": {
+            "R": 0.036458,
+            "G": 0.022597,
+            "B": 0.022597,
+            "A": 1.0,
+            "Hex": "352929"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.088542,
+            "G": 0.023903,
+            "B": 0.021674,
+            "A": 1.0,
+            "Hex": "542A28"
+          }
+        },
+        {
+          "Key": "Wood",
+          "Value": {
+            "R": 0.296875,
+            "G": 0.13916,
+            "B": 0.060303,
+            "A": 1.0,
+            "Hex": "946845"
+          }
+        },
+        {
+          "Key": "Hooks",
+          "Value": {
+            "R": 0.366253,
+            "G": 0.275103,
+            "B": 0.249891,
+            "A": 1.0,
+            "Hex": "A38F89"
+          }
+        },
+        {
+          "Key": "Rope",
+          "Value": {
+            "R": 0.445201,
+            "G": 0.255813,
+            "B": 0.174647,
+            "A": 1.0,
+            "Hex": "B28A74"
+          }
+        },
+        {
+          "Key": "SeedPeel",
+          "Value": {
+            "R": 0.807292,
+            "G": 0.268194,
+            "B": 0.016819,
+            "A": 1.0,
+            "Hex": "E88D23"
+          }
+        },
+        {
+          "Key": "SeedStem",
+          "Value": {
+            "R": 0.03418,
+            "G": 0.328125,
+            "B": 0.035783,
+            "A": 1.0,
+            "Hex": "349B35"
+          }
+        },
+        {
+          "Key": "LilyPatch",
+          "Value": {
+            "R": 0.036458,
+            "G": 0.022597,
+            "B": 0.022597,
+            "A": 1.0,
+            "Hex": "352929"
+          }
+        },
+        {
+          "Key": "LilyScarf",
+          "Value": {
+            "R": 0.013189,
+            "G": 0.010173,
+            "B": 0.015625,
+            "A": 1.0,
+            "Hex": "1E1921"
+          }
+        },
+        {
+          "Key": "PoppyFace",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Poppy",
+          "Value": {
+            "R": 0.052861,
+            "G": 0.056128,
+            "B": 0.05448,
+            "A": 1.0,
+            "Hex": "414342"
+          }
+        },
+        {
+          "Key": "PoppyMetal",
+          "Value": {
+            "R": 0.366253,
+            "G": 0.275103,
+            "B": 0.249891,
+            "A": 1.0,
+            "Hex": "A38F89"
+          }
+        },
+        {
+          "Key": "TerryDaggers",
+          "Value": {
+            "R": 0.366253,
+            "G": 0.275103,
+            "B": 0.249891,
+            "A": 1.0,
+            "Hex": "A38F89"
+          }
+        },
+        {
+          "Key": "Bones",
+          "Value": {
+            "R": 0.417885,
+            "G": 0.401978,
+            "B": 0.278894,
+            "A": 1.0,
+            "Hex": "ADAA90"
+          }
+        },
+        {
+          "Key": "TerryHat",
+          "Value": {
+            "R": 0.036458,
+            "G": 0.022597,
+            "B": 0.022597,
+            "A": 1.0,
+            "Hex": "352929"
+          }
+        },
+        {
+          "Key": "TerryHatTrim",
+          "Value": {
+            "R": 0.963542,
+            "G": 0.448314,
+            "B": 0.080295,
+            "A": 1.0,
+            "Hex": "FBB350"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.109375,
+            "G": 0.046142,
+            "B": 0.046142,
+            "A": 1.0,
+            "Hex": "5D3C3C"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.390625,
+            "G": 0.302124,
+            "B": 0.20752,
+            "A": 1.0,
+            "Hex": "A8957E"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.036458,
+            "G": 0.015951,
+            "B": 0.016292,
+            "A": 1.0,
+            "Hex": "352222"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.421875,
+            "G": 0.133951,
+            "B": 0.123047,
+            "A": 1.0,
+            "Hex": "AE6662"
+          }
+        },
+        {
+          "Key": "Pal",
+          "Value": {
+            "R": 1.0,
+            "G": 0.184475,
+            "B": 0.212231,
+            "A": 1.0,
+            "Hex": "FF777F"
+          }
+        },
+        {
+          "Key": "PVine",
+          "Value": {
+            "R": 0.14996,
+            "G": 0.05448,
+            "B": 0.040915,
+            "A": 1.0,
+            "Hex": "6C4239"
+          }
+        },
+        {
+          "Key": "Vine2",
+          "Value": {
+            "R": 0.854,
+            "G": 0.19279,
+            "B": 0.15799,
+            "A": 1.0,
+            "Hex": "EE796F"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.235386,
+            "G": 0.146469,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "856BFF"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.235386,
+            "G": 0.146469,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "856BFF"
+          }
+        }
+      ]
+    }
+  }
+]

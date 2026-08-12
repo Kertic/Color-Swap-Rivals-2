@@ -1,0 +1,198 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gou_Penguin_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Penguin/Data/Palettes/Neutral/PS_Gou_Penguin_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gou_Penguin_Neutral_C'Default__PS_Gou_Penguin_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Penguin/Data/Palettes/Neutral/PS_Gou_Penguin_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gou_Penguin_Neutral_C",
+    "Name": "Default__PS_Gou_Penguin_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Penguin/Data/Palettes/Neutral/PS_Gou_Penguin_Neutral.PS_Gou_Penguin_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Penguin/Data/Palettes/Neutral/PS_Gou_Penguin_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Mouth",
+          "Value": {
+            "R": 0.262251,
+            "G": 0.066626,
+            "B": 0.068478,
+            "A": 1.0,
+            "Hex": "8C494A"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.023655,
+            "G": 0.023374,
+            "B": 0.029,
+            "A": 1.0,
+            "Hex": "2A2A2F"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.5,
+            "G": 0.5,
+            "B": 0.5,
+            "A": 1.0,
+            "Hex": "BCBCBC"
+          }
+        },
+        {
+          "Key": "Beak",
+          "Value": {
+            "R": 0.717014,
+            "G": 0.107409,
+            "B": 0.013623,
+            "A": 1.0,
+            "Hex": "DD5C1F"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.019,
+            "G": 0.019,
+            "B": 0.019,
+            "A": 1.0,
+            "Hex": "252525"
+          }
+        },
+        {
+          "Key": "Feet",
+          "Value": {
+            "R": 0.717014,
+            "G": 0.107409,
+            "B": 0.013623,
+            "A": 1.0,
+            "Hex": "DD5C1F"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.717014,
+            "G": 0.418258,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "DDAD00"
+          }
+        },
+        {
+          "Key": "SocketR",
+          "Value": {
+            "R": 0.759,
+            "G": 0.759,
+            "B": 0.759,
+            "A": 1.0,
+            "Hex": "E2E2E2"
+          }
+        },
+        {
+          "Key": "SocketL",
+          "Value": {
+            "R": 0.759,
+            "G": 0.759,
+            "B": 0.759,
+            "A": 1.0,
+            "Hex": "E2E2E2"
+          }
+        },
+        {
+          "Key": "IrisR",
+          "Value": {
+            "R": 0.086,
+            "G": 0.011467,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "531B00"
+          }
+        },
+        {
+          "Key": "IrisL",
+          "Value": {
+            "R": 0.086,
+            "G": 0.011467,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "531B00"
+          }
+        },
+        {
+          "Key": "GooGlow",
+          "Value": {
+            "R": 0.24402,
+            "G": 0.83,
+            "B": 0.810467,
+            "A": 1.0,
+            "Hex": "87EBE9"
+          }
+        },
+        {
+          "Key": "Goo",
+          "Value": {
+            "R": 0.088312,
+            "G": 0.664,
+            "B": 0.644811,
+            "A": 1.0,
+            "Hex": "54D5D2"
+          }
+        },
+        {
+          "Key": "GooHighlight",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Pupil",
+          "Value": {
+            "R": 0.086,
+            "G": 0.011467,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "531B00"
+          }
+        },
+        {
+          "Key": "Tongue",
+          "Value": {
+            "R": 0.486,
+            "G": 0.12347,
+            "B": 0.126902,
+            "A": 1.0,
+            "Hex": "B96264"
+          }
+        }
+      ]
+    }
+  }
+]

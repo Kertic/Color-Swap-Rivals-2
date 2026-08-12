@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Wra_BBQ_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/BBQ/Data/Palettes/Neutral/PE_Wra_BBQ_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Wra_BBQ_Neutral_C'Default__PE_Wra_BBQ_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Wrastor/Skins/BBQ/Data/Palettes/Neutral/PE_Wra_BBQ_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Wra_BBQ_Neutral_C",
+    "Name": "Default__PE_Wra_BBQ_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Wrastor/Skins/BBQ/Data/Palettes/Neutral/PE_Wra_BBQ_Neutral.PE_Wra_BBQ_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/BBQ/Data/Palettes/Neutral/PE_Wra_BBQ_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.147027,
+            "G": 0.068478,
+            "B": 0.05448,
+            "A": 1.0,
+            "Hex": "6B4A42"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.376262,
+            "G": 0.029557,
+            "B": 0.03434,
+            "A": 1.0,
+            "Hex": "A53034"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.982251,
+            "G": 0.076185,
+            "B": 0.090842,
+            "A": 1.0,
+            "Hex": "FD4E55"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.775822,
+            "G": 0.745404,
+            "B": 0.545724,
+            "A": 1.0,
+            "Hex": "E4E0C3"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,228 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Lox_Lovers_White_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Lovers/Data/Palettes/White/PS_Lox_Lovers_White",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Lox_Lovers_White_C'Default__PS_Lox_Lovers_White_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Loxodont/Skins/Lovers/Data/Palettes/White/PS_Lox_Lovers_White.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Lox_Lovers_White_C",
+    "Name": "Default__PS_Lox_Lovers_White_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Loxodont/Skins/Lovers/Data/Palettes/White/PS_Lox_Lovers_White.PS_Lox_Lovers_White_C'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Lovers/Data/Palettes/White/PS_Lox_Lovers_White",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Suit",
+          "Value": {
+            "R": 0.469,
+            "G": 0.431011,
+            "B": 0.463301,
+            "A": 1.0,
+            "Hex": "B6B0B5"
+          }
+        },
+        {
+          "Key": "Shirt",
+          "Value": {
+            "R": 0.02,
+            "G": 0.02,
+            "B": 0.02,
+            "A": 1.0,
+            "Hex": "262626"
+          }
+        },
+        {
+          "Key": "Tie",
+          "Value": {
+            "R": 0.127,
+            "G": 0.123698,
+            "B": 0.123698,
+            "A": 1.0,
+            "Hex": "646262"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.748,
+            "G": 0.37774,
+            "B": 0.1309,
+            "A": 1.0,
+            "Hex": "E1A565"
+          }
+        },
+        {
+          "Key": "Axe",
+          "Value": {
+            "R": 0.04,
+            "G": 0.03612,
+            "B": 0.036832,
+            "A": 1.0,
+            "Hex": "383536"
+          }
+        },
+        {
+          "Key": "Wraps",
+          "Value": {
+            "R": 0.027,
+            "G": 0.021897,
+            "B": 0.026235,
+            "A": 1.0,
+            "Hex": "2D282D"
+          }
+        },
+        {
+          "Key": "Pole",
+          "Value": {
+            "R": 0.631,
+            "G": 0.302754,
+            "B": 0.083923,
+            "A": 1.0,
+            "Hex": "D09652"
+          }
+        },
+        {
+          "Key": "SuitMolten",
+          "Value": {
+            "R": 0.131,
+            "G": 0.120389,
+            "B": 0.129408,
+            "A": 1.0,
+            "Hex": "656165"
+          }
+        },
+        {
+          "Key": "Tusks",
+          "Value": {
+            "R": 0.5,
+            "G": 0.40235,
+            "B": 0.3605,
+            "A": 1.0,
+            "Hex": "BCAAA2"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.108,
+            "G": 0.084024,
+            "B": 0.101207,
+            "A": 1.0,
+            "Hex": "5C5259"
+          }
+        },
+        {
+          "Key": "Scars",
+          "Value": {
+            "R": 0.108,
+            "G": 0.084024,
+            "B": 0.101207,
+            "A": 1.0,
+            "Hex": "5C5259"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.032,
+            "G": 0.024896,
+            "B": 0.029987,
+            "A": 1.0,
+            "Hex": "322B30"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.176,
+            "G": 0.150621,
+            "B": 0.139744,
+            "A": 1.0,
+            "Hex": "746C68"
+          }
+        },
+        {
+          "Key": "ThroneStone",
+          "Value": {
+            "R": 0.147027,
+            "G": 0.116971,
+            "B": 0.116971,
+            "A": 1.0,
+            "Hex": "6B6060"
+          }
+        },
+        {
+          "Key": "ThroneMetal",
+          "Value": {
+            "R": 0.631,
+            "G": 0.302754,
+            "B": 0.083923,
+            "A": 1.0,
+            "Hex": "D09652"
+          }
+        },
+        {
+          "Key": "ThroneCloth",
+          "Value": {
+            "R": 0.02,
+            "G": 0.01622,
+            "B": 0.019433,
+            "A": 1.0,
+            "Hex": "262226"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.805,
+            "G": 0.805,
+            "B": 0.805,
+            "A": 1.0,
+            "Hex": "E8E8E8"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.513,
+            "G": 0.0,
+            "B": 0.21375,
+            "A": 1.0,
+            "Hex": "BE007F"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.513,
+            "G": 0.0,
+            "B": 0.21375,
+            "A": 1.0,
+            "Hex": "BE007F"
+          }
+        }
+      ]
+    }
+  }
+]

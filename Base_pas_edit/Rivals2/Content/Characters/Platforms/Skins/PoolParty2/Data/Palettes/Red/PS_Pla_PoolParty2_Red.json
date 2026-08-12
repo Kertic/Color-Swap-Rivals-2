@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_PoolParty2_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/PoolParty2/PS_Pla_PoolParty2_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_PoolParty2_Red_C'Default__PS_Pla_PoolParty2_Red_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/PoolParty2/PS_Pla_PoolParty2_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_PoolParty2_Red_C",
+    "Name": "Default__PS_Pla_PoolParty2_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/PoolParty2/PS_Pla_PoolParty2_Red.PS_Pla_PoolParty2_Red_C'",
+    "Package": "Rivals2/Content/Platforms/PoolParty2/PS_Pla_PoolParty2_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.423268,
+            "G": 0.381326,
+            "B": 0.508881,
+            "A": 1.0,
+            "Hex": "AEA6BD"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.354167,
+            "G": 0.017245,
+            "B": 0.02286,
+            "A": 1.0,
+            "Hex": "A12329"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.682292,
+            "G": 0.215278,
+            "B": 0.015129,
+            "A": 1.0,
+            "Hex": "D88021"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.010396,
+            "G": 0.00409,
+            "B": 0.130208,
+            "A": 1.0,
+            "Hex": "1A0D65"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.015299,
+            "G": 0.026774,
+            "B": 0.244792,
+            "A": 1.0,
+            "Hex": "212D88"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.106391,
+            "G": 0.136104,
+            "B": 0.552083,
+            "A": 1.0,
+            "Hex": "5C67C4"
+          }
+        },
+        {
+          "Key": "CustomColor6",
+          "Value": {
+            "R": 0.135417,
+            "G": 0.000983,
+            "B": 0.021148,
+            "A": 1.0,
+            "Hex": "670328"
+          }
+        },
+        {
+          "Key": "CustomColor7",
+          "Value": {
+            "R": 0.317708,
+            "G": 0.0,
+            "B": 0.063542,
+            "A": 1.0,
+            "Hex": "990047"
+          }
+        },
+        {
+          "Key": "CustomColor8",
+          "Value": {
+            "R": 0.703125,
+            "G": 0.487879,
+            "B": 0.599089,
+            "A": 1.0,
+            "Hex": "DBBACC"
+          }
+        },
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.564712,
+            "G": 0.003677,
+            "B": 0.003677,
+            "A": 1.0,
+            "Hex": "C60C0C"
+          }
+        }
+      ]
+    }
+  }
+]

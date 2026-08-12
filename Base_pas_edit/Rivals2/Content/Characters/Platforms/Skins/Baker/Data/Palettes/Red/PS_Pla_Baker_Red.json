@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Baker_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Baker/PS_Pla_Baker_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Baker_Red_C'Default__PS_Pla_Baker_Red_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Baker/PS_Pla_Baker_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Baker_Red_C",
+    "Name": "Default__PS_Pla_Baker_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Baker/PS_Pla_Baker_Red.PS_Pla_Baker_Red_C'",
+    "Package": "Rivals2/Content/Platforms/Baker/PS_Pla_Baker_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.947917,
+            "G": 0.548014,
+            "B": 0.81332,
+            "A": 1.0,
+            "Hex": "FAC4E9"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.182292,
+            "G": 0.096842,
+            "B": 0.096842,
+            "A": 1.0,
+            "Hex": "765858"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.635417,
+            "G": 0.082737,
+            "B": 0.324441,
+            "A": 1.0,
+            "Hex": "D1519A"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.802083,
+            "G": 0.251208,
+            "B": 0.08355,
+            "A": 1.0,
+            "Hex": "E88951"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.307292,
+            "G": 0.0892,
+            "B": 0.073622,
+            "A": 1.0,
+            "Hex": "97544C"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.833333,
+            "G": 0.358007,
+            "B": 0.239175,
+            "A": 1.0,
+            "Hex": "ECA186"
+          }
+        },
+        {
+          "Key": "CustomColor6",
+          "Value": {
+            "R": 0.578125,
+            "G": 0.137204,
+            "B": 0.003011,
+            "A": 1.0,
+            "Hex": "C86709"
+          }
+        },
+        {
+          "Key": "CustomColor7",
+          "Value": {
+            "R": 0.078125,
+            "G": 0.004652,
+            "B": 0.004652,
+            "A": 1.0,
+            "Hex": "4F0E0E"
+          }
+        },
+        {
+          "Key": "CustomColor8",
+          "Value": {
+            "R": 0.635417,
+            "G": 0.049642,
+            "B": 0.305819,
+            "A": 1.0,
+            "Hex": "D13F96"
+          }
+        },
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.008568,
+            "G": 0.138432,
+            "B": 0.064842,
+            "A": 1.0,
+            "Hex": "176848"
+          }
+        }
+      ]
+    }
+  }
+]

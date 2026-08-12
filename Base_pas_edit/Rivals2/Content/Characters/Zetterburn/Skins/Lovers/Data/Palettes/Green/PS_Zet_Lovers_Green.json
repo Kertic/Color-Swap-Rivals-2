@@ -1,0 +1,258 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Zet_Lovers_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Zetterburn/Skins/Lovers/Data/Palettes/Green/PS_Zet_Lovers_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Zet_Lovers_Green_C'Default__PS_Zet_Lovers_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Zetterburn/Skins/Lovers/Data/Palettes/Green/PS_Zet_Lovers_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Zet_Lovers_Green_C",
+    "Name": "Default__PS_Zet_Lovers_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Zetterburn/Skins/Lovers/Data/Palettes/Green/PS_Zet_Lovers_Green.PS_Zet_Lovers_Green_C'",
+    "Package": "Rivals2/Content/Characters/Zetterburn/Skins/Lovers/Data/Palettes/Green/PS_Zet_Lovers_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Shoes",
+          "Value": {
+            "R": 0.501961,
+            "G": 0.501961,
+            "B": 0.501961,
+            "A": 1.0,
+            "Hex": "BCBCBC"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.217672,
+            "G": 0.451,
+            "B": 0.013509,
+            "A": 1.0,
+            "Hex": "80B31E"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.067435,
+            "G": 0.094,
+            "B": 0.034968,
+            "A": 1.0,
+            "Hex": "495634"
+          }
+        },
+        {
+          "Key": "Jacket",
+          "Value": {
+            "R": 0.032351,
+            "G": 0.159,
+            "B": 0.027984,
+            "A": 1.0,
+            "Hex": "326F2E"
+          }
+        },
+        {
+          "Key": "Sleeves",
+          "Value": {
+            "R": 0.423844,
+            "G": 0.519,
+            "B": 0.328689,
+            "A": 1.0,
+            "Hex": "AEBF9B"
+          }
+        },
+        {
+          "Key": "Jacket2",
+          "Value": {
+            "R": 0.032351,
+            "G": 0.159,
+            "B": 0.027984,
+            "A": 1.0,
+            "Hex": "326F2E"
+          }
+        },
+        {
+          "Key": "ShoeAccent",
+          "Value": {
+            "R": 0.501961,
+            "G": 0.501961,
+            "B": 0.501961,
+            "A": 1.0,
+            "Hex": "BCBCBC"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.013507,
+            "G": 0.149,
+            "B": 0.028242,
+            "A": 1.0,
+            "Hex": "1E6C2F"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.176925,
+            "G": 0.561,
+            "B": 0.093126,
+            "A": 1.0,
+            "Hex": "75C656"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.517015,
+            "G": 0.962,
+            "B": 0.419432,
+            "A": 1.0,
+            "Hex": "BFFBAD"
+          }
+        },
+        {
+          "Key": "Paws",
+          "Value": {
+            "R": 0.003035,
+            "G": 0.030713,
+            "B": 0.038204,
+            "A": 1.0,
+            "Hex": "0A3137"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.01864,
+            "G": 0.529,
+            "B": 0.002111,
+            "A": 1.0,
+            "Hex": "25C106"
+          }
+        },
+        {
+          "Key": "Hair2",
+          "Value": {
+            "R": 0.45,
+            "G": 1.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "B3FF00"
+          }
+        },
+        {
+          "Key": "LogoCh1",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.760525,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "E1E2E1"
+          }
+        },
+        {
+          "Key": "LogoCh2",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.760525,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "E1E2E1"
+          }
+        },
+        {
+          "Key": "LogoSh1",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.760525,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "E1E2E1"
+          }
+        },
+        {
+          "Key": "LogoSh2",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.760525,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "E1E2E1"
+          }
+        },
+        {
+          "Key": "LogoB1",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.760525,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "E1E2E1"
+          }
+        },
+        {
+          "Key": "LogoB2",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.760525,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "E1E2E1"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.760525,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "E1E2E1"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.760525,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "E1E2E1"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.152926,
+            "G": 0.0,
+            "B": 0.401978,
+            "A": 1.0,
+            "Hex": "6D00AA"
+          }
+        }
+      ]
+    }
+  }
+]

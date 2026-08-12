@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_EtaDefault_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_EtaDefault_Neutral_C'Default__PS_Pla_EtaDefault_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_EtaDefault_Neutral_C",
+    "Name": "Default__PS_Pla_EtaDefault_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Neutral.PS_Pla_EtaDefault_Neutral_C'",
+    "Package": "Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.015,
+            "G": 0.625,
+            "B": 0.523333,
+            "A": 1.0,
+            "Hex": "20CFC0"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.0,
+            "G": 0.3718,
+            "B": 0.507,
+            "A": 1.0,
+            "Hex": "00A4BD"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.471468,
+            "G": 0.778,
+            "B": 0.752456,
+            "A": 1.0,
+            "Hex": "B7E5E1"
+          }
+        }
+      ]
+    }
+  }
+]

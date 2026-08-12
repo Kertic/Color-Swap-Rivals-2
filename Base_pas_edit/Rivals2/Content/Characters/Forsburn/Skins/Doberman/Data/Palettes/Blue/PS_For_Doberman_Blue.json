@@ -1,0 +1,148 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_For_Doberman_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Doberman/Data/Palettes/Blue/PS_For_Doberman_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_For_Doberman_Blue_C'Default__PS_For_Doberman_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Forsburn/Skins/Doberman/Data/Palettes/Blue/PS_For_Doberman_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_For_Doberman_Blue_C",
+    "Name": "Default__PS_For_Doberman_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Doberman/Data/Palettes/Blue/PS_For_Doberman_Blue.PS_For_Doberman_Blue_C'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Doberman/Data/Palettes/Blue/PS_For_Doberman_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.023153,
+            "G": 0.014444,
+            "B": 0.008023,
+            "A": 1.0,
+            "Hex": "2A2016"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.163328,
+            "G": 0.415641,
+            "B": 0.704,
+            "A": 1.0,
+            "Hex": "70ADDB"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.163328,
+            "G": 0.415641,
+            "B": 0.704,
+            "A": 1.0,
+            "Hex": "70ADDB"
+          }
+        },
+        {
+          "Key": "Tip",
+          "Value": {
+            "R": 0.163328,
+            "G": 0.415641,
+            "B": 0.704,
+            "A": 1.0,
+            "Hex": "70ADDB"
+          }
+        },
+        {
+          "Key": "Cape",
+          "Value": {
+            "R": 0.008023,
+            "G": 0.029557,
+            "B": 0.147027,
+            "A": 1.0,
+            "Hex": "16306B"
+          }
+        },
+        {
+          "Key": "Bone",
+          "Value": {
+            "R": 0.630757,
+            "G": 0.496933,
+            "B": 0.371238,
+            "A": 1.0,
+            "Hex": "D0BBA4"
+          }
+        },
+        {
+          "Key": "Wraps",
+          "Value": {
+            "R": 0.008023,
+            "G": 0.029557,
+            "B": 0.147027,
+            "A": 1.0,
+            "Hex": "16306B"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.019382,
+            "G": 0.08022,
+            "B": 0.386429,
+            "A": 1.0,
+            "Hex": "2650A7"
+          }
+        },
+        {
+          "Key": "ClothTrim",
+          "Value": {
+            "R": 0.03434,
+            "G": 0.018278,
+            "B": 0.014801,
+            "A": 1.0,
+            "Hex": "342420"
+          }
+        },
+        {
+          "Key": "Belt",
+          "Value": {
+            "R": 0.03434,
+            "G": 0.018278,
+            "B": 0.014801,
+            "A": 1.0,
+            "Hex": "342420"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.135417,
+            "G": 0.135417,
+            "B": 0.135417,
+            "A": 1.0,
+            "Hex": "676767"
+          }
+        }
+      ]
+    }
+  }
+]

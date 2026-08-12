@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Wra_Abyss_Midnight_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Abyss/Data/Palettes/Midnight/PS_Wra_Abyss_Midnight",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Wra_Abyss_Midnight_C'Default__PS_Wra_Abyss_Midnight_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Wrastor/Skins/Abyss/Data/Palettes/Midnight/PS_Wra_Abyss_Midnight.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Wra_Abyss_Midnight_C",
+    "Name": "Default__PS_Wra_Abyss_Midnight_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Wrastor/Skins/Abyss/Data/Palettes/Midnight/PS_Wra_Abyss_Midnight.PS_Wra_Abyss_Midnight_C'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Abyss/Data/Palettes/Midnight/PS_Wra_Abyss_Midnight",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.050826,
+            "G": 0.080926,
+            "B": 0.258,
+            "A": 1.0,
+            "Hex": "3F508B"
+          }
+        },
+        {
+          "Key": "Wings",
+          "Value": {
+            "R": 0.03202,
+            "G": 0.029779,
+            "B": 0.097,
+            "A": 1.0,
+            "Hex": "323058"
+          }
+        },
+        {
+          "Key": "Legs",
+          "Value": {
+            "R": 0.233472,
+            "G": 0.237876,
+            "B": 0.512,
+            "A": 1.0,
+            "Hex": "8586BE"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.168,
+            "G": 0.017304,
+            "B": 0.024222,
+            "A": 1.0,
+            "Hex": "72232B"
+          }
+        },
+        {
+          "Key": "Eyes",
+          "Value": {
+            "R": 0.002,
+            "G": 0.001874,
+            "B": 0.001608,
+            "A": 1.0,
+            "Hex": "060605"
+          }
+        },
+        {
+          "Key": "Eyes2",
+          "Value": {
+            "R": 0.896,
+            "G": 0.050176,
+            "B": 0.061385,
+            "A": 1.0,
+            "Hex": "F33F46"
+          }
+        },
+        {
+          "Key": "Scarf",
+          "Value": {
+            "R": 0.637597,
+            "G": 0.051269,
+            "B": 0.078187,
+            "A": 1.0,
+            "Hex": "D1404F"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,398 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Abs_Summer_Summer_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Summer/Data/Palettes/Summer/PS_Abs_Summer_Summer",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Abs_Summer_Summer_C'Default__PS_Abs_Summer_Summer_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Absa/Skins/Summer/Data/Palettes/Summer/PS_Abs_Summer_Summer.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Abs_Summer_Summer_C",
+    "Name": "Default__PS_Abs_Summer_Summer_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Absa/Skins/Summer/Data/Palettes/Summer/PS_Abs_Summer_Summer.PS_Abs_Summer_Summer_C'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Summer/Data/Palettes/Summer/PS_Abs_Summer_Summer",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.016071,
+            "G": 0.479151,
+            "B": 0.487,
+            "A": 1.0,
+            "Hex": "22B8BA"
+          }
+        },
+        {
+          "Key": "Scarf",
+          "Value": {
+            "R": 1.0,
+            "G": 0.195583,
+            "B": 0.015,
+            "A": 1.0,
+            "Hex": "FF7A20"
+          }
+        },
+        {
+          "Key": "Glasses Frame",
+          "Value": {
+            "R": 1.0,
+            "G": 0.255,
+            "B": 0.255,
+            "A": 1.0,
+            "Hex": "FF8A8A"
+          }
+        },
+        {
+          "Key": "Glasses Lens",
+          "Value": {
+            "R": 0.042,
+            "G": 0.008214,
+            "B": 0.00063,
+            "A": 1.0,
+            "Hex": "3A1602"
+          }
+        },
+        {
+          "Key": "Hair Flowers",
+          "Value": {
+            "R": 1.0,
+            "G": 0.305,
+            "B": 0.305,
+            "A": 1.0,
+            "Hex": "FF9696"
+          }
+        },
+        {
+          "Key": "Hair Flowers Pistil",
+          "Value": {
+            "R": 0.952,
+            "G": 0.721076,
+            "B": 0.587384,
+            "A": 1.0,
+            "Hex": "FADDCA"
+          }
+        },
+        {
+          "Key": "Hair Ties",
+          "Value": {
+            "R": 1.0,
+            "G": 0.195583,
+            "B": 0.015,
+            "A": 1.0,
+            "Hex": "FF7A20"
+          }
+        },
+        {
+          "Key": "Skirt",
+          "Value": {
+            "R": 0.0,
+            "G": 0.457,
+            "B": 0.346715,
+            "A": 1.0,
+            "Hex": "00B49F"
+          }
+        },
+        {
+          "Key": "Skirt Clouds",
+          "Value": {
+            "R": 0.597202,
+            "G": 0.745404,
+            "B": 0.871367,
+            "A": 1.0,
+            "Hex": "CBE0F0"
+          }
+        },
+        {
+          "Key": "Skirt Inside",
+          "Value": {
+            "R": 0.597202,
+            "G": 0.745404,
+            "B": 0.871367,
+            "A": 1.0,
+            "Hex": "CBE0F0"
+          }
+        },
+        {
+          "Key": "Nail Polish",
+          "Value": {
+            "R": 1.0,
+            "G": 0.255,
+            "B": 0.255,
+            "A": 1.0,
+            "Hex": "FF8A8A"
+          }
+        },
+        {
+          "Key": "Swimsuit Top",
+          "Value": {
+            "R": 1.0,
+            "G": 0.195583,
+            "B": 0.015,
+            "A": 1.0,
+            "Hex": "FF7A20"
+          }
+        },
+        {
+          "Key": "Swimsuit Pattern",
+          "Value": {
+            "R": 0.597202,
+            "G": 0.745404,
+            "B": 0.871367,
+            "A": 1.0,
+            "Hex": "CBE0F0"
+          }
+        },
+        {
+          "Key": "Flowers",
+          "Value": {
+            "R": 1.0,
+            "G": 0.305,
+            "B": 0.305,
+            "A": 1.0,
+            "Hex": "FF9696"
+          }
+        },
+        {
+          "Key": "Flowers Pistil",
+          "Value": {
+            "R": 0.952,
+            "G": 0.721076,
+            "B": 0.587384,
+            "A": 1.0,
+            "Hex": "FADDCA"
+          }
+        },
+        {
+          "Key": "Swimsuit Gem",
+          "Value": {
+            "R": 1.0,
+            "G": 0.4,
+            "B": 0.4,
+            "A": 1.0,
+            "Hex": "FFAAAA"
+          }
+        },
+        {
+          "Key": "Jewelry",
+          "Value": {
+            "R": 0.952,
+            "G": 0.544465,
+            "B": 0.507416,
+            "A": 1.0,
+            "Hex": "FAC3BD"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.046,
+            "G": 0.03036,
+            "B": 0.027232,
+            "A": 1.0,
+            "Hex": "3C302E"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.709,
+            "G": 0.571302,
+            "B": 0.162361,
+            "A": 1.0,
+            "Hex": "DBC770"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.791,
+            "G": 0.713482,
+            "B": 0.40341,
+            "A": 1.0,
+            "Hex": "E6DCAA"
+          }
+        },
+        {
+          "Key": "Hooves",
+          "Value": {
+            "R": 0.046,
+            "G": 0.03036,
+            "B": 0.027232,
+            "A": 1.0,
+            "Hex": "3C302E"
+          }
+        },
+        {
+          "Key": "Horns",
+          "Value": {
+            "R": 0.822786,
+            "G": 0.234343,
+            "B": 0.071582,
+            "A": 1.0,
+            "Hex": "EA854B"
+          }
+        },
+        {
+          "Key": "Horn2",
+          "Value": {
+            "R": 0.822786,
+            "G": 0.234343,
+            "B": 0.071582,
+            "A": 1.0,
+            "Hex": "EA854B"
+          }
+        },
+        {
+          "Key": "InnerEar",
+          "Value": {
+            "R": 0.791,
+            "G": 0.713482,
+            "B": 0.40341,
+            "A": 1.0,
+            "Hex": "E6DCAA"
+          }
+        },
+        {
+          "Key": "Eye Right",
+          "Value": {
+            "R": 0.06075,
+            "G": 0.432,
+            "B": 0.221625,
+            "A": 1.0,
+            "Hex": "45B082"
+          }
+        },
+        {
+          "Key": "Eye Left",
+          "Value": {
+            "R": 0.06075,
+            "G": 0.432,
+            "B": 0.221625,
+            "A": 1.0,
+            "Hex": "45B082"
+          }
+        },
+        {
+          "Key": "Eyebrows",
+          "Value": {
+            "R": 0.011726,
+            "G": 0.262357,
+            "B": 0.271,
+            "A": 1.0,
+            "Hex": "1C8C8E"
+          }
+        },
+        {
+          "Key": "CloudCoconut",
+          "Value": {
+            "R": 0.362,
+            "G": 0.070801,
+            "B": 0.00543,
+            "A": 1.0,
+            "Hex": "A24B10"
+          }
+        },
+        {
+          "Key": "CloudUmbrella",
+          "Value": {
+            "R": 0.006049,
+            "G": 0.577581,
+            "B": 0.439657,
+            "A": 1.0,
+            "Hex": "12C8B1"
+          }
+        },
+        {
+          "Key": "CloudInterior",
+          "Value": {
+            "R": 0.952,
+            "G": 0.721076,
+            "B": 0.587384,
+            "A": 1.0,
+            "Hex": "FADDCA"
+          }
+        },
+        {
+          "Key": "CloudDrink",
+          "Value": {
+            "R": 1.0,
+            "G": 0.195583,
+            "B": 0.015,
+            "A": 1.0,
+            "Hex": "FF7A20"
+          }
+        },
+        {
+          "Key": "CloudFlower",
+          "Value": {
+            "R": 1.0,
+            "G": 0.255,
+            "B": 0.255,
+            "A": 1.0,
+            "Hex": "FF8A8A"
+          }
+        },
+        {
+          "Key": "CloudUmbrellaStick",
+          "Value": {
+            "R": 0.0,
+            "G": 0.14446,
+            "B": 0.346704,
+            "A": 1.0,
+            "Hex": "006A9F"
+          }
+        },
+        {
+          "Key": "CloudStraws",
+          "Value": {
+            "R": 0.0,
+            "G": 0.329369,
+            "B": 0.346704,
+            "A": 1.0,
+            "Hex": "009B9F"
+          }
+        },
+        {
+          "Key": "Cloud",
+          "Value": {
+            "R": 0.911,
+            "G": 0.291805,
+            "B": 0.223005,
+            "A": 1.0,
+            "Hex": "F59382"
+          }
+        },
+        {
+          "Key": "CloudDark",
+          "Value": {
+            "R": 0.618,
+            "G": 0.171062,
+            "B": 0.059328,
+            "A": 1.0,
+            "Hex": "CE7345"
+          }
+        }
+      ]
+    }
+  }
+]

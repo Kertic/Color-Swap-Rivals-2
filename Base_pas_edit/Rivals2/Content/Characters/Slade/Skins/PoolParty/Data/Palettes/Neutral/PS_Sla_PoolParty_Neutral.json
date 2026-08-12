@@ -1,0 +1,368 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Sla_PoolParty_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/PoolParty/Data/Palettes/Neutral/PS_Sla_PoolParty_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Sla_PoolParty_Neutral_C'Default__PS_Sla_PoolParty_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Slade/Skins/PoolParty/Data/Palettes/Neutral/PS_Sla_PoolParty_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Sla_PoolParty_Neutral_C",
+    "Name": "Default__PS_Sla_PoolParty_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Slade/Skins/PoolParty/Data/Palettes/Neutral/PS_Sla_PoolParty_Neutral.PS_Sla_PoolParty_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/PoolParty/Data/Palettes/Neutral/PS_Sla_PoolParty_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "GlassLens",
+          "Value": {
+            "R": 0.004777,
+            "G": 0.004777,
+            "B": 0.004777,
+            "A": 1.0,
+            "Hex": "0F0F0F"
+          }
+        },
+        {
+          "Key": "PantTrim",
+          "Value": {
+            "R": 0.55834,
+            "G": 0.545724,
+            "B": 0.55834,
+            "A": 1.0,
+            "Hex": "C5C3C5"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.193254,
+            "G": 0.375,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "7AA500"
+          }
+        },
+        {
+          "Key": "Glasses",
+          "Value": {
+            "R": 0.597202,
+            "G": 0.3544,
+            "B": 0.036889,
+            "A": 1.0,
+            "Hex": "CBA136"
+          }
+        },
+        {
+          "Key": "TailbandTrim",
+          "Value": {
+            "R": 0.533276,
+            "G": 0.514918,
+            "B": 0.533276,
+            "A": 1.0,
+            "Hex": "C1BEC1"
+          }
+        },
+        {
+          "Key": "Tailband",
+          "Value": {
+            "R": 0.439657,
+            "G": 0.035601,
+            "B": 0.144128,
+            "A": 1.0,
+            "Hex": "B1356A"
+          }
+        },
+        {
+          "Key": "PantsPatternTrim",
+          "Value": {
+            "R": 0.011854,
+            "G": 0.046875,
+            "B": 0.002396,
+            "A": 1.0,
+            "Hex": "1C3D07"
+          }
+        },
+        {
+          "Key": "PantsPattern",
+          "Value": {
+            "R": 0.533276,
+            "G": 0.514918,
+            "B": 0.533276,
+            "A": 1.0,
+            "Hex": "C1BEC1"
+          }
+        },
+        {
+          "Key": "SwordBlade",
+          "Value": {
+            "R": 0.165132,
+            "G": 0.162029,
+            "B": 0.165132,
+            "A": 1.0,
+            "Hex": "717071"
+          }
+        },
+        {
+          "Key": "SwordHilt",
+          "Value": {
+            "R": 0.008789,
+            "G": 0.380566,
+            "B": 0.421875,
+            "A": 1.0,
+            "Hex": "17A6AE"
+          }
+        },
+        {
+          "Key": "SwordGuard",
+          "Value": {
+            "R": 0.597202,
+            "G": 0.3544,
+            "B": 0.036889,
+            "A": 1.0,
+            "Hex": "CBA136"
+          }
+        },
+        {
+          "Key": "PopsicleStick",
+          "Value": {
+            "R": 0.417885,
+            "G": 0.323143,
+            "B": 0.23074,
+            "A": 1.0,
+            "Hex": "AD9A84"
+          }
+        },
+        {
+          "Key": "Popsicle",
+          "Value": {
+            "R": 0.783538,
+            "G": 0.022174,
+            "B": 0.187821,
+            "A": 1.0,
+            "Hex": "E52978"
+          }
+        },
+        {
+          "Key": "PopsicleAccent",
+          "Value": {
+            "R": 0.871367,
+            "G": 0.242281,
+            "B": 0.114435,
+            "A": 1.0,
+            "Hex": "F0875F"
+          }
+        },
+        {
+          "Key": "Wheels",
+          "Value": {
+            "R": 0.025187,
+            "G": 0.022174,
+            "B": 0.019382,
+            "A": 1.0,
+            "Hex": "2C2926"
+          }
+        },
+        {
+          "Key": "Cooler",
+          "Value": {
+            "R": 0.002875,
+            "G": 0.460548,
+            "B": 0.552083,
+            "A": 1.0,
+            "Hex": "09B5C4"
+          }
+        },
+        {
+          "Key": "CoolerLid",
+          "Value": {
+            "R": 0.637597,
+            "G": 0.57758,
+            "B": 0.527115,
+            "A": 1.0,
+            "Hex": "D1C8C0"
+          }
+        },
+        {
+          "Key": "LogoOutline",
+          "Value": {
+            "R": 0.462077,
+            "G": 0.467784,
+            "B": 0.462077,
+            "A": 1.0,
+            "Hex": "B5B6B5"
+          }
+        },
+        {
+          "Key": "LogoShading",
+          "Value": {
+            "R": 0.006512,
+            "G": 0.006049,
+            "B": 0.006512,
+            "A": 1.0,
+            "Hex": "131213"
+          }
+        },
+        {
+          "Key": "LogoSwirl2",
+          "Value": {
+            "R": 0.006049,
+            "G": 0.396755,
+            "B": 0.775822,
+            "A": 1.0,
+            "Hex": "12A9E4"
+          }
+        },
+        {
+          "Key": "LogoSwirl1",
+          "Value": {
+            "R": 0.072272,
+            "G": 0.806952,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "4CE8FF"
+          }
+        },
+        {
+          "Key": "LogoText",
+          "Value": {
+            "R": 1.0,
+            "G": 0.177888,
+            "B": 0.005182,
+            "A": 1.0,
+            "Hex": "FF7510"
+          }
+        },
+        {
+          "Key": "LogoTextHighlight",
+          "Value": {
+            "R": 1.0,
+            "G": 0.617207,
+            "B": 0.008568,
+            "A": 1.0,
+            "Hex": "FFCE17"
+          }
+        },
+        {
+          "Key": "SwipeWhite",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.014602,
+            "G": 0.105349,
+            "B": 0.127438,
+            "A": 1.0,
+            "Hex": "205B64"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.178467,
+            "G": 0.655428,
+            "B": 0.671875,
+            "A": 1.0,
+            "Hex": "75D4D6"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 1.0,
+            "G": 0.879622,
+            "B": 0.584078,
+            "A": 1.0,
+            "Hex": "FFF1C9"
+          }
+        },
+        {
+          "Key": "Gills",
+          "Value": {
+            "R": 0.665387,
+            "G": 0.147027,
+            "B": 0.158961,
+            "A": 1.0,
+            "Hex": "D56B6F"
+          }
+        },
+        {
+          "Key": "Gills2",
+          "Value": {
+            "R": 0.539479,
+            "G": 0.05448,
+            "B": 0.270498,
+            "A": 1.0,
+            "Hex": "C2428E"
+          }
+        },
+        {
+          "Key": "Eyeliner",
+          "Value": {
+            "R": 0.371238,
+            "G": 0.042311,
+            "B": 0.068478,
+            "A": 1.0,
+            "Hex": "A43A4A"
+          }
+        },
+        {
+          "Key": "Eyeliner2",
+          "Value": {
+            "R": 0.371238,
+            "G": 0.042311,
+            "B": 0.068478,
+            "A": 1.0,
+            "Hex": "A43A4A"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 0.590114,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FFCA00"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,188 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gou_Louie_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Louie/Data/Palettes/Red/PS_Gou_Louie_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gou_Louie_Red_C'Default__PS_Gou_Louie_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Louie/Data/Palettes/Red/PS_Gou_Louie_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gou_Louie_Red_C",
+    "Name": "Default__PS_Gou_Louie_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Louie/Data/Palettes/Red/PS_Gou_Louie_Red.PS_Gou_Louie_Red_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Louie/Data/Palettes/Red/PS_Gou_Louie_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 0.029514,
+            "G": 0.025573,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "302C00"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 0.029514,
+            "G": 0.025573,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "302C00"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.147027,
+            "G": 0.032213,
+            "B": 0.049839,
+            "A": 1.0,
+            "Hex": "6B323F"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.210679,
+            "B": 0.214033,
+            "A": 1.0,
+            "Hex": "9D7F7F"
+          }
+        },
+        {
+          "Key": "Bill",
+          "Value": {
+            "R": 0.0625,
+            "G": 0.047316,
+            "B": 0.042287,
+            "A": 1.0,
+            "Hex": "463D3A"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.036458,
+            "G": 0.008525,
+            "B": 0.011797,
+            "A": 1.0,
+            "Hex": "35171C"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.036458,
+            "G": 0.019831,
+            "B": 0.017284,
+            "A": 1.0,
+            "Hex": "352623"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.775822,
+            "G": 0.745404,
+            "B": 0.597202,
+            "A": 1.0,
+            "Hex": "E4E0CB"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.147027,
+            "G": 0.032213,
+            "B": 0.049839,
+            "A": 1.0,
+            "Hex": "6B323F"
+          }
+        },
+        {
+          "Key": "Shirt",
+          "Value": {
+            "R": 0.930111,
+            "G": 0.973445,
+            "B": 0.964686,
+            "A": 1.0,
+            "Hex": "F7FCFB"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.617207,
+            "G": 0.031581,
+            "B": 0.056147,
+            "A": 1.0,
+            "Hex": "CE3143"
+          }
+        },
+        {
+          "Key": "Goo",
+          "Value": {
+            "R": 0.617207,
+            "G": 0.031581,
+            "B": 0.056147,
+            "A": 1.0,
+            "Hex": "CE3143"
+          }
+        },
+        {
+          "Key": "GooHighlight",
+          "Value": {
+            "R": 0.921582,
+            "G": 0.429644,
+            "B": 0.475553,
+            "A": 1.0,
+            "Hex": "F6AFB8"
+          }
+        },
+        {
+          "Key": "GooGlow",
+          "Value": {
+            "R": 1.0,
+            "G": 0.216808,
+            "B": 0.397613,
+            "A": 1.0,
+            "Hex": "FF80A9"
+          }
+        }
+      ]
+    }
+  }
+]

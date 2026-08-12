@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Sla_Default_Mint_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Default/Data/Palettes/Mint/PE_Sla_Default_Mint",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Sla_Default_Mint_C'Default__PE_Sla_Default_Mint_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Slade/Skins/Default/Data/Palettes/Mint/PE_Sla_Default_Mint.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Sla_Default_Mint_C",
+    "Name": "Default__PE_Sla_Default_Mint_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Slade/Skins/Default/Data/Palettes/Mint/PE_Sla_Default_Mint.PE_Sla_Default_Mint_C'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Default/Data/Palettes/Mint/PE_Sla_Default_Mint",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.078187,
+            "B": 0.053428,
+            "A": 1.0,
+            "Hex": "004F41"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.004777,
+            "G": 0.768151,
+            "B": 0.602753,
+            "A": 1.0,
+            "Hex": "0FE3CC"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.177888,
+            "G": 1.0,
+            "B": 0.794472,
+            "A": 1.0,
+            "Hex": "75FFE7"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 1.0,
+            "G": 0.28125,
+            "B": 0.365104,
+            "A": 1.0,
+            "Hex": "FF91A3"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.863157,
+            "G": 0.0,
+            "B": 0.129473,
+            "A": 1.0,
+            "Hex": "EF0065"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 0.066626,
+            "G": 0.0,
+            "B": 0.013325,
+            "A": 1.0,
+            "Hex": "49001E"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,278 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Lar_Primal_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Primal/Data/Palettes/Blue/PS_Lar_Primal_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Lar_Primal_Blue_C'Default__PS_Lar_Primal_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Characters/LaReina/Skins/Primal/Data/Palettes/Blue/PS_Lar_Primal_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Lar_Primal_Blue_C",
+    "Name": "Default__PS_Lar_Primal_Blue_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/LaReina/Skins/Primal/Data/Palettes/Blue/PS_Lar_Primal_Blue.PS_Lar_Primal_Blue_C'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Primal/Data/Palettes/Blue/PS_Lar_Primal_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Tusks",
+          "Value": {
+            "R": 0.496933,
+            "G": 0.672443,
+            "B": 0.651967,
+            "A": 1.0,
+            "Hex": "BBD6D3"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.010512,
+            "G": 0.150098,
+            "B": 0.657,
+            "A": 1.0,
+            "Hex": "1A6CD4"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.239216,
+            "G": 0.533333,
+            "B": 0.760784,
+            "A": 1.0,
+            "Hex": "86C1E2"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.001232,
+            "G": 0.018576,
+            "B": 0.056,
+            "A": 1.0,
+            "Hex": "042543"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.075613,
+            "G": 0.019685,
+            "B": 0.155,
+            "A": 1.0,
+            "Hex": "4E266E"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.044,
+            "G": 0.02552,
+            "B": 0.035684,
+            "A": 1.0,
+            "Hex": "3B2C35"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.111299,
+            "G": 0.074646,
+            "B": 0.319,
+            "A": 1.0,
+            "Hex": "5E4D99"
+          }
+        },
+        {
+          "Key": "Stone",
+          "Value": {
+            "R": 0.110633,
+            "G": 0.119021,
+            "B": 0.14,
+            "A": 1.0,
+            "Hex": "5D6168"
+          }
+        },
+        {
+          "Key": "LeatherTrim",
+          "Value": {
+            "R": 0.239216,
+            "G": 0.533333,
+            "B": 0.760784,
+            "A": 1.0,
+            "Hex": "86C1E2"
+          }
+        },
+        {
+          "Key": "Leather",
+          "Value": {
+            "R": 0.007616,
+            "G": 0.108747,
+            "B": 0.476,
+            "A": 1.0,
+            "Hex": "155DB8"
+          }
+        },
+        {
+          "Key": "Antenna",
+          "Value": {
+            "R": 0.021896,
+            "G": 0.02072,
+            "B": 0.056,
+            "A": 1.0,
+            "Hex": "282743"
+          }
+        },
+        {
+          "Key": "Shell",
+          "Value": {
+            "R": 0.021896,
+            "G": 0.02072,
+            "B": 0.056,
+            "A": 1.0,
+            "Hex": "282743"
+          }
+        },
+        {
+          "Key": "Joints",
+          "Value": {
+            "R": 0.013,
+            "G": 0.007254,
+            "B": 0.008307,
+            "A": 1.0,
+            "Hex": "1E1416"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.012712,
+            "G": 0.908,
+            "B": 0.245124,
+            "A": 1.0,
+            "Hex": "1DF588"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 0.060796,
+            "G": 1.0,
+            "B": 0.215303,
+            "A": 1.0,
+            "Hex": "46FF80"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "LeftPupil",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "RightPupil",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Eyeliner",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 0.999,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "InnerMouth",
+          "Value": {
+            "R": 0.098,
+            "G": 0.031326,
+            "B": 0.036452,
+            "A": 1.0,
+            "Hex": "583135"
+          }
+        },
+        {
+          "Key": "Teeth",
+          "Value": {
+            "R": 0.672443,
+            "G": 0.630757,
+            "B": 0.496933,
+            "A": 1.0,
+            "Hex": "D6D0BB"
+          }
+        },
+        {
+          "Key": "Tongue",
+          "Value": {
+            "R": 0.19,
+            "G": 0.060734,
+            "B": 0.070672,
+            "A": 1.0,
+            "Hex": "79454B"
+          }
+        },
+        {
+          "Key": "Tarp",
+          "Value": {
+            "R": 0.672443,
+            "G": 0.630757,
+            "B": 0.496933,
+            "A": 1.0,
+            "Hex": "D6D0BB"
+          }
+        }
+      ]
+    }
+  }
+]

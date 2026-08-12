@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Lockers_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Lockers/PS_Pla_Lockers_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Lockers_Red_C'Default__PS_Pla_Lockers_Red_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Lockers/PS_Pla_Lockers_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Lockers_Red_C",
+    "Name": "Default__PS_Pla_Lockers_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Lockers/PS_Pla_Lockers_Red.PS_Pla_Lockers_Red_C'",
+    "Package": "Rivals2/Content/Platforms/Lockers/PS_Pla_Lockers_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.578125,
+            "G": 0.171631,
+            "B": 0.171631,
+            "A": 1.0,
+            "Hex": "C87373"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.434154,
+            "G": 0.353127,
+            "B": 0.321093,
+            "A": 1.0,
+            "Hex": "B0A09A"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.904661,
+            "G": 0.580209,
+            "B": 0.155926,
+            "A": 1.0,
+            "Hex": "F4C96E"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.158961,
+            "G": 0.514918,
+            "B": 0.503053,
+            "A": 1.0,
+            "Hex": "6FBEBC"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.633036,
+            "G": 0.697917,
+            "B": 0.468926,
+            "A": 1.0,
+            "Hex": "D1DAB6"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.416667,
+            "G": 0.090278,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "AD5500"
+          }
+        },
+        {
+          "Key": "CustomColor6",
+          "Value": {
+            "R": 0.038204,
+            "G": 0.093059,
+            "B": 0.258183,
+            "A": 1.0,
+            "Hex": "37568B"
+          }
+        },
+        {
+          "Key": "CustomColor7",
+          "Value": {
+            "R": 0.3852,
+            "G": 0.739583,
+            "B": 0.704145,
+            "A": 1.0,
+            "Hex": "A7E0DB"
+          }
+        },
+        {
+          "Key": "CustomColor8",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.291771,
+            "G": 0.162029,
+            "B": 0.102242,
+            "A": 1.0,
+            "Hex": "93705A"
+          }
+        }
+      ]
+    }
+  }
+]

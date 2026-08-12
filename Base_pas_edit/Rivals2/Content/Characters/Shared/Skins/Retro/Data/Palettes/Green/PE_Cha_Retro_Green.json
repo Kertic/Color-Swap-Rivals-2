@@ -1,0 +1,78 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Cha_Retro_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Shared/Retro/PE_Cha_Retro_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Cha_Retro_Green_C'Default__PE_Cha_Retro_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Shared/Retro/PE_Cha_Retro_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Cha_Retro_Green_C",
+    "Name": "Default__PE_Cha_Retro_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Shared/Retro/PE_Cha_Retro_Green.PE_Cha_Retro_Green_C'",
+    "Package": "Rivals2/Content/Characters/Shared/Retro/PE_Cha_Retro_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.203922,
+            "G": 0.141176,
+            "B": 0.32549,
+            "A": 1.0,
+            "Hex": "7D699B"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.694118,
+            "G": 0.454902,
+            "B": 0.286275,
+            "A": 1.0,
+            "Hex": "D9B492"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.678431,
+            "G": 0.65098,
+            "B": 0.686275,
+            "A": 1.0,
+            "Hex": "D7D3D8"
+          }
+        }
+      ]
+    }
+  }
+]

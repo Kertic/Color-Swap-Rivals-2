@@ -1,0 +1,78 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_GalDefault_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/GalvanDefault/PS_Pla_GalDefault_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_GalDefault_Blue_C'Default__PS_Pla_GalDefault_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/GalvanDefault/PS_Pla_GalDefault_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_GalDefault_Blue_C",
+    "Name": "Default__PS_Pla_GalDefault_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/GalvanDefault/PS_Pla_GalDefault_Blue.PS_Pla_GalDefault_Blue_C'",
+    "Package": "Rivals2/Content/Platforms/GalvanDefault/PS_Pla_GalDefault_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.053976,
+            "G": 0.108228,
+            "B": 0.519,
+            "A": 1.0,
+            "Hex": "415CBF"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.34375,
+            "G": 0.34375,
+            "B": 0.34375,
+            "A": 1.0,
+            "Hex": "9F9F9F"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.968,
+            "G": 0.112933,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FC5E00"
+          }
+        },
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.140625,
+            "G": 0.140625,
+            "B": 0.140625,
+            "A": 1.0,
+            "Hex": "696969"
+          }
+        }
+      ]
+    }
+  }
+]

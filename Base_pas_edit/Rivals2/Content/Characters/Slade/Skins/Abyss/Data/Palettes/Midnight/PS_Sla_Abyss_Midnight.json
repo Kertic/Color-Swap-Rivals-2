@@ -1,0 +1,248 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Sla_Abyss_Midnight_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Midnight/PS_Sla_Abyss_Midnight",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Sla_Abyss_Midnight_C'Default__PS_Sla_Abyss_Midnight_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Midnight/PS_Sla_Abyss_Midnight.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Sla_Abyss_Midnight_C",
+    "Name": "Default__PS_Sla_Abyss_Midnight_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Midnight/PS_Sla_Abyss_Midnight.PS_Sla_Abyss_Midnight_C'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Midnight/PS_Sla_Abyss_Midnight",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.327778,
+            "G": 0.496933,
+            "B": 0.838799,
+            "A": 1.0,
+            "Hex": "9BBBEC"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.102418,
+            "G": 0.140182,
+            "B": 0.329,
+            "A": 1.0,
+            "Hex": "5A699B"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.01782,
+            "G": 0.026704,
+            "B": 0.09,
+            "A": 1.0,
+            "Hex": "242D54"
+          }
+        },
+        {
+          "Key": "Fins",
+          "Value": {
+            "R": 0.499,
+            "G": 0.060878,
+            "B": 0.09518,
+            "A": 1.0,
+            "Hex": "BC4657"
+          }
+        },
+        {
+          "Key": "Teeth",
+          "Value": {
+            "R": 0.744792,
+            "G": 0.726989,
+            "B": 0.605143,
+            "A": 1.0,
+            "Hex": "E0DECC"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.022174,
+            "G": 0.0185,
+            "B": 0.030713,
+            "A": 1.0,
+            "Hex": "292531"
+          }
+        },
+        {
+          "Key": "InnerBelly",
+          "Value": {
+            "R": 0.173,
+            "G": 0.024739,
+            "B": 0.024739,
+            "A": 1.0,
+            "Hex": "732B2B"
+          }
+        },
+        {
+          "Key": "Coat",
+          "Value": {
+            "R": 0.01378,
+            "G": 0.025131,
+            "B": 0.106,
+            "A": 1.0,
+            "Hex": "1F2C5B"
+          }
+        },
+        {
+          "Key": "CoatAccent",
+          "Value": {
+            "R": 1.0,
+            "G": 0.095307,
+            "B": 0.135633,
+            "A": 1.0,
+            "Hex": "FF5767"
+          }
+        },
+        {
+          "Key": "Boots",
+          "Value": {
+            "R": 0.064,
+            "G": 0.009152,
+            "B": 0.009152,
+            "A": 1.0,
+            "Hex": "471818"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.006512,
+            "G": 0.009721,
+            "B": 0.028426,
+            "A": 1.0,
+            "Hex": "13192F"
+          }
+        },
+        {
+          "Key": "Tail1Top",
+          "Value": {
+            "R": 0.01378,
+            "G": 0.025131,
+            "B": 0.106,
+            "A": 1.0,
+            "Hex": "1F2C5B"
+          }
+        },
+        {
+          "Key": "Tail1Bottom",
+          "Value": {
+            "R": 0.499,
+            "G": 0.060878,
+            "B": 0.09518,
+            "A": 1.0,
+            "Hex": "BC4657"
+          }
+        },
+        {
+          "Key": "Tail2Bottom",
+          "Value": {
+            "R": 0.327778,
+            "G": 0.496933,
+            "B": 0.838799,
+            "A": 1.0,
+            "Hex": "9BBBEC"
+          }
+        },
+        {
+          "Key": "Sword",
+          "Value": {
+            "R": 0.01378,
+            "G": 0.025131,
+            "B": 0.106,
+            "A": 1.0,
+            "Hex": "1F2C5B"
+          }
+        },
+        {
+          "Key": "SwordAccent",
+          "Value": {
+            "R": 1.0,
+            "G": 0.095307,
+            "B": 0.135633,
+            "A": 1.0,
+            "Hex": "FF5767"
+          }
+        },
+        {
+          "Key": "Hilt",
+          "Value": {
+            "R": 0.064,
+            "G": 0.009152,
+            "B": 0.009152,
+            "A": 1.0,
+            "Hex": "471818"
+          }
+        },
+        {
+          "Key": "TreasureChestTeeth",
+          "Value": {
+            "R": 0.208333,
+            "G": 0.20081,
+            "B": 0.173611,
+            "A": 1.0,
+            "Hex": "7E7C74"
+          }
+        },
+        {
+          "Key": "TreasureChestBelly",
+          "Value": {
+            "R": 0.348958,
+            "G": 0.335055,
+            "B": 0.299885,
+            "A": 1.0,
+            "Hex": "A09D95"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.003,
+            "G": 0.003,
+            "B": 0.003,
+            "A": 1.0,
+            "Hex": "090909"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 1.0,
+            "G": 0.095307,
+            "B": 0.135633,
+            "A": 1.0,
+            "Hex": "FF5767"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_SpringEgg_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/SpringEgg/PS_Pla_SpringEgg_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_SpringEgg_Neutral_C'Default__PS_Pla_SpringEgg_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/SpringEgg/PS_Pla_SpringEgg_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_SpringEgg_Neutral_C",
+    "Name": "Default__PS_Pla_SpringEgg_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/SpringEgg/PS_Pla_SpringEgg_Neutral.PS_Pla_SpringEgg_Neutral_C'",
+    "Package": "Rivals2/Content/Platforms/SpringEgg/PS_Pla_SpringEgg_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.62396,
+            "G": 0.55834,
+            "B": 0.417885,
+            "A": 1.0,
+            "Hex": "CFC5AD"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.030713,
+            "G": 0.23074,
+            "B": 0.049707,
+            "A": 1.0,
+            "Hex": "31843F"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.038204,
+            "G": 0.205079,
+            "B": 0.412543,
+            "A": 1.0,
+            "Hex": "377DAC"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.775822,
+            "G": 0.076806,
+            "B": 0.40551,
+            "A": 1.0,
+            "Hex": "E44EAB"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.822786,
+            "G": 0.822786,
+            "B": 0.896269,
+            "A": 1.0,
+            "Hex": "EAEAF3"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.846873,
+            "G": 0.552011,
+            "B": 0.07036,
+            "A": 1.0,
+            "Hex": "EDC44B"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_LoveIsInTheAir_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/LoveIsInTheAir/PS_Pla_LoveIsInTheAir_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_LoveIsInTheAir_Neutral_C'Default__PS_Pla_LoveIsInTheAir_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/LoveIsInTheAir/PS_Pla_LoveIsInTheAir_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_LoveIsInTheAir_Neutral_C",
+    "Name": "Default__PS_Pla_LoveIsInTheAir_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/LoveIsInTheAir/PS_Pla_LoveIsInTheAir_Neutral.PS_Pla_LoveIsInTheAir_Neutral_C'",
+    "Package": "Rivals2/Content/Platforms/LoveIsInTheAir/PS_Pla_LoveIsInTheAir_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.838542,
+            "G": 0.811027,
+            "B": 0.655111,
+            "A": 1.0,
+            "Hex": "ECE9D4"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.677083,
+            "G": 0.010579,
+            "B": 0.099447,
+            "A": 1.0,
+            "Hex": "D71A59"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.697917,
+            "G": 0.413099,
+            "B": 0.061795,
+            "A": 1.0,
+            "Hex": "DAAC46"
+          }
+        }
+      ]
+    }
+  }
+]

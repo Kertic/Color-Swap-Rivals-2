@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_LowPolyV2_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/LowPolyV2/PS_Pla_LowPolyV2_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_LowPolyV2_Green_C'Default__PS_Pla_LowPolyV2_Green_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/LowPolyV2/PS_Pla_LowPolyV2_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_LowPolyV2_Green_C",
+    "Name": "Default__PS_Pla_LowPolyV2_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/LowPolyV2/PS_Pla_LowPolyV2_Green.PS_Pla_LowPolyV2_Green_C'",
+    "Package": "Rivals2/Content/Platforms/LowPolyV2/PS_Pla_LowPolyV2_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.829963,
+            "G": 0.297435,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "EB94FF"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 1.0,
+            "G": 0.125328,
+            "B": 0.025666,
+            "A": 1.0,
+            "Hex": "FF632C"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.188235,
+            "G": 0.901961,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "78F400"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.054902,
+            "G": 0.32549,
+            "B": 0.901961,
+            "A": 1.0,
+            "Hex": "429BF4"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.475488,
+            "G": 0.901961,
+            "B": 0.320886,
+            "A": 1.0,
+            "Hex": "B8F49A"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.258637,
+            "G": 0.9,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "8BF400"
+          }
+        }
+      ]
+    }
+  }
+]

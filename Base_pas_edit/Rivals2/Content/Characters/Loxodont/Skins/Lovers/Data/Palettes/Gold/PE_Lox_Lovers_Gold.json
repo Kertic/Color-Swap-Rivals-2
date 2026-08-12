@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Lox_Lovers_Gold_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Lovers/Data/Palettes/Gold/PE_Lox_Lovers_Gold",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Lox_Lovers_Gold_C'Default__PE_Lox_Lovers_Gold_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Loxodont/Skins/Lovers/Data/Palettes/Gold/PE_Lox_Lovers_Gold.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Lox_Lovers_Gold_C",
+    "Name": "Default__PE_Lox_Lovers_Gold_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Loxodont/Skins/Lovers/Data/Palettes/Gold/PE_Lox_Lovers_Gold.PE_Lox_Lovers_Gold_C'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Lovers/Data/Palettes/Gold/PE_Lox_Lovers_Gold",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.101042,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "590000"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.352,
+            "G": 0.100276,
+            "B": 0.000758,
+            "A": 1.0,
+            "Hex": "A05902"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.737,
+            "G": 0.319366,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "DF9900"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 1.0,
+            "G": 0.533333,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FFC100"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.991102,
+            "G": 0.769121,
+            "B": 0.205158,
+            "A": 1.0,
+            "Hex": "FEE47D"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

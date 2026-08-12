@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Luchador_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Luchador/PS_Pla_Luchador_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Luchador_Red_C'Default__PS_Pla_Luchador_Red_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Luchador/PS_Pla_Luchador_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Luchador_Red_C",
+    "Name": "Default__PS_Pla_Luchador_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Luchador/PS_Pla_Luchador_Red.PS_Pla_Luchador_Red_C'",
+    "Package": "Rivals2/Content/Platforms/Luchador/PS_Pla_Luchador_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.574,
+            "G": 0.030996,
+            "B": 0.030996,
+            "A": 1.0,
+            "Hex": "C83131"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.708333,
+            "G": 0.573062,
+            "B": 0.523872,
+            "A": 1.0,
+            "Hex": "DBC8C0"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.034662,
+            "G": 0.561099,
+            "B": 0.654,
+            "A": 1.0,
+            "Hex": "34C6D4"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.25,
+            "G": 0.25,
+            "B": 0.25,
+            "A": 1.0,
+            "Hex": "898989"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.807,
+            "G": 0.076665,
+            "B": 0.247077,
+            "A": 1.0,
+            "Hex": "E84E88"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.036458,
+            "G": 0.032116,
+            "B": 0.032091,
+            "A": 1.0,
+            "Hex": "353232"
+          }
+        },
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.760417,
+            "G": 0.427735,
+            "B": 0.047526,
+            "A": 1.0,
+            "Hex": "E2AF3D"
+          }
+        }
+      ]
+    }
+  }
+]

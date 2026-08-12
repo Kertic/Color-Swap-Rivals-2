@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Default_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Default/PS_Pla_Default_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Default_Green_C'Default__PS_Pla_Default_Green_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Default/PS_Pla_Default_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Default_Green_C",
+    "Name": "Default__PS_Pla_Default_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Default/PS_Pla_Default_Green.PS_Pla_Default_Green_C'",
+    "Package": "Rivals2/Content/Platforms/Default/PS_Pla_Default_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.114421,
+            "G": 0.197917,
+            "B": 0.145036,
+            "A": 1.0,
+            "Hex": "5F7B6A"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.0,
+            "G": 0.734375,
+            "B": 0.134636,
+            "A": 1.0,
+            "Hex": "00DF67"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.119792,
+            "G": 0.058824,
+            "B": 0.030572,
+            "A": 1.0,
+            "Hex": "614431"
+          }
+        }
+      ]
+    }
+  }
+]

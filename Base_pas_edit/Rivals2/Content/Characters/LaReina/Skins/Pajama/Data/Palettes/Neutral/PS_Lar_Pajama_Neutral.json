@@ -1,0 +1,378 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Lar_Pajama_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Pajama/Data/Palettes/Neutral/PS_Lar_Pajama_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Lar_Pajama_Neutral_C'Default__PS_Lar_Pajama_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/LaReina/Skins/Pajama/Data/Palettes/Neutral/PS_Lar_Pajama_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Lar_Pajama_Neutral_C",
+    "Name": "Default__PS_Lar_Pajama_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/LaReina/Skins/Pajama/Data/Palettes/Neutral/PS_Lar_Pajama_Neutral.PS_Lar_Pajama_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Pajama/Data/Palettes/Neutral/PS_Lar_Pajama_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "NailsAccent",
+          "Value": {
+            "R": 0.198069,
+            "G": 0.708376,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "7BDBFF"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.181164,
+            "G": 0.029557,
+            "B": 0.05448,
+            "A": 1.0,
+            "Hex": "763042"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.072272,
+            "G": 0.01096,
+            "B": 0.015996,
+            "A": 1.0,
+            "Hex": "4C1B22"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.107023,
+            "G": 0.423268,
+            "B": 0.863157,
+            "A": 1.0,
+            "Hex": "5CAEEF"
+          }
+        },
+        {
+          "Key": "SlipperNails",
+          "Value": {
+            "R": 0.008568,
+            "G": 0.002588,
+            "B": 0.002588,
+            "A": 1.0,
+            "Hex": "170808"
+          }
+        },
+        {
+          "Key": "Clothing",
+          "Value": {
+            "R": 0.624,
+            "G": 0.122772,
+            "B": 0.03432,
+            "A": 1.0,
+            "Hex": "CF6234"
+          }
+        },
+        {
+          "Key": "ClothingTrim",
+          "Value": {
+            "R": 0.502886,
+            "G": 0.502886,
+            "B": 0.502886,
+            "A": 1.0,
+            "Hex": "BCBCBC"
+          }
+        },
+        {
+          "Key": "ClothingAccent",
+          "Value": {
+            "R": 0.090842,
+            "G": 0.036382,
+            "B": 0.025254,
+            "A": 1.0,
+            "Hex": "55352C"
+          }
+        },
+        {
+          "Key": "ClothingBelly",
+          "Value": {
+            "R": 0.947307,
+            "G": 0.5396,
+            "B": 0.237774,
+            "A": 1.0,
+            "Hex": "F9C286"
+          }
+        },
+        {
+          "Key": "ClothingStitching",
+          "Value": {
+            "R": 0.078187,
+            "G": 0.051269,
+            "B": 0.036889,
+            "A": 1.0,
+            "Hex": "4F4036"
+          }
+        },
+        {
+          "Key": "Zipper",
+          "Value": {
+            "R": 0.658375,
+            "G": 0.194618,
+            "B": 0.250158,
+            "A": 1.0,
+            "Hex": "D47A89"
+          }
+        },
+        {
+          "Key": "Button",
+          "Value": {
+            "R": 0.0185,
+            "G": 0.016807,
+            "B": 0.016807,
+            "A": 1.0,
+            "Hex": "252323"
+          }
+        },
+        {
+          "Key": "ButtonString",
+          "Value": {
+            "R": 0.6875,
+            "G": 0.619083,
+            "B": 0.483398,
+            "A": 1.0,
+            "Hex": "D8CFB9"
+          }
+        },
+        {
+          "Key": "Slipper",
+          "Value": {
+            "R": 0.061246,
+            "G": 0.021219,
+            "B": 0.015996,
+            "A": 1.0,
+            "Hex": "462822"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 0.672443,
+            "B": 0.040915,
+            "A": 1.0,
+            "Hex": "FFD639"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 0.694444,
+            "G": 0.332815,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "D99C00"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "LeftPupil",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "RightPupil",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Eyeliner",
+          "Value": {
+            "R": 0.009134,
+            "G": 0.009134,
+            "B": 0.009134,
+            "A": 1.0,
+            "Hex": "181818"
+          }
+        },
+        {
+          "Key": "InnerMouth",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Teeth",
+          "Value": {
+            "R": 0.102242,
+            "G": 0.491021,
+            "B": 0.930111,
+            "A": 1.0,
+            "Hex": "5ABAF7"
+          }
+        },
+        {
+          "Key": "Tongue",
+          "Value": {
+            "R": 0.304987,
+            "G": 0.066626,
+            "B": 0.165132,
+            "A": 1.0,
+            "Hex": "964971"
+          }
+        },
+        {
+          "Key": "PaddingAccents",
+          "Value": {
+            "R": 0.187821,
+            "G": 0.158961,
+            "B": 0.158961,
+            "A": 1.0,
+            "Hex": "786F6F"
+          }
+        },
+        {
+          "Key": "Padding",
+          "Value": {
+            "R": 0.051269,
+            "G": 0.03917,
+            "B": 0.027504,
+            "A": 1.0,
+            "Hex": "40372E"
+          }
+        },
+        {
+          "Key": "ChairSeat",
+          "Value": {
+            "R": 0.624,
+            "G": 0.122772,
+            "B": 0.03432,
+            "A": 1.0,
+            "Hex": "CF6234"
+          }
+        },
+        {
+          "Key": "ChairTrim",
+          "Value": {
+            "R": 0.776042,
+            "G": 0.35886,
+            "B": 0.105089,
+            "A": 1.0,
+            "Hex": "E4A25B"
+          }
+        },
+        {
+          "Key": "MaskAccent",
+          "Value": {
+            "R": 1.0,
+            "G": 0.141263,
+            "B": 0.361307,
+            "A": 1.0,
+            "Hex": "FF69A2"
+          }
+        },
+        {
+          "Key": "TrimAccent",
+          "Value": {
+            "R": 0.768151,
+            "G": 0.491021,
+            "B": 0.208637,
+            "A": 1.0,
+            "Hex": "E3BA7E"
+          }
+        },
+        {
+          "Key": "Stand",
+          "Value": {
+            "R": 0.056,
+            "G": 0.03306,
+            "B": 0.020708,
+            "A": 1.0,
+            "Hex": "433327"
+          }
+        },
+        {
+          "Key": "Tarp",
+          "Value": {
+            "R": 0.531,
+            "G": 0.504981,
+            "B": 0.475245,
+            "A": 1.0,
+            "Hex": "C1BDB8"
+          }
+        },
+        {
+          "Key": "Ropes",
+          "Value": {
+            "R": 0.042405,
+            "G": 0.167707,
+            "B": 0.342,
+            "A": 1.0,
+            "Hex": "3A729E"
+          }
+        },
+        {
+          "Key": "Pole",
+          "Value": {
+            "R": 0.132868,
+            "G": 0.104616,
+            "B": 0.104616,
+            "A": 1.0,
+            "Hex": "665B5B"
+          }
+        }
+      ]
+    }
+  }
+]

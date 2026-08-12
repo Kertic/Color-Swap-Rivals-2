@@ -1,0 +1,168 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Primal_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Primal/PS_Pla_Primal_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Primal_Neutral_C'Default__PS_Pla_Primal_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Primal/PS_Pla_Primal_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Primal_Neutral_C",
+    "Name": "Default__PS_Pla_Primal_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Primal/PS_Pla_Primal_Neutral.PS_Pla_Primal_Neutral_C'",
+    "Package": "Rivals2/Content/Platforms/Primal/PS_Pla_Primal_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor7",
+          "Value": {
+            "R": 0.144128,
+            "G": 0.043735,
+            "B": 0.015996,
+            "A": 1.0,
+            "Hex": "6A3B22"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.309469,
+            "G": 0.08022,
+            "B": 0.088656,
+            "A": 1.0,
+            "Hex": "975054"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.066626,
+            "G": 0.046665,
+            "B": 0.059511,
+            "A": 1.0,
+            "Hex": "493D45"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.06301,
+            "G": 0.023153,
+            "B": 0.01096,
+            "A": 1.0,
+            "Hex": "472A1B"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.144128,
+            "G": 0.043735,
+            "B": 0.015996,
+            "A": 1.0,
+            "Hex": "6A3B22"
+          }
+        },
+        {
+          "Key": "CustomColor6",
+          "Value": {
+            "R": 0.183,
+            "G": 0.018467,
+            "B": 0.006714,
+            "A": 1.0,
+            "Hex": "772513"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.051269,
+            "G": 0.022174,
+            "B": 0.015996,
+            "A": 1.0,
+            "Hex": "402922"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.287441,
+            "G": 0.193762,
+            "B": 0.160105,
+            "A": 1.0,
+            "Hex": "927A6F"
+          }
+        },
+        {
+          "Key": "ElementColor2",
+          "Value": {
+            "R": 0.141263,
+            "G": 0.000911,
+            "B": 0.000304,
+            "A": 1.0,
+            "Hex": "690301"
+          }
+        },
+        {
+          "Key": "ElementColor3",
+          "Value": {
+            "R": 1.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FF0000"
+          }
+        },
+        {
+          "Key": "ElementColor4",
+          "Value": {
+            "R": 1.0,
+            "G": 0.309469,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FF9700"
+          }
+        },
+        {
+          "Key": "ElementColor5",
+          "Value": {
+            "R": 0.991102,
+            "G": 0.715694,
+            "B": 0.015996,
+            "A": 1.0,
+            "Hex": "FEDC22"
+          }
+        },
+        {
+          "Key": "ElementColor6",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

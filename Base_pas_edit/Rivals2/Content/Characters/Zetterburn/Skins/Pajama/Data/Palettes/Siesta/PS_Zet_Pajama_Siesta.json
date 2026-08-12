@@ -1,0 +1,218 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Zet_Pajama_Siesta_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Zetterburn/Skins/Pajama/Data/Palettes/Siesta/PS_Zet_Pajama_Siesta",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Zet_Pajama_Siesta_C'Default__PS_Zet_Pajama_Siesta_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Zetterburn/Skins/Pajama/Data/Palettes/Siesta/PS_Zet_Pajama_Siesta.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Zet_Pajama_Siesta_C",
+    "Name": "Default__PS_Zet_Pajama_Siesta_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Zetterburn/Skins/Pajama/Data/Palettes/Siesta/PS_Zet_Pajama_Siesta.PS_Zet_Pajama_Siesta_C'",
+    "Package": "Rivals2/Content/Characters/Zetterburn/Skins/Pajama/Data/Palettes/Siesta/PS_Zet_Pajama_Siesta",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.703,
+            "G": 0.512807,
+            "B": 0.101935,
+            "A": 1.0,
+            "Hex": "DBBE5A"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.703,
+            "G": 0.512807,
+            "B": 0.101935,
+            "A": 1.0,
+            "Hex": "DBBE5A"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 1.0,
+            "G": 0.800335,
+            "B": 0.369,
+            "A": 1.0,
+            "Hex": "FFE8A4"
+          }
+        },
+        {
+          "Key": "Paws",
+          "Value": {
+            "R": 0.024805,
+            "G": 0.070374,
+            "B": 0.205,
+            "A": 1.0,
+            "Hex": "2B4B7D"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.760525,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "E1E2E1"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.760525,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "E1E2E1"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.106238,
+            "G": 0.301407,
+            "B": 0.878,
+            "A": 1.0,
+            "Hex": "5C95F1"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.617,
+            "G": 0.220886,
+            "B": 0.58399,
+            "A": 1.0,
+            "Hex": "CE81C9"
+          }
+        },
+        {
+          "Key": "Hair2",
+          "Value": {
+            "R": 0.893,
+            "G": 0.360772,
+            "B": 0.848647,
+            "A": 1.0,
+            "Hex": "F3A2EE"
+          }
+        },
+        {
+          "Key": "Clothing",
+          "Value": {
+            "R": 0.129285,
+            "G": 0.765,
+            "B": 0.161071,
+            "A": 1.0,
+            "Hex": "65E370"
+          }
+        },
+        {
+          "Key": "CBelly",
+          "Value": {
+            "R": 0.106238,
+            "G": 0.301407,
+            "B": 0.878,
+            "A": 1.0,
+            "Hex": "5C95F1"
+          }
+        },
+        {
+          "Key": "CPattern",
+          "Value": {
+            "R": 0.846873,
+            "G": 0.104616,
+            "B": 0.099899,
+            "A": 1.0,
+            "Hex": "ED5B59"
+          }
+        },
+        {
+          "Key": "Head",
+          "Value": {
+            "R": 0.128188,
+            "G": 0.317806,
+            "B": 0.878,
+            "A": 1.0,
+            "Hex": "6499F1"
+          }
+        },
+        {
+          "Key": "Pads",
+          "Value": {
+            "R": 0.703,
+            "G": 0.512807,
+            "B": 0.101935,
+            "A": 1.0,
+            "Hex": "DBBE5A"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.991102,
+            "G": 0.991102,
+            "B": 0.991102,
+            "A": 1.0,
+            "Hex": "FEFEFE"
+          }
+        },
+        {
+          "Key": "Quills",
+          "Value": {
+            "R": 0.846873,
+            "G": 0.104616,
+            "B": 0.099899,
+            "A": 1.0,
+            "Hex": "ED5B59"
+          }
+        },
+        {
+          "Key": "QPattern",
+          "Value": {
+            "R": 0.991102,
+            "G": 0.991102,
+            "B": 0.991102,
+            "A": 1.0,
+            "Hex": "FEFEFE"
+          }
+        },
+        {
+          "Key": "HEyes",
+          "Value": {
+            "R": 0.009796,
+            "G": 0.022998,
+            "B": 0.062,
+            "A": 1.0,
+            "Hex": "192A46"
+          }
+        }
+      ]
+    }
+  }
+]

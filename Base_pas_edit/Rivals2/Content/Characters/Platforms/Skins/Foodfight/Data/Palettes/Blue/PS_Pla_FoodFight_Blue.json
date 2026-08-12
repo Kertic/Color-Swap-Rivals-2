@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_FoodFight_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Foodfight/PS_Pla_FoodFight_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_FoodFight_Blue_C'Default__PS_Pla_FoodFight_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Foodfight/PS_Pla_FoodFight_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_FoodFight_Blue_C",
+    "Name": "Default__PS_Pla_FoodFight_Blue_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Foodfight/PS_Pla_FoodFight_Blue.PS_Pla_FoodFight_Blue_C'",
+    "Package": "Rivals2/Content/Platforms/Foodfight/PS_Pla_FoodFight_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.013525,
+            "G": 0.020328,
+            "B": 0.025187,
+            "A": 1.0,
+            "Hex": "1E272C"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.161459,
+            "G": 0.159202,
+            "B": 0.161459,
+            "A": 1.0,
+            "Hex": "706F70"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.01908,
+            "G": 0.13272,
+            "B": 0.36,
+            "A": 1.0,
+            "Hex": "2566A2"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.01908,
+            "G": 0.13272,
+            "B": 0.36,
+            "A": 1.0,
+            "Hex": "2566A2"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.723055,
+            "G": 0.092262,
+            "B": 0.022174,
+            "A": 1.0,
+            "Hex": "DD5529"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.47932,
+            "G": 0.278546,
+            "B": 0.015996,
+            "A": 1.0,
+            "Hex": "B89022"
+          }
+        }
+      ]
+    }
+  }
+]

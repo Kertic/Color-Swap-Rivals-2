@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Lar_Lucha_Orange_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Lucha/Data/Palettes/Orange/PE_Lar_Lucha_Orange",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Lar_Lucha_Orange_C'Default__PE_Lar_Lucha_Orange_C'",
+      "ObjectPath": "Rivals2/Content/Characters/LaReina/Skins/Lucha/Data/Palettes/Orange/PE_Lar_Lucha_Orange.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Lar_Lucha_Orange_C",
+    "Name": "Default__PE_Lar_Lucha_Orange_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/LaReina/Skins/Lucha/Data/Palettes/Orange/PE_Lar_Lucha_Orange.PE_Lar_Lucha_Orange_C'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Lucha/Data/Palettes/Orange/PE_Lar_Lucha_Orange",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.073,
+            "G": 0.014542,
+            "B": 0.010366,
+            "A": 1.0,
+            "Hex": "4C201A"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.007656,
+            "G": 0.04398,
+            "B": 0.319,
+            "A": 1.0,
+            "Hex": "153B99"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.739,
+            "G": 0.057543,
+            "B": 0.008868,
+            "A": 1.0,
+            "Hex": "E04417"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 1.0,
+            "G": 0.56725,
+            "B": 0.423,
+            "A": 1.0,
+            "Hex": "FFC7AE"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 1.0,
+            "G": 0.150233,
+            "B": 0.038,
+            "A": 1.0,
+            "Hex": "FF6C37"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 0.34,
+            "B": 0.12,
+            "A": 1.0,
+            "Hex": "FF9E61"
+          }
+        }
+      ]
+    }
+  }
+]

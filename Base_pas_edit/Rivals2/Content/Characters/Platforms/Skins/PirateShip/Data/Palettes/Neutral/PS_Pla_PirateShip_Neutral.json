@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_PirateShip_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/PirateShip/PS_Pla_PirateShip_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_PirateShip_Neutral_C'Default__PS_Pla_PirateShip_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/PirateShip/PS_Pla_PirateShip_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_PirateShip_Neutral_C",
+    "Name": "Default__PS_Pla_PirateShip_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/PirateShip/PS_Pla_PirateShip_Neutral.PS_Pla_PirateShip_Neutral_C'",
+    "Package": "Rivals2/Content/Platforms/PirateShip/PS_Pla_PirateShip_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.661458,
+            "G": 0.617881,
+            "B": 0.612538,
+            "A": 1.0,
+            "Hex": "D5CECE"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.198,
+            "G": 0.091586,
+            "B": 0.045541,
+            "A": 1.0,
+            "Hex": "7B553C"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.194618,
+            "G": 0.045186,
+            "B": 0.017642,
+            "A": 1.0,
+            "Hex": "7A3C24"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.025,
+            "G": 0.02171,
+            "B": 0.02171,
+            "A": 1.0,
+            "Hex": "2B2828"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.201556,
+            "G": 0.147027,
+            "B": 0.0865,
+            "A": 1.0,
+            "Hex": "7C6B53"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.088,
+            "G": 0.088,
+            "B": 0.088,
+            "A": 1.0,
+            "Hex": "545454"
+          }
+        }
+      ]
+    }
+  }
+]

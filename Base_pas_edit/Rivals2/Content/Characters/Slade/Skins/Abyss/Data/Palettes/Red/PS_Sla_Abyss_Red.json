@@ -1,0 +1,248 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Sla_Abyss_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Red/PS_Sla_Abyss_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Sla_Abyss_Red_C'Default__PS_Sla_Abyss_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Red/PS_Sla_Abyss_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Sla_Abyss_Red_C",
+    "Name": "Default__PS_Sla_Abyss_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Red/PS_Sla_Abyss_Red.PS_Sla_Abyss_Red_C'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Red/PS_Sla_Abyss_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.584078,
+            "G": 0.300544,
+            "B": 0.376153,
+            "A": 1.0,
+            "Hex": "C995A5"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.381326,
+            "G": 0.097587,
+            "B": 0.140148,
+            "A": 1.0,
+            "Hex": "A65869"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.223228,
+            "G": 0.033105,
+            "B": 0.090142,
+            "A": 1.0,
+            "Hex": "823355"
+          }
+        },
+        {
+          "Key": "Fins",
+          "Value": {
+            "R": 0.652,
+            "G": 0.11141,
+            "B": 0.072796,
+            "A": 1.0,
+            "Hex": "D35E4C"
+          }
+        },
+        {
+          "Key": "Teeth",
+          "Value": {
+            "R": 0.744792,
+            "G": 0.726989,
+            "B": 0.605143,
+            "A": 1.0,
+            "Hex": "E0DECC"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.030713,
+            "G": 0.022571,
+            "B": 0.0185,
+            "A": 1.0,
+            "Hex": "312925"
+          }
+        },
+        {
+          "Key": "InnerBelly",
+          "Value": {
+            "R": 0.453125,
+            "G": 0.04248,
+            "B": 0.04248,
+            "A": 1.0,
+            "Hex": "B43A3A"
+          }
+        },
+        {
+          "Key": "Coat",
+          "Value": {
+            "R": 0.194618,
+            "G": 0.017642,
+            "B": 0.044188,
+            "A": 1.0,
+            "Hex": "7A243B"
+          }
+        },
+        {
+          "Key": "CoatAccent",
+          "Value": {
+            "R": 0.652,
+            "G": 0.11141,
+            "B": 0.072796,
+            "A": 1.0,
+            "Hex": "D35E4C"
+          }
+        },
+        {
+          "Key": "Boots",
+          "Value": {
+            "R": 0.084376,
+            "G": 0.002732,
+            "B": 0.016339,
+            "A": 1.0,
+            "Hex": "520922"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.0185,
+            "G": 0.015209,
+            "B": 0.013702,
+            "A": 1.0,
+            "Hex": "25211F"
+          }
+        },
+        {
+          "Key": "Tail1Top",
+          "Value": {
+            "R": 0.181164,
+            "G": 0.016807,
+            "B": 0.066114,
+            "A": 1.0,
+            "Hex": "762349"
+          }
+        },
+        {
+          "Key": "Tail1Bottom",
+          "Value": {
+            "R": 0.270498,
+            "G": 0.071021,
+            "B": 0.026241,
+            "A": 1.0,
+            "Hex": "8E4B2D"
+          }
+        },
+        {
+          "Key": "Tail2Bottom",
+          "Value": {
+            "R": 0.351533,
+            "G": 0.08022,
+            "B": 0.179701,
+            "A": 1.0,
+            "Hex": "A05076"
+          }
+        },
+        {
+          "Key": "Sword",
+          "Value": {
+            "R": 0.223228,
+            "G": 0.020928,
+            "B": 0.054644,
+            "A": 1.0,
+            "Hex": "822742"
+          }
+        },
+        {
+          "Key": "SwordAccent",
+          "Value": {
+            "R": 0.652,
+            "G": 0.11141,
+            "B": 0.072796,
+            "A": 1.0,
+            "Hex": "D35E4C"
+          }
+        },
+        {
+          "Key": "Hilt",
+          "Value": {
+            "R": 0.028426,
+            "G": 0.025187,
+            "B": 0.023153,
+            "A": 1.0,
+            "Hex": "2F2C2A"
+          }
+        },
+        {
+          "Key": "TreasureChestTeeth",
+          "Value": {
+            "R": 0.208333,
+            "G": 0.20081,
+            "B": 0.173611,
+            "A": 1.0,
+            "Hex": "7E7C74"
+          }
+        },
+        {
+          "Key": "TreasureChestBelly",
+          "Value": {
+            "R": 0.348958,
+            "G": 0.335055,
+            "B": 0.299885,
+            "A": 1.0,
+            "Hex": "A09D95"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 0.205079,
+            "B": 0.038204,
+            "A": 1.0,
+            "Hex": "FF7D37"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.732,
+            "G": 0.072407,
+            "B": 0.012444,
+            "A": 1.0,
+            "Hex": "DF4C1D"
+          }
+        }
+      ]
+    }
+  }
+]

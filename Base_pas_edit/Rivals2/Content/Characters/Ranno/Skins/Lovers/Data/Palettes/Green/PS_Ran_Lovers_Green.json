@@ -1,0 +1,88 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Ran_Lovers_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Ranno/Skins/Lovers/Data/Palettes/Green/PS_Ran_Lovers_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Ran_Lovers_Green_C'Default__PS_Ran_Lovers_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Ranno/Skins/Lovers/Data/Palettes/Green/PS_Ran_Lovers_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Ran_Lovers_Green_C",
+    "Name": "Default__PS_Ran_Lovers_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Ranno/Skins/Lovers/Data/Palettes/Green/PS_Ran_Lovers_Green.PS_Ran_Lovers_Green_C'",
+    "Package": "Rivals2/Content/Characters/Ranno/Skins/Lovers/Data/Palettes/Green/PS_Ran_Lovers_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.314251,
+            "G": 0.048326,
+            "B": 0.662,
+            "A": 1.0,
+            "Hex": "983ED5"
+          }
+        },
+        {
+          "Key": "Shirt",
+          "Value": {
+            "R": 0.407986,
+            "G": 0.394581,
+            "B": 0.38579,
+            "A": 1.0,
+            "Hex": "ABA9A7"
+          }
+        },
+        {
+          "Key": "Shoes",
+          "Value": {
+            "R": 0.33507,
+            "G": 0.321932,
+            "B": 0.315479,
+            "A": 1.0,
+            "Hex": "9D9A98"
+          }
+        },
+        {
+          "Key": "Shoes2",
+          "Value": {
+            "R": 0.003524,
+            "G": 0.133,
+            "B": 0.00133,
+            "A": 1.0,
+            "Hex": "0B6604"
+          }
+        },
+        {
+          "Key": "Bag",
+          "Value": {
+            "R": 1.0,
+            "G": 0.231107,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FF8400"
+          }
+        }
+      ]
+    }
+  }
+]

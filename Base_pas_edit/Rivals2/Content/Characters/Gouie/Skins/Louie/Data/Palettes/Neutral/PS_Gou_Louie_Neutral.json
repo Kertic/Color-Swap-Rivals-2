@@ -1,0 +1,188 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gou_Louie_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Louie/Data/Palettes/Neutral/PS_Gou_Louie_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gou_Louie_Neutral_C'Default__PS_Gou_Louie_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Louie/Data/Palettes/Neutral/PS_Gou_Louie_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gou_Louie_Neutral_C",
+    "Name": "Default__PS_Gou_Louie_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Louie/Data/Palettes/Neutral/PS_Gou_Louie_Neutral.PS_Gou_Louie_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Louie/Data/Palettes/Neutral/PS_Gou_Louie_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.854167,
+            "G": 0.854167,
+            "B": 0.854167,
+            "A": 1.0,
+            "Hex": "EEEEEE"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 0.072917,
+            "G": 0.045222,
+            "B": 0.007567,
+            "A": 1.0,
+            "Hex": "4C3C15"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 0.072917,
+            "G": 0.045222,
+            "B": 0.007567,
+            "A": 1.0,
+            "Hex": "4C3C15"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.090842,
+            "G": 0.06301,
+            "B": 0.035601,
+            "A": 1.0,
+            "Hex": "554735"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.158961,
+            "B": 0.097587,
+            "A": 1.0,
+            "Hex": "9D6F58"
+          }
+        },
+        {
+          "Key": "Bill",
+          "Value": {
+            "R": 0.138432,
+            "G": 0.097587,
+            "B": 0.066626,
+            "A": 1.0,
+            "Hex": "685849"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.090842,
+            "G": 0.06301,
+            "B": 0.035601,
+            "A": 1.0,
+            "Hex": "554735"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.036889,
+            "G": 0.029557,
+            "B": 0.026241,
+            "A": 1.0,
+            "Hex": "36302D"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.775822,
+            "G": 0.745404,
+            "B": 0.597202,
+            "A": 1.0,
+            "Hex": "E4E0CB"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.147027,
+            "G": 0.088656,
+            "B": 0.051269,
+            "A": 1.0,
+            "Hex": "6B5440"
+          }
+        },
+        {
+          "Key": "Shirt",
+          "Value": {
+            "R": 0.930111,
+            "G": 0.973445,
+            "B": 0.964686,
+            "A": 1.0,
+            "Hex": "F7FCFB"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.205079,
+            "G": 0.617207,
+            "B": 0.564712,
+            "A": 1.0,
+            "Hex": "7DCEC6"
+          }
+        },
+        {
+          "Key": "Goo",
+          "Value": {
+            "R": 0.205079,
+            "G": 0.617207,
+            "B": 0.564712,
+            "A": 1.0,
+            "Hex": "7DCEC6"
+          }
+        },
+        {
+          "Key": "GooHighlight",
+          "Value": {
+            "R": 0.022174,
+            "G": 0.770848,
+            "B": 0.783538,
+            "A": 1.0,
+            "Hex": "29E4E5"
+          }
+        },
+        {
+          "Key": "GooGlow",
+          "Value": {
+            "R": 0.0,
+            "G": 1.0,
+            "B": 0.333333,
+            "A": 1.0,
+            "Hex": "00FF9C"
+          }
+        }
+      ]
+    }
+  }
+]

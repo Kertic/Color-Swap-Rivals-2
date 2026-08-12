@@ -1,0 +1,168 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gal_Default_Abyssal_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Galvan/Skins/Default/Data/Palettes/Abyssal/PS_Gal_Default_Abyssal",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gal_Default_Abyssal_C'Default__PS_Gal_Default_Abyssal_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Galvan/Skins/Default/Data/Palettes/Abyssal/PS_Gal_Default_Abyssal.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gal_Default_Abyssal_C",
+    "Name": "Default__PS_Gal_Default_Abyssal_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Galvan/Skins/Default/Data/Palettes/Abyssal/PS_Gal_Default_Abyssal.PS_Gal_Default_Abyssal_C'",
+    "Package": "Rivals2/Content/Characters/Galvan/Skins/Default/Data/Palettes/Abyssal/PS_Gal_Default_Abyssal",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.022129,
+            "G": 0.0103,
+            "B": 0.05,
+            "A": 1.0,
+            "Hex": "291A3F"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.127464,
+            "G": 0.127464,
+            "B": 0.331,
+            "A": 1.0,
+            "Hex": "64649C"
+          }
+        },
+        {
+          "Key": "Toebeans",
+          "Value": {
+            "R": 0.127464,
+            "G": 0.127464,
+            "B": 0.331,
+            "A": 1.0,
+            "Hex": "64649C"
+          }
+        },
+        {
+          "Key": "Toenails",
+          "Value": {
+            "R": 0.654,
+            "G": 0.01308,
+            "B": 0.404046,
+            "A": 1.0,
+            "Hex": "D41EAB"
+          }
+        },
+        {
+          "Key": "Horn",
+          "Value": {
+            "R": 0.654,
+            "G": 0.01308,
+            "B": 0.404046,
+            "A": 1.0,
+            "Hex": "D41EAB"
+          }
+        },
+        {
+          "Key": "Face",
+          "Value": {
+            "R": 0.023153,
+            "G": 0.012286,
+            "B": 0.012286,
+            "A": 1.0,
+            "Hex": "2A1D1D"
+          }
+        },
+        {
+          "Key": "Gems",
+          "Value": {
+            "R": 0.831,
+            "G": 0.376235,
+            "B": 0.004155,
+            "A": 1.0,
+            "Hex": "EBA50D"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.086,
+            "G": 0.006622,
+            "B": 0.063509,
+            "A": 1.0,
+            "Hex": "531347"
+          }
+        },
+        {
+          "Key": "Reinforced",
+          "Value": {
+            "R": 0.654,
+            "G": 0.01308,
+            "B": 0.404046,
+            "A": 1.0,
+            "Hex": "D41EAB"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.831,
+            "G": 0.376235,
+            "B": 0.004155,
+            "A": 1.0,
+            "Hex": "EBA50D"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.644,
+            "G": 0.042933,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "D23A00"
+          }
+        },
+        {
+          "Key": "GemGlow",
+          "Value": {
+            "R": 0.831,
+            "G": 0.376235,
+            "B": 0.004155,
+            "A": 1.0,
+            "Hex": "EBA50D"
+          }
+        },
+        {
+          "Key": "Rocks",
+          "Value": {
+            "R": 0.040915,
+            "G": 0.015996,
+            "B": 0.068478,
+            "A": 1.0,
+            "Hex": "39224A"
+          }
+        }
+      ]
+    }
+  }
+]

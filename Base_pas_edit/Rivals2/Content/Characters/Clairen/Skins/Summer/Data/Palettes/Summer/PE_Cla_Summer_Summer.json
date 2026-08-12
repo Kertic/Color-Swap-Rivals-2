@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Cla_Summer_Summer_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Summer/Data/Palettes/Summer/PE_Cla_Summer_Summer",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Cla_Summer_Summer_C'Default__PE_Cla_Summer_Summer_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Clairen/Skins/Summer/Data/Palettes/Summer/PE_Cla_Summer_Summer.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Cla_Summer_Summer_C",
+    "Name": "Default__PE_Cla_Summer_Summer_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Clairen/Skins/Summer/Data/Palettes/Summer/PE_Cla_Summer_Summer.PE_Cla_Summer_Summer_C'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Summer/Data/Palettes/Summer/PE_Cla_Summer_Summer",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.022446,
+            "G": 0.774,
+            "B": 0.598637,
+            "A": 1.0,
+            "Hex": "29E4CC"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.061246,
+            "G": 0.450786,
+            "B": 0.359893,
+            "A": 1.0,
+            "Hex": "46B3A2"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.942164,
+            "G": 0.955973,
+            "B": 0.127438,
+            "A": 1.0,
+            "Hex": "F9FA64"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.942164,
+            "G": 0.955973,
+            "B": 0.127438,
+            "A": 1.0,
+            "Hex": "F9FA64"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

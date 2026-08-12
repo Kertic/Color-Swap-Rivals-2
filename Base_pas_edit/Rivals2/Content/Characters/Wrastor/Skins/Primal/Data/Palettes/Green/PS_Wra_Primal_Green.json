@@ -1,0 +1,158 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Wra_Primal_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Primal/Data/Palettes/Green/PS_Wra_Primal_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Wra_Primal_Green_C'Default__PS_Wra_Primal_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Wrastor/Skins/Primal/Data/Palettes/Green/PS_Wra_Primal_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Wra_Primal_Green_C",
+    "Name": "Default__PS_Wra_Primal_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Wrastor/Skins/Primal/Data/Palettes/Green/PS_Wra_Primal_Green.PS_Wra_Primal_Green_C'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Primal/Data/Palettes/Green/PS_Wra_Primal_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.207059,
+            "G": 0.48515,
+            "B": 0.078187,
+            "A": 1.0,
+            "Hex": "7EB94F"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.0185,
+            "G": 0.246201,
+            "B": 0.11717,
+            "A": 1.0,
+            "Hex": "258860"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.679542,
+            "G": 0.508881,
+            "B": 0.456411,
+            "A": 1.0,
+            "Hex": "D7BDB4"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.044345,
+            "G": 0.038204,
+            "B": 0.090842,
+            "A": 1.0,
+            "Hex": "3B3755"
+          }
+        },
+        {
+          "Key": "Wings",
+          "Value": {
+            "R": 0.57758,
+            "G": 0.157662,
+            "B": 0.093059,
+            "A": 1.0,
+            "Hex": "C86F56"
+          }
+        },
+        {
+          "Key": "Scarf",
+          "Value": {
+            "R": 0.093059,
+            "G": 0.03363,
+            "B": 0.020289,
+            "A": 1.0,
+            "Hex": "563327"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.114435,
+            "G": 0.049736,
+            "B": 0.024158,
+            "A": 1.0,
+            "Hex": "5F3F2B"
+          }
+        },
+        {
+          "Key": "Bone",
+          "Value": {
+            "R": 0.603827,
+            "G": 0.508881,
+            "B": 0.456411,
+            "A": 1.0,
+            "Hex": "CCBDB4"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.053673,
+            "G": 0.016807,
+            "B": 0.122139,
+            "A": 1.0,
+            "Hex": "412362"
+          }
+        },
+        {
+          "Key": "Leaves",
+          "Value": {
+            "R": 0.154948,
+            "G": 0.036458,
+            "B": 0.21875,
+            "A": 1.0,
+            "Hex": "6E3581"
+          }
+        },
+        {
+          "Key": "Stitches",
+          "Value": {
+            "R": 0.013702,
+            "G": 0.005182,
+            "B": 0.005182,
+            "A": 1.0,
+            "Hex": "1F1010"
+          }
+        },
+        {
+          "Key": "Eyes",
+          "Value": {
+            "R": 1.0,
+            "G": 0.0,
+            "B": 0.85,
+            "A": 1.0,
+            "Hex": "FF00EE"
+          }
+        }
+      ]
+    }
+  }
+]

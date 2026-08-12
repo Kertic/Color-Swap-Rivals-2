@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Fossils_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Fossils/PS_Pla_Fossils_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Fossils_Green_C'Default__PS_Pla_Fossils_Green_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Fossils/PS_Pla_Fossils_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Fossils_Green_C",
+    "Name": "Default__PS_Pla_Fossils_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Fossils/PS_Pla_Fossils_Green.PS_Pla_Fossils_Green_C'",
+    "Package": "Rivals2/Content/Platforms/Fossils/PS_Pla_Fossils_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.040061,
+            "G": 0.0625,
+            "B": 0.033855,
+            "A": 1.0,
+            "Hex": "384633"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.447917,
+            "G": 0.433399,
+            "B": 0.373684,
+            "A": 1.0,
+            "Hex": "B3B0A5"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.076985,
+            "G": 0.10769,
+            "B": 0.114583,
+            "A": 1.0,
+            "Hex": "4E5C5F"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.28125,
+            "G": 0.28125,
+            "B": 0.087891,
+            "A": 1.0,
+            "Hex": "919153"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.030128,
+            "G": 0.135417,
+            "B": 0.016222,
+            "A": 1.0,
+            "Hex": "306722"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.010457,
+            "G": 0.047,
+            "B": 0.00563,
+            "A": 1.0,
+            "Hex": "1A3D11"
+          }
+        }
+      ]
+    }
+  }
+]

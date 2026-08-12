@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_LoxodontDefault_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/LoxodontDefault/PS_Pla_LoxodontDefault_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_LoxodontDefault_Blue_C'Default__PS_Pla_LoxodontDefault_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/LoxodontDefault/PS_Pla_LoxodontDefault_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_LoxodontDefault_Blue_C",
+    "Name": "Default__PS_Pla_LoxodontDefault_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/LoxodontDefault/PS_Pla_LoxodontDefault_Blue.PS_Pla_LoxodontDefault_Blue_C'",
+    "Package": "Rivals2/Content/Platforms/LoxodontDefault/PS_Pla_LoxodontDefault_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.147027,
+            "G": 0.116971,
+            "B": 0.116971,
+            "A": 1.0,
+            "Hex": "6B6060"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.327778,
+            "B": 0.057805,
+            "A": 1.0,
+            "Hex": "E19B44"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.0,
+            "G": 0.138432,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "0068E1"
+          }
+        }
+      ]
+    }
+  }
+]

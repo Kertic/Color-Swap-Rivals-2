@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Abs_Summer_Purple_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Summer/Data/Palettes/Purple/PE_Abs_Summer_Purple",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Abs_Summer_Purple_C'Default__PE_Abs_Summer_Purple_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Absa/Skins/Summer/Data/Palettes/Purple/PE_Abs_Summer_Purple.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Abs_Summer_Purple_C",
+    "Name": "Default__PE_Abs_Summer_Purple_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Absa/Skins/Summer/Data/Palettes/Purple/PE_Abs_Summer_Purple.PE_Abs_Summer_Purple_C'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Summer/Data/Palettes/Purple/PE_Abs_Summer_Purple",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.227606,
+            "G": 0.043344,
+            "B": 0.504,
+            "A": 1.0,
+            "Hex": "833ABC"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.022946,
+            "G": 0.01408,
+            "B": 0.055,
+            "A": 1.0,
+            "Hex": "291F42"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.022946,
+            "G": 0.01408,
+            "B": 0.055,
+            "A": 1.0,
+            "Hex": "291F42"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.227606,
+            "G": 0.043344,
+            "B": 0.504,
+            "A": 1.0,
+            "Hex": "833ABC"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.662,
+            "G": 0.090694,
+            "B": 0.338259,
+            "A": 1.0,
+            "Hex": "D5559D"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 0.971,
+            "G": 0.49042,
+            "B": 0.069912,
+            "A": 1.0,
+            "Hex": "FCBA4B"
+          }
+        }
+      ]
+    }
+  }
+]

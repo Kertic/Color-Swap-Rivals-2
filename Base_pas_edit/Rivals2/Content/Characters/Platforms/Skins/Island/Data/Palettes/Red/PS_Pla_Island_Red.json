@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Island_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Island/PS_Pla_Island_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Island_Red_C'Default__PS_Pla_Island_Red_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Island/PS_Pla_Island_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Island_Red_C",
+    "Name": "Default__PS_Pla_Island_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Island/PS_Pla_Island_Red.PS_Pla_Island_Red_C'",
+    "Package": "Rivals2/Content/Platforms/Island/PS_Pla_Island_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.229167,
+            "G": 0.084744,
+            "B": 0.084744,
+            "A": 1.0,
+            "Hex": "845252"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.682292,
+            "G": 0.247094,
+            "B": 0.08884,
+            "A": 1.0,
+            "Hex": "D88854"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.421875,
+            "G": 0.204346,
+            "B": 0.204346,
+            "A": 1.0,
+            "Hex": "AE7D7D"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.489583,
+            "G": 0.214405,
+            "B": 0.043349,
+            "A": 1.0,
+            "Hex": "BA803A"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.42869,
+            "G": 0.031896,
+            "B": 0.031896,
+            "A": 1.0,
+            "Hex": "AF3232"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.1875,
+            "G": 0.130469,
+            "B": 0.044922,
+            "A": 1.0,
+            "Hex": "78653C"
+          }
+        },
+        {
+          "Key": "CustomColor6",
+          "Value": {
+            "R": 0.806952,
+            "G": 0.458146,
+            "B": 0.059511,
+            "A": 1.0,
+            "Hex": "E8B545"
+          }
+        },
+        {
+          "Key": "CustomColor7",
+          "Value": {
+            "R": 0.333333,
+            "G": 0.056482,
+            "B": 0.013889,
+            "A": 1.0,
+            "Hex": "9C431F"
+          }
+        },
+        {
+          "Key": "CustomColor8",
+          "Value": {
+            "R": 0.08522,
+            "G": 0.730461,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "52DE00"
+          }
+        },
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

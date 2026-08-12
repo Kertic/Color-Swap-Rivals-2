@@ -1,0 +1,148 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Grave_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Grave/PS_Pla_Grave_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Grave_Neutral_C'Default__PS_Pla_Grave_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Grave/PS_Pla_Grave_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Grave_Neutral_C",
+    "Name": "Default__PS_Pla_Grave_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Grave/PS_Pla_Grave_Neutral.PS_Pla_Grave_Neutral_C'",
+    "Package": "Rivals2/Content/Platforms/Grave/PS_Pla_Grave_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.234551,
+            "G": 0.391572,
+            "B": 0.165132,
+            "A": 1.0,
+            "Hex": "85A871"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.099899,
+            "G": 0.051269,
+            "B": 0.033105,
+            "A": 1.0,
+            "Hex": "594033"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.051269,
+            "G": 0.084376,
+            "B": 0.046665,
+            "A": 1.0,
+            "Hex": "40523D"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.030713,
+            "G": 0.030713,
+            "B": 0.040915,
+            "A": 1.0,
+            "Hex": "313139"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.104616,
+            "G": 0.104616,
+            "B": 0.14996,
+            "A": 1.0,
+            "Hex": "5B5B6C"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.242281,
+            "G": 0.201556,
+            "B": 0.155926,
+            "A": 1.0,
+            "Hex": "877C6E"
+          }
+        },
+        {
+          "Key": "ElementColor2",
+          "Value": {
+            "R": 0.000304,
+            "G": 0.124818,
+            "B": 0.141263,
+            "A": 1.0,
+            "Hex": "016369"
+          }
+        },
+        {
+          "Key": "ElementColor3",
+          "Value": {
+            "R": 0.0,
+            "G": 0.79,
+            "B": 0.566167,
+            "A": 1.0,
+            "Hex": "00E6C7"
+          }
+        },
+        {
+          "Key": "ElementColor4",
+          "Value": {
+            "R": 0.144104,
+            "G": 1.0,
+            "B": 0.743231,
+            "A": 1.0,
+            "Hex": "6AFFE0"
+          }
+        },
+        {
+          "Key": "ElementColor5",
+          "Value": {
+            "R": 0.262,
+            "G": 1.0,
+            "B": 0.655601,
+            "A": 1.0,
+            "Hex": "8CFFD4"
+          }
+        },
+        {
+          "Key": "ElementColor6",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

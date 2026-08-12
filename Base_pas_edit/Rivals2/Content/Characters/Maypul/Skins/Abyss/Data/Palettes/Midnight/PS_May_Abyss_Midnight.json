@@ -1,0 +1,128 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_May_Abyss_Midnight_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Maypul/Skins/Abyss/Data/Palettes/Midnight/PS_May_Abyss_Midnight",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_May_Abyss_Midnight_C'Default__PS_May_Abyss_Midnight_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Maypul/Skins/Abyss/Data/Palettes/Midnight/PS_May_Abyss_Midnight.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_May_Abyss_Midnight_C",
+    "Name": "Default__PS_May_Abyss_Midnight_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Maypul/Skins/Abyss/Data/Palettes/Midnight/PS_May_Abyss_Midnight.PS_May_Abyss_Midnight_C'",
+    "Package": "Rivals2/Content/Characters/Maypul/Skins/Abyss/Data/Palettes/Midnight/PS_May_Abyss_Midnight",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.055272,
+            "G": 0.108175,
+            "B": 0.282,
+            "A": 1.0,
+            "Hex": "425C91"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.010902,
+            "G": 0.018637,
+            "B": 0.069,
+            "A": 1.0,
+            "Hex": "1B254A"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.266862,
+            "G": 0.40098,
+            "B": 0.668,
+            "A": 1.0,
+            "Hex": "8DAAD6"
+          }
+        },
+        {
+          "Key": "Body2",
+          "Value": {
+            "R": 0.012983,
+            "G": 0.007499,
+            "B": 0.027321,
+            "A": 1.0,
+            "Hex": "1E152E"
+          }
+        },
+        {
+          "Key": "Stripes",
+          "Value": {
+            "R": 0.955973,
+            "G": 0.090842,
+            "B": 0.130136,
+            "A": 1.0,
+            "Hex": "FA5565"
+          }
+        },
+        {
+          "Key": "Leaf",
+          "Value": {
+            "R": 0.354,
+            "G": 0.031506,
+            "B": 0.04708,
+            "A": 1.0,
+            "Hex": "A1313D"
+          }
+        },
+        {
+          "Key": "Eye",
+          "Value": {
+            "R": 0.002,
+            "G": 0.001744,
+            "B": 0.002,
+            "A": 1.0,
+            "Hex": "060506"
+          }
+        },
+        {
+          "Key": "Eye2",
+          "Value": {
+            "R": 0.955973,
+            "G": 0.090842,
+            "B": 0.130136,
+            "A": 1.0,
+            "Hex": "FA5565"
+          }
+        },
+        {
+          "Key": "Vine",
+          "Value": {
+            "R": 0.011934,
+            "G": 0.030716,
+            "B": 0.153,
+            "A": 1.0,
+            "Hex": "1C316D"
+          }
+        }
+      ]
+    }
+  }
+]

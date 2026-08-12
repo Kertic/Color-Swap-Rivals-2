@@ -1,0 +1,248 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Abs_Apprentice_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Apprentice/Data/Palettes/Neutral/PS_Abs_Apprentice_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Abs_Apprentice_Neutral_C'Default__PS_Abs_Apprentice_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Absa/Skins/Apprentice/Data/Palettes/Neutral/PS_Abs_Apprentice_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Abs_Apprentice_Neutral_C",
+    "Name": "Default__PS_Abs_Apprentice_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Absa/Skins/Apprentice/Data/Palettes/Neutral/PS_Abs_Apprentice_Neutral.PS_Abs_Apprentice_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Apprentice/Data/Palettes/Neutral/PS_Abs_Apprentice_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.06882,
+            "G": 0.072617,
+            "B": 0.148,
+            "A": 1.0,
+            "Hex": "4A4C6B"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.15444,
+            "G": 0.179859,
+            "B": 0.52,
+            "A": 1.0,
+            "Hex": "6D76BF"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.554885,
+            "G": 0.491088,
+            "B": 0.787,
+            "A": 1.0,
+            "Hex": "C5BAE6"
+          }
+        },
+        {
+          "Key": "Hooves",
+          "Value": {
+            "R": 0.039382,
+            "G": 0.039382,
+            "B": 0.058,
+            "A": 1.0,
+            "Hex": "383844"
+          }
+        },
+        {
+          "Key": "Horns",
+          "Value": {
+            "R": 0.644,
+            "G": 0.431833,
+            "B": 0.226044,
+            "A": 1.0,
+            "Hex": "D2B083"
+          }
+        },
+        {
+          "Key": "Horn2",
+          "Value": {
+            "R": 0.654,
+            "G": 0.35312,
+            "B": 0.27468,
+            "A": 1.0,
+            "Hex": "D4A08F"
+          }
+        },
+        {
+          "Key": "InnerEar",
+          "Value": {
+            "R": 0.554885,
+            "G": 0.491088,
+            "B": 0.787,
+            "A": 1.0,
+            "Hex": "C5BAE6"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.455,
+            "G": 0.09009,
+            "B": 0.266717,
+            "A": 1.0,
+            "Hex": "B4548D"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 1.0,
+            "G": 0.564712,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FFC600"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 1.0,
+            "G": 0.564712,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FFC600"
+          }
+        },
+        {
+          "Key": "Eyebrows",
+          "Value": {
+            "R": 0.279,
+            "G": 0.037665,
+            "B": 0.154478,
+            "A": 1.0,
+            "Hex": "90366D"
+          }
+        },
+        {
+          "Key": "Scelera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Wraps",
+          "Value": {
+            "R": 0.018,
+            "G": 0.018,
+            "B": 0.018,
+            "A": 1.0,
+            "Hex": "242424"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.528719,
+            "G": 0.552081,
+            "B": 0.56,
+            "A": 1.0,
+            "Hex": "C1C4C6"
+          }
+        },
+        {
+          "Key": "ClothTrim",
+          "Value": {
+            "R": 0.722,
+            "G": 0.22536,
+            "B": 0.044764,
+            "A": 1.0,
+            "Hex": "DD833B"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.020349,
+            "G": 0.036813,
+            "B": 0.133,
+            "A": 1.0,
+            "Hex": "273666"
+          }
+        },
+        {
+          "Key": "Towel",
+          "Value": {
+            "R": 0.0482,
+            "G": 0.109481,
+            "B": 0.482,
+            "A": 1.0,
+            "Hex": "3E5DB9"
+          }
+        },
+        {
+          "Key": "Stripe",
+          "Value": {
+            "R": 0.888,
+            "G": 0.277174,
+            "B": 0.055056,
+            "A": 1.0,
+            "Hex": "F29042"
+          }
+        },
+        {
+          "Key": "Wrist",
+          "Value": {
+            "R": 0.018,
+            "G": 0.018,
+            "B": 0.018,
+            "A": 1.0,
+            "Hex": "242424"
+          }
+        },
+        {
+          "Key": "Cloud",
+          "Value": {
+            "R": 0.597202,
+            "G": 0.947307,
+            "B": 0.991102,
+            "A": 1.0,
+            "Hex": "CBF9FE"
+          }
+        },
+        {
+          "Key": "CloudDark",
+          "Value": {
+            "R": 0.12801,
+            "G": 0.627816,
+            "B": 0.753,
+            "A": 1.0,
+            "Hex": "64D0E1"
+          }
+        }
+      ]
+    }
+  }
+]

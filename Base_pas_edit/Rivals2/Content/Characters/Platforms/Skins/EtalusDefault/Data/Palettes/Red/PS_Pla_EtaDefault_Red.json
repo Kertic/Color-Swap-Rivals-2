@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_EtaDefault_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_EtaDefault_Red_C'Default__PS_Pla_EtaDefault_Red_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_EtaDefault_Red_C",
+    "Name": "Default__PS_Pla_EtaDefault_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Red.PS_Pla_EtaDefault_Red_C'",
+    "Package": "Rivals2/Content/Platforms/EtalusDefault/PS_Pla_EtaDefault_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.702,
+            "G": 0.190488,
+            "B": 0.163566,
+            "A": 1.0,
+            "Hex": "DA7970"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.266356,
+            "G": 0.045281,
+            "B": 0.060019,
+            "A": 1.0,
+            "Hex": "8D3C45"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.674,
+            "G": 0.408444,
+            "B": 0.408444,
+            "A": 1.0,
+            "Hex": "D7ABAB"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Gou_Mallard_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Green/PE_Gou_Mallard_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Gou_Mallard_Green_C'Default__PE_Gou_Mallard_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Green/PE_Gou_Mallard_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Gou_Mallard_Green_C",
+    "Name": "Default__PE_Gou_Mallard_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Green/PE_Gou_Mallard_Green.PE_Gou_Mallard_Green_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Mallard/Data/Palettes/Green/PE_Gou_Mallard_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.04814,
+            "G": 0.83,
+            "B": 0.230574,
+            "A": 1.0,
+            "Hex": "3EEB84"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.17596,
+            "G": 0.83,
+            "B": 0.328569,
+            "A": 1.0,
+            "Hex": "74EB9B"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.57,
+            "G": 1.0,
+            "B": 0.670333,
+            "A": 1.0,
+            "Hex": "C7FFD6"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.196224,
+            "G": 0.896,
+            "B": 0.359505,
+            "A": 1.0,
+            "Hex": "7AF3A2"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.141185,
+            "G": 0.935,
+            "B": 0.326409,
+            "A": 1.0,
+            "Hex": "69F89B"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

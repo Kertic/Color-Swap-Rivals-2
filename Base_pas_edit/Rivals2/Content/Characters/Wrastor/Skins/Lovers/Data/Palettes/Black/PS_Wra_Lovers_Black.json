@@ -1,0 +1,148 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Wra_Lovers_Black_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Lovers/Data/Palettes/Black/PS_Wra_Lovers_Black",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Wra_Lovers_Black_C'Default__PS_Wra_Lovers_Black_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Wrastor/Skins/Lovers/Data/Palettes/Black/PS_Wra_Lovers_Black.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Wra_Lovers_Black_C",
+    "Name": "Default__PS_Wra_Lovers_Black_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Wrastor/Skins/Lovers/Data/Palettes/Black/PS_Wra_Lovers_Black.PS_Wra_Lovers_Black_C'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Lovers/Data/Palettes/Black/PS_Wra_Lovers_Black",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Glasses",
+          "Value": {
+            "R": 0.221,
+            "G": 0.005967,
+            "B": 0.005967,
+            "A": 1.0,
+            "Hex": "811111"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.130136,
+            "G": 0.138432,
+            "B": 0.155926,
+            "A": 1.0,
+            "Hex": "65686E"
+          }
+        },
+        {
+          "Key": "Wings",
+          "Value": {
+            "R": 0.049707,
+            "G": 0.049707,
+            "B": 0.049707,
+            "A": 1.0,
+            "Hex": "3F3F3F"
+          }
+        },
+        {
+          "Key": "Beak",
+          "Value": {
+            "R": 0.838799,
+            "G": 0.386429,
+            "B": 0.045186,
+            "A": 1.0,
+            "Hex": "ECA73C"
+          }
+        },
+        {
+          "Key": "Shirt",
+          "Value": {
+            "R": 0.011655,
+            "G": 0.011655,
+            "B": 0.015,
+            "A": 1.0,
+            "Hex": "1C1C20"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.045308,
+            "G": 0.02541,
+            "B": 0.105,
+            "A": 1.0,
+            "Hex": "3C2C5B"
+          }
+        },
+        {
+          "Key": "Stripes",
+          "Value": {
+            "R": 0.374,
+            "G": 0.029172,
+            "B": 0.029172,
+            "A": 1.0,
+            "Hex": "A52F2F"
+          }
+        },
+        {
+          "Key": "Shoe",
+          "Value": {
+            "R": 0.237,
+            "G": 0.011613,
+            "B": 0.011613,
+            "A": 1.0,
+            "Hex": "861C1C"
+          }
+        },
+        {
+          "Key": "Chain",
+          "Value": {
+            "R": 0.838799,
+            "G": 0.386429,
+            "B": 0.045186,
+            "A": 1.0,
+            "Hex": "ECA73C"
+          }
+        },
+        {
+          "Key": "Shirt2",
+          "Value": {
+            "R": 0.011655,
+            "G": 0.011655,
+            "B": 0.015,
+            "A": 1.0,
+            "Hex": "1C1C20"
+          }
+        },
+        {
+          "Key": "White",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

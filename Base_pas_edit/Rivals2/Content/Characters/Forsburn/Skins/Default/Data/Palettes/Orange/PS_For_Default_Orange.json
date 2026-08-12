@@ -1,0 +1,168 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_For_Default_Orange_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Default/Data/Palettes/Orange/PS_For_Default_Orange",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_For_Default_Orange_C'Default__PS_For_Default_Orange_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Forsburn/Skins/Default/Data/Palettes/Orange/PS_For_Default_Orange.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_For_Default_Orange_C",
+    "Name": "Default__PS_For_Default_Orange_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Default/Data/Palettes/Orange/PS_For_Default_Orange.PS_For_Default_Orange_C'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Default/Data/Palettes/Orange/PS_For_Default_Orange",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.066896,
+            "G": 0.226,
+            "B": 0.122582,
+            "A": 1.0,
+            "Hex": "498362"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.25956,
+            "G": 0.412,
+            "B": 0.264641,
+            "A": 1.0,
+            "Hex": "8BAC8D"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.010974,
+            "G": 0.062,
+            "B": 0.028831,
+            "A": 1.0,
+            "Hex": "1B462F"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.964686,
+            "G": 0.08039,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FB5000"
+          }
+        },
+        {
+          "Key": "Hair2",
+          "Value": {
+            "R": 1.0,
+            "G": 0.171476,
+            "B": 0.035,
+            "A": 1.0,
+            "Hex": "FF7334"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.308,
+            "G": 0.025667,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "972C00"
+          }
+        },
+        {
+          "Key": "Bone",
+          "Value": {
+            "R": 0.525,
+            "G": 0.525,
+            "B": 0.525,
+            "A": 1.0,
+            "Hex": "C0C0C0"
+          }
+        },
+        {
+          "Key": "Eyes",
+          "Value": {
+            "R": 0.690972,
+            "G": 0.66554,
+            "B": 0.18234,
+            "A": 1.0,
+            "Hex": "D9D576"
+          }
+        },
+        {
+          "Key": "ClothTrim",
+          "Value": {
+            "R": 0.066174,
+            "G": 0.00504,
+            "B": 0.21,
+            "A": 1.0,
+            "Hex": "490F7E"
+          }
+        },
+        {
+          "Key": "Belt",
+          "Value": {
+            "R": 0.066174,
+            "G": 0.00504,
+            "B": 0.21,
+            "A": 1.0,
+            "Hex": "490F7E"
+          }
+        },
+        {
+          "Key": "Mask Eyes",
+          "Value": {
+            "R": 0.40745,
+            "G": 0.843,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "ABED00"
+          }
+        },
+        {
+          "Key": "White",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Cape",
+          "Value": {
+            "R": 0.017016,
+            "G": 0.001296,
+            "B": 0.054,
+            "A": 1.0,
+            "Hex": "230441"
+          }
+        }
+      ]
+    }
+  }
+]

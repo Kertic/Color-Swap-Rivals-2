@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Zet_Pajama_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Zetterburn/Skins/Pajama/Data/Palettes/Neutral/PE_Zet_Pajama_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Zet_Pajama_Neutral_C'Default__PE_Zet_Pajama_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Zetterburn/Skins/Pajama/Data/Palettes/Neutral/PE_Zet_Pajama_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Zet_Pajama_Neutral_C",
+    "Name": "Default__PE_Zet_Pajama_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Zetterburn/Skins/Pajama/Data/Palettes/Neutral/PE_Zet_Pajama_Neutral.PE_Zet_Pajama_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Zetterburn/Skins/Pajama/Data/Palettes/Neutral/PE_Zet_Pajama_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.305152,
+            "G": 0.150075,
+            "B": 0.667,
+            "A": 1.0,
+            "Hex": "966CD6"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.117822,
+            "G": 0.145833,
+            "B": 0.538,
+            "A": 1.0,
+            "Hex": "606BC2"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.163185,
+            "G": 0.645,
+            "B": 0.548637,
+            "A": 1.0,
+            "Hex": "70D2C4"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.745404,
+            "G": 0.991102,
+            "B": 0.901013,
+            "A": 1.0,
+            "Hex": "E0FEF4"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

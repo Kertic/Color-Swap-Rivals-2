@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_BounceHouse_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_BounceHouse_Neutral_C'Default__PS_Pla_BounceHouse_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_BounceHouse_Neutral_C",
+    "Name": "Default__PS_Pla_BounceHouse_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Neutral.PS_Pla_BounceHouse_Neutral_C'",
+    "Package": "Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.016807,
+            "G": 0.033105,
+            "B": 0.462077,
+            "A": 1.0,
+            "Hex": "2333B5"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.723055,
+            "G": 0.679542,
+            "B": 0.064803,
+            "A": 1.0,
+            "Hex": "DDD748"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.401978,
+            "G": 0.015996,
+            "B": 0.015996,
+            "A": 1.0,
+            "Hex": "AA2222"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_May_Sylvan_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Maypul/Skins/Sylvan/Data/Palettes/Red/PE_May_Sylvan_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_May_Sylvan_Red_C'Default__PE_May_Sylvan_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Maypul/Skins/Sylvan/Data/Palettes/Red/PE_May_Sylvan_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_May_Sylvan_Red_C",
+    "Name": "Default__PE_May_Sylvan_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Maypul/Skins/Sylvan/Data/Palettes/Red/PE_May_Sylvan_Red.PE_May_Sylvan_Red_C'",
+    "Package": "Rivals2/Content/Characters/Maypul/Skins/Sylvan/Data/Palettes/Red/PE_May_Sylvan_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.493,
+            "G": 0.073457,
+            "B": 0.073457,
+            "A": 1.0,
+            "Hex": "BB4C4C"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.493,
+            "G": 0.013311,
+            "B": 0.013311,
+            "A": 1.0,
+            "Hex": "BB1E1E"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.102,
+            "G": 0.011275,
+            "B": 0.010914,
+            "A": 1.0,
+            "Hex": "5A1B1B"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 1.0,
+            "G": 0.265,
+            "B": 0.118,
+            "A": 1.0,
+            "Hex": "FF8D60"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 0.492667,
+            "B": 0.239,
+            "A": 1.0,
+            "Hex": "FFBB86"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

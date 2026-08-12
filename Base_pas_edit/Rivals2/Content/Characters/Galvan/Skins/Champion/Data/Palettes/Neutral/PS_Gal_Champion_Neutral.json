@@ -1,0 +1,168 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gal_Champion_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Galvan/Skins/Champion/Data/Palettes/Neutral/PS_Gal_Champion_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gal_Champion_Neutral_C'Default__PS_Gal_Champion_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Galvan/Skins/Champion/Data/Palettes/Neutral/PS_Gal_Champion_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gal_Champion_Neutral_C",
+    "Name": "Default__PS_Gal_Champion_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Galvan/Skins/Champion/Data/Palettes/Neutral/PS_Gal_Champion_Neutral.PS_Gal_Champion_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Galvan/Skins/Champion/Data/Palettes/Neutral/PS_Gal_Champion_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.008594,
+            "G": 0.042311,
+            "B": 0.033714,
+            "A": 1.0,
+            "Hex": "173A33"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.089844,
+            "G": 0.1875,
+            "B": 0.163675,
+            "A": 1.0,
+            "Hex": "547870"
+          }
+        },
+        {
+          "Key": "Toebeans",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.514918,
+            "B": 0.456411,
+            "A": 1.0,
+            "Hex": "9DBEB4"
+          }
+        },
+        {
+          "Key": "Toenails",
+          "Value": {
+            "R": 0.637597,
+            "G": 0.64448,
+            "B": 0.637597,
+            "A": 1.0,
+            "Hex": "D1D2D1"
+          }
+        },
+        {
+          "Key": "Horn",
+          "Value": {
+            "R": 0.48515,
+            "G": 0.242281,
+            "B": 0.061246,
+            "A": 1.0,
+            "Hex": "B98746"
+          }
+        },
+        {
+          "Key": "Face",
+          "Value": {
+            "R": 0.023153,
+            "G": 0.012286,
+            "B": 0.012286,
+            "A": 1.0,
+            "Hex": "2A1D1D"
+          }
+        },
+        {
+          "Key": "Gems",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.391572,
+            "B": 0.06301,
+            "A": 1.0,
+            "Hex": "E9A847"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.0,
+            "G": 0.456411,
+            "B": 0.341914,
+            "A": 1.0,
+            "Hex": "00B49E"
+          }
+        },
+        {
+          "Key": "Reinforced",
+          "Value": {
+            "R": 0.334337,
+            "G": 0.755208,
+            "B": 0.614918,
+            "A": 1.0,
+            "Hex": "9DE2CE"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "GemGlow",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.391572,
+            "B": 0.06301,
+            "A": 1.0,
+            "Hex": "E9A847"
+          }
+        },
+        {
+          "Key": "Rocks",
+          "Value": {
+            "R": 0.197917,
+            "G": 0.104604,
+            "B": 0.035048,
+            "A": 1.0,
+            "Hex": "7B5B34"
+          }
+        }
+      ]
+    }
+  }
+]

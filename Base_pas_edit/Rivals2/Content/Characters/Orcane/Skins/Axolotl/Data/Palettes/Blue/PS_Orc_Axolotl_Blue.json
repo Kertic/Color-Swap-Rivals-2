@@ -1,0 +1,88 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Orc_Axolotl_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/Axolotl/Data/Palettes/Blue/PS_Orc_Axolotl_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Orc_Axolotl_Blue_C'Default__PS_Orc_Axolotl_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Orcane/Skins/Axolotl/Data/Palettes/Blue/PS_Orc_Axolotl_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Orc_Axolotl_Blue_C",
+    "Name": "Default__PS_Orc_Axolotl_Blue_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Orcane/Skins/Axolotl/Data/Palettes/Blue/PS_Orc_Axolotl_Blue.PS_Orc_Axolotl_Blue_C'",
+    "Package": "Rivals2/Content/Characters/Orcane/Skins/Axolotl/Data/Palettes/Blue/PS_Orc_Axolotl_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.270498,
+            "G": 0.491021,
+            "B": 0.814847,
+            "A": 1.0,
+            "Hex": "8EBAE9"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.012286,
+            "G": 0.306646,
+            "B": 0.502886,
+            "A": 1.0,
+            "Hex": "1D96BC"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 1.2,
+            "G": 1.2,
+            "B": 1.2,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 0.2605,
+            "B": 0.014,
+            "A": 1.0,
+            "Hex": "FF8C1F"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 0.342014,
+            "G": 0.089095,
+            "B": 0.004788,
+            "A": 1.0,
+            "Hex": "9E540F"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Fle_Ranger_Tactical_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Tactical/PS_Fle_Ranger_Tactical",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Fle_Ranger_Tactical_C'Default__PS_Fle_Ranger_Tactical_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Tactical/PS_Fle_Ranger_Tactical.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Fle_Ranger_Tactical_C",
+    "Name": "Default__PS_Fle_Ranger_Tactical_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Tactical/PS_Fle_Ranger_Tactical.PS_Fle_Ranger_Tactical_C'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Tactical/PS_Fle_Ranger_Tactical",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Armor",
+          "Value": {
+            "R": 0.585,
+            "G": 0.467064,
+            "B": 0.29016,
+            "A": 1.0,
+            "Hex": "C9B693"
+          }
+        },
+        {
+          "Key": "Cloth2",
+          "Value": {
+            "R": 0.040604,
+            "G": 0.06,
+            "B": 0.01524,
+            "A": 1.0,
+            "Hex": "384521"
+          }
+        },
+        {
+          "Key": "Cloth1",
+          "Value": {
+            "R": 0.012,
+            "G": 0.005664,
+            "B": 0.00144,
+            "A": 1.0,
+            "Hex": "1C1104"
+          }
+        },
+        {
+          "Key": "Cape",
+          "Value": {
+            "R": 1.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FF0000"
+          }
+        },
+        {
+          "Key": "BowOff",
+          "Value": {
+            "R": 0.165,
+            "G": 0.00594,
+            "B": 0.00594,
+            "A": 1.0,
+            "Hex": "711111"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.344,
+            "G": 0.147461,
+            "B": 0.049192,
+            "A": 1.0,
+            "Hex": "9F6B3E"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.468,
+            "G": 0.328497,
+            "B": 0.228852,
+            "A": 1.0,
+            "Hex": "B69B84"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.344,
+            "G": 0.147461,
+            "B": 0.049192,
+            "A": 1.0,
+            "Hex": "9F6B3E"
+          }
+        },
+        {
+          "Key": "Paws",
+          "Value": {
+            "R": 0.144,
+            "G": 0.072432,
+            "B": 0.072432,
+            "A": 1.0,
+            "Hex": "6A4C4C"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.005666,
+            "G": 0.262527,
+            "B": 0.446,
+            "A": 1.0,
+            "Hex": "118CB2"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.005666,
+            "G": 0.262527,
+            "B": 0.446,
+            "A": 1.0,
+            "Hex": "118CB2"
+          }
+        }
+      ]
+    }
+  }
+]

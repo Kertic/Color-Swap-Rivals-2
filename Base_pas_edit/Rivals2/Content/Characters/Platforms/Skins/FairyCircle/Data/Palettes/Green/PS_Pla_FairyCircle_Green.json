@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_FairyCircle_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/FairyCircle/PS_Pla_FairyCircle_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_FairyCircle_Green_C'Default__PS_Pla_FairyCircle_Green_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/FairyCircle/PS_Pla_FairyCircle_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_FairyCircle_Green_C",
+    "Name": "Default__PS_Pla_FairyCircle_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/FairyCircle/PS_Pla_FairyCircle_Green.PS_Pla_FairyCircle_Green_C'",
+    "Package": "Rivals2/Content/Platforms/FairyCircle/PS_Pla_FairyCircle_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.368821,
+            "G": 0.733,
+            "B": 0.070857,
+            "A": 1.0,
+            "Hex": "A4DF4B"
+          }
+        },
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.119792,
+            "G": 0.058824,
+            "B": 0.030572,
+            "A": 1.0,
+            "Hex": "614431"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.03434,
+            "G": 0.074214,
+            "B": 0.043735,
+            "A": 1.0,
+            "Hex": "344D3B"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.368821,
+            "G": 0.733,
+            "B": 0.070857,
+            "A": 1.0,
+            "Hex": "A4DF4B"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.0,
+            "G": 0.399,
+            "B": 0.12635,
+            "A": 1.0,
+            "Hex": "00AA63"
+          }
+        },
+        {
+          "Key": "EmissiveColor",
+          "Value": {
+            "R": 0.436667,
+            "G": 1.0,
+            "B": 0.680778,
+            "A": 1.0,
+            "Hex": "B1FFD8"
+          }
+        }
+      ]
+    }
+  }
+]

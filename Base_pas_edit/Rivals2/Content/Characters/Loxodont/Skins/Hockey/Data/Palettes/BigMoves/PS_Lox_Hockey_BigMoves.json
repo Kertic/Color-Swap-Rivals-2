@@ -1,0 +1,158 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Lox_Hockey_BigMoves_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Hockey/Data/Palettes/BigMoves/PS_Lox_Hockey_BigMoves",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Lox_Hockey_BigMoves_C'Default__PS_Lox_Hockey_BigMoves_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Loxodont/Skins/Hockey/Data/Palettes/BigMoves/PS_Lox_Hockey_BigMoves.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Lox_Hockey_BigMoves_C",
+    "Name": "Default__PS_Lox_Hockey_BigMoves_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Loxodont/Skins/Hockey/Data/Palettes/BigMoves/PS_Lox_Hockey_BigMoves.PS_Lox_Hockey_BigMoves_C'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Hockey/Data/Palettes/BigMoves/PS_Lox_Hockey_BigMoves",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Flames",
+          "Value": {
+            "R": 0.016015,
+            "G": 0.058136,
+            "B": 0.270833,
+            "A": 1.0,
+            "Hex": "22448E"
+          }
+        },
+        {
+          "Key": "Inner",
+          "Value": {
+            "R": 0.1875,
+            "G": 0.006359,
+            "B": 0.001942,
+            "A": 1.0,
+            "Hex": "781206"
+          }
+        },
+        {
+          "Key": "Main",
+          "Value": {
+            "R": 0.473958,
+            "G": 0.473958,
+            "B": 0.473958,
+            "A": 1.0,
+            "Hex": "B7B7B7"
+          }
+        },
+        {
+          "Key": "Jersey",
+          "Value": {
+            "R": 0.01244,
+            "G": 0.045086,
+            "B": 0.229167,
+            "A": 1.0,
+            "Hex": "1D3C84"
+          }
+        },
+        {
+          "Key": "JerseyAccent",
+          "Value": {
+            "R": 0.328125,
+            "G": 0.017475,
+            "B": 0.006763,
+            "A": 1.0,
+            "Hex": "9B2313"
+          }
+        },
+        {
+          "Key": "Padding",
+          "Value": {
+            "R": 0.0067,
+            "G": 0.025003,
+            "B": 0.067708,
+            "A": 1.0,
+            "Hex": "132B49"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.191202,
+            "G": 0.219526,
+            "B": 0.234551,
+            "A": 1.0,
+            "Hex": "798185"
+          }
+        },
+        {
+          "Key": "Mask",
+          "Value": {
+            "R": 0.3125,
+            "G": 0.3125,
+            "B": 0.3125,
+            "A": 1.0,
+            "Hex": "989898"
+          }
+        },
+        {
+          "Key": "LogoColorX",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "LogoColor0",
+          "Value": {
+            "R": 0.328125,
+            "G": 0.017475,
+            "B": 0.006763,
+            "A": 1.0,
+            "Hex": "9B2313"
+          }
+        },
+        {
+          "Key": "LogoColor1",
+          "Value": {
+            "R": 0.864583,
+            "G": 0.864583,
+            "B": 0.864583,
+            "A": 1.0,
+            "Hex": "F0F0F0"
+          }
+        },
+        {
+          "Key": "LogoColor2",
+          "Value": {
+            "R": 0.546875,
+            "G": 0.546875,
+            "B": 0.546875,
+            "A": 1.0,
+            "Hex": "C3C3C3"
+          }
+        }
+      ]
+    }
+  }
+]

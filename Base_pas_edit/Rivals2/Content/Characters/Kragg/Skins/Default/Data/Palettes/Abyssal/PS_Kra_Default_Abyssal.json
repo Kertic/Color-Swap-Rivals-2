@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Kra_Default_Abyssal_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Kragg/Skins/Default/Data/Palettes/Abyssal/PS_Kra_Default_Abyssal",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Kra_Default_Abyssal_C'Default__PS_Kra_Default_Abyssal_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Kragg/Skins/Default/Data/Palettes/Abyssal/PS_Kra_Default_Abyssal.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Kra_Default_Abyssal_C",
+    "Name": "Default__PS_Kra_Default_Abyssal_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Kragg/Skins/Default/Data/Palettes/Abyssal/PS_Kra_Default_Abyssal.PS_Kra_Default_Abyssal_C'",
+    "Package": "Rivals2/Content/Characters/Kragg/Skins/Default/Data/Palettes/Abyssal/PS_Kra_Default_Abyssal",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.122931,
+            "G": 0.15026,
+            "B": 0.261,
+            "A": 1.0,
+            "Hex": "626C8C"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.42869,
+            "G": 0.034295,
+            "B": 0.362472,
+            "A": 1.0,
+            "Hex": "AF34A2"
+          }
+        },
+        {
+          "Key": "Shell",
+          "Value": {
+            "R": 0.049105,
+            "G": 0.031098,
+            "B": 0.071,
+            "A": 1.0,
+            "Hex": "3E314B"
+          }
+        },
+        {
+          "Key": "Spikes",
+          "Value": {
+            "R": 0.514,
+            "G": 0.019532,
+            "B": 0.430981,
+            "A": 1.0,
+            "Hex": "BE26B0"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 0.633333,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FFD100"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Eyeliner",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        }
+      ]
+    }
+  }
+]

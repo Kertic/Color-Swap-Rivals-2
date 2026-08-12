@@ -1,0 +1,198 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Abs_Abyss_Midnight_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Abyss/Data/Palettes/Midnight/PS_Abs_Abyss_Midnight",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Abs_Abyss_Midnight_C'Default__PS_Abs_Abyss_Midnight_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Absa/Skins/Abyss/Data/Palettes/Midnight/PS_Abs_Abyss_Midnight.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Abs_Abyss_Midnight_C",
+    "Name": "Default__PS_Abs_Abyss_Midnight_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Absa/Skins/Abyss/Data/Palettes/Midnight/PS_Abs_Abyss_Midnight.PS_Abs_Abyss_Midnight_C'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Abyss/Data/Palettes/Midnight/PS_Abs_Abyss_Midnight",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.595,
+            "G": 0.039865,
+            "B": 0.049117,
+            "A": 1.0,
+            "Hex": "CB383E"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.134463,
+            "G": 0.138421,
+            "B": 0.399,
+            "A": 1.0,
+            "Hex": "6668AA"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.2352,
+            "G": 0.349494,
+            "B": 0.588,
+            "A": 1.0,
+            "Hex": "85A0CA"
+          }
+        },
+        {
+          "Key": "Horns",
+          "Value": {
+            "R": 0.129,
+            "G": 0.022962,
+            "B": 0.03034,
+            "A": 1.0,
+            "Hex": "642930"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.025187,
+            "G": 0.023153,
+            "B": 0.048172,
+            "A": 1.0,
+            "Hex": "2C2A3E"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.009134,
+            "G": 0.009134,
+            "B": 0.009134,
+            "A": 1.0,
+            "Hex": "181818"
+          }
+        },
+        {
+          "Key": "Horns2",
+          "Value": {
+            "R": 0.809,
+            "G": 0.054203,
+            "B": 0.066782,
+            "A": 1.0,
+            "Hex": "E94249"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.023006,
+            "G": 0.021148,
+            "B": 0.044,
+            "A": 1.0,
+            "Hex": "2A283B"
+          }
+        },
+        {
+          "Key": "ChestFluff",
+          "Value": {
+            "R": 0.2352,
+            "G": 0.349494,
+            "B": 0.588,
+            "A": 1.0,
+            "Hex": "85A0CA"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.003,
+            "G": 0.0021,
+            "B": 0.002115,
+            "A": 1.0,
+            "Hex": "090606"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 0.003,
+            "G": 0.0021,
+            "B": 0.002115,
+            "A": 1.0,
+            "Hex": "090606"
+          }
+        },
+        {
+          "Key": "Eyebrows",
+          "Value": {
+            "R": 0.023006,
+            "G": 0.021148,
+            "B": 0.044,
+            "A": 1.0,
+            "Hex": "2A283B"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.129,
+            "G": 0.022962,
+            "B": 0.03034,
+            "A": 1.0,
+            "Hex": "642930"
+          }
+        },
+        {
+          "Key": "Chain",
+          "Value": {
+            "R": 0.174647,
+            "G": 0.183665,
+            "B": 0.242281,
+            "A": 1.0,
+            "Hex": "747787"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.809,
+            "G": 0.054203,
+            "B": 0.066782,
+            "A": 1.0,
+            "Hex": "E94249"
+          }
+        },
+        {
+          "Key": "Cloud",
+          "Value": {
+            "R": 0.08917,
+            "G": 0.082325,
+            "B": 0.185,
+            "A": 1.0,
+            "Hex": "545177"
+          }
+        }
+      ]
+    }
+  }
+]

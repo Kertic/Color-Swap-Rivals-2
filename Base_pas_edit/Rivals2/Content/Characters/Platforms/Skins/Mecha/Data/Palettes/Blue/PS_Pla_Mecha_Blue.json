@@ -1,0 +1,78 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Mecha_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Mecha/PS_Pla_Mecha_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Mecha_Blue_C'Default__PS_Pla_Mecha_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Mecha/PS_Pla_Mecha_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Mecha_Blue_C",
+    "Name": "Default__PS_Pla_Mecha_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Mecha/PS_Pla_Mecha_Blue.PS_Pla_Mecha_Blue_C'",
+    "Package": "Rivals2/Content/Platforms/Mecha/PS_Pla_Mecha_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.134521,
+            "G": 0.151042,
+            "B": 0.151042,
+            "A": 1.0,
+            "Hex": "676C6C"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.011067,
+            "G": 0.119715,
+            "B": 0.354167,
+            "A": 1.0,
+            "Hex": "1B61A1"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.192708,
+            "G": 0.0,
+            "B": 0.003212,
+            "A": 1.0,
+            "Hex": "79000A"
+          }
+        },
+        {
+          "Key": "EmissiveColor",
+          "Value": {
+            "R": 0.526042,
+            "G": 0.0,
+            "B": 0.008767,
+            "A": 1.0,
+            "Hex": "C00017"
+          }
+        }
+      ]
+    }
+  }
+]

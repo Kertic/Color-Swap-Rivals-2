@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Lar_Champion_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Champion/Data/Palettes/Neutral/PE_Lar_Champion_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Lar_Champion_Neutral_C'Default__PE_Lar_Champion_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/LaReina/Skins/Champion/Data/Palettes/Neutral/PE_Lar_Champion_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Lar_Champion_Neutral_C",
+    "Name": "Default__PE_Lar_Champion_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/LaReina/Skins/Champion/Data/Palettes/Neutral/PE_Lar_Champion_Neutral.PE_Lar_Champion_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Champion/Data/Palettes/Neutral/PE_Lar_Champion_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.348958,
+            "G": 0.161524,
+            "B": 0.02181,
+            "A": 1.0,
+            "Hex": "A07028"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.391572,
+            "B": 0.06301,
+            "A": 1.0,
+            "Hex": "E9A847"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.869792,
+            "G": 0.530029,
+            "B": 0.190267,
+            "A": 1.0,
+            "Hex": "F0C179"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.096381,
+            "G": 0.973958,
+            "B": 0.856708,
+            "A": 1.0,
+            "Hex": "57FDEF"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.0,
+            "G": 0.151042,
+            "B": 0.133556,
+            "A": 1.0,
+            "Hex": "006C66"
+          }
+        }
+      ]
+    }
+  }
+]

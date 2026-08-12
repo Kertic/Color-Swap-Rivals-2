@@ -1,0 +1,148 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Zet_Flavorburn_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Zetterburn/Skins/Flavorburn/Data/Palettes/Red/PS_Zet_Flavorburn_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Zet_Flavorburn_Red_C'Default__PS_Zet_Flavorburn_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Zetterburn/Skins/Flavorburn/Data/Palettes/Red/PS_Zet_Flavorburn_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Zet_Flavorburn_Red_C",
+    "Name": "Default__PS_Zet_Flavorburn_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Zetterburn/Skins/Flavorburn/Data/Palettes/Red/PS_Zet_Flavorburn_Red.PS_Zet_Flavorburn_Red_C'",
+    "Package": "Rivals2/Content/Characters/Zetterburn/Skins/Flavorburn/Data/Palettes/Red/PS_Zet_Flavorburn_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.916667,
+            "G": 0.090712,
+            "B": 0.104478,
+            "A": 1.0,
+            "Hex": "F6555B"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.672443,
+            "B": 0.491021,
+            "A": 1.0,
+            "Hex": "E9D6BA"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.046875,
+            "G": 0.002197,
+            "B": 0.003639,
+            "A": 1.0,
+            "Hex": "3D070B"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.083333,
+            "G": 0.005208,
+            "B": 0.00651,
+            "A": 1.0,
+            "Hex": "511013"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 1.0,
+            "G": 0.353615,
+            "B": 0.343667,
+            "A": 1.0,
+            "Hex": "FFA19E"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.020833,
+            "G": 0.002341,
+            "B": 0.003586,
+            "A": 1.0,
+            "Hex": "27070B"
+          }
+        },
+        {
+          "Key": "Shirt",
+          "Value": {
+            "R": 0.020833,
+            "G": 0.002387,
+            "B": 0.003618,
+            "A": 1.0,
+            "Hex": "27070B"
+          }
+        },
+        {
+          "Key": "Glasses",
+          "Value": {
+            "R": 1.0,
+            "G": 0.0,
+            "B": 0.540111,
+            "A": 1.0,
+            "Hex": "FF00C2"
+          }
+        },
+        {
+          "Key": "Flame",
+          "Value": {
+            "R": 0.0,
+            "G": 0.461734,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "00B5FF"
+          }
+        },
+        {
+          "Key": "Goatee",
+          "Value": {
+            "R": 1.0,
+            "G": 0.351533,
+            "B": 0.341914,
+            "A": 1.0,
+            "Hex": "FFA09E"
+          }
+        },
+        {
+          "Key": "Shoes",
+          "Value": {
+            "R": 0.501961,
+            "G": 0.501961,
+            "B": 0.501961,
+            "A": 1.0,
+            "Hex": "BCBCBC"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_BounceHouse_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_BounceHouse_Blue_C'Default__PS_Pla_BounceHouse_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_BounceHouse_Blue_C",
+    "Name": "Default__PS_Pla_BounceHouse_Blue_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Blue.PS_Pla_BounceHouse_Blue_C'",
+    "Package": "Rivals2/Content/Platforms/BounceHouse/PS_Pla_BounceHouse_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.016846,
+            "G": 0.029383,
+            "B": 0.359375,
+            "A": 1.0,
+            "Hex": "2330A2"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.297363,
+            "G": 0.625,
+            "B": 0.029297,
+            "A": 1.0,
+            "Hex": "94CF2F"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.541667,
+            "G": 0.088444,
+            "B": 0.008464,
+            "A": 1.0,
+            "Hex": "C35416"
+          }
+        }
+      ]
+    }
+  }
+]

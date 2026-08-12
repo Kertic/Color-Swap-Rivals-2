@@ -1,0 +1,368 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Kra_Lovers_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Kragg/Skins/Lovers/Data/Palettes/Red/PS_Kra_Lovers_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Kra_Lovers_Red_C'Default__PS_Kra_Lovers_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Kragg/Skins/Lovers/Data/Palettes/Red/PS_Kra_Lovers_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Kra_Lovers_Red_C",
+    "Name": "Default__PS_Kra_Lovers_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Kragg/Skins/Lovers/Data/Palettes/Red/PS_Kra_Lovers_Red.PS_Kra_Lovers_Red_C'",
+    "Package": "Rivals2/Content/Characters/Kragg/Skins/Lovers/Data/Palettes/Red/PS_Kra_Lovers_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.378,
+            "G": 0.122649,
+            "B": 0.058968,
+            "A": 1.0,
+            "Hex": "A56244"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.775822,
+            "G": 0.603827,
+            "B": 0.162029,
+            "A": 1.0,
+            "Hex": "E4CC70"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.679542,
+            "G": 0.318547,
+            "B": 0.056128,
+            "A": 1.0,
+            "Hex": "D79943"
+          }
+        },
+        {
+          "Key": "Bag",
+          "Value": {
+            "R": 0.334,
+            "G": 0.03674,
+            "B": 0.041694,
+            "A": 1.0,
+            "Hex": "9C3639"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.105,
+            "G": 0.016065,
+            "B": 0.016065,
+            "A": 1.0,
+            "Hex": "5B2222"
+          }
+        },
+        {
+          "Key": "BigRock1",
+          "Value": {
+            "R": 0.109462,
+            "G": 0.078187,
+            "B": 0.068478,
+            "A": 1.0,
+            "Hex": "5D4F4A"
+          }
+        },
+        {
+          "Key": "PocketRock",
+          "Value": {
+            "R": 0.078187,
+            "G": 0.0865,
+            "B": 0.090842,
+            "A": 1.0,
+            "Hex": "4F5355"
+          }
+        },
+        {
+          "Key": "Shard1",
+          "Value": {
+            "R": 0.076484,
+            "G": 0.068186,
+            "B": 0.103,
+            "A": 1.0,
+            "Hex": "4E4A5A"
+          }
+        },
+        {
+          "Key": "Shard2",
+          "Value": {
+            "R": 0.05448,
+            "G": 0.05448,
+            "B": 0.05448,
+            "A": 1.0,
+            "Hex": "424242"
+          }
+        },
+        {
+          "Key": "BigRock2",
+          "Value": {
+            "R": 0.223228,
+            "G": 0.097587,
+            "B": 0.097587,
+            "A": 1.0,
+            "Hex": "825858"
+          }
+        },
+        {
+          "Key": "BigRock3",
+          "Value": {
+            "R": 0.105779,
+            "G": 0.139,
+            "B": 0.124725,
+            "A": 1.0,
+            "Hex": "5B6863"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 0.666667,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FFD600"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Eyeliner",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.015,
+            "G": 0.014461,
+            "B": 0.015,
+            "A": 1.0,
+            "Hex": "202020"
+          }
+        },
+        {
+          "Key": "Shirt",
+          "Value": {
+            "R": 0.122484,
+            "G": 0.046776,
+            "B": 0.371238,
+            "A": 1.0,
+            "Hex": "623DA4"
+          }
+        },
+        {
+          "Key": "Vest",
+          "Value": {
+            "R": 0.537,
+            "G": 0.436928,
+            "B": 0.397681,
+            "A": 1.0,
+            "Hex": "C2B1A9"
+          }
+        },
+        {
+          "Key": "Shoes",
+          "Value": {
+            "R": 0.072,
+            "G": 0.009216,
+            "B": 0.009216,
+            "A": 1.0,
+            "Hex": "4C1818"
+          }
+        },
+        {
+          "Key": "Shell",
+          "Value": {
+            "R": 0.371,
+            "G": 0.036509,
+            "B": 0.043613,
+            "A": 1.0,
+            "Hex": "A4353B"
+          }
+        },
+        {
+          "Key": "Spikes",
+          "Value": {
+            "R": 0.371,
+            "G": 0.036509,
+            "B": 0.043613,
+            "A": 1.0,
+            "Hex": "A4353B"
+          }
+        },
+        {
+          "Key": "Locker",
+          "Value": {
+            "R": 0.627,
+            "G": 0.115995,
+            "B": 0.175612,
+            "A": 1.0,
+            "Hex": "D05F74"
+          }
+        },
+        {
+          "Key": "Handle",
+          "Value": {
+            "R": 0.168,
+            "G": 0.168,
+            "B": 0.168,
+            "A": 1.0,
+            "Hex": "727272"
+          }
+        },
+        {
+          "Key": "Rock1",
+          "Value": {
+            "R": 0.144,
+            "G": 0.086832,
+            "B": 0.087785,
+            "A": 1.0,
+            "Hex": "6A5353"
+          }
+        },
+        {
+          "Key": "Rock2",
+          "Value": {
+            "R": 0.084,
+            "G": 0.02646,
+            "B": 0.027419,
+            "A": 1.0,
+            "Hex": "522D2E"
+          }
+        },
+        {
+          "Key": "Book1",
+          "Value": {
+            "R": 0.247,
+            "G": 0.006175,
+            "B": 0.011801,
+            "A": 1.0,
+            "Hex": "88121C"
+          }
+        },
+        {
+          "Key": "Book2",
+          "Value": {
+            "R": 0.37,
+            "G": 0.294724,
+            "B": 0.02257,
+            "A": 1.0,
+            "Hex": "A49429"
+          }
+        },
+        {
+          "Key": "Book3",
+          "Value": {
+            "R": 0.498,
+            "G": 0.0913,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "BB5500"
+          }
+        },
+        {
+          "Key": "Book4",
+          "Value": {
+            "R": 0.245,
+            "G": 0.048277,
+            "B": 0.022295,
+            "A": 1.0,
+            "Hex": "883E29"
+          }
+        },
+        {
+          "Key": "Bookmarker1",
+          "Value": {
+            "R": 0.0,
+            "G": 0.585,
+            "B": 0.078,
+            "A": 1.0,
+            "Hex": "00C94F"
+          }
+        },
+        {
+          "Key": "Bookmarker2",
+          "Value": {
+            "R": 0.03,
+            "G": 0.155333,
+            "B": 0.5,
+            "A": 1.0,
+            "Hex": "306EBC"
+          }
+        },
+        {
+          "Key": "BoxTrim",
+          "Value": {
+            "R": 0.788,
+            "G": 0.030732,
+            "B": 0.030732,
+            "A": 1.0,
+            "Hex": "E63131"
+          }
+        },
+        {
+          "Key": "Box",
+          "Value": {
+            "R": 0.354,
+            "G": 0.029028,
+            "B": 0.03593,
+            "A": 1.0,
+            "Hex": "A12F35"
+          }
+        }
+      ]
+    }
+  }
+]

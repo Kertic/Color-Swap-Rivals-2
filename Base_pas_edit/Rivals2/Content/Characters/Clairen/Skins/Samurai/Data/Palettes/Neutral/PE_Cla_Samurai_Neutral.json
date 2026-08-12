@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Cla_Samurai_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Samurai/Data/Palettes/Neutral/PE_Cla_Samurai_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Cla_Samurai_Neutral_C'Default__PE_Cla_Samurai_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Clairen/Skins/Samurai/Data/Palettes/Neutral/PE_Cla_Samurai_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Cla_Samurai_Neutral_C",
+    "Name": "Default__PE_Cla_Samurai_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Clairen/Skins/Samurai/Data/Palettes/Neutral/PE_Cla_Samurai_Neutral.PE_Cla_Samurai_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Samurai/Data/Palettes/Neutral/PE_Cla_Samurai_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 1.0,
+            "G": 0.083333,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FF5100"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.938686,
+            "G": 0.156448,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "F86E00"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.771,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "E40000"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.90625,
+            "G": 0.11353,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "F55F00"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 0.543339,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FFC300"
+          }
+        }
+      ]
+    }
+  }
+]

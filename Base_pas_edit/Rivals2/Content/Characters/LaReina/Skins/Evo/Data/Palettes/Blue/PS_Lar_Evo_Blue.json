@@ -1,0 +1,208 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Lar_Evo_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Evo/Data/Palettes/Blue/PS_Lar_Evo_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Lar_Evo_Blue_C'Default__PS_Lar_Evo_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Characters/LaReina/Skins/Evo/Data/Palettes/Blue/PS_Lar_Evo_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Lar_Evo_Blue_C",
+    "Name": "Default__PS_Lar_Evo_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/LaReina/Skins/Evo/Data/Palettes/Blue/PS_Lar_Evo_Blue.PS_Lar_Evo_Blue_C'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Evo/Data/Palettes/Blue/PS_Lar_Evo_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "NailsAccent",
+          "Value": {
+            "R": 0.615,
+            "G": 0.685583,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "CED8FF"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.048009,
+            "G": 0.056692,
+            "B": 0.569,
+            "A": 1.0,
+            "Hex": "3E43C7"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.0216,
+            "G": 0.025506,
+            "B": 0.256,
+            "A": 1.0,
+            "Hex": "282C8B"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.264,
+            "G": 0.398932,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "8CAAFF"
+          }
+        },
+        {
+          "Key": "Outline",
+          "Value": {
+            "R": 0.367,
+            "G": 0.483049,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "A3B9FF"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.026241,
+            "G": 0.024158,
+            "B": 0.023153,
+            "A": 1.0,
+            "Hex": "2D2B2A"
+          }
+        },
+        {
+          "Key": "Shoulders",
+          "Value": {
+            "R": 0.39,
+            "G": 0.334717,
+            "B": 0.11934,
+            "A": 1.0,
+            "Hex": "A89D61"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.39,
+            "G": 0.334717,
+            "B": 0.11934,
+            "A": 1.0,
+            "Hex": "A89D61"
+          }
+        },
+        {
+          "Key": "Clothing",
+          "Value": {
+            "R": 0.069584,
+            "G": 0.044341,
+            "B": 0.139,
+            "A": 1.0,
+            "Hex": "4A3B68"
+          }
+        },
+        {
+          "Key": "Legs",
+          "Value": {
+            "R": 0.39,
+            "G": 0.334717,
+            "B": 0.11934,
+            "A": 1.0,
+            "Hex": "A89D61"
+          }
+        },
+        {
+          "Key": "Wrist",
+          "Value": {
+            "R": 0.39,
+            "G": 0.334717,
+            "B": 0.11934,
+            "A": 1.0,
+            "Hex": "A89D61"
+          }
+        },
+        {
+          "Key": "Belt",
+          "Value": {
+            "R": 0.39,
+            "G": 0.334717,
+            "B": 0.11934,
+            "A": 1.0,
+            "Hex": "A89D61"
+          }
+        },
+        {
+          "Key": "MaskAccent",
+          "Value": {
+            "R": 0.026241,
+            "G": 0.024158,
+            "B": 0.023153,
+            "A": 1.0,
+            "Hex": "2D2B2A"
+          }
+        },
+        {
+          "Key": "Mask",
+          "Value": {
+            "R": 0.069584,
+            "G": 0.044341,
+            "B": 0.139,
+            "A": 1.0,
+            "Hex": "4A3B68"
+          }
+        },
+        {
+          "Key": "Logo",
+          "Value": {
+            "R": 0.39,
+            "G": 0.334717,
+            "B": 0.11934,
+            "A": 1.0,
+            "Hex": "A89D61"
+          }
+        },
+        {
+          "Key": "Lens",
+          "Value": {
+            "R": 0.921582,
+            "G": 0.921582,
+            "B": 0.921582,
+            "A": 1.0,
+            "Hex": "F6F6F6"
+          }
+        },
+        {
+          "Key": "MaskTrim",
+          "Value": {
+            "R": 0.39,
+            "G": 0.334717,
+            "B": 0.11934,
+            "A": 1.0,
+            "Hex": "A89D61"
+          }
+        }
+      ]
+    }
+  }
+]

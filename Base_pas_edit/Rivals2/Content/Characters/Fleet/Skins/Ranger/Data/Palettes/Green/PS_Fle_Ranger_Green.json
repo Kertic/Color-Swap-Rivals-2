@@ -1,0 +1,158 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Fle_Ranger_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Green/PS_Fle_Ranger_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Fle_Ranger_Green_C'Default__PS_Fle_Ranger_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Green/PS_Fle_Ranger_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Fle_Ranger_Green_C",
+    "Name": "Default__PS_Fle_Ranger_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Green/PS_Fle_Ranger_Green.PS_Fle_Ranger_Green_C'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Ranger/Data/Palettes/Green/PS_Fle_Ranger_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Armor",
+          "Value": {
+            "R": 0.491914,
+            "G": 0.490208,
+            "B": 0.52,
+            "A": 1.0,
+            "Hex": "BABABF"
+          }
+        },
+        {
+          "Key": "Cloth2",
+          "Value": {
+            "R": 0.026042,
+            "G": 0.026042,
+            "B": 0.026042,
+            "A": 1.0,
+            "Hex": "2C2C2C"
+          }
+        },
+        {
+          "Key": "Cloth1",
+          "Value": {
+            "R": 0.052083,
+            "G": 0.052083,
+            "B": 0.052083,
+            "A": 1.0,
+            "Hex": "404040"
+          }
+        },
+        {
+          "Key": "Cape",
+          "Value": {
+            "R": 0.0,
+            "G": 1.0,
+            "B": 0.0832,
+            "A": 1.0,
+            "Hex": "00FF51"
+          }
+        },
+        {
+          "Key": "BowOff",
+          "Value": {
+            "R": 0.010851,
+            "G": 0.041667,
+            "B": 0.016501,
+            "A": 1.0,
+            "Hex": "1A3922"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.385,
+            "G": 0.133467,
+            "B": 0.077,
+            "A": 1.0,
+            "Hex": "A7664E"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.375,
+            "G": 0.31875,
+            "B": 0.1875,
+            "A": 1.0,
+            "Hex": "A59978"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.045,
+            "G": 0.035538,
+            "B": 0.018,
+            "A": 1.0,
+            "Hex": "3C3524"
+          }
+        },
+        {
+          "Key": "Paws",
+          "Value": {
+            "R": 0.462077,
+            "G": 0.194618,
+            "B": 0.184475,
+            "A": 1.0,
+            "Hex": "B57A77"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.361,
+            "G": 0.078216,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "A24F00"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.361,
+            "G": 0.078216,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "A24F00"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_LarDefault_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/LaReinaDefault/PS_Pla_LarDefault_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_LarDefault_Neutral_C'Default__PS_Pla_LarDefault_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/LaReinaDefault/PS_Pla_LarDefault_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_LarDefault_Neutral_C",
+    "Name": "Default__PS_Pla_LarDefault_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/LaReinaDefault/PS_Pla_LarDefault_Neutral.PS_Pla_LarDefault_Neutral_C'",
+    "Package": "Rivals2/Content/Platforms/LaReinaDefault/PS_Pla_LarDefault_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.651406,
+            "G": 0.002428,
+            "B": 0.066626,
+            "A": 1.0,
+            "Hex": "D30849"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.786458,
+            "G": 0.348396,
+            "B": 0.081923,
+            "A": 1.0,
+            "Hex": "E69F51"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.65625,
+            "G": 0.65625,
+            "B": 0.65625,
+            "A": 1.0,
+            "Hex": "D4D4D4"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.107023,
+            "G": 0.423268,
+            "B": 0.863157,
+            "A": 1.0,
+            "Hex": "5CAEEF"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.012983,
+            "G": 0.011612,
+            "B": 0.012286,
+            "A": 1.0,
+            "Hex": "1E1C1D"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.354167,
+            "G": 0.320829,
+            "B": 0.320829,
+            "A": 1.0,
+            "Hex": "A19A9A"
+          }
+        },
+        {
+          "Key": "CustomColor6",
+          "Value": {
+            "R": 0.052083,
+            "G": 0.046583,
+            "B": 0.049287,
+            "A": 1.0,
+            "Hex": "403D3E"
+          }
+        },
+        {
+          "Key": "CustomColor7",
+          "Value": {
+            "R": 0.107023,
+            "G": 0.423268,
+            "B": 0.863157,
+            "A": 1.0,
+            "Hex": "5CAEEF"
+          }
+        },
+        {
+          "Key": "CustomColor8",
+          "Value": {
+            "R": 0.25,
+            "G": 0.25,
+            "B": 0.25,
+            "A": 1.0,
+            "Hex": "898989"
+          }
+        },
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.25,
+            "G": 0.25,
+            "B": 0.25,
+            "A": 1.0,
+            "Hex": "898989"
+          }
+        }
+      ]
+    }
+  }
+]

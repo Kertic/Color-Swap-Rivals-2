@@ -1,0 +1,58 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_ForsburnDefault_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/ForsburnDefault/PS_Pla_ForsburnDefault_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_ForsburnDefault_Blue_C'Default__PS_Pla_ForsburnDefault_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/ForsburnDefault/PS_Pla_ForsburnDefault_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_ForsburnDefault_Blue_C",
+    "Name": "Default__PS_Pla_ForsburnDefault_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/ForsburnDefault/PS_Pla_ForsburnDefault_Blue.PS_Pla_ForsburnDefault_Blue_C'",
+    "Package": "Rivals2/Content/Platforms/ForsburnDefault/PS_Pla_ForsburnDefault_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.084376,
+            "G": 0.06301,
+            "B": 0.104616,
+            "A": 1.0,
+            "Hex": "52475B"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.019548,
+            "G": 0.032816,
+            "B": 0.108,
+            "A": 1.0,
+            "Hex": "26325C"
+          }
+        }
+      ]
+    }
+  }
+]

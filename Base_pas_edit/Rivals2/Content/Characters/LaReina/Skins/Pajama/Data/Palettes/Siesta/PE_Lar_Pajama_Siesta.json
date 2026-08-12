@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Lar_Pajama_Siesta_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Pajama/Data/Palettes/Siesta/PE_Lar_Pajama_Siesta",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Lar_Pajama_Siesta_C'Default__PE_Lar_Pajama_Siesta_C'",
+      "ObjectPath": "Rivals2/Content/Characters/LaReina/Skins/Pajama/Data/Palettes/Siesta/PE_Lar_Pajama_Siesta.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Lar_Pajama_Siesta_C",
+    "Name": "Default__PE_Lar_Pajama_Siesta_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/LaReina/Skins/Pajama/Data/Palettes/Siesta/PE_Lar_Pajama_Siesta.PE_Lar_Pajama_Siesta_C'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Pajama/Data/Palettes/Siesta/PE_Lar_Pajama_Siesta",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.037057,
+            "G": 0.08537,
+            "B": 0.297,
+            "A": 1.0,
+            "Hex": "365294"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.124772,
+            "G": 0.287441,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "6392FF"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 1.0,
+            "G": 0.327778,
+            "B": 0.708376,
+            "A": 1.0,
+            "Hex": "FF9BDB"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.923,
+            "G": 0.668607,
+            "B": 0.178139,
+            "A": 1.0,
+            "Hex": "F7D675"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.417,
+            "G": 0.215728,
+            "B": 0.039615,
+            "A": 1.0,
+            "Hex": "AD8038"
+          }
+        }
+      ]
+    }
+  }
+]

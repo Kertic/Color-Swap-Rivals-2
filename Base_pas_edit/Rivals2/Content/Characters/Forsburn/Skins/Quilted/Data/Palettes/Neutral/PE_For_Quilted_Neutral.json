@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_For_Quilted_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Quilted/Data/Palettes/Neutral/PE_For_Quilted_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_For_Quilted_Neutral_C'Default__PE_For_Quilted_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Forsburn/Skins/Quilted/Data/Palettes/Neutral/PE_For_Quilted_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_For_Quilted_Neutral_C",
+    "Name": "Default__PE_For_Quilted_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Quilted/Data/Palettes/Neutral/PE_For_Quilted_Neutral.PE_For_Quilted_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Quilted/Data/Palettes/Neutral/PE_For_Quilted_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 1.0,
+            "G": 0.701102,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFDAFF"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.973445,
+            "G": 0.760525,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FCE2FF"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.141263,
+            "G": 0.040915,
+            "B": 0.141263,
+            "A": 1.0,
+            "Hex": "693969"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.079793,
+            "G": 0.001518,
+            "B": 0.672443,
+            "A": 1.0,
+            "Hex": "5005D6"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.263717,
+            "G": 0.118544,
+            "B": 0.989583,
+            "A": 1.0,
+            "Hex": "8C60FE"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.877778,
+            "G": 0.333333,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "F19CFF"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

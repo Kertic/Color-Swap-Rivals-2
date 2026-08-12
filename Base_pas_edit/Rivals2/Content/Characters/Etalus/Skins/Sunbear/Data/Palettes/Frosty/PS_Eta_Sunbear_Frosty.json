@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Eta_Sunbear_Frosty_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Etalus/Skins/Sunbear/Data/Palettes/Frosty/PS_Eta_Sunbear_Frosty",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Eta_Sunbear_Frosty_C'Default__PS_Eta_Sunbear_Frosty_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Etalus/Skins/Sunbear/Data/Palettes/Frosty/PS_Eta_Sunbear_Frosty.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Eta_Sunbear_Frosty_C",
+    "Name": "Default__PS_Eta_Sunbear_Frosty_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Etalus/Skins/Sunbear/Data/Palettes/Frosty/PS_Eta_Sunbear_Frosty.PS_Eta_Sunbear_Frosty_C'",
+    "Package": "Rivals2/Content/Characters/Etalus/Skins/Sunbear/Data/Palettes/Frosty/PS_Eta_Sunbear_Frosty",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.039931,
+            "G": 0.069946,
+            "B": 0.119792,
+            "A": 1.0,
+            "Hex": "384B61"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.00472,
+            "G": 0.008091,
+            "B": 0.015625,
+            "A": 1.0,
+            "Hex": "0E1621"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.006293,
+            "G": 0.008646,
+            "B": 0.020833,
+            "A": 1.0,
+            "Hex": "121727"
+          }
+        },
+        {
+          "Key": "Scars",
+          "Value": {
+            "R": 0.407182,
+            "G": 0.572808,
+            "B": 0.765625,
+            "A": 1.0,
+            "Hex": "ABC8E3"
+          }
+        },
+        {
+          "Key": "PawPads",
+          "Value": {
+            "R": 0.0,
+            "G": 0.054813,
+            "B": 0.432292,
+            "A": 1.0,
+            "Hex": "0042B0"
+          }
+        },
+        {
+          "Key": "InnerEars",
+          "Value": {
+            "R": 0.0,
+            "G": 0.483927,
+            "B": 0.921875,
+            "A": 1.0,
+            "Hex": "00B9F6"
+          }
+        },
+        {
+          "Key": "LogoBackground",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Wraps",
+          "Value": {
+            "R": 0.018555,
+            "G": 0.025635,
+            "B": 0.046875,
+            "A": 1.0,
+            "Hex": "252C3D"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 0.0,
+            "G": 0.765457,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "00E3FF"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 0.0,
+            "G": 0.765457,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "00E3FF"
+          }
+        }
+      ]
+    }
+  }
+]

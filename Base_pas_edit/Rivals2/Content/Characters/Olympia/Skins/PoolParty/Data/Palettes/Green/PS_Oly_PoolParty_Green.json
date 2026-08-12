@@ -1,0 +1,338 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Oly_PoolParty_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Olympia/Skins/PoolParty/Data/Palettes/Green/PS_Oly_PoolParty_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Oly_PoolParty_Green_C'Default__PS_Oly_PoolParty_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Olympia/Skins/PoolParty/Data/Palettes/Green/PS_Oly_PoolParty_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Oly_PoolParty_Green_C",
+    "Name": "Default__PS_Oly_PoolParty_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Olympia/Skins/PoolParty/Data/Palettes/Green/PS_Oly_PoolParty_Green.PS_Oly_PoolParty_Green_C'",
+    "Package": "Rivals2/Content/Characters/Olympia/Skins/PoolParty/Data/Palettes/Green/PS_Oly_PoolParty_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.229167,
+            "G": 0.065885,
+            "B": 0.047743,
+            "A": 1.0,
+            "Hex": "84483D"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.174647,
+            "B": 0.097587,
+            "A": 1.0,
+            "Hex": "9D7458"
+          }
+        },
+        {
+          "Key": "Paws",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.174647,
+            "B": 0.097587,
+            "A": 1.0,
+            "Hex": "9D7458"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.015996,
+            "G": 0.011612,
+            "B": 0.012286,
+            "A": 1.0,
+            "Hex": "221C1D"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.015996,
+            "G": 0.011612,
+            "B": 0.012286,
+            "A": 1.0,
+            "Hex": "221C1D"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.174647,
+            "B": 0.097587,
+            "A": 1.0,
+            "Hex": "9D7458"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.23074,
+            "G": 0.066626,
+            "B": 0.048172,
+            "A": 1.0,
+            "Hex": "84493E"
+          }
+        },
+        {
+          "Key": "Earhair",
+          "Value": {
+            "R": 0.23074,
+            "G": 0.066626,
+            "B": 0.048172,
+            "A": 1.0,
+            "Hex": "84493E"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.877,
+            "G": 0.863845,
+            "B": 0.863845,
+            "A": 0.999,
+            "Hex": "F1F0F0"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 0.696,
+            "G": 0.597864,
+            "B": 0.597864,
+            "A": 0.999,
+            "Hex": "DACBCB"
+          }
+        },
+        {
+          "Key": "Eyes",
+          "Value": {
+            "R": 0.141293,
+            "G": 0.371238,
+            "B": 0.131789,
+            "A": 1.0,
+            "Hex": "69A466"
+          }
+        },
+        {
+          "Key": "Eyebrows",
+          "Value": {
+            "R": 0.0625,
+            "G": 0.025065,
+            "B": 0.025882,
+            "A": 1.0,
+            "Hex": "462C2C"
+          }
+        },
+        {
+          "Key": "HairAccent",
+          "Value": {
+            "R": 0.515625,
+            "G": 0.260588,
+            "B": 0.102051,
+            "A": 1.0,
+            "Hex": "BE8C5A"
+          }
+        },
+        {
+          "Key": "Floaties",
+          "Value": {
+            "R": 0.012847,
+            "G": 0.385417,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "1DA700"
+          }
+        },
+        {
+          "Key": "GloveRight",
+          "Value": {
+            "R": 0.65625,
+            "G": 0.452767,
+            "B": 0.013672,
+            "A": 1.0,
+            "Hex": "D4B41F"
+          }
+        },
+        {
+          "Key": "GloveLeft",
+          "Value": {
+            "R": 0.187174,
+            "G": 0.520833,
+            "B": 0.032552,
+            "A": 1.0,
+            "Hex": "78BF32"
+          }
+        },
+        {
+          "Key": "GloveAccent",
+          "Value": {
+            "R": 0.73791,
+            "G": 0.617207,
+            "B": 0.597202,
+            "A": 1.0,
+            "Hex": "DFCECB"
+          }
+        },
+        {
+          "Key": "Plugs",
+          "Value": {
+            "R": 0.578125,
+            "G": 0.578125,
+            "B": 0.578125,
+            "A": 1.0,
+            "Hex": "C8C8C8"
+          }
+        },
+        {
+          "Key": "GoggleLense",
+          "Value": {
+            "R": 0.999,
+            "G": 0.984648,
+            "B": 0.137862,
+            "A": 1.0,
+            "Hex": "FFFE68"
+          }
+        },
+        {
+          "Key": "BathingSuit",
+          "Value": {
+            "R": 0.030566,
+            "G": 0.038204,
+            "B": 0.029557,
+            "A": 1.0,
+            "Hex": "313730"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.017497,
+            "G": 0.223958,
+            "B": 0.031261,
+            "A": 1.0,
+            "Hex": "238231"
+          }
+        },
+        {
+          "Key": "ShirtAccent",
+          "Value": {
+            "R": 0.017795,
+            "G": 0.083333,
+            "B": 0.052749,
+            "A": 1.0,
+            "Hex": "245141"
+          }
+        },
+        {
+          "Key": "ShirtTrim",
+          "Value": {
+            "R": 0.465,
+            "G": 0.443145,
+            "B": 0.0279,
+            "A": 1.0,
+            "Hex": "B6B22E"
+          }
+        },
+        {
+          "Key": "ShirtPattern",
+          "Value": {
+            "R": 0.106944,
+            "G": 0.583333,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "5CC900"
+          }
+        },
+        {
+          "Key": "PantsPattern",
+          "Value": {
+            "R": 0.121041,
+            "G": 0.571,
+            "B": 0.041636,
+            "A": 1.0,
+            "Hex": "61C739"
+          }
+        },
+        {
+          "Key": "Googles",
+          "Value": {
+            "R": 0.025878,
+            "G": 0.552083,
+            "B": 0.034648,
+            "A": 1.0,
+            "Hex": "2CC434"
+          }
+        },
+        {
+          "Key": "GoggleStrap",
+          "Value": {
+            "R": 0.017642,
+            "G": 0.016807,
+            "B": 0.015996,
+            "A": 1.0,
+            "Hex": "242322"
+          }
+        },
+        {
+          "Key": "Flower",
+          "Value": {
+            "R": 0.880208,
+            "G": 0.880208,
+            "B": 0.013753,
+            "A": 1.0,
+            "Hex": "F2F21F"
+          }
+        },
+        {
+          "Key": "GloveLeftAccent",
+          "Value": {
+            "R": 0.37361,
+            "G": 1.0,
+            "B": 0.083333,
+            "A": 1.0,
+            "Hex": "A5FF51"
+          }
+        },
+        {
+          "Key": "GloveRightAccent",
+          "Value": {
+            "R": 1.0,
+            "G": 0.696528,
+            "B": 0.041667,
+            "A": 1.0,
+            "Hex": "FFDA39"
+          }
+        }
+      ]
+    }
+  }
+]

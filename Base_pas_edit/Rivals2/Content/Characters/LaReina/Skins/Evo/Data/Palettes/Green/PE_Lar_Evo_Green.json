@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Lar_Evo_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Evo/Data/Palettes/Green/PE_Lar_Evo_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Lar_Evo_Green_C'Default__PE_Lar_Evo_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/LaReina/Skins/Evo/Data/Palettes/Green/PE_Lar_Evo_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Lar_Evo_Green_C",
+    "Name": "Default__PE_Lar_Evo_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/LaReina/Skins/Evo/Data/Palettes/Green/PE_Lar_Evo_Green.PE_Lar_Evo_Green_C'",
+    "Package": "Rivals2/Content/Characters/LaReina/Skins/Evo/Data/Palettes/Green/PE_Lar_Evo_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.068467,
+            "G": 0.316,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "4A9900"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.175,
+            "G": 0.1498,
+            "B": 0.051625,
+            "A": 1.0,
+            "Hex": "746C40"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.494,
+            "G": 0.417315,
+            "B": 0.11856,
+            "A": 1.0,
+            "Hex": "BBAD60"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 1.0,
+            "G": 0.945014,
+            "B": 0.982342,
+            "A": 1.0,
+            "Hex": "FFF9FE"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.462798,
+            "G": 0.893,
+            "B": 0.343805,
+            "A": 1.0,
+            "Hex": "B5F39F"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 0.945014,
+            "B": 0.982342,
+            "A": 1.0,
+            "Hex": "FFF9FE"
+          }
+        }
+      ]
+    }
+  }
+]

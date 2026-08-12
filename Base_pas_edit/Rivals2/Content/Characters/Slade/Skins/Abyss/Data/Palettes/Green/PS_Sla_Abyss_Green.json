@@ -1,0 +1,248 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Sla_Abyss_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Green/PS_Sla_Abyss_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Sla_Abyss_Green_C'Default__PS_Sla_Abyss_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Green/PS_Sla_Abyss_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Sla_Abyss_Green_C",
+    "Name": "Default__PS_Sla_Abyss_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Green/PS_Sla_Abyss_Green.PS_Sla_Abyss_Green_C'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Abyss/Data/Palettes/Green/PS_Sla_Abyss_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.380914,
+            "G": 0.619792,
+            "B": 0.40082,
+            "A": 1.0,
+            "Hex": "A6CFAA"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.112847,
+            "G": 0.338542,
+            "B": 0.124133,
+            "A": 1.0,
+            "Hex": "5E9D63"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.033105,
+            "G": 0.223228,
+            "B": 0.090142,
+            "A": 1.0,
+            "Hex": "338255"
+          }
+        },
+        {
+          "Key": "Fins",
+          "Value": {
+            "R": 0.247454,
+            "G": 0.445201,
+            "B": 0.049707,
+            "A": 1.0,
+            "Hex": "88B23F"
+          }
+        },
+        {
+          "Key": "Teeth",
+          "Value": {
+            "R": 0.744792,
+            "G": 0.726989,
+            "B": 0.605143,
+            "A": 1.0,
+            "Hex": "E0DECC"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.0185,
+            "G": 0.030713,
+            "B": 0.022367,
+            "A": 1.0,
+            "Hex": "253129"
+          }
+        },
+        {
+          "Key": "InnerBelly",
+          "Value": {
+            "R": 0.074599,
+            "G": 0.286458,
+            "B": 0.134626,
+            "A": 1.0,
+            "Hex": "4D9267"
+          }
+        },
+        {
+          "Key": "Coat",
+          "Value": {
+            "R": 0.008138,
+            "G": 0.130208,
+            "B": 0.050862,
+            "A": 1.0,
+            "Hex": "16653F"
+          }
+        },
+        {
+          "Key": "CoatAccent",
+          "Value": {
+            "R": 0.247454,
+            "G": 0.445201,
+            "B": 0.049707,
+            "A": 1.0,
+            "Hex": "88B23F"
+          }
+        },
+        {
+          "Key": "Boots",
+          "Value": {
+            "R": 0.0006,
+            "G": 0.04,
+            "B": 0.019643,
+            "A": 1.0,
+            "Hex": "013826"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.014822,
+            "G": 0.0185,
+            "B": 0.013702,
+            "A": 1.0,
+            "Hex": "20251F"
+          }
+        },
+        {
+          "Key": "Tail1Top",
+          "Value": {
+            "R": 0.005814,
+            "G": 0.153,
+            "B": 0.111297,
+            "A": 1.0,
+            "Hex": "116D5E"
+          }
+        },
+        {
+          "Key": "Tail1Bottom",
+          "Value": {
+            "R": 0.054738,
+            "G": 0.270498,
+            "B": 0.026241,
+            "A": 1.0,
+            "Hex": "428E2D"
+          }
+        },
+        {
+          "Key": "Tail2Bottom",
+          "Value": {
+            "R": 0.08022,
+            "G": 0.351533,
+            "B": 0.256573,
+            "A": 1.0,
+            "Hex": "50A08B"
+          }
+        },
+        {
+          "Key": "Sword",
+          "Value": {
+            "R": 0.002912,
+            "G": 0.182,
+            "B": 0.065593,
+            "A": 1.0,
+            "Hex": "097648"
+          }
+        },
+        {
+          "Key": "SwordAccent",
+          "Value": {
+            "R": 0.247454,
+            "G": 0.445201,
+            "B": 0.049707,
+            "A": 1.0,
+            "Hex": "88B23F"
+          }
+        },
+        {
+          "Key": "Hilt",
+          "Value": {
+            "R": 0.028426,
+            "G": 0.025187,
+            "B": 0.023153,
+            "A": 1.0,
+            "Hex": "2F2C2A"
+          }
+        },
+        {
+          "Key": "TreasureChestTeeth",
+          "Value": {
+            "R": 0.208333,
+            "G": 0.20081,
+            "B": 0.173611,
+            "A": 1.0,
+            "Hex": "7E7C74"
+          }
+        },
+        {
+          "Key": "TreasureChestBelly",
+          "Value": {
+            "R": 0.348958,
+            "G": 0.335055,
+            "B": 0.299885,
+            "A": 1.0,
+            "Hex": "A09D95"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.359172,
+            "G": 0.569,
+            "B": 0.021622,
+            "A": 1.0,
+            "Hex": "A2C728"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.0962,
+            "G": 0.481,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "57B900"
+          }
+        }
+      ]
+    }
+  }
+]
