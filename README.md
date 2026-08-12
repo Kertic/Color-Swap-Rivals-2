@@ -11,7 +11,9 @@ cd Color-Swap-Rivals-2
 setup.bat
 ```
 
-`setup.bat` uses winget (built into Windows 10/11) to install anything missing: **Python 3.12** + the **Pillow** library, the **.NET 8 Desktop Runtime**, and it downloads the latest **FModel** release into the tool's `FModel/` subfolder (used by the Update Game Data button). Everything already installed is detected and skipped. The .NET runtime install may show a UAC prompt.
+`setup.bat` installs anything missing: **Python 3** + the **Pillow** library, the **.NET 8 Desktop Runtime**, and the latest **FModel** release (downloaded into the tool's `FModel/` subfolder, used by the Update Game Data button). Anything already present is detected and skipped, so it's safe to re-run. Python and .NET are installed with winget (built into Windows 10/11); the .NET step may show a UAC prompt.
+
+Setup also records the Python interpreter it found in `python_path.txt`, which `Start.vbs` and `run_importer.bat` use directly. This sidesteps a common Windows problem: the Microsoft Store's placeholder `python.exe` in `WindowsApps` often shadows a real install on `PATH` and fails with *"Python was not found; run without arguments to install from the Microsoft Store"*. If you ever see that, run `setup.bat` again.
 
 ## Getting Started
 
