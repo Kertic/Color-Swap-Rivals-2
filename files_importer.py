@@ -6,16 +6,16 @@ import sys
 from pathlib import Path
 
 # -------- CONFIG --------
-# Détection automatique du dossier de sortie de FModel.
-# On teste plusieurs emplacements et on garde celui qui contient réellement
-# les exports Rivals2 (peu importe où FModel a été configuré).
+# Détection automatique du dossier de sortie de FModel. | Automatic detection of FModel's output folder.
+# On teste plusieurs emplacements et on garde celui qui contient réellement | Several locations are tested and we keep the one that actually holds
+# les exports Rivals2 (peu importe où FModel a été configuré). | the Rivals2 exports (wherever FModel was configured).
 _CANDIDATE_OUTPUTS = [
     Path(os.environ.get("USERPROFILE", "")) / "Documents" / "FModel" / "Output",
 ]
 
 
 def _appsettings_output():
-    # Lit OutputDirectory depuis la config de FModel si disponible
+    # Lit OutputDirectory depuis la config de FModel si disponible | Reads OutputDirectory from FModel's own config if available
     cfg = Path(os.environ.get("APPDATA", "")) / "FModel" / "AppSettings.json"
     try:
         out = json.loads(cfg.read_text(encoding="utf-8")).get("OutputDirectory")
@@ -30,20 +30,20 @@ def _resolve_fmodel_output():
     if cfg_out:
         candidates.append(cfg_out)
     candidates += _CANDIDATE_OUTPUTS
-    # 1) Priorité à un dossier qui contient déjà des personnages exportés
+    # 1) Priorité à un dossier qui contient déjà des personnages exportés | 1) Prefer a folder that already contains exported characters
     for c in candidates:
         if (c / "Exports" / "Rivals2" / "Content" / "Characters").exists():
             return c
-    # 2) Sinon, le premier qui a au moins un dossier Exports
+    # 2) Sinon, le premier qui a au moins un dossier Exports | 2) Otherwise, the first one with at least an Exports folder
     for c in candidates:
         if (c / "Exports").exists():
             return c
-    # 3) Sinon, le premier candidat (pour le message d'erreur)
+    # 3) Sinon, le premier candidat (pour le message d'erreur) | 3) Otherwise, the first candidate (for the error message)
     return candidates[0]
 
 
 def refresh_paths():
-    # Re-résout les chemins FModel (utile quand l'export vient d'être fait)
+    # Re-résout les chemins FModel (utile quand l'export vient d'être fait) | Re-resolves the FModel paths (useful right after an export)
     global FMODEL_OUTPUT, SOURCE_ROOT, PLATFORM_ROOT
     FMODEL_OUTPUT = _resolve_fmodel_output()
     SOURCE_ROOT = FMODEL_OUTPUT / "Exports" / "Rivals2" / "Content" / "Characters"
@@ -53,7 +53,7 @@ def refresh_paths():
 FMODEL_OUTPUT = _resolve_fmodel_output()
 SOURCE_ROOT = FMODEL_OUTPUT / "Exports" / "Rivals2" / "Content" / "Characters"
 
-# Dossier Base_pas_edit de cet outil (relatif au script, déplaçable)
+# Dossier Base_pas_edit de cet outil (relatif au script, déplaçable) | This tool's Base_pas_edit folder (relative to the script, movable)
 DEST_ROOT = Path(__file__).resolve().parent / "Base_pas_edit" / "Rivals2" / "Content" / "Characters"
 
 ALLOWED_PREFIXES = {"PE", "PS", "T"}
@@ -63,8 +63,8 @@ PLATFORM_ROOT = FMODEL_OUTPUT / "Exports" / "Rivals2" / "Content" / "Platforms"
 
 
 def run_import():
-    # Point d'entrée utilisé par l'application : lance tout l'import
-    # et retourne le nombre de fichiers copiés par catégorie.
+    # Point d'entrée utilisé par l'application : lance tout l'import | Entry point used by the application: runs the whole import
+    # et retourne le nombre de fichiers copiés par catégorie. | and returns the number of files copied per category.
     refresh_paths()
     if not SOURCE_ROOT.exists():
         return None
@@ -235,8 +235,8 @@ def shared():
 
 
 def csp_portraits():
-    # Copie les portraits (T_*_CSP.png) utilisés par le bouton Aperçu,
-    # réduits et quantifiés pour limiter la taille du dossier.
+    # Copie les portraits (T_*_CSP.png) utilisés par le bouton Aperçu, | Copies the portraits (T_*_CSP.png) used by the Preview button,
+    # réduits et quantifiés pour limiter la taille du dossier. | downscaled and quantized to keep the folder size down.
     try:
         from PIL import Image
     except ImportError:
@@ -249,7 +249,7 @@ def csp_portraits():
                 continue
             src = Path(root) / file
             dest = DEST_ROOT / src.relative_to(SOURCE_ROOT)
-            # ne copier que là où l'outil a déjà des données de palette
+            # ne copier que là où l'outil a déjà des données de palette | only copy where the tool already has palette data
             if not dest.parent.is_dir():
                 continue
             im = Image.open(src).convert("RGBA")

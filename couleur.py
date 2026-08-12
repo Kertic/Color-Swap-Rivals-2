@@ -1,5 +1,8 @@
 import tkinter as tk
-from tkinter import filedialog, messagebox, colorchooser
+from tkinter import filedialog, messagebox, colorchooser, ttk
+import re
+import ctypes
+from ctypes import wintypes
 import struct
 import json
 import os
@@ -15,7 +18,7 @@ CONFIG_FILE = 'config.pkl'
 
 BASE_DIR = r"Base_pas_edit\Rivals2\Content\Characters"
 
-# Initialisation des variables globales
+# Initialisation des variables globales | Global variable initialization
 unrealpak_script_path = None
 mods_folder_path = None
 fmodel_path = None
@@ -27,7 +30,7 @@ character_icons = {}
 file_type_codes = {'Element/Energy': 'PE', 'Skin': 'PS'}
 Primal_platform = False
 
-# Dictionnaire des traductions
+# Dictionnaire des traductions | Translation dictionary
 translations = {
     'fr': {
         'title': "ROA 2 Colorswap",
@@ -85,6 +88,35 @@ translations = {
         'update_done': ("Import terminé :\n{} fichiers personnages, {} plateformes, "
                         "{} partagés, {} portraits.\n\nRedémarrez l'outil pour voir les nouveaux personnages."),
         'update_importer_missing': "files_importer.py introuvable à côté de l'application.",
+        'file_type_skin': "Skin",
+        'file_type_energy': "Élément/Énergie",
+        'manage_overrides': "Mods installés",
+        'overrides_title': "Mods installés (fichiers .pak)",
+        'overrides_no_folder': "Configurez d'abord le dossier Mods.",
+        'overrides_col_pak': "Fichier .pak",
+        'overrides_col_character': "Personnage",
+        'overrides_col_skin': "Skin",
+        'overrides_col_palette': "Palette",
+        'overrides_col_type': "Type",
+        'overrides_status': "{} fichier(s) .pak installé(s), {} remplacement(s).",
+        'overrides_game_running': "Le jeu est en cours d'exécution : fermez-le pour ajouter ou supprimer des mods.",
+        'overrides_refresh': "Actualiser",
+        'overrides_open_folder': "Ouvrir le dossier",
+        'overrides_remove_selected': "Supprimer la sélection",
+        'overrides_remove_all': "Tout supprimer",
+        'choose_mods_folder': "Choisir le dossier Mods du jeu",
+        'overrides_preview': "Aperçu avant/après",
+        'overrides_partial_removed': "{} remplacement(s) retiré(s). {} pak(s) reconstruit(s), {} supprimé(s).",
+        'override_before': "Avant (jeu d'origine)",
+        'override_after': "Après (mod installé)",
+        'override_changed': "{} couleur(s) modifiée(s) sur {}.",
+        'overrides_confirm': "Retirer {} remplacement(s) ?\n\n{}\n\nLe reste du pak est conservé.",
+        'overrides_confirm_all': ("Envoyer les {} fichier(s) .pak à la corbeille ?\n\n"
+                                  "Tous vos mods de couleurs seront désactivés. "
+                                  "Ils restent récupérables depuis la corbeille."),
+        'overrides_close_game': "Fermez le jeu avant de supprimer des mods (les fichiers sont verrouillés).",
+        'overrides_removed': "{} fichier(s) .pak envoyé(s) à la corbeille.",
+        'overrides_remove_failed': "Suppression impossible. Vérifiez que le jeu est fermé.",
     },
     'en': {
         'title': "ROA 2 Colorswap",
@@ -142,18 +174,47 @@ translations = {
         'update_done': ("Import finished:\n{} character files, {} platforms, "
                         "{} shared, {} portraits.\n\nRestart the tool to see new characters."),
         'update_importer_missing': "files_importer.py not found next to the application.",
+        'file_type_skin': "Skin",
+        'file_type_energy': "Element/Energy",
+        'manage_overrides': "Installed Mods",
+        'overrides_title': "Installed Mods (.pak files)",
+        'overrides_no_folder': "Configure the Mods folder first.",
+        'overrides_col_pak': ".pak file",
+        'overrides_col_character': "Character",
+        'overrides_col_skin': "Skin",
+        'overrides_col_palette': "Palette",
+        'overrides_col_type': "Type",
+        'overrides_status': "{} .pak file(s) installed, {} override(s).",
+        'overrides_game_running': "The game is running: close it before adding or removing mods.",
+        'overrides_refresh': "Refresh",
+        'overrides_open_folder': "Open Folder",
+        'overrides_remove_selected': "Remove Selected",
+        'overrides_remove_all': "Remove All",
+        'choose_mods_folder': "Choose the game's Mods folder",
+        'overrides_preview': "Preview Before/After",
+        'overrides_partial_removed': "{} override(s) removed. {} pak(s) rebuilt, {} deleted.",
+        'override_before': "Before (original game)",
+        'override_after': "After (installed mod)",
+        'override_changed': "{} of {} colors changed.",
+        'overrides_confirm': "Remove {} override(s)?\n\n{}\n\nThe rest of the pak is kept.",
+        'overrides_confirm_all': ("Send all {} .pak file(s) to the Recycle Bin?\n\n"
+                                  "This disables every color mod you have installed. "
+                                  "They stay recoverable from the Recycle Bin."),
+        'overrides_close_game': "Close the game before removing mods (the files are locked).",
+        'overrides_removed': "{} .pak file(s) sent to the Recycle Bin.",
+        'overrides_remove_failed': "Removal failed. Make sure the game is closed.",
     }
 }
 
 # Langue actuelle
-current_language = 'fr'  # Valeur par défaut, sera chargée depuis la config
+current_language = 'fr'  # Valeur par défaut, sera chargée depuis la config | Default value, will be loaded from the config
 
 
 def update_texts():
-    # Mettre à jour le titre de la fenêtre
+    # Mettre à jour le titre de la fenêtre | Update the window title
     root.title(translations[current_language]['title'])
 
-    # Mettre à jour les textes des widgets
+    # Mettre à jour les textes des widgets | Update the widget texts
     config_button.config(text=translations[current_language]['configure_mods'])
     save_preset_button.config(
         text=translations[current_language]['save_preset'])
@@ -165,8 +226,10 @@ def update_texts():
         text=translations[current_language]['preview'])
     update_data_button.config(
         text=translations[current_language]['update_data'])
+    overrides_button.config(
+        text=translations[current_language]['manage_overrides'])
 
-    # Mettre à jour les labels
+    # Mettre à jour les labels | Update the labels
     character_label.config(
         text=translations[current_language]['character'])
     skin_label.config(text=translations[current_language]['skin'])
@@ -174,7 +237,7 @@ def update_texts():
     file_type_label.config(
         text=translations[current_language]['file_type'])
 
-    # Mettre à jour le menu des langues
+    # Mettre à jour le menu des langues | Update the language menu
     language_menu['text'] = selected_language.get()
 
 
@@ -185,7 +248,7 @@ def change_language(*args):
 
 
 def save_config():
-    # Sauvegarde de la configuration dans un fichier pickle
+    # Sauvegarde de la configuration dans un fichier pickle | Save the configuration to a pickle file
     config = {
         'unrealpak_script_path': unrealpak_script_path,
         'mods_folder_path': mods_folder_path,
@@ -197,22 +260,22 @@ def save_config():
 
 
 def load_config():
-    # Chargement de la configuration depuis le fichier pickle
+    # Chargement de la configuration depuis le fichier pickle | Load the configuration from the pickle file
     global unrealpak_script_path, mods_folder_path, preset_dir, current_language, fmodel_path
     project_root = os.path.dirname(
-        os.path.abspath(__file__))  # Chemin du projet racine
+        os.path.abspath(__file__))  # Chemin du projet racine | Project root path
 
-    # Chemin de UnrealPak-With-Compression.bat dans Upack
+    # Chemin de UnrealPak-With-Compression.bat dans Upack | Path to UnrealPak-With-Compression.bat in Upack
     unrealpak_script_path = os.path.join(
         project_root, "Upack", "UnrealPak-With-Compression.bat")
 
-    # Chemin du dossier Preset à la racine du projet
+    # Chemin du dossier Preset à la racine du projet | Path to the Preset folder at the project root
     preset_dir = os.path.join(project_root, "Preset")
 
-    # Valeur par défaut de la langue
+    # Valeur par défaut de la langue | Default language value
     current_language = 'fr'
 
-    # Charger le dossier mods et la langue depuis le fichier de configuration si disponible
+    # Charger le dossier mods et la langue depuis le fichier de configuration si disponible | Load the mods folder and language from the config file if available
     if os.path.exists(CONFIG_FILE):
         with open(CONFIG_FILE, 'rb') as f:
             config = pickle.load(f)
@@ -222,24 +285,24 @@ def load_config():
 
 
 def get_output_and_unrealpak_dirs():
-    # Obtient les chemins des dossiers de sortie pour UnrealPak
+    # Obtient les chemins des dossiers de sortie pour UnrealPak | Gets the output folder paths for UnrealPak
     character = selected_character.get()
     skin = selected_skin.get()
     color = selected_color.get()
     file_type = selected_file_type.get()
 
-    # Dossier à utiliser pour UnrealPak
+    # Dossier à utiliser pour UnrealPak | Folder to use for UnrealPak
     unrealpak_folder_path = os.path.join(
         os.path.dirname(unrealpak_script_path), f"{character}_P")
 
     if character == 'Ranno' and skin == 'DartFrog':
-        # Chemin de sortie pour DartFrog 
+        # Chemin de sortie pour DartFrog | Output path for DartFrog
         output_folder_path = os.path.join(
             unrealpak_folder_path,
             "Rivals2", "Content", "Characters", character, "Skins", skin, "Data"
         )
     elif character == 'Fleet' and skin == 'Pajama':
-        #Même problème, on a besoin d'un dossier Pyjama et un fichier Pajama
+        #Même problème, on a besoin d'un dossier Pyjama et un fichier Pajama | Same problem, we need a Pyjama folder and a Pajama file
         output_folder_path = os.path.join(
             unrealpak_folder_path,
             "Rivals2", "Content", "Characters", character, "Skins", 'Pyjama', "Data", "Palettes", color
@@ -250,7 +313,7 @@ def get_output_and_unrealpak_dirs():
             "Rivals2", "Content", "Characters", character, skin
         )
     elif character == 'Platforms': 
-        # Les plateformes sont stockées à un endroit différent, pas dans Characters
+        # Les plateformes sont stockées à un endroit différent, pas dans Characters | Platforms are stored elsewhere, not under Characters
         match skin:
             case 'RanDefault':
                 output_folder_path = os.path.join(
@@ -319,19 +382,19 @@ def get_output_and_unrealpak_dirs():
                 )
 
     else:
-        # Chemin de sortie général
+        # Chemin de sortie général | General output path
         output_folder_path = os.path.join(
             unrealpak_folder_path,
             "Rivals2", "Content", "Characters", character, "Skins", skin, "Data", "Palettes", color
         )
 
-    # Création du dossier de sortie si nécessaire
+    # Création du dossier de sortie si nécessaire | Create the output folder if needed
     os.makedirs(output_folder_path, exist_ok=True)
     return output_folder_path, unrealpak_folder_path
 
 
 def save_preset():
-    # Vérifier que les données JSON sont chargées
+    # Vérifier que les données JSON sont chargées | Check that the JSON data is loaded
     if json_data is None:
         messagebox.showerror(
             translations[current_language]['error_title'], translations[current_language]['no_json_loaded'])
@@ -361,7 +424,7 @@ def save_preset():
                                 "Value": {"R": r, "G": g, "B": b}
                             }
                             preset_data["Colors"].append(new_color)
-        # Sauvegarder les données du preset
+        # Sauvegarder les données du preset | Save the preset data
         with open(preset_file, 'w', encoding='utf-8') as f:
             json.dump(preset_data, f, indent=4)
         messagebox.showinfo(translations[current_language]['success_title'],
@@ -378,6 +441,11 @@ def adapt_preset_to_selection(preset_data):
     correspondance par nom de slot d'abord, puis répartition des couleurs
     restantes par rang de luminosité (les zones sombres du skin reçoivent
     les couleurs sombres du preset, etc.).
+
+    Adapts a preset from another character/skin to the current selection:
+    slots are matched by name first, then the remaining colors are spread
+    by brightness rank (the skin's dark areas receive the preset's dark
+    colors, and so on).
     """
     sources = []
     for color in preset_data.get("Colors", []):
@@ -394,7 +462,7 @@ def adapt_preset_to_selection(preset_data):
     if not sources:
         return {}
 
-    targets = []  # (key, couleur d'origine du slot)
+    targets = []  # (key, couleur d'origine du slot) | (key, the slot's original color)
     for entry in json_data:
         if "Properties" in entry and "CustomColorSlotDefinitions" in entry["Properties"]:
             for color in entry["Properties"]["CustomColorSlotDefinitions"]:
@@ -432,7 +500,7 @@ def adapt_preset_to_selection(preset_data):
 
 
 def apply_color_assignment(assignment):
-    # Écrit les couleurs calculées dans les champs de saisie
+    # Écrit les couleurs calculées dans les champs de saisie | Writes the computed colors into the entry fields
     for key, (r, g, b) in assignment.items():
         if key in color_entries:
             hex_color = f"#{r:02X}{g:02X}{b:02X}"
@@ -442,14 +510,14 @@ def apply_color_assignment(assignment):
 
 
 def load_preset():
-    # Charge un preset et l'applique aux couleurs actuelles
+    # Charge un preset et l'applique aux couleurs actuelles | Loads a preset and applies it to the current colors
     preset_file = filedialog.askopenfilename(
         filetypes=[("JSON files", "*.json")], initialdir=preset_dir)
     if preset_file:
         with open(preset_file, 'r', encoding='utf-8') as f:
             try:
                 preset_data = json.load(f)
-                # Si le preset vient d'un autre personnage/skin, proposer de l'adapter
+                # Si le preset vient d'un autre personnage/skin, proposer de l'adapter | If the preset is from another character/skin, offer to adapt it
                 if preset_data.get("Character") != selected_character.get() or preset_data.get("Skin") != selected_skin.get():
                     if json_data is None:
                         messagebox.showerror(
@@ -471,7 +539,7 @@ def load_preset():
                     messagebox.showerror(
                         translations[current_language]['error_title'], translations[current_language]['no_json_loaded'])
                     return
-                # Appliquer les données du preset à json_data
+                # Appliquer les données du preset à json_data | Apply the preset data to json_data
                 preset_colors = {color["Key"]: color["Value"]
                                  for color in preset_data.get("Colors", []) if color["Key"] != "Element0"}
                 for entry in json_data:
@@ -498,26 +566,26 @@ def load_preset():
 
 
 def precise_float_to_hex(value):
-    # Convertit un float en représentation hexadécimale précise
+    # Convertit un float en représentation hexadécimale précise | Converts a float to its exact hexadecimal representation
     binary = struct.unpack('>I', struct.pack('>f', value))[0]
     hex_value = f'{binary:08X}'
     return hex_value
 
 
 def invert_hex(hex_value):
-    # Inverse les octets dans une chaîne hexadécimale
+    # Inverse les octets dans une chaîne hexadécimale | Reverses the bytes in a hexadecimal string
     return ''.join([hex_value[i:i+2] for i in range(0, len(hex_value), 2)][::-1])
 
 
 def hex_to_linear_rgb(color_hex):
-    # Convertit une couleur hexadécimale en valeurs RGB linéaires
+    # Convertit une couleur hexadécimale en valeurs RGB linéaires | Converts a hexadecimal color to linear RGB values
     color_hex = color_hex.lstrip('#')
     r = int(color_hex[0:2], 16) / 255.0
     g = int(color_hex[2:4], 16) / 255.0
     b = int(color_hex[4:6], 16) / 255.0
 
     def linearize(value):
-        # Applique la correction gamma pour obtenir une valeur linéaire
+        # Applique la correction gamma pour obtenir une valeur linéaire | Applies gamma correction to get a linear value
         if value <= 0.04045:
             return value / 12.92
         else:
@@ -531,27 +599,27 @@ def hex_to_linear_rgb(color_hex):
 
 
 def load_json():
-    # Charge le fichier JSON associé au fichier UEXP et met à jour l'interface
+    # Charge le fichier JSON associé au fichier UEXP et met à jour l'interface | Loads the JSON file paired with the UEXP file and updates the UI
     global json_data
     json_file_path = uexp_file_path.replace(".uexp", ".json")
 
-    # Vérifier si le fichier JSON existe
+    # Vérifier si le fichier JSON existe | Check whether the JSON file exists
     if not os.path.exists(json_file_path):
         messagebox.showerror(
             translations[current_language]['error_title'], translations[current_language]['json_not_found'].format(json_file_path))
         return False
 
-    # Charger le fichier JSON
+    # Charger le fichier JSON | Load the JSON file
     with open(json_file_path, 'r', encoding='utf-8') as f:
         try:
             data = json.load(f)
-            # Vérifier que le JSON est une liste avec au moins deux éléments
+            # Vérifier que le JSON est une liste avec au moins deux éléments | Check that the JSON is a list with at least two entries
             if isinstance(data, list) and len(data) > 1:
                 json_data = filter_colors_in_uexp(
-                    data)  # Appliquer le filtrage
-                # Afficher les couleurs filtrées
+                    data)  # Appliquer le filtrage | Apply the filtering
+                # Afficher les couleurs filtrées | Display the filtered colors
                 populate_color_selectors(json_data)
-                # Définir les couleurs de base à partir du JSON
+                # Définir les couleurs de base à partir du JSON | Set the base colors from the JSON
                 set_initial_colors(json_data)
                 print(f"Fichier JSON chargé et filtré : {json_file_path}")
                 return True
@@ -566,8 +634,8 @@ def load_json():
 
 
 def rgb_hex_from_json(hex_value):
-    # Le JSON stocke AARRGGBB quand la couleur a une transparence (alpha < 1),
-    # et RRGGBB sinon. Tkinter n'accepte que #RRGGBB : on retire l'alpha.
+    # Le JSON stocke AARRGGBB quand la couleur a une transparence (alpha < 1), | The JSON stores AARRGGBB when the color has transparency (alpha < 1),
+    # et RRGGBB sinon. Tkinter n'accepte que #RRGGBB : on retire l'alpha. | and RRGGBB otherwise. Tkinter only accepts #RRGGBB, so strip the alpha.
     hex_value = str(hex_value).lstrip('#')
     if len(hex_value) == 8:
         hex_value = hex_value[2:]
@@ -575,7 +643,7 @@ def rgb_hex_from_json(hex_value):
 
 
 def set_initial_colors(data):
-    # Initialise les couleurs affichées dans l'interface à partir des données JSON
+    # Initialise les couleurs affichées dans l'interface à partir des données JSON | Initializes the colors shown in the UI from the JSON data
     for entry in data:
         if "Properties" in entry and "CustomColorSlotDefinitions" in entry["Properties"]:
             for color in entry["Properties"]["CustomColorSlotDefinitions"]:
@@ -583,17 +651,17 @@ def set_initial_colors(data):
                 if "Hex" in color["Value"]:
                     rgb_hex = rgb_hex_from_json(color["Value"]["Hex"])
                     if key in color_displays and rgb_hex:
-                        # Mettre à jour le fond avec la couleur initiale
+                        # Mettre à jour le fond avec la couleur initiale | Update the background with the initial color
                         color_displays[key].config(bg=f'#{rgb_hex}')
-                    # Laisser l'entrée vide (ne rien insérer dans color_entries)
+                    # Laisser l'entrée vide (ne rien insérer dans color_entries) | Leave the entry blank (insert nothing into color_entries)
                     if key in color_entries:
-                        # S'assurer que le champ est vide
+                        # S'assurer que le champ est vide | Make sure the field is empty
                         color_entries[key].delete(0, tk.END)
 
 
 def get_preview_recolor_map():
-    # Construit la liste (couleur d'origine -> nouvelle couleur) en sRGB
-    # à partir des champs saisis par l'utilisateur
+    # Construit la liste (couleur d'origine -> nouvelle couleur) en sRGB | Builds the (original color -> new color) list in sRGB
+    # à partir des champs saisis par l'utilisateur | from the fields filled in by the user
     mapping = []
     if json_data is None:
         return mapping
@@ -621,15 +689,15 @@ def get_preview_recolor_map():
 
 
 def recolor_preview_image(im, mapping):
-    # Recolore le portrait : chaque pixel est attribué au slot de palette
-    # dont il est le plus proche (à un facteur d'ombrage près), puis ce
-    # facteur est réappliqué à la nouvelle couleur pour garder l'ombrage.
+    # Recolore le portrait : chaque pixel est attribué au slot de palette | Recolors the portrait: each pixel is matched to the palette slot
+    # dont il est le plus proche (à un facteur d'ombrage près), puis ce | it is closest to (allowing for a shading factor), then that
+    # facteur est réappliqué à la nouvelle couleur pour garder l'ombrage. | factor is reapplied to the new color to preserve shading.
     if not any(o != n for o, n in mapping):
         return im
     im = im.convert("RGBA")
     pixels = list(im.getdata())
     cache = {}
-    threshold_sq = 60 * 60 * 3  # tolérance de correspondance (par pixel)
+    threshold_sq = 60 * 60 * 3  # tolérance de correspondance (par pixel) | match tolerance (per pixel)
     out = []
     for p in pixels:
         r, g, b, a = p
@@ -667,7 +735,7 @@ def recolor_preview_image(im, mapping):
                           min(255, int(ng * best_scale)),
                           min(255, int(nb * best_scale)))
             else:
-                cached = False  # pixel hors palette : inchangé
+                cached = False  # pixel hors palette : inchangé | pixel outside the palette: left unchanged
             cache[key] = cached
         if cached is False:
             out.append(p)
@@ -679,7 +747,7 @@ def recolor_preview_image(im, mapping):
 
 
 def get_element_ramp():
-    # Construit le dégradé Element0 -> ElementN (couleurs éditées incluses)
+    # Construit le dégradé Element0 -> ElementN (couleurs éditées incluses) | Builds the Element0 -> ElementN gradient (including edited colors)
     stops = []
     if json_data is None:
         return stops
@@ -711,7 +779,7 @@ def get_element_ramp():
 
 
 def sample_ramp(stops, t):
-    # Interpole linéairement dans le dégradé (t entre 0 et 1)
+    # Interpole linéairement dans le dégradé (t entre 0 et 1) | Linearly interpolates within the gradient (t between 0 and 1)
     if not stops:
         return (0, 0, 0)
     if len(stops) == 1 or t <= 0:
@@ -728,8 +796,8 @@ def sample_ramp(stops, t):
 
 
 def render_energy_preview(portrait, stops):
-    # Dessine une flamme/aura procédurale colorée par le dégradé d'éléments,
-    # avec le portrait par-dessus si disponible, et une barre de dégradé.
+    # Dessine une flamme/aura procédurale colorée par le dégradé d'éléments, | Draws a procedural flame/aura colored by the element gradient,
+    # avec le portrait par-dessus si disponible, et une barre de dégradé. | with the portrait on top if available, plus a gradient bar.
     import math
     w, h = 400, 400
     bar_h = 26
@@ -737,12 +805,12 @@ def render_energy_preview(portrait, stops):
     px = aura.load()
     cx, cy = w / 2.0, h * 0.62
     for y in range(h):
-        for x in range(0, w, 2):  # pas de 2 puis duplication : 2x plus rapide
+        for x in range(0, w, 2):  # pas de 2 puis duplication : 2x plus rapide | step of 2 then duplicate: 2x faster
             dx = (x - cx) / (w * 0.42)
             dy = (y - cy) / (h * 0.55)
             if dy < 0:
-                # Forme de flamme : haute au centre, courte sur les côtés,
-                # avec un léger vacillement du contour
+                # Forme de flamme : haute au centre, courte sur les côtés, | Flame shape: tall at the center, short at the sides,
+                # avec un léger vacillement du contour | with a slight flicker along the outline
                 taper = 0.42 + 1.1 * abs(dx)
                 taper *= 1.0 + 0.07 * math.sin(y * 0.06) + 0.05 * math.sin(y * 0.13 + 1.7)
                 dy *= taper
@@ -763,7 +831,7 @@ def render_energy_preview(portrait, stops):
         p.thumbnail((int(w * 0.72), int(h * 0.72)), Image.LANCZOS)
         canvas.alpha_composite(
             p, ((w - p.width) // 2, int(h * 0.94) - p.height))
-    # Barre de dégradé en bas
+    # Barre de dégradé en bas | Gradient bar at the bottom
     for x in range(w):
         r, g, b = sample_ramp(stops, x / (w - 1))
         for y in range(h + 8, h + 8 + bar_h):
@@ -775,7 +843,7 @@ preview_window = None
 
 
 def show_preview():
-    # Affiche le portrait du jeu recoloré avec les couleurs saisies
+    # Affiche le portrait du jeu recoloré avec les couleurs saisies | Shows the in-game portrait recolored with the entered colors
     global preview_window
     if not uexp_file_path:
         return
@@ -805,7 +873,7 @@ def show_preview():
         preview_window.configure(bg="#f2f2f2")
         photo = ImageTk.PhotoImage(im)
         label = tk.Label(preview_window, image=photo, bg="#f2f2f2")
-        label.image = photo  # référence pour éviter le garbage collection
+        label.image = photo  # référence pour éviter le garbage collection | keep a reference to prevent garbage collection
         label.pack(padx=10, pady=(10, 0))
         note_key = 'preview_energy_note' if is_energy else 'preview_note'
         note = tk.Label(preview_window, text=translations[current_language][note_key],
@@ -819,35 +887,35 @@ def show_preview():
 
 
 def load_files():
-    # Charge le fichier UEXP et le JSON associé
+    # Charge le fichier UEXP et le JSON associé | Loads the UEXP file and its paired JSON
     try:
-        # Afficher le curseur d'attente
+        # Afficher le curseur d'attente | Show the wait cursor
         root.config(cursor="wait")
         root.update()
-        # Désactiver les menus déroulants
+        # Désactiver les menus déroulants | Disable the dropdown menus
         disable_selection_menus()
-        # Désactiver le bouton "Remplacer les couleurs"
+        # Désactiver le bouton "Remplacer les couleurs" | Disable the "Replace Colors" button
         replace_button.config(state='disabled')
         preview_button.config(state='disabled')
-        # Cacher les clés et les couleurs
+        # Cacher les clés et les couleurs | Hide the keys and colors
         clear_color_selectors()
         if load_uexp():
             if load_json():
-                # Si le chargement est réussi, réactiver le bouton "Remplacer les couleurs"
+                # Si le chargement est réussi, réactiver le bouton "Remplacer les couleurs" | If loading succeeded, re-enable the "Replace Colors" button
                 replace_button.config(state='normal')
                 preview_button.config(state='normal')
     except Exception as e:
         messagebox.showerror(
             translations[current_language]['error_title'], str(e))
     finally:
-        # Réactiver les menus après le chargement
+        # Réactiver les menus après le chargement | Re-enable the menus after loading
         enable_selection_menus()
-        # Réinitialiser le curseur
+        # Réinitialiser le curseur | Reset the cursor
         root.config(cursor="")
 
 
 def clear_color_selectors():
-    # Efface les widgets des clés et des couleurs
+    # Efface les widgets des clés et des couleurs | Clears the key and color widgets
     for widget in color_frame.winfo_children():
         widget.destroy()
     global color_entries, color_displays
@@ -859,12 +927,15 @@ def filter_colors_in_uexp(data):
     """
     Filtre les clés du JSON qui correspondent aux couleurs présentes dans le fichier UEXP,
     en respectant l'ordre des valeurs et en ne prenant qu'une occurrence par couleur.
+
+    Filters the JSON keys matching colors present in the UEXP file, keeping
+    the order of the values and taking only one occurrence per color.
     """
     with open(uexp_file_path, 'rb') as f:
         uexp_data = f.read().hex().upper()
 
     filtered_data = []
-    current_position = 0  # Position actuelle dans uexp_data pour l'analyse séquentielle
+    current_position = 0  # Position actuelle dans uexp_data pour l'analyse séquentielle | Current position in uexp_data for the sequential scan
 
     for entry in data:
         if "Properties" in entry and "CustomColorSlotDefinitions" in entry["Properties"]:
@@ -873,23 +944,23 @@ def filter_colors_in_uexp(data):
                 key = color["Key"]
                 value = color["Value"]
 
-                # Convertir chaque composante RGB en hexadécimale
+                # Convertir chaque composante RGB en hexadécimale | Convert each RGB component to hexadecimal
                 hex_r = invert_hex(precise_float_to_hex(value["R"]))
                 hex_g = invert_hex(precise_float_to_hex(value["G"]))
                 hex_b = invert_hex(precise_float_to_hex(value["B"]))
                 color_hex = hex_r + hex_g + hex_b
 
-                # Rechercher séquentiellement la première occurrence de color_hex après current_position
+                # Rechercher séquentiellement la première occurrence de color_hex après current_position | Sequentially find the first occurrence of color_hex after current_position
                 position = uexp_data.find(color_hex, current_position)
                 if position != -1:
-                    # Si trouvé, enregistrer la couleur avec la position actuelle
+                    # Si trouvé, enregistrer la couleur avec la position actuelle | If found, record the color with its current position
                     color["UEXP_Hex"] = color_hex
-                    # Conserver les couleurs trouvées
+                    # Conserver les couleurs trouvées | Keep the colors that were found
                     filtered_colors.append(color)
-                    # Mettre à jour current_position pour poursuivre après cet emplacement
+                    # Mettre à jour current_position pour poursuivre après cet emplacement | Update current_position to continue past this location
                     current_position = position + len(color_hex)
 
-                    # Afficher les détails de la correspondance
+                    # Afficher les détails de la correspondance | Print the match details
                     print(f"Correspondance trouvée pour '{key}':")
                     print(f"  Valeur dans UEXP : {color_hex}")
                     print(f"  Position dans UEXP : {position}")
@@ -898,7 +969,7 @@ def filter_colors_in_uexp(data):
                         f"Valeur {color_hex} non trouvée pour la couleur {key}, passage à la suivante.")
 
             if filtered_colors:
-                # Si des couleurs filtrées ont été trouvées, conserver l'entrée
+                # Si des couleurs filtrées ont été trouvées, conserver l'entrée | If filtered colors were found, keep the entry
                 filtered_entry = entry.copy()
                 filtered_entry["Properties"]["CustomColorSlotDefinitions"] = filtered_colors
                 filtered_data.append(filtered_entry)
@@ -906,7 +977,7 @@ def filter_colors_in_uexp(data):
 
 
 def populate_color_selectors(data):
-    # Effacer les widgets précédents
+    # Effacer les widgets précédents | Clear the previous widgets
     for widget in color_frame.winfo_children():
         widget.destroy()
 
@@ -923,13 +994,13 @@ def populate_color_selectors(data):
 
                 # Ignorer "Element0"
                 if key == "Element0":
-                    continue  # Passe à la couleur suivante
+                    continue  # Passe à la couleur suivante | Move on to the next color
 
-                # Afficher les informations de la couleur qui va être ajoutée
+                # Afficher les informations de la couleur qui va être ajoutée | Print info about the color about to be added
                 print(
                     f"Affichage de la couleur '{key}' avec correspondance trouvée")
 
-                # Créer les champs pour chaque clé filtrée
+                # Créer les champs pour chaque clé filtrée | Create the fields for each filtered key
                 label = tk.Label(color_frame, text=key,
                                  font=("Arial", 10, "bold"))
                 label.grid(row=row, column=col*3, padx=5, pady=5, sticky="w")
@@ -947,7 +1018,7 @@ def populate_color_selectors(data):
                     row=row, column=col*3 + 2, padx=5, pady=5)
                 color_displays[key] = color_display
 
-                # Ajouter l'événement de clic sur le carré de couleur
+                # Ajouter l'événement de clic sur le carré de couleur | Add the click event on the color square
                 color_display.bind("<Button-1>", lambda e,
                                    k=key: choose_color(k))
 
@@ -958,7 +1029,7 @@ def populate_color_selectors(data):
 
 
 def choose_color(key):
-    # Ouvre un sélecteur de couleurs pour choisir une couleur
+    # Ouvre un sélecteur de couleurs pour choisir une couleur | Opens a color picker to choose a color
     current_color = color_entries[key].get()
     if not current_color:
         current_color = color_displays[key].cget("bg")
@@ -973,31 +1044,31 @@ def choose_color(key):
 
 
 def update_color_display(key):
-    # Met à jour le carré de couleur en fonction de l'entrée utilisateur
+    # Met à jour le carré de couleur en fonction de l'entrée utilisateur | Updates the color square based on the user's input
     hex_color = color_entries[key].get()
     if hex_color.startswith('#') and len(hex_color) == 7:
         color_displays[key].config(bg=hex_color)
 
 
 def load_uexp():
-    # Charge le fichier UEXP basé sur la sélection de l'utilisateur
+    # Charge le fichier UEXP basé sur la sélection de l'utilisateur | Loads the UEXP file based on the user's selection
     global uexp_file_path
     character = selected_character.get()
     skin = selected_skin.get()
     color = selected_color.get()
     file_type_code = file_type_codes.get(selected_file_type.get())
 
-    # Cas particulier pour Ranno - DartFrog
+    # Cas particulier pour Ranno - DartFrog | Special case for Ranno - DartFrog
     if character == 'Ranno' and skin == 'DartFrog':
-        # Les fichiers sont dans Data, pas dans Data/Palettes/Color
+        # Les fichiers sont dans Data, pas dans Data/Palettes/Color | The files live in Data, not in Data/Palettes/Color
         uexp_directory = os.path.join(
             BASE_DIR, character, "Skins", skin, "Data")
 
-        # Le nom du fichier est au format : PS_Ran_Dart_Color.uexp
+        # Le nom du fichier est au format : PS_Ran_Dart_Color.uexp | The file name follows the format: PS_Ran_Dart_Color.uexp
         character_prefix = character[:3].capitalize()
         uexp_filename = f"{file_type_code}_{character_prefix}_Dart_{color}.uexp"
     elif character == 'Fleet' and skin == 'Pyjama' :
-        #Les fichiers utilisent l'orthographe Pajama mais le dossier est Pyjama... DAN
+        #Les fichiers utilisent l'orthographe Pajama mais le dossier est Pyjama... DAN | The files are spelled Pajama but the folder is Pyjama... DAN
         uexp_directory = os.path.join(
             BASE_DIR, character, "Skins", skin, "Data", "Palettes", color)
 
@@ -1036,20 +1107,20 @@ def load_uexp():
             uexp_filename = f"{file_type_code}_Pla_{skin}_{color}.uexp"
 
     else:
-        # Cas général
-        # Construction du nom de fichier selon le format
+        # Cas général | General case
+        # Construction du nom de fichier selon le format | Build the file name according to the format
         character_prefix = character[:3].capitalize()
         if character == 'Shared':
             character_prefix = 'Cha'
         uexp_filename = f"{file_type_code}_{character_prefix}_{skin}_{color}.uexp"
-        # Chemin du dossier UEXP
+        # Chemin du dossier UEXP | Path to the UEXP folder
         uexp_directory = os.path.join(
             BASE_DIR, character, "Skins", skin, "Data", "Palettes", color)
 
-    # Construction du chemin complet du fichier UEXP
+    # Construction du chemin complet du fichier UEXP | Build the full path to the UEXP file
     uexp_file_path = os.path.join(uexp_directory, uexp_filename)
 
-    # Vérification de l'existence du fichier
+    # Vérification de l'existence du fichier | Check that the file exists
     if not os.path.exists(uexp_file_path):
         messagebox.showerror(
             translations[current_language]['error_title'], translations[current_language]['uexp_not_found'].format(uexp_file_path))
@@ -1059,43 +1130,43 @@ def load_uexp():
 
 
 def replace_colors_in_uexp():
-    # Remplace les couleurs dans le fichier UEXP en fonction des entrées utilisateur
+    # Remplace les couleurs dans le fichier UEXP en fonction des entrées utilisateur | Replaces the colors in the UEXP file based on the user's entries
     if json_data is None:
         messagebox.showerror(
             translations[current_language]['error_title'], translations[current_language]['no_json_loaded'])
         return
 
     try:
-        # Obtenir les chemins de sortie et de UnrealPak
+        # Obtenir les chemins de sortie et de UnrealPak | Get the output and UnrealPak paths
         output_folder_path, unrealpak_folder_path = get_output_and_unrealpak_dirs()
 
-        # Copier le fichier UEXP dans le dossier de sortie avec la hiérarchie complète
+        # Copier le fichier UEXP dans le dossier de sortie avec la hiérarchie complète | Copy the UEXP file into the output folder with the full hierarchy
         modified_uexp_path = os.path.join(
             output_folder_path, os.path.basename(uexp_file_path))
         shutil.copy(uexp_file_path, modified_uexp_path)
         print(
             f"Fichier UEXP copié dans le dossier de sortie : {modified_uexp_path}")
 
-        # Charger les données de la copie du fichier UEXP en hexadécimale pour modification
+        # Charger les données de la copie du fichier UEXP en hexadécimale pour modification | Load the copied UEXP file's data as hex for editing
         with open(modified_uexp_path, 'rb') as f:
             uexp_data = f.read().hex().upper()
 
         modified_data = uexp_data
-        current_position = 0  # Position de départ pour les remplacements séquentiels
+        current_position = 0  # Position de départ pour les remplacements séquentiels | Starting position for the sequential replacements
 
         for key, entry in color_entries.items():
             hex_color_input = entry.get()
             if not hex_color_input:
-                continue  # Ignorer les champs vides
+                continue  # Ignorer les champs vides | Skip empty fields
 
-            # Conversion de la couleur hex en valeurs linéaires RGB pour remplacement
+            # Conversion de la couleur hex en valeurs linéaires RGB pour remplacement | Convert the hex color to linear RGB values for replacement
             r, g, b = hex_to_linear_rgb(hex_color_input)
             hex_r = invert_hex(precise_float_to_hex(r))
             hex_g = invert_hex(precise_float_to_hex(g))
             hex_b = invert_hex(precise_float_to_hex(b))
             new_hex = hex_r + hex_g + hex_b
 
-            # Rechercher la couleur d'origine à partir du JSON filtré
+            # Rechercher la couleur d'origine à partir du JSON filtré | Look up the original color from the filtered JSON
             selected_color_entry = None
             for item in json_data:
                 if "Properties" in item and "CustomColorSlotDefinitions" in item["Properties"]:
@@ -1104,25 +1175,25 @@ def replace_colors_in_uexp():
                             selected_color_entry = color
                             break
 
-            # Si la couleur d'origine existe, procéder au remplacement séquentiel
+            # Si la couleur d'origine existe, procéder au remplacement séquentiel | If the original color exists, perform the sequential replacement
             if selected_color_entry:
                 original_hex = selected_color_entry["UEXP_Hex"]
-                # Rechercher la première occurrence après la position courante
+                # Rechercher la première occurrence après la position courante | Find the first occurrence after the current position
                 position = modified_data.find(
                     original_hex, current_position)
                 if position != -1:
-                    # Remplacer cette occurrence uniquement et afficher les informations de modification
+                    # Remplacer cette occurrence uniquement et afficher les informations de modification | Replace only this occurrence and print the change details
                     modified_data = (
                         modified_data[:position] + new_hex +
                         modified_data[position + len(original_hex):]
                     )
-                    # Afficher les détails de la modification
+                    # Afficher les détails de la modification | Print the change details
                     print(f"Modification pour la clé '{key}':")
                     print(f"  Couleur d'origine : {original_hex}")
                     print(f"  Nouvelle couleur  : {new_hex}")
                     print(f"  Position de remplacement : {position}")
 
-                    # Mettre à jour la position courante pour continuer après cet emplacement
+                    # Mettre à jour la position courante pour continuer après cet emplacement | Update the current position to continue past this location
                     current_position = position + len(new_hex)
                 else:
                     print(
@@ -1131,7 +1202,7 @@ def replace_colors_in_uexp():
                 print(
                     f"Aucune correspondance trouvée pour la clé '{key}' dans le JSON.")
 
-        # Convertir les données modifiées en bytes et les écrire dans le fichier UEXP modifié
+        # Convertir les données modifiées en bytes et les écrire dans le fichier UEXP modifié | Convert the modified data back to bytes and write the modified UEXP file
         uexp_bytes = bytes.fromhex(modified_data)
         with open(modified_uexp_path, 'wb') as f:
             f.write(uexp_bytes)
@@ -1142,34 +1213,54 @@ def replace_colors_in_uexp():
             translations[current_language]['error_title'], str(e))
 
 
+def default_mods_folder():
+    # Dossier Mods du jeu, créé au besoin (rien n'est codé en dur) | The game's Mods folder, created if needed (nothing hardcoded)
+    paks = find_game_paks_dir()
+    if not paks:
+        return None
+    mods = os.path.join(paks, 'Mods')
+    try:
+        os.makedirs(mods, exist_ok=True)
+    except OSError:
+        return paks if os.path.isdir(paks) else None
+    return mods
+
+
 def configure_script_and_mods_folder():
-    # Permet à l'utilisateur de sélectionner le dossier mods
+    # Permet à l'utilisateur de sélectionner le dossier mods | Lets the user select the mods folder
     global mods_folder_path
-    # Demander uniquement le dossier mods
-    mods_folder_path = filedialog.askdirectory(
-        title="Choisir le dossier mods existant")
+    # Démarrer la sélection dans le dossier Mods détecté automatiquement | Start the picker in the auto-detected Mods folder
+    initial = mods_folder_path if mods_folder_path and os.path.isdir(
+        mods_folder_path) else default_mods_folder()
+    # Demander uniquement le dossier mods | Ask only for the mods folder
+    chosen = filedialog.askdirectory(
+        title=translations[current_language]['choose_mods_folder'],
+        initialdir=initial or os.path.expanduser("~"))
+    if not chosen:
+        return
+    mods_folder_path = chosen
     save_config()
     messagebox.showinfo(translations[current_language]['success_title'],
                         translations[current_language]['mods_configured'])
 
 
 def ask_for_pak_directory_and_create(unrealpak_folder_path):
-    # Exécute UnrealPak pour créer le fichier .pak et le déplace dans le dossier mods
+    # Exécute UnrealPak pour créer le fichier .pak et le déplace dans le dossier mods | Runs UnrealPak to create the .pak file and moves it to the mods folder
     character = selected_character.get()
-    # Construire le chemin du dossier de sortie pour UnrealPak basé sur le personnage sélectionné
+    # Construire le chemin du dossier de sortie pour UnrealPak basé sur le personnage sélectionné | Build the UnrealPak output folder path from the selected character
     unrealpak_folder_path = os.path.join(
         os.path.dirname(unrealpak_script_path), f"{character}_P")
 
-    # Créer le dossier si nécessaire
+    # Créer le dossier si nécessaire | Create the folder if needed
     os.makedirs(unrealpak_folder_path, exist_ok=True)
 
     try:
-        # Exécuter UnrealPak-With-Compression.bat en utilisant le dossier unrealpak_folder_path
+        # Exécuter UnrealPak-With-Compression.bat en utilisant le dossier unrealpak_folder_path | Run UnrealPak-With-Compression.bat using the unrealpak_folder_path folder
         subprocess.run(
             [unrealpak_script_path, unrealpak_folder_path], check=True)
-        time.sleep(0.2)  # Pause pour s'assurer que le fichier est créé
+        time.sleep(0.2)  # Pause pour s'assurer que le fichier est créé | Pause to make sure the file has been created
 
-        # Rechercher le fichier .pak dans le répertoire UnrealPak
+        # Rechercher le fichier .pak dans le répertoire UnrealPak | Look for the .pak file in the UnrealPak directory
         generated_pak = None
         for file in os.listdir(os.path.dirname(unrealpak_script_path)):
             if file.endswith(".pak"):
@@ -1202,18 +1293,18 @@ def ask_for_pak_directory_and_create(unrealpak_folder_path):
 
 
 def load_character_icons():
-    # Charge les icônes des personnages depuis le dossier 'icons'
+    # Charge les icônes des personnages depuis le dossier 'icons' | Loads the character icons from the 'icons' folder
     characters_path = os.path.join(BASE_DIR)
     characters = [name for name in os.listdir(
         characters_path) if os.path.isdir(os.path.join(characters_path, name))]
     for character in characters:
-        image_path = f"icons/{character}.png"  # Chemin de chaque icône PNG
-        if os.path.exists(image_path):  # Vérifie si l'image existe
+        image_path = f"icons/{character}.png"  # Chemin de chaque icône PNG | Path to each PNG icon
+        if os.path.exists(image_path):  # Vérifie si l'image existe | Check whether the image exists
             try:
-                # Ajustez la taille si nécessaire
+                # Ajustez la taille si nécessaire | Adjust the size if needed
                 img = Image.open(image_path).resize((32, 32))
                 character_icons[character] = ImageTk.PhotoImage(
-                    img)  # Convertir en PhotoImage pour Tkinter
+                    img)  # Convertir en PhotoImage pour Tkinter | Convert to PhotoImage for Tkinter
             except Exception as e:
                 print(
                     f"Erreur : Impossible de charger l'image {image_path}. {e}")
@@ -1223,32 +1314,32 @@ def load_character_icons():
 
 
 def update_selected_character_icon(*args):
-    # Met à jour l'icône affichée du personnage sélectionné
+    # Met à jour l'icône affichée du personnage sélectionné | Updates the displayed icon for the selected character
     selected_character_name = selected_character.get()
-    # Mettre à jour l'icône dans le Label
+    # Mettre à jour l'icône dans le Label | Update the icon in the Label
     selected_character_icon_label.config(
         image=character_icons.get(selected_character_name))
     selected_character_icon_label.image = character_icons.get(
-        selected_character_name)  # Référence pour éviter le garbage collection
-    # Mettre à jour le menu des skins
+        selected_character_name)  # Référence pour éviter le garbage collection | Keep a reference to prevent garbage collection
+    # Mettre à jour le menu des skins | Update the skin menu
     update_skin_menu()
 
 
 def update_skin_menu(*args):
-    # Met à jour le menu des skins en fonction du personnage sélectionné
+    # Met à jour le menu des skins en fonction du personnage sélectionné | Updates the skin menu based on the selected character
     character_name = selected_character.get()
     skins_path = os.path.join(BASE_DIR, character_name, 'Skins')
     if os.path.exists(skins_path):
         skins = [name for name in os.listdir(
             skins_path) if os.path.isdir(os.path.join(skins_path, name))]
-        # Trier les skins pour un affichage cohérent
+        # Trier les skins pour un affichage cohérent | Sort the skins for consistent display
         skins.sort()
-        # Effacer les anciennes options du menu
+        # Effacer les anciennes options du menu | Clear the menu's previous options
         skin_menu['menu'].delete(0, 'end')
         for skin in skins:
             skin_menu['menu'].add_command(
                 label=skin, command=tk._setit(selected_skin, skin))
-        # Sélectionner 'Default' si disponible, sinon le premier skin
+        # Sélectionner 'Default' si disponible, sinon le premier skin | Select 'Default' if available, otherwise the first skin
         if 'Default' in skins:
             selected_skin.set('Default')
         elif skins:
@@ -1258,35 +1349,35 @@ def update_skin_menu(*args):
     else:
         selected_skin.set('')
         skin_menu['menu'].delete(0, 'end')
-    # Mettre à jour le menu des couleurs
+    # Mettre à jour le menu des couleurs | Update the color menu
     update_color_menu()
 
 
 def update_color_menu(*args):
-    # Met à jour le menu des couleurs en fonction du skin sélectionné
+    # Met à jour le menu des couleurs en fonction du skin sélectionné | Updates the color menu based on the selected skin
     character_name = selected_character.get()
     skin_name = selected_skin.get()
 
     if character_name == 'Ranno' and skin_name == 'DartFrog':
-        # Les couleurs sont déterminées par les fichiers dans le dossier Data
+        # Les couleurs sont déterminées par les fichiers dans le dossier Data | The colors are determined by the files in the Data folder
         data_path = os.path.join(
             BASE_DIR, character_name, 'Skins', skin_name, 'Data')
         if os.path.exists(data_path):
             colors = []
             for file in os.listdir(data_path):
                 if file.endswith('.uexp'):
-                    # Extraire la couleur du nom du fichier
+                    # Extraire la couleur du nom du fichier | Extract the color from the file name
                     # Format attendu : PS_Ran_Dart_Color.uexp
                     parts = file.replace('.uexp', '').split('_')
                     if len(parts) >= 4:
                         color = parts[3]
                         colors.append(color)
-            # Supprimer les doublons et trier
+            # Supprimer les doublons et trier | Remove duplicates and sort
             colors = sorted(set(colors))
         else:
             colors = []
     else:
-        # Cas général
+        # Cas général | General case
         palettes_path = os.path.join(
             BASE_DIR, character_name, 'Skins', skin_name, 'Data', 'Palettes')
         if os.path.exists(palettes_path):
@@ -1296,7 +1387,7 @@ def update_color_menu(*args):
         else:
             colors = []
 
-    # Mettre à jour le menu des couleurs
+    # Mettre à jour le menu des couleurs | Update the color menu
     color_menu['menu'].delete(0, 'end')
     for color in colors:
         color_menu['menu'].add_command(
@@ -1305,18 +1396,18 @@ def update_color_menu(*args):
         selected_color.set(colors[0])
     else:
         selected_color.set('')
-    # Mettre à jour le menu des types de fichiers
+    # Mettre à jour le menu des types de fichiers | Update the file type menu
     update_file_type_menu()
 
 
 def update_file_type_menu(*args):
-    # Met à jour le menu des types de fichiers en fonction de la couleur sélectionnée
+    # Met à jour le menu des types de fichiers en fonction de la couleur sélectionnée | Updates the file type menu based on the selected color
     character_name = selected_character.get()
     skin_name = selected_skin.get()
     color_name = selected_color.get()
 
     if character_name == 'Ranno' and skin_name == 'DartFrog':
-        # Les fichiers sont dans Data
+        # Les fichiers sont dans Data | The files live in Data
         data_path = os.path.join(
             BASE_DIR, character_name, 'Skins', skin_name, 'Data')
         file_types_found = []
@@ -1333,7 +1424,7 @@ def update_file_type_menu(*args):
         else:
             file_types_found = []
     else:
-        # Cas général
+        # Cas général | General case
         data_path = os.path.join(BASE_DIR, character_name,
                                  'Skins', skin_name, 'Data', 'Palettes', color_name)
         file_types_found = []
@@ -1349,16 +1440,16 @@ def update_file_type_menu(*args):
         else:
             print(f"Chemin non trouvé : {data_path}")
 
-    # Mettre à jour le dictionnaire des codes de type de fichier
+    # Mettre à jour le dictionnaire des codes de type de fichier | Update the file type code dictionary
     global file_type_codes
     file_type_codes = {'Element/Energy': 'PE', 'Skin': 'PS'}
 
-    # Mettre à jour le menu des types de fichiers
+    # Mettre à jour le menu des types de fichiers | Update the file type menu
     file_type_menu['menu'].delete(0, 'end')
     for file_type in file_types_found:
         file_type_menu['menu'].add_command(
             label=file_type, command=tk._setit(selected_file_type, file_type))
-    # Sélectionner 'Skin' si disponible, sinon le premier type de fichier
+    # Sélectionner 'Skin' si disponible, sinon le premier type de fichier | Select 'Skin' if available, otherwise the first file type
     if 'Skin' in file_types_found:
         selected_file_type.set('Skin')
     elif file_types_found:
@@ -1368,7 +1459,7 @@ def update_file_type_menu(*args):
 
 
 def create_character_menu(characters):
-    # Crée le menu déroulant des personnages avec icônes
+    # Crée le menu déroulant des personnages avec icônes | Creates the character dropdown menu with icons
     character_menu = tk.Menubutton(
         header_frame, textvariable=selected_character, indicatoron=True, borderwidth=1, relief="raised")
     character_menu.grid(row=0, column=3, padx=2, pady=5, sticky="w")
@@ -1389,7 +1480,7 @@ def create_character_menu(characters):
 
 
 def disable_selection_menus():
-    # Désactiver les menus déroulants pendant le chargement
+    # Désactiver les menus déroulants pendant le chargement | Disable the dropdown menus while loading
     character_menu.config(state='disabled')
     skin_menu.config(state='disabled')
     color_menu.config(state='disabled')
@@ -1397,7 +1488,7 @@ def disable_selection_menus():
 
 
 def enable_selection_menus():
-    # Réactiver les menus déroulants après le chargement
+    # Réactiver les menus déroulants après le chargement | Re-enable the dropdown menus after loading
     character_menu.config(state='normal')
     skin_menu.config(state='normal')
     color_menu.config(state='normal')
@@ -1405,11 +1496,11 @@ def enable_selection_menus():
 
 
 def on_selection_change(*args):
-    # Fonction appelée lorsque les sélections changent
+    # Fonction appelée lorsque les sélections changent | Called whenever the selections change
     global last_change_time
-    # Mettre à jour le moment du dernier changement
+    # Mettre à jour le moment du dernier changement | Update the timestamp of the last change
     last_change_time = time.time()
-    # Démarrer un thread pour attendre et charger les fichiers
+    # Démarrer un thread pour attendre et charger les fichiers | Start a thread to wait and then load the files
     threading.Thread(target=delayed_load).start()
 
 
@@ -1417,30 +1508,81 @@ def delayed_load():
     global last_change_time
     # Attendre 0.5 secondes
     time.sleep(0.5)
-    # Vérifier si suffisamment de temps s'est écoulé depuis le dernier changement
+    # Vérifier si suffisamment de temps s'est écoulé depuis le dernier changement | Check whether enough time has passed since the last change
     if time.time() - last_change_time >= 0.5:
-        # Vérifie que toutes les sélections sont faites
+        # Vérifie que toutes les sélections sont faites | Check that every selection has been made
         if selected_character.get() and selected_skin.get() and selected_color.get() and selected_file_type.get():
-            # Charger les fichiers sur le thread principal
+            # Charger les fichiers sur le thread principal | Load the files on the main thread
             root.after(0, load_files)
 
 
+def find_steam_root():
+    # Emplacement d'installation de Steam, via le registre puis les chemins usuels | Steam's install location, via the registry then the usual paths
+    try:
+        import winreg
+        for root_key, sub in ((winreg.HKEY_CURRENT_USER, r"Software\Valve\Steam"),
+                              (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\WOW6432Node\Valve\Steam")):
+            try:
+                with winreg.OpenKey(root_key, sub) as key:
+                    for value in ("SteamPath", "InstallPath"):
+                        try:
+                            path = winreg.QueryValueEx(key, value)[0]
+                            if path and os.path.isdir(path):
+                                # Le registre renvoie souvent des slashs et des minuscules | The registry often returns forward slashes and lowercase
+                                return os.path.normpath(path)
+                        except FileNotFoundError:
+                            continue
+            except OSError:
+                continue
+    except ImportError:
+        pass
+    for fallback in (os.path.join(os.environ.get('ProgramFiles(x86)', r'C:\Program Files (x86)'), 'Steam'),
+                     os.path.join(os.environ.get('ProgramFiles', r'C:\Program Files'), 'Steam')):
+        if os.path.isdir(fallback):
+            return fallback
+    return None
+
+
+def find_steam_libraries():
+    # Toutes les bibliothèques Steam déclarées dans libraryfolders.vdf | Every Steam library declared in libraryfolders.vdf
+    steam_root = find_steam_root()
+    if not steam_root:
+        return []
+    libraries = []
+    seen = set()
+
+    def add(path):
+        # Dédoublonnage insensible à la casse et au séparateur | Deduplicate ignoring case and separator style
+        normalized = os.path.normpath(path)
+        if os.path.isdir(normalized) and normalized.lower() not in seen:
+            seen.add(normalized.lower())
+            libraries.append(normalized)
+
+    add(os.path.join(steam_root, 'steamapps'))
+    vdf = os.path.join(steam_root, 'steamapps', 'libraryfolders.vdf')
+    try:
+        with open(vdf, 'r', encoding='utf-8', errors='ignore') as f:
+            content = f.read()
+    except OSError:
+        return libraries
+    # Les entrées "path" contiennent des chemins échappés façon C:\\Games\\Steam | The "path" entries hold escaped paths such as C:\\Games\\Steam
+    for match in re.finditer(r'"path"\s*"([^"]+)"', content):
+        add(os.path.join(match.group(1).replace('\\\\', '\\'), 'steamapps'))
+    return libraries
+
+
 def find_game_paks_dir():
-    # Cherche le dossier Paks du jeu aux emplacements Steam habituels
-    candidates = [
-        r"C:\Program Files (x86)\Steam\steamapps\common\Rivals 2\Rivals2\Content\Paks",
-        r"C:\Program Files\Steam\steamapps\common\Rivals 2\Rivals2\Content\Paks",
-        r"D:\SteamLibrary\steamapps\common\Rivals 2\Rivals2\Content\Paks",
-        r"E:\SteamLibrary\steamapps\common\Rivals 2\Rivals2\Content\Paks",
-    ]
-    for c in candidates:
-        if os.path.isdir(c):
-            return c
+    # Cherche le dossier Paks du jeu dans toutes les bibliothèques Steam | Looks for the game's Paks folder across every Steam library
+    for steamapps in find_steam_libraries():
+        paks = os.path.join(steamapps, 'common', 'Rivals 2',
+                            'Rivals2', 'Content', 'Paks')
+        if os.path.isdir(paks):
+            return paks
     return None
 
 
 def update_game_data():
-    # Extrait les données du jeu via FModel (semi-automatique) puis les importe
+    # Extrait les données du jeu via FModel (semi-automatique) puis les importe | Extracts the game data via FModel (semi-automatic) then imports it
     global fmodel_path
     app_dir = os.path.dirname(os.path.abspath(__file__))
     importer_path = os.path.join(app_dir, "files_importer.py")
@@ -1449,9 +1591,9 @@ def update_game_data():
                              translations[current_language]['update_importer_missing'])
         return
 
-    # 1. Trouver FModel.exe (mémorisé dans la config après le premier choix)
+    # 1. Trouver FModel.exe (mémorisé dans la config après le premier choix) | 1. Find FModel.exe (remembered in the config after the first pick)
     if not fmodel_path or not os.path.exists(fmodel_path):
-        # setup.ps1 installe FModel dans le sous-dossier FModel de l'outil
+        # setup.ps1 installe FModel dans le sous-dossier FModel de l'outil | setup.ps1 installs FModel into the tool's FModel subfolder
         bundled_fmodel = os.path.join(app_dir, "FModel", "FModel.exe")
         if os.path.exists(bundled_fmodel):
             fmodel_path = bundled_fmodel
@@ -1466,7 +1608,7 @@ def update_game_data():
         fmodel_path = chosen
         save_config()
 
-    # 2. Pré-configurer FModel au premier lancement (chemins jeu + sortie)
+    # 2. Pré-configurer FModel au premier lancement (chemins jeu + sortie) | 2. Pre-configure FModel on first launch (game + output paths)
     appdata = os.environ.get('APPDATA')
     if appdata:
         fmodel_cfg = os.path.join(appdata, "FModel", "AppSettings.json")
@@ -1483,7 +1625,7 @@ def update_game_data():
             except OSError:
                 pass  # FModel se configurera manuellement
 
-    # 3. Lancer FModel et afficher les instructions (l'utilisateur exporte puis valide)
+    # 3. Lancer FModel et afficher les instructions (l'utilisateur exporte puis valide) | 3. Launch FModel and show the instructions (the user exports, then confirms)
     try:
         subprocess.Popen([fmodel_path])
     except OSError as e:
@@ -1493,7 +1635,7 @@ def update_game_data():
     messagebox.showinfo(translations[current_language]['update_data'],
                         translations[current_language]['update_instructions'])
 
-    # 4. Importer les fichiers exportés
+    # 4. Importer les fichiers exportés | 4. Import the exported files
     try:
         root.config(cursor="wait")
         root.update()
@@ -1519,20 +1661,593 @@ def update_game_data():
                             counts['shared'], counts['portraits']))
 
 
+PAK_PATH_RE = re.compile(rb"[0-9A-Za-z_./\-]{5,}")
+
+
+def parse_pak_overrides(pak_path):
+    """
+    Lit l'index d'un .pak (non chiffré) et renvoie la liste des remplacements
+    sous forme (personnage, skin, palette, type). L'index stocke les chemins
+    en ASCII : on les extrait directement, ce qui reste valable quelle que
+    soit la version de pak.
+
+    Reads an (unencrypted) .pak index and returns its overrides as
+    (character, skin, palette, type). The index stores paths as ASCII, so
+    they are extracted directly, which stays valid across pak versions.
+    """
+    try:
+        with open(pak_path, 'rb') as f:
+            data = f.read()
+    except OSError:
+        return []
+
+    mount = ""
+    relatives = []
+    for match in PAK_PATH_RE.finditer(data):
+        text = match.group().decode('ascii', 'ignore')
+        if text.startswith('../'):
+            mount = text
+        elif text.endswith(('.uexp', '.uasset', '.ubulk')):
+            relatives.append(text)
+
+    mount = mount.replace('../', '')
+    results = []
+    seen = set()
+    for rel in relatives:
+        full = (mount.rstrip('/') + '/' + rel) if mount else rel
+        parts = [p for p in full.split('/') if p]
+        name = parts[-1]
+        if name.startswith('PE_'):
+            kind = translations[current_language]['file_type_energy']
+        elif name.startswith('PS_'):
+            kind = translations[current_language]['file_type_skin']
+        else:
+            kind = name.split('_')[0]
+
+        character = skin = palette = '?'
+        if 'Characters' in parts:
+            i = parts.index('Characters')
+            if i + 1 < len(parts):
+                character = parts[i + 1]
+            if 'Skins' in parts:
+                j = parts.index('Skins')
+                if j + 1 < len(parts):
+                    skin = parts[j + 1]
+            elif i + 2 < len(parts) - 1:
+                skin = parts[i + 2]
+            if 'Palettes' in parts:
+                k = parts.index('Palettes')
+                if k + 1 < len(parts):
+                    palette = parts[k + 1]
+            else:
+                palette = name.rsplit('_', 1)[-1].rsplit('.', 1)[0]
+        elif 'Platforms' in parts:
+            i = parts.index('Platforms')
+            character = 'Platforms'
+            if i + 1 < len(parts):
+                skin = parts[i + 1]
+            palette = name.rsplit('_', 1)[-1].rsplit('.', 1)[0]
+
+        key = (character, skin, palette, kind)
+        if key not in seen:
+            seen.add(key)
+            results.append(key)
+    return results
+
+
+def is_game_running():
+    # Le jeu verrouille les .pak tant qu'il tourne | The game locks the .pak files while it is running
+    try:
+        output = subprocess.run(['tasklist', '/FI', 'IMAGENAME eq Rivals2-Win64-Shipping.exe'],
+                                capture_output=True, text=True, timeout=10,
+                                creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        return 'Rivals2-Win64-Shipping' in output.stdout
+    except (OSError, subprocess.SubprocessError):
+        return False
+
+
+class _SHFILEOPSTRUCTW(ctypes.Structure):
+    _fields_ = [("hwnd", wintypes.HWND),
+                ("wFunc", wintypes.UINT),
+                ("pFrom", wintypes.LPCWSTR),
+                ("pTo", wintypes.LPCWSTR),
+                ("fFlags", ctypes.c_uint16),
+                ("fAnyOperationsAborted", wintypes.BOOL),
+                ("hNameMappings", ctypes.c_void_p),
+                ("lpszProgressTitle", wintypes.LPCWSTR)]
+
+
+def send_to_recycle_bin(paths):
+    # Supprime via la corbeille : l'utilisateur peut toujours restaurer | Deletes via the Recycle Bin so the user can always restore
+    if not paths:
+        return True
+    buffer = '\0'.join(paths) + '\0\0'
+    op = _SHFILEOPSTRUCTW(None, 3, buffer, None, 0x0040 | 0x0010 | 0x0004,
+                          False, None, None)
+    return ctypes.windll.shell32.SHFileOperationW(ctypes.byref(op)) == 0
+
+
+def list_mod_paks():
+    if not mods_folder_path or not os.path.isdir(mods_folder_path):
+        return []
+    paks = []
+    for dirpath, dirnames, filenames in os.walk(mods_folder_path):
+        for name in filenames:
+            if name.lower().endswith('.pak'):
+                paks.append(os.path.join(dirpath, name))
+    return sorted(paks)
+
+
+def pak_mount_point(pak_path):
+    # Renvoie le point de montage brut du pak (ex: ../../../Rivals2/Content/...) | Returns the pak's raw mount point (e.g. ../../../Rivals2/Content/...)
+    try:
+        with open(pak_path, 'rb') as f:
+            data = f.read()
+    except OSError:
+        return ""
+    for match in PAK_PATH_RE.finditer(data):
+        text = match.group().decode('ascii', 'ignore')
+        if text.startswith('../'):
+            return text
+    return ""
+
+
+def describe_pak_file(full_path):
+    # (personnage, skin, palette, type) pour un chemin complet dans le pak | (character, skin, palette, type) for a full path inside the pak
+    parts = [p for p in full_path.replace('\\', '/').split('/') if p]
+    name = parts[-1]
+    if name.startswith('PE_'):
+        kind = translations[current_language]['file_type_energy']
+    elif name.startswith('PS_'):
+        kind = translations[current_language]['file_type_skin']
+    else:
+        kind = name.split('_')[0]
+    character = skin = palette = '?'
+    if 'Characters' in parts:
+        i = parts.index('Characters')
+        if i + 1 < len(parts):
+            character = parts[i + 1]
+        if 'Skins' in parts:
+            j = parts.index('Skins')
+            if j + 1 < len(parts):
+                skin = parts[j + 1]
+        elif i + 2 < len(parts) - 1:
+            skin = parts[i + 2]
+        if 'Palettes' in parts:
+            k = parts.index('Palettes')
+            if k + 1 < len(parts):
+                palette = parts[k + 1]
+        else:
+            palette = name.rsplit('_', 1)[-1].rsplit('.', 1)[0]
+    elif 'Platforms' in parts:
+        character = 'Platforms'
+        i = parts.index('Platforms')
+        if i + 1 < len(parts):
+            skin = parts[i + 1]
+        palette = name.rsplit('_', 1)[-1].rsplit('.', 1)[0]
+    return character, skin, palette, kind
+
+
+def unrealpak_exe_path():
+    return os.path.join(os.path.dirname(unrealpak_script_path), "UnrealPak.exe")
+
+
+def extract_pak(pak_path, dest_dir):
+    # Extrait un pak ; les chemins produits sont relatifs au point de montage | Extracts a pak; the resulting paths are relative to the mount point
+    os.makedirs(dest_dir, exist_ok=True)
+    subprocess.run([unrealpak_exe_path(), pak_path, "-extract", dest_dir],
+                   check=True, capture_output=True, text=True,
+                   creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+
+
+def build_pak_from_staging(staging_dir, out_pak):
+    # Reconstruit un pak à partir d'un dossier de staging complet | Rebuilds a pak from a complete staging folder
+    upack_dir = os.path.dirname(unrealpak_script_path)
+    filelist = os.path.join(upack_dir, "filelist.txt")
+    with open(filelist, 'w') as f:
+        f.write(f'"{staging_dir}\\*.*" "..\\..\\..\\*.*"\n')
+    subprocess.run([unrealpak_exe_path(), out_pak, f"-create={filelist}", "-compress"],
+                   check=True, capture_output=True, text=True, cwd=upack_dir,
+                   creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+
+
+def remove_overrides_from_pak(pak_path, targets):
+    """
+    Retire uniquement les remplacements listés dans `targets`
+    (personnage, skin, palette, type) et reconstruit le pak.
+    Renvoie 'rebuilt', 'deleted' (plus rien dedans) ou lève une exception.
+
+    Removes only the overrides listed in `targets` (character, skin,
+    palette, type) and rebuilds the pak. Returns 'rebuilt', 'deleted'
+    (nothing left inside) or raises.
+    """
+    import tempfile
+    mount = pak_mount_point(pak_path)
+    prefix = mount.replace('../', '').strip('/')
+    work = tempfile.mkdtemp(prefix="colorswap_pak_")
+    try:
+        extracted = os.path.join(work, "extracted")
+        extract_pak(pak_path, extracted)
+
+        # Reconstituer l'arborescence complète (le montage est retiré à l'extraction) | Rebuild the full tree (extraction strips the mount point)
+        staging = os.path.join(
+            work, os.path.splitext(os.path.basename(pak_path))[0])
+        root = os.path.join(staging, *prefix.split('/')) if prefix else staging
+        kept = 0
+        for dirpath, dirnames, filenames in os.walk(extracted):
+            for name in filenames:
+                rel = os.path.relpath(os.path.join(dirpath, name), extracted)
+                full = (prefix + '/' + rel.replace('\\', '/')).strip('/')
+                if describe_pak_file(full) in targets:
+                    continue  # celui-ci est retiré | this one is being removed
+                dest = os.path.join(root, rel)
+                os.makedirs(os.path.dirname(dest), exist_ok=True)
+                shutil.copy2(os.path.join(dirpath, name), dest)
+                kept += 1
+
+        if kept == 0:
+            if not send_to_recycle_bin([pak_path]):
+                raise OSError(pak_path)
+            return 'deleted'
+
+        rebuilt = os.path.join(work, "rebuilt.pak")
+        build_pak_from_staging(staging, rebuilt)
+        if not os.path.exists(rebuilt):
+            raise OSError(rebuilt)
+        shutil.copy2(rebuilt, pak_path)
+        return 'rebuilt'
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+
+def linear_to_srgb_bytes(r, g, b):
+    # Inverse de hex_to_linear_rgb : linéaire -> octets sRGB | Inverse of hex_to_linear_rgb: linear -> sRGB bytes
+    def encode(value):
+        value = max(0.0, min(1.0, value))
+        if value <= 0.0031308:
+            srgb = value * 12.92
+        else:
+            srgb = 1.055 * (value ** (1 / 2.4)) - 0.055
+        return max(0, min(255, int(round(srgb * 255))))
+    return encode(r), encode(g), encode(b)
+
+
+def read_override_colors(base_json_path, base_uexp_path, modified_uexp_path):
+    """
+    Compare le uexp d'origine et celui installé dans le pak.
+    Renvoie [(clé, rgb_avant, rgb_après), ...].
+
+    Compares the original uexp with the one installed in the pak.
+    Returns [(key, rgb_before, rgb_after), ...].
+    """
+    with open(base_json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    with open(base_uexp_path, 'rb') as f:
+        base_hex = f.read().hex().upper()
+    with open(modified_uexp_path, 'rb') as f:
+        mod_hex = f.read().hex().upper()
+
+    results = []
+    position = 0
+    for entry in data:
+        if "Properties" not in entry or "CustomColorSlotDefinitions" not in entry["Properties"]:
+            continue
+        for color in entry["Properties"]["CustomColorSlotDefinitions"]:
+            value = color["Value"]
+            original = (invert_hex(precise_float_to_hex(value["R"]))
+                        + invert_hex(precise_float_to_hex(value["G"]))
+                        + invert_hex(precise_float_to_hex(value["B"])))
+            found = base_hex.find(original, position)
+            if found == -1:
+                continue
+            position = found + len(original)
+            chunk = mod_hex[found:found + len(original)]
+            if len(chunk) < len(original):
+                continue
+            floats = []
+            for i in range(3):
+                piece = chunk[i * 8:(i + 1) * 8]
+                floats.append(struct.unpack(
+                    '>f', bytes.fromhex(invert_hex(piece)))[0])
+            before_hex = rgb_hex_from_json(value.get("Hex", ""))
+            before = tuple(int(before_hex[j:j+2], 16) for j in (0, 2, 4)) \
+                if before_hex else linear_to_srgb_bytes(value["R"], value["G"], value["B"])
+            after = linear_to_srgb_bytes(*floats)
+            results.append((color["Key"], before, after))
+    return results
+
+
+def find_base_files(character, skin, palette, prefix):
+    # Retrouve le json/uexp d'origine correspondant à un remplacement | Finds the original json/uexp matching an override
+    folder = os.path.join(BASE_DIR, character, 'Skins',
+                          skin, 'Data', 'Palettes', palette)
+    if not os.path.isdir(folder):
+        alt = os.path.join(BASE_DIR, character, skin)  # Shared
+        folder = alt if os.path.isdir(alt) else folder
+    if not os.path.isdir(folder):
+        return None, None
+    for name in os.listdir(folder):
+        if name.startswith(prefix) and name.endswith('.uexp'):
+            uexp = os.path.join(folder, name)
+            base_json = uexp[:-len('.uexp')] + '.json'
+            if os.path.exists(base_json):
+                return base_json, uexp
+    return None, None
+
+
+def show_override_preview(pak_path, character, skin, palette, kind, parent):
+    # Aperçu avant/après d'un remplacement installé | Before/after preview of an installed override
+    import tempfile
+    is_energy = kind == translations[current_language]['file_type_energy']
+    prefix = 'PE_' if is_energy else 'PS_'
+    base_json, base_uexp = find_base_files(character, skin, palette, prefix)
+    if not base_json:
+        messagebox.showinfo(translations[current_language]['preview'],
+                            translations[current_language]['preview_unavailable'],
+                            parent=parent)
+        return
+
+    work = tempfile.mkdtemp(prefix="colorswap_prev_")
+    try:
+        extract_pak(pak_path, work)
+        modified = None
+        for dirpath, dirnames, filenames in os.walk(work):
+            for name in filenames:
+                if name == os.path.basename(base_uexp):
+                    modified = os.path.join(dirpath, name)
+                    break
+        if not modified:
+            messagebox.showinfo(translations[current_language]['preview'],
+                                translations[current_language]['preview_unavailable'],
+                                parent=parent)
+            return
+        colors = read_override_colors(base_json, base_uexp, modified)
+
+        portrait = None
+        folder = os.path.dirname(base_uexp)
+        for name in os.listdir(folder):
+            if name.endswith('_CSP.png'):
+                portrait = Image.open(os.path.join(
+                    folder, name)).convert('RGBA')
+                break
+
+        if is_energy:
+            def ramp(index):
+                stops = []
+                for key, before, after in colors:
+                    if key.startswith('Element'):
+                        try:
+                            stops.append(
+                                (int(key[len('Element'):]), (before, after)[index]))
+                        except ValueError:
+                            pass
+                stops.sort()
+                return [rgb for _, rgb in stops]
+            before_img = render_energy_preview(portrait, ramp(0))
+            after_img = render_energy_preview(portrait, ramp(1))
+        else:
+            if portrait is None:
+                messagebox.showinfo(translations[current_language]['preview'],
+                                    translations[current_language]['preview_unavailable'],
+                                    parent=parent)
+                return
+            before_img = portrait
+            after_img = recolor_preview_image(
+                portrait, [(b, a) for _key, b, a in colors])
+    except (OSError, subprocess.SubprocessError, ValueError) as e:
+        messagebox.showerror(
+            translations[current_language]['error_title'], str(e), parent=parent)
+        return
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+    window = tk.Toplevel(parent)
+    window.title(translations[current_language]['preview_title'].format(
+        character, skin, palette))
+    window.configure(bg="#f2f2f2")
+    # Tolérance de 2 : la conversion sRGB -> linéaire -> sRGB peut décaler | Tolerance of 2: the sRGB -> linear -> sRGB round trip can shift
+    # une composante de 1 sans que la couleur ait réellement été modifiée | a channel by 1 without the color actually having been edited
+    changed = sum(1 for _k, b, a in colors
+                  if max(abs(b[i] - a[i]) for i in range(3)) > 2)
+    tk.Label(window, text=translations[current_language]['override_changed'].format(
+        changed, len(colors)), font=("Arial", 9), bg="#f2f2f2").pack(pady=(8, 2))
+    row = tk.Frame(window, bg="#f2f2f2")
+    row.pack(padx=10, pady=5)
+    for title_key, img in (('override_before', before_img), ('override_after', after_img)):
+        column = tk.Frame(row, bg="#f2f2f2")
+        column.pack(side='left', padx=8)
+        tk.Label(column, text=translations[current_language][title_key],
+                 font=("Arial", 10, "bold"), bg="#f2f2f2").pack()
+        photo = ImageTk.PhotoImage(img)
+        label = tk.Label(column, image=photo, bg="#f2f2f2")
+        label.image = photo
+        label.pack()
+
+
+overrides_window = None
+
+
+def show_overrides():
+    # Fenêtre listant les .pak installés et ce qu'ils remplacent | Window listing the installed .pak files and what they override
+    global overrides_window
+    if not mods_folder_path or not os.path.isdir(mods_folder_path):
+        messagebox.showerror(translations[current_language]['error_title'],
+                             translations[current_language]['overrides_no_folder'])
+        return
+    if overrides_window is not None and overrides_window.winfo_exists():
+        overrides_window.destroy()
+    overrides_window = tk.Toplevel(root)
+    overrides_window.title(translations[current_language]['overrides_title'])
+    overrides_window.geometry("720x420")
+    overrides_window.configure(bg="#f2f2f2")
+
+    status = tk.Label(overrides_window, font=("Arial", 9),
+                      bg="#f2f2f2", fg="#444444", anchor="w", justify="left")
+    status.pack(fill="x", padx=10, pady=(10, 4))
+
+    columns = ('pak', 'character', 'skin', 'palette', 'type')
+    tree = ttk.Treeview(overrides_window, columns=columns, show='headings')
+    for col, width in zip(columns, (150, 110, 120, 110, 120)):
+        tree.heading(col, text=translations[current_language]['overrides_col_' + col])
+        tree.column(col, width=width, anchor='w')
+    scroll = ttk.Scrollbar(overrides_window, orient='vertical',
+                           command=tree.yview)
+    tree.configure(yscrollcommand=scroll.set)
+    tree.pack(side='top', fill='both', expand=True, padx=(10, 0), pady=4)
+    scroll.place(relx=1.0, rely=0.0, anchor='ne')
+
+    def refresh():
+        tree.delete(*tree.get_children())
+        paks = list_mod_paks()
+        total = 0
+        for pak in paks:
+            label = os.path.relpath(pak, mods_folder_path)
+            entries = parse_pak_overrides(pak)
+            if not entries:
+                tree.insert('', 'end', values=(
+                    label, '?', '?', '?', ''), tags=(pak,))
+                total += 1
+                continue
+            for character, skin, palette, kind in entries:
+                tree.insert('', 'end', values=(
+                    label, character, skin, palette, kind), tags=(pak,))
+                total += 1
+        running = is_game_running()
+        msg = translations[current_language]['overrides_status'].format(
+            len(paks), total)
+        if running:
+            msg += "\n" + translations[current_language]['overrides_game_running']
+        status.config(text=msg, fg="#B00020" if running else "#444444")
+
+    def preview_selected():
+        selection = tree.selection()
+        if not selection:
+            return
+        item = selection[0]
+        pak = tree.item(item, 'tags')[0]
+        values = tree.item(item, 'values')
+        if values[1] == '?':
+            messagebox.showinfo(translations[current_language]['preview'],
+                                translations[current_language]['preview_unavailable'],
+                                parent=overrides_window)
+            return
+        try:
+            overrides_window.config(cursor="wait")
+            overrides_window.update()
+            show_override_preview(pak, values[1], values[2], values[3],
+                                  values[4], overrides_window)
+        finally:
+            overrides_window.config(cursor="")
+
+    def remove_selected():
+        # Retire seulement les remplacements sélectionnés, pas tout le pak | Removes only the selected overrides, not the whole pak
+        selection = tree.selection()
+        if not selection:
+            return
+        by_pak = {}
+        labels = []
+        for item in selection:
+            pak = tree.item(item, 'tags')[0]
+            values = tree.item(item, 'values')
+            by_pak.setdefault(pak, set()).add(
+                (values[1], values[2], values[3], values[4]))
+            labels.append(f"{values[1]} / {values[2]} / {values[3]}  [{values[4]}]")
+        if not messagebox.askyesno(translations[current_language]['overrides_remove_selected'],
+                                   translations[current_language]['overrides_confirm'].format(
+                                       len(labels), "\n".join(labels)),
+                                   parent=overrides_window):
+            return
+        if is_game_running():
+            messagebox.showerror(translations[current_language]['error_title'],
+                                 translations[current_language]['overrides_close_game'],
+                                 parent=overrides_window)
+            return
+        rebuilt = deleted = 0
+        try:
+            overrides_window.config(cursor="wait")
+            overrides_window.update()
+            for pak, targets in by_pak.items():
+                outcome = remove_overrides_from_pak(pak, targets)
+                if outcome == 'deleted':
+                    deleted += 1
+                else:
+                    rebuilt += 1
+        except (OSError, subprocess.SubprocessError) as e:
+            messagebox.showerror(translations[current_language]['error_title'],
+                                 translations[current_language]['overrides_remove_failed']
+                                 + f"\n\n{e}", parent=overrides_window)
+            refresh()
+            return
+        finally:
+            overrides_window.config(cursor="")
+        messagebox.showinfo(translations[current_language]['success_title'],
+                            translations[current_language]['overrides_partial_removed'].format(
+                                len(labels), rebuilt, deleted),
+                            parent=overrides_window)
+        refresh()
+
+    def remove_all():
+        paks = list_mod_paks()
+        if not paks:
+            return
+        if not messagebox.askyesno(translations[current_language]['overrides_remove_all'],
+                                   translations[current_language]['overrides_confirm_all'].format(
+                                       len(paks)),
+                                   parent=overrides_window):
+            return
+        do_removal(paks)
+
+    def do_removal(paks):
+        if is_game_running():
+            messagebox.showerror(translations[current_language]['error_title'],
+                                 translations[current_language]['overrides_close_game'],
+                                 parent=overrides_window)
+            return
+        if send_to_recycle_bin(paks):
+            messagebox.showinfo(translations[current_language]['success_title'],
+                                translations[current_language]['overrides_removed'].format(
+                                    len(paks)),
+                                parent=overrides_window)
+        else:
+            messagebox.showerror(translations[current_language]['error_title'],
+                                 translations[current_language]['overrides_remove_failed'],
+                                 parent=overrides_window)
+        refresh()
+
+    button_bar = tk.Frame(overrides_window, bg="#f2f2f2")
+    button_bar.pack(fill="x", padx=10, pady=8)
+    tk.Button(button_bar, text=translations[current_language]['overrides_refresh'],
+              command=refresh, font=("Arial", 9)).pack(side='left', padx=(0, 5))
+    tk.Button(button_bar, text=translations[current_language]['overrides_open_folder'],
+              command=lambda: os.startfile(mods_folder_path),
+              font=("Arial", 9)).pack(side='left', padx=5)
+    tk.Button(button_bar, text=translations[current_language]['overrides_preview'],
+              command=preview_selected, font=("Arial", 9),
+              bg="#9C27B0", fg="white").pack(side='left', padx=5)
+    tk.Button(button_bar, text=translations[current_language]['overrides_remove_selected'],
+              command=remove_selected, font=("Arial", 9),
+              bg="#FF9800", fg="white").pack(side='right', padx=5)
+    tk.Button(button_bar, text=translations[current_language]['overrides_remove_all'],
+              command=remove_all, font=("Arial", 9),
+              bg="#F44336", fg="white").pack(side='right', padx=5)
+
+    refresh()
+
+
 def on_closing():
-    # Fonction appelée lors de la fermeture de l'application
+    # Fonction appelée lors de la fermeture de l'application | Called when the application is closing
     save_config()
     root.destroy()
 
 
-# Créer la fenêtre Tkinter
+# Créer la fenêtre Tkinter | Create the Tkinter window
 root = tk.Tk()
 root.title(translations[current_language]['title'])
 root.geometry("900x600")
 root.configure(bg="#f2f2f2")
 
-# Définir l'icône de la fenêtre
-# Chemin vers votre icône .png
+# Définir l'icône de la fenêtre | Set the window icon
+# Chemin vers votre icône .png | Path to your .png icon
 icon_path = os.path.join("icons", "app_icon.png")
 
 if os.path.exists(icon_path):
@@ -1541,26 +2256,26 @@ if os.path.exists(icon_path):
 else:
     print("Icône de l'application non trouvée.")
 
-# Variables pour les menus déroulants (après création de root)
+# Variables pour les menus déroulants (après création de root) | Variables for the dropdown menus (after root is created)
 selected_character = tk.StringVar()
 selected_skin = tk.StringVar()
 selected_color = tk.StringVar()
 selected_file_type = tk.StringVar()
 
-# Variable pour stocker le moment du dernier changement
+# Variable pour stocker le moment du dernier changement | Variable holding the timestamp of the last change
 last_change_time = 0
 
-# Charger la configuration au démarrage
+# Charger la configuration au démarrage | Load the configuration at startup
 load_config()
 
-# Charger les icônes et les personnages
+# Charger les icônes et les personnages | Load the icons and the characters
 characters = load_character_icons()
 
-# Frame d'en-tête pour les menus et la configuration
+# Frame d'en-tête pour les menus et la configuration | Header frame for the menus and configuration
 header_frame = tk.Frame(root, bg="#f2f2f2")
 header_frame.pack(pady=10)
 
-# Sélecteur de langue
+# Sélecteur de langue | Language selector
 selected_language = tk.StringVar()
 language_options = {'Français': 'fr', 'English': 'en'}
 selected_language.set(next(
@@ -1570,11 +2285,11 @@ language_menu = tk.OptionMenu(
 language_menu.grid(row=0, column=0, padx=5, pady=5, sticky="w")
 selected_language.trace('w', change_language)
 
-# Label pour afficher l'icône sélectionnée
+# Label pour afficher l'icône sélectionnée | Label showing the selected icon
 selected_character_icon_label = tk.Label(header_frame, bg="#f2f2f2")
 selected_character_icon_label.grid(row=0, column=1, padx=2, pady=5)
 
-# Labels pour les menus déroulants
+# Labels pour les menus déroulants | Labels for the dropdown menus
 character_label = tk.Label(header_frame, font=("Arial", 10))
 character_label.grid(row=0, column=2, padx=2, pady=5, sticky="e")
 
@@ -1587,16 +2302,16 @@ color_label.grid(row=0, column=6, padx=2, pady=5, sticky="e")
 file_type_label = tk.Label(header_frame, font=("Arial", 10))
 file_type_label.grid(row=0, column=8, padx=2, pady=5, sticky="e")
 
-# Menu déroulant pour le personnage avec icônes
+# Menu déroulant pour le personnage avec icônes | Dropdown menu for the character, with icons
 character_menu = create_character_menu(characters)
 selected_character.trace("w", update_selected_character_icon)
 
-# Menu pour le skin
+# Menu pour le skin | Menu for the skin
 skin_menu = tk.OptionMenu(header_frame, selected_skin, '')
 skin_menu.grid(row=0, column=5, padx=2, pady=5, sticky="w")
 selected_skin.trace('w', update_color_menu)
 
-# Menus déroulants pour la couleur et le type de fichier
+# Menus déroulants pour la couleur et le type de fichier | Dropdown menus for the color and the file type
 color_menu = tk.OptionMenu(header_frame, selected_color, '')
 color_menu.grid(row=0, column=7, padx=2, pady=5, sticky="w")
 selected_color.trace('w', update_file_type_menu)
@@ -1604,27 +2319,27 @@ selected_color.trace('w', update_file_type_menu)
 file_type_menu = tk.OptionMenu(header_frame, selected_file_type, '')
 file_type_menu.grid(row=0, column=9, padx=2, pady=5, sticky="w")
 
-# Sélectionner le personnage initial (après création de tous les menus)
+# Sélectionner le personnage initial (après création de tous les menus) | Select the initial character (after every menu has been created)
 selected_character.set(characters[0])
 
-# Lier les variables de sélection à la fonction de changement
+# Lier les variables de sélection à la fonction de changement | Bind the selection variables to the change handler
 selected_character.trace('w', on_selection_change)
 selected_skin.trace('w', on_selection_change)
 selected_color.trace('w', on_selection_change)
 selected_file_type.trace('w', on_selection_change)
 
-# Mettre à jour l'icône du personnage initial
+# Mettre à jour l'icône du personnage initial | Update the initial character's icon
 update_selected_character_icon()
 
-# Appeler la fonction une première fois pour initialiser le menu des skins
+# Appeler la fonction une première fois pour initialiser le menu des skins | Call the function once to initialize the skin menu
 update_skin_menu()
 
-# Bouton unique de configuration pour UnrealPak et Mods
+# Bouton unique de configuration pour UnrealPak et Mods | Single configuration button for UnrealPak and Mods
 config_button = tk.Button(header_frame, command=configure_script_and_mods_folder,
                           font=("Arial", 10), bg="#FFC107", fg="black")
 config_button.grid(row=1, column=0, columnspan=10, pady=10)
 
-# Boutons pour sauvegarder et charger des presets
+# Boutons pour sauvegarder et charger des presets | Buttons to save and load presets
 save_preset_button = tk.Button(header_frame, command=save_preset,
                                font=("Arial", 9), bg="#2196F3", fg="white")
 save_preset_button.grid(row=2, column=0, padx=(5, 5), pady=5, sticky="w")
@@ -1638,11 +2353,16 @@ update_data_button = tk.Button(header_frame, command=update_game_data,
 update_data_button.grid(row=2, column=2, columnspan=3,
                         padx=(5, 5), pady=5, sticky="w")
 
-# Frame pour afficher les couleurs
+overrides_button = tk.Button(header_frame, command=show_overrides,
+                             font=("Arial", 9), bg="#795548", fg="white")
+overrides_button.grid(row=2, column=5, columnspan=3,
+                      padx=(5, 5), pady=5, sticky="w")
+
+# Frame pour afficher les couleurs | Frame displaying the colors
 color_frame = tk.Frame(root, bg="#ffffff", borderwidth=1, relief="solid")
 color_frame.pack(fill="both", expand=True, padx=10, pady=5)
 
-# Frame pour le bouton d'action
+# Frame pour le bouton d'action | Frame for the action button
 action_frame = tk.Frame(root, bg="#f2f2f2")
 action_frame.pack(pady=5)
 
@@ -1654,10 +2374,10 @@ preview_button = tk.Button(action_frame, command=show_preview,
                            font=("Arial", 10), bg="#9C27B0", fg="white", state='disabled')
 preview_button.grid(row=0, column=1, padx=5, pady=2)
 
-# Mise à jour initiale des textes
+# Mise à jour initiale des textes | Initial text update
 update_texts()
 
-# Gérer la fermeture de l'application
+# Gérer la fermeture de l'application | Handle application shutdown
 root.protocol("WM_DELETE_WINDOW", on_closing)
 
 root.mainloop()

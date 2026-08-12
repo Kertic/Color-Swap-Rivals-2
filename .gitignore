@@ -8,6 +8,12 @@ __pycache__/
 # Build staging folders created during export (regenerated every time)
 Upack/*_P/
 
+# UnrealPak scratch file - rewritten with absolute local paths on every pack
+Upack/filelist.txt
+
+# Paks left in Upack before they are moved to the Mods folder
+Upack/*.pak
+
 # FModel exports are never stored in the repo
 Output/
 

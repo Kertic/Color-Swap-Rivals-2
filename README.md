@@ -16,9 +16,7 @@ setup.bat
 ## Getting Started
 
 1. Run **`Start.vbs`**.
-2. Click the yellow **Configure Mods Folder** button and select your game's Mods folder:
-   `...\Steam\steamapps\common\Rivals 2\Rivals2\Content\Paks\Mods`
-   (create the `Mods` folder if it doesn't exist - subfolders are fine for organizing).
+2. Click the yellow **Configure Mods Folder** button. The tool locates your Steam install and Rivals 2 automatically (across every Steam library), creates the `Mods` folder if it's missing, and opens the picker there - just confirm. Subfolders inside `Mods` are fine for organizing.
 3. Pick a **Character**, **Skin**, **Color** (palette), and **File Type**:
    - **Skin** - the character's body/clothing colors
    - **Element/Energy** - effect colors (fire, smoke, energy) as an `Element0 → Element6` gradient
@@ -46,6 +44,22 @@ You can now load a preset made for a **different character or skin**. The tool w
 - Remaining slots are filled by **brightness rank** - the preset's darkest colors go to the skin's darkest slots, brightest to brightest - so the design's overall structure carries over.
 
 The result is a starting point, not a finished swap: fine-tune from there and use Preview to check it.
+
+### Installed Mods
+
+The **Installed Mods** button opens a list of every `.pak` in your Mods folder and shows exactly what each one overrides - character, skin, palette, and whether it's a Skin or Element/Energy replacement. It reads this straight out of each pak's file index, so it works for paks built by any version of the tool (including subfolders you've organized).
+
+From that window you can:
+
+- **Refresh** - re-scan the folder.
+- **Open Folder** - jump to the Mods folder in Explorer.
+- **Preview Before/After** - see the selected override rendered both ways: the original game colors next to the colors your installed mod actually applies, read straight out of the pak. It also reports how many color slots really changed. Works for both Skin and Element/Energy overrides.
+- **Remove Selected** - removes **only the highlighted overrides**, not the whole file. If a pak covers several palettes (say Blue and Neutral), removing Blue rebuilds the pak with Neutral intact. When the last override in a pak is removed, the pak itself is deleted.
+- **Remove All** - clear every mod and start fresh.
+
+Deleted paks go to the **Recycle Bin**, not a permanent delete, so you can restore a mod if you remove it by mistake.
+
+> **The game must be closed to add or remove mods.** Rivals 2 mounts pak files at startup and holds them locked while running, so a mod can't be installed, replaced, or removed mid-session, and changes only take effect on the next launch. The window warns you in red when it detects the game running, and removals are blocked until you close it.
 
 ### Update Game Data
 
@@ -75,6 +89,8 @@ Requirements: [FModel](https://fmodel.app) (free) and the `.usmap` mappings file
 
 ### 2026-08-12 - New features
 
+- **Installed Mods button**: lists every `.pak` in your Mods folder with the character/skin/palette it overrides (read from the pak index). Individual overrides can be removed without touching the rest of the pak (it is unpacked, pruned and rebuilt), or you can clear everything at once. Includes a before/after preview of what an installed override actually changes. Deleted paks go to the Recycle Bin, and the window warns when the game is running.
+- Code comments are now bilingual (French original + English translation).
 - **Preview button**: shows the in-game portrait recolored with your edited colors. For the Element/Energy file type it shows an approximate energy/flame effect built from the `Element0 → Element6` gradient, plus a gradient bar.
 - **Cross-character presets**: loading a preset made for another character/skin now offers to adapt it to your current selection (matching slot names first, then spreading the remaining colors by brightness) as a starting point.
 - **"Update Game Data" button**: guides you through a FModel export (the app pre-configures and launches FModel, you do two right-click exports) and then imports everything automatically. Lets you keep up with game patches yourself.
