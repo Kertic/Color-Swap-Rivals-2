@@ -36,6 +36,14 @@ The purple **Preview** button shows an approximation of your edit before you exp
 
 The preview refreshes each time you click the button, so edit → preview → tweak as much as you like before exporting.
 
+### Editing a Mod You Already Installed
+
+When you select a character/skin/palette that one of your installed `.pak` files already overrides, a teal **Load Installed Mod Colors** button appears next to Replace Colors. Clicking it reads the colors out of the installed pak and fills every field with them.
+
+That gives you the mod's current state as your starting point, so tweaking an existing mod is just: select it, load, adjust, **Replace Colors**. No need to have saved a preset beforehand.
+
+The button only shows up when a matching override actually exists, and it respects the File Type selector - viewing the Skin file of a modded palette loads the skin colors, while Element/Energy loads the effect gradient.
+
 ### Cross-Character Presets
 
 **Save Preset** / **Load Preset** store your color choices as small `.json` files (a couple of starter presets are included in the `Preset` folder).
@@ -86,11 +94,13 @@ Requirements: [FModel](https://fmodel.app) (free) and the `.usmap` mappings file
 - Loxodont's rock color can't be changed - it lives in a different file type, and most of his skins share the same rock color anyway.
 - Platform skins sometimes have inconsistent file/folder names; report any that misbehave.
 - If a character crashes the game after modding, first delete any `[character]_P` folders in `Upack` and re-export.
+- `Upack/[character]_P` is a staging folder that accumulates every palette you export for that character, which is how a single `.pak` can cover several palettes at once. Removing an override through **Installed Mods** prunes this folder too, so the removal sticks across future exports.
 
 ## Changelog
 
 ### 2026-08-12 - New features
 
+- **Load Installed Mod Colors button**: appears when the selected character/skin/palette is already covered by an installed mod, and fills the fields with that mod's colors so it can be edited directly - no preset round trip needed.
 - **Installed Mods button**: lists every `.pak` in your Mods folder with the character/skin/palette it overrides (read from the pak index). Individual overrides can be removed without touching the rest of the pak (it is unpacked, pruned and rebuilt), or you can clear everything at once. Includes a before/after preview of what an installed override actually changes. Deleted paks go to the Recycle Bin, and the window warns when the game is running.
 - Code comments are now bilingual (French original + English translation).
 - **Preview button**: shows the in-game portrait recolored with your edited colors. For the Element/Energy file type it shows an approximate energy/flame effect built from the `Element0 → Element6` gradient, plus a gradient bar.
