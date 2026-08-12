@@ -3,12 +3,10 @@ A continuation of https://github.com/Keryan-666/Color-Swap-ROA-2 which enables y
 
 ## Installation
 
-**Option A - Release zip (recommended for most users).** Download the latest release zip and extract it. It bundles an embedded Python, so nothing needs to be installed - go straight to Getting Started.
-
-**Option B - Clone the repo.** The repo doesn't include the embedded Python, so run the setup script once:
+Clone the repo (or download it with the green **Code** button), then run the setup script once:
 
 ```
-git clone https://github.com/<you>/Color-Swap-Rivals-2
+git clone https://github.com/Kertic/Color-Swap-Rivals-2
 cd Color-Swap-Rivals-2
 setup.bat
 ```
@@ -17,7 +15,7 @@ setup.bat
 
 ## Getting Started
 
-1. Run **`Start.vbs`** (release zip: uses the bundled Python; cloned repo: uses the Python installed by `setup.bat`).
+1. Run **`Start.vbs`**.
 2. Click the yellow **Configure Mods Folder** button and select your game's Mods folder:
    `...\Steam\steamapps\common\Rivals 2\Rivals2\Content\Paks\Mods`
    (create the `Mods` folder if it doesn't exist - subfolders are fine for organizing).
