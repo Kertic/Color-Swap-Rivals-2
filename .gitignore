@@ -17,3 +17,7 @@ python-3.12.6.amd64/
 
 # FModel installed locally by setup.ps1
 FModel/
+
+# User presets — keep the folder, ignore its contents
+Preset/*
+!Preset/.gitkeep
