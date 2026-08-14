@@ -104,6 +104,10 @@ translations = {
         'overrides_open_folder': "Ouvrir le dossier",
         'overrides_remove_selected': "Supprimer la sélection",
         'overrides_remove_all': "Tout supprimer",
+        'load_mod_values': "Reprendre les couleurs du mod",
+        'mod_values_loaded': "{} couleur(s) chargée(s) depuis {}. Modifiez-les puis relancez le remplacement.",
+        'mod_values_none': "Aucun mod installé ne correspond à cette sélection.",
+        'mod_values_failed': "Impossible de lire les couleurs du mod installé.",
         'choose_mods_folder': "Choisir le dossier Mods du jeu",
         'overrides_preview': "Aperçu avant/après",
         'overrides_partial_removed': "{} remplacement(s) retiré(s). {} pak(s) reconstruit(s), {} supprimé(s).",
@@ -190,6 +194,10 @@ translations = {
         'overrides_open_folder': "Open Folder",
         'overrides_remove_selected': "Remove Selected",
         'overrides_remove_all': "Remove All",
+        'load_mod_values': "Load Installed Mod Colors",
+        'mod_values_loaded': "Loaded {} color(s) from {}. Edit them and run Replace Colors again.",
+        'mod_values_none': "No installed mod matches this selection.",
+        'mod_values_failed': "Could not read the colors from the installed mod.",
         'choose_mods_folder': "Choose the game's Mods folder",
         'overrides_preview': "Preview Before/After",
         'overrides_partial_removed': "{} override(s) removed. {} pak(s) rebuilt, {} deleted.",
@@ -224,6 +232,8 @@ def update_texts():
         text=translations[current_language]['replace_colors'])
     preview_button.config(
         text=translations[current_language]['preview'])
+    load_mod_button.config(
+        text=translations[current_language]['load_mod_values'])
     update_data_button.config(
         text=translations[current_language]['update_data'])
     overrides_button.config(
@@ -897,6 +907,7 @@ def load_files():
         # Désactiver le bouton "Remplacer les couleurs" | Disable the "Replace Colors" button
         replace_button.config(state='disabled')
         preview_button.config(state='disabled')
+        load_mod_button.grid_remove()
         # Cacher les clés et les couleurs | Hide the keys and colors
         clear_color_selectors()
         if load_uexp():
@@ -904,6 +915,8 @@ def load_files():
                 # Si le chargement est réussi, réactiver le bouton "Remplacer les couleurs" | If loading succeeded, re-enable the "Replace Colors" button
                 replace_button.config(state='normal')
                 preview_button.config(state='normal')
+                # Proposer de reprendre les couleurs du mod déjà installé | Offer to pull in the colors of the already-installed mod
+                update_mod_button_state()
     except Exception as e:
         messagebox.showerror(
             translations[current_language]['error_title'], str(e))
@@ -1851,15 +1864,57 @@ def build_pak_from_staging(staging_dir, out_pak):
                    creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
 
 
+def staging_dir_for_pak(pak_path):
+    # Dossier Upack/<perso>_P correspondant à <perso>_P.pak | The Upack/<character>_P folder matching <character>_P.pak
+    stem = os.path.splitext(os.path.basename(pak_path))[0]
+    return os.path.join(os.path.dirname(unrealpak_script_path), stem)
+
+
+def prune_staging_folder(pak_path, targets):
+    """
+    Retire aussi les fichiers correspondants du dossier de staging.
+    Sans cela, "Remplacer les couleurs" reconstruit le pak à partir du
+    staging (qui s'accumule) et ressuscite les remplacements supprimés.
+
+    Also removes the matching files from the staging folder. Without this,
+    "Replace Colors" rebuilds the pak from the staging folder (which
+    accumulates) and resurrects overrides that were removed.
+    """
+    staging = staging_dir_for_pak(pak_path)
+    if not os.path.isdir(staging):
+        return 0
+    removed = 0
+    for dirpath, dirnames, filenames in os.walk(staging):
+        for name in list(filenames):
+            full = os.path.join(dirpath, name).replace('\\', '/')
+            if describe_pak_file(full) in targets:
+                try:
+                    os.remove(os.path.join(dirpath, name))
+                    removed += 1
+                except OSError:
+                    pass
+    # Nettoyer les dossiers devenus vides | Clean up folders left empty
+    for dirpath, dirnames, filenames in os.walk(staging, topdown=False):
+        try:
+            if not os.listdir(dirpath):
+                os.rmdir(dirpath)
+        except OSError:
+            pass
+    return removed
+
+
 def remove_overrides_from_pak(pak_path, targets):
     """
     Retire uniquement les remplacements listés dans `targets`
     (personnage, skin, palette, type) et reconstruit le pak.
+    Le dossier de staging est nettoyé en même temps pour que la
+    suppression survive au prochain export.
     Renvoie 'rebuilt', 'deleted' (plus rien dedans) ou lève une exception.
 
     Removes only the overrides listed in `targets` (character, skin,
-    palette, type) and rebuilds the pak. Returns 'rebuilt', 'deleted'
-    (nothing left inside) or raises.
+    palette, type) and rebuilds the pak. The staging folder is pruned at
+    the same time so the removal survives the next export.
+    Returns 'rebuilt', 'deleted' (nothing left inside) or raises.
     """
     import tempfile
     mount = pak_mount_point(pak_path)
@@ -1888,6 +1943,8 @@ def remove_overrides_from_pak(pak_path, targets):
         if kept == 0:
             if not send_to_recycle_bin([pak_path]):
                 raise OSError(pak_path)
+            # Plus rien à exporter : jeter tout le dossier de staging | Nothing left to export: drop the whole staging folder
+            shutil.rmtree(staging_dir_for_pak(pak_path), ignore_errors=True)
             return 'deleted'
 
         rebuilt = os.path.join(work, "rebuilt.pak")
@@ -1895,6 +1952,8 @@ def remove_overrides_from_pak(pak_path, targets):
         if not os.path.exists(rebuilt):
             raise OSError(rebuilt)
         shutil.copy2(rebuilt, pak_path)
+        # Garder le staging aligné, sinon le prochain export ramène ces couleurs | Keep staging aligned, otherwise the next export brings these colors back
+        prune_staging_folder(pak_path, targets)
         return 'rebuilt'
     finally:
         shutil.rmtree(work, ignore_errors=True)
@@ -1973,6 +2032,120 @@ def find_base_files(character, skin, palette, prefix):
             if os.path.exists(base_json):
                 return base_json, uexp
     return None, None
+
+
+def pak_full_paths(pak_path):
+    # Chemins complets (montage + entrées) contenus dans un pak | Full paths (mount + entries) held inside a pak
+    try:
+        with open(pak_path, 'rb') as f:
+            data = f.read()
+    except OSError:
+        return []
+    mount = ""
+    relatives = []
+    for match in PAK_PATH_RE.finditer(data):
+        text = match.group().decode('ascii', 'ignore')
+        if text.startswith('../'):
+            mount = text
+        elif text.endswith(('.uexp', '.uasset', '.ubulk')):
+            relatives.append(text)
+    mount = mount.replace('../', '').strip('/')
+    if not mount:
+        return relatives
+    return [(mount + '/' + rel).replace('//', '/') for rel in relatives]
+
+
+def current_file_prefix():
+    # 'PE_' ou 'PS_' selon le type de fichier sélectionné | 'PE_' or 'PS_' depending on the selected file type
+    return 'PE_' if file_type_codes.get(selected_file_type.get()) == 'PE' else 'PS_'
+
+
+def find_installed_override(character, skin, palette, prefix):
+    """
+    Cherche un .pak installé qui remplace exactement cette combinaison.
+    Renvoie (chemin_du_pak, nom_du_fichier) ou (None, None).
+
+    Looks for an installed .pak overriding exactly this combination.
+    Returns (pak_path, file_name) or (None, None).
+    """
+    if not mods_folder_path or not os.path.isdir(mods_folder_path):
+        return None, None
+    for pak in list_mod_paks():
+        for full in pak_full_paths(pak):
+            name = full.rsplit('/', 1)[-1]
+            if not name.startswith(prefix) or not name.endswith('.uexp'):
+                continue
+            if describe_pak_file(full)[:3] == (character, skin, palette):
+                return pak, name
+    return None, None
+
+
+def load_installed_mod_values():
+    # Remplit les champs avec les couleurs du mod déjà installé | Fills the fields with the colors of the already-installed mod
+    import tempfile
+    if json_data is None or not uexp_file_path:
+        return
+    character = selected_character.get()
+    skin = selected_skin.get()
+    palette = selected_color.get()
+    pak, name = find_installed_override(
+        character, skin, palette, current_file_prefix())
+    if not pak:
+        messagebox.showinfo(translations[current_language]['load_mod_values'],
+                            translations[current_language]['mod_values_none'])
+        return
+
+    base_json = uexp_file_path.replace('.uexp', '.json')
+    work = tempfile.mkdtemp(prefix="colorswap_load_")
+    try:
+        root.config(cursor="wait")
+        root.update()
+        extract_pak(pak, work)
+        modified = None
+        for dirpath, dirnames, filenames in os.walk(work):
+            if name in filenames:
+                modified = os.path.join(dirpath, name)
+                break
+        if not modified:
+            messagebox.showerror(translations[current_language]['error_title'],
+                                 translations[current_language]['mod_values_failed'])
+            return
+        colors = read_override_colors(base_json, uexp_file_path, modified)
+    except (OSError, subprocess.SubprocessError, ValueError) as e:
+        messagebox.showerror(
+            translations[current_language]['error_title'], str(e))
+        return
+    finally:
+        root.config(cursor="")
+        shutil.rmtree(work, ignore_errors=True)
+
+    assignment = {key: after for key, _before,
+                  after in colors if key in color_entries}
+    if not assignment:
+        messagebox.showinfo(translations[current_language]['load_mod_values'],
+                            translations[current_language]['mod_values_failed'])
+        return
+    apply_color_assignment(assignment)
+    messagebox.showinfo(translations[current_language]['success_title'],
+                        translations[current_language]['mod_values_loaded'].format(
+                            len(assignment), os.path.basename(pak)))
+
+
+def update_mod_button_state():
+    # Affiche le bouton seulement si la sélection est déjà moddée | Show the button only when the current selection is already modded
+    try:
+        pak, _name = (None, None)
+        if json_data is not None and selected_color.get():
+            pak, _name = find_installed_override(selected_character.get(),
+                                                 selected_skin.get(),
+                                                 selected_color.get(),
+                                                 current_file_prefix())
+        if pak:
+            load_mod_button.grid()
+        else:
+            load_mod_button.grid_remove()
+    except tk.TclError:
+        pass
 
 
 def show_override_preview(pak_path, character, skin, palette, kind, parent):
@@ -2204,6 +2377,9 @@ def show_overrides():
                                  parent=overrides_window)
             return
         if send_to_recycle_bin(paks):
+            # Vider aussi le staging, sinon un export le ferait revenir | Also clear staging, otherwise an export would bring it back
+            for pak in paks:
+                shutil.rmtree(staging_dir_for_pak(pak), ignore_errors=True)
             messagebox.showinfo(translations[current_language]['success_title'],
                                 translations[current_language]['overrides_removed'].format(
                                     len(paks)),
@@ -2373,6 +2549,12 @@ replace_button.grid(row=0, column=0, padx=5, pady=2)
 preview_button = tk.Button(action_frame, command=show_preview,
                            font=("Arial", 10), bg="#9C27B0", fg="white", state='disabled')
 preview_button.grid(row=0, column=1, padx=5, pady=2)
+
+# Visible uniquement quand la sélection est déjà moddée | Only visible when the current selection is already modded
+load_mod_button = tk.Button(action_frame, command=load_installed_mod_values,
+                            font=("Arial", 10), bg="#009688", fg="white")
+load_mod_button.grid(row=0, column=2, padx=5, pady=2)
+load_mod_button.grid_remove()
 
 # Mise à jour initiale des textes | Initial text update
 update_texts()
