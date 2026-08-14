@@ -87,7 +87,10 @@ if (Test-Path $embedded) {
 # (where the Microsoft Store stub often shadows the real python.exe).
 $pythonPathFile = Join-Path $root "python_path.txt"
 if ($python -and (Test-Path $python)) {
-    Set-Content -Path $pythonPathFile -Value $python -Encoding UTF8
+    # No BOM: Set-Content -Encoding UTF8 prepends one under PowerShell 5.1,
+    # which ends up inside the path when .bat/.vbs read the file back.
+    [System.IO.File]::WriteAllText($pythonPathFile, $python,
+        (New-Object System.Text.UTF8Encoding $false))
     Write-Host "Recorded interpreter in python_path.txt"
 }
 
