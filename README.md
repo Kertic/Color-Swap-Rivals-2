@@ -44,6 +44,20 @@ That gives you the mod's current state as your starting point, so tweaking an ex
 
 The button only shows up when a matching override actually exists, and it respects the File Type selector - viewing the Skin file of a modded palette loads the skin colors, while Element/Energy loads the effect gradient.
 
+### Replacing the Character Select Portrait
+
+Next to **Replace Colors** there is a **Replace character select portrait with skin preview** checkbox. With it ticked, exporting also rewrites the character-select portrait for that palette, so the CSS art matches your mod instead of showing the stock colors.
+
+What gets written is exactly the image the **Preview** button shows - what you see is what ships.
+
+Both work at the game's own resolution. The original portrait is read straight out of the game's `.pak` at full 1024×1024 (about a tenth of a second), recolored, re-encoded to DXT5 and spliced back into a texture of byte-identical size. Nothing is downscaled and nothing is stored: the portrait is fetched fresh each time.
+
+One detail worth knowing: before matching pixels to palette slots, the source colors are grouped together in memory. The game's texture carries DXT compression noise, so without that step two neighbouring pixels of the same flat area can land on different palette slots and the result comes out visibly speckled. The image itself stays at full resolution - only the matching decision is stabilized.
+
+This needs the Oodle decompression library, which **FModel downloads** - so it works once `setup.bat` has run. If the game install or that library can't be found, the checkbox greys out and explains which piece is missing.
+
+> Portrait art is stored one-per-palette, so the replacement applies to the palette you are editing. A handful of portraits use texture layouts the tool doesn't handle (mip chains); those are skipped without affecting the rest of the export.
+
 ### Cross-Character Presets
 
 **Save Preset** / **Load Preset** store your color choices as small `.json` files (a couple of starter presets are included in the `Preset` folder).
@@ -101,6 +115,7 @@ Requirements: [FModel](https://fmodel.app) (free) and the `.usmap` mappings file
 ### 2026-08-12 - New features
 
 - **Load Installed Mod Colors button**: appears when the selected character/skin/palette is already covered by an installed mod, and fills the fields with that mod's colors so it can be edited directly - no preset round trip needed.
+- **Character select portrait replacement**: a *Replace character select portrait with skin preview* checkbox next to Replace Colors. The image the Preview button shows is written into the portrait, so the preview matches the result. The original texture is read on demand from the game's own `.pak` (UE5 pak index reader + Oodle) for its header and exact size, then re-encoded to DXT5 and spliced back - no portrait data is stored on disk.
 - **Installed Mods button**: lists every `.pak` in your Mods folder with the character/skin/palette it overrides (read from the pak index). Individual overrides can be removed without touching the rest of the pak (it is unpacked, pruned and rebuilt), or you can clear everything at once. Includes a before/after preview of what an installed override actually changes. Deleted paks go to the Recycle Bin, and the window warns when the game is running.
 - Code comments are now bilingual (French original + English translation).
 - **Preview button**: shows the in-game portrait recolored with your edited colors. For the Element/Energy file type it shows an approximate energy/flame effect built from the `Element0 → Element6` gradient, plus a gradient bar.

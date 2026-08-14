@@ -1,3 +1,4 @@
+import base64
 import os
 import re
 import json
@@ -234,15 +235,33 @@ def shared():
     return copied
 
 
+MANIFEST_PATH = Path(__file__).resolve().parent / "portrait_headers.json"
+
+
 def csp_portraits():
-    # Copie les portraits (T_*_CSP.png) utilisés par le bouton Aperçu, | Copies the portraits (T_*_CSP.png) used by the Preview button,
-    # réduits et quantifiés pour limiter la taille du dossier. | downscaled and quantized to keep the folder size down.
-    try:
-        from PIL import Image
-    except ImportError:
-        print("[WARN] PIL indisponible, portraits d'aperçu non copiés")
-        return 0
+    """
+    Copie les portraits en pleine résolution et enregistre, pour chacun,
+    les 145 octets d'en-tête/fin de sa texture.
+
+    Ces 145 octets permettent de reconstruire le .uexp hors ligne : l'outil
+    n'a alors besoin ni du .pak du jeu ni de FModel pour remplacer un
+    portrait.
+
+    Copies the portraits at full resolution and records, for each one, the
+    145 header/trailer bytes of its texture.
+
+    Those 145 bytes are what makes rebuilding the .uexp offline possible:
+    the tool then needs neither the game .pak nor FModel to replace a
+    portrait.
+    """
     copied = 0
+    manifest = {}
+    if MANIFEST_PATH.exists():
+        try:
+            manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+        except ValueError:
+            manifest = {}
+
     for root, dirs, files in os.walk(SOURCE_ROOT):
         for file in files:
             if not file.endswith("_CSP.png"):
@@ -252,13 +271,28 @@ def csp_portraits():
             # ne copier que là où l'outil a déjà des données de palette | only copy where the tool already has palette data
             if not dest.parent.is_dir():
                 continue
-            im = Image.open(src).convert("RGBA")
-            if max(im.size) > 400:
-                im.thumbnail((400, 400), Image.LANCZOS)
-            im = im.quantize(colors=256, method=Image.FASTOCTREE)
-            im.save(dest, optimize=True)
+            shutil.copy2(src, dest)
             copied += 1
-    print(f"Portraits d'aperçu copiés : {copied}")
+
+            # En-tête/fin de la texture correspondante | Header/trailer of the matching texture
+            uexp = src.with_suffix(".uexp")
+            if not uexp.exists():
+                continue
+            data = uexp.read_bytes()
+            payload = len(data) - 145
+            side = int(round(payload ** 0.5))
+            if side * side != payload or side not in (256, 512, 1024, 2048):
+                continue        # mipmaps ou format inattendu | mip chain or unexpected format
+            manifest[uexp.name] = {
+                "wrapper": base64.b64encode(data[:117] + data[-28:]).decode("ascii"),
+                "side": side,
+            }
+
+    if manifest:
+        MANIFEST_PATH.write_text(json.dumps(manifest, indent=0, sort_keys=True),
+                                 encoding="utf-8")
+    print(f"Portraits copiés (pleine résolution) : {copied}")
+    print(f"En-têtes de portraits enregistrés : {len(manifest)}")
     return copied
 
 

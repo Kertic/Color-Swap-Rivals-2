@@ -14,6 +14,11 @@ import threading
 from PIL import Image, ImageTk
 import sys
 
+try:
+    import portraits as portraits_module
+except ImportError:      # portraits.py absent : l'option est simplement désactivée | portraits.py missing: the option is just disabled
+    portraits_module = None
+
 CONFIG_FILE = 'config.pkl'
 
 BASE_DIR = r"Base_pas_edit\Rivals2\Content\Characters"
@@ -90,6 +95,7 @@ translations = {
         'update_importer_missing': "files_importer.py introuvable à côté de l'application.",
         'file_type_skin': "Skin",
         'file_type_energy': "Élément/Énergie",
+        'file_type_portrait': "Portrait",
         'manage_overrides': "Mods installés",
         'overrides_title': "Mods installés (fichiers .pak)",
         'overrides_no_folder': "Configurez d'abord le dossier Mods.",
@@ -108,6 +114,11 @@ translations = {
         'mod_values_loaded': "{} couleur(s) chargée(s) depuis {}. Modifiez-les puis relancez le remplacement.",
         'mod_values_none': "Aucun mod installé ne correspond à cette sélection.",
         'mod_values_failed': "Impossible de lire les couleurs du mod installé.",
+        'replace_portrait': "Remplacer le portrait de sélection par l'aperçu du skin",
+        'portrait_no_module': "Portrait indisponible : portraits.py est introuvable.",
+        'portrait_no_game': "Portrait indisponible : installation du jeu introuvable.",
+        'portrait_no_oodle': "Portrait indisponible : lancez setup.bat (FModel fournit la DLL Oodle).",
+        'portrait_no_data': "Portrait indisponible : données manquantes, utilisez « Mettre à jour les données du jeu ».",
         'choose_mods_folder': "Choisir le dossier Mods du jeu",
         'overrides_preview': "Aperçu avant/après",
         'overrides_partial_removed': "{} remplacement(s) retiré(s). {} pak(s) reconstruit(s), {} supprimé(s).",
@@ -180,6 +191,7 @@ translations = {
         'update_importer_missing': "files_importer.py not found next to the application.",
         'file_type_skin': "Skin",
         'file_type_energy': "Element/Energy",
+        'file_type_portrait': "Portrait",
         'manage_overrides': "Installed Mods",
         'overrides_title': "Installed Mods (.pak files)",
         'overrides_no_folder': "Configure the Mods folder first.",
@@ -198,6 +210,11 @@ translations = {
         'mod_values_loaded': "Loaded {} color(s) from {}. Edit them and run Replace Colors again.",
         'mod_values_none': "No installed mod matches this selection.",
         'mod_values_failed': "Could not read the colors from the installed mod.",
+        'replace_portrait': "Replace character select portrait with skin preview",
+        'portrait_no_module': "Portrait unavailable: portraits.py is missing.",
+        'portrait_no_game': "Portrait unavailable: game installation not found.",
+        'portrait_no_oodle': "Portrait unavailable: run setup.bat (FModel provides the Oodle DLL).",
+        'portrait_no_data': "Portrait unavailable: data missing, use \"Update Game Data\" to restore it.",
         'choose_mods_folder': "Choose the game's Mods folder",
         'overrides_preview': "Preview Before/After",
         'overrides_partial_removed': "{} override(s) removed. {} pak(s) rebuilt, {} deleted.",
@@ -234,6 +251,8 @@ def update_texts():
         text=translations[current_language]['preview'])
     load_mod_button.config(
         text=translations[current_language]['load_mod_values'])
+    portrait_check.config(
+        text=translations[current_language]['replace_portrait'])
     update_data_button.config(
         text=translations[current_language]['update_data'])
     overrides_button.config(
@@ -249,6 +268,12 @@ def update_texts():
 
     # Mettre à jour le menu des langues | Update the language menu
     language_menu['text'] = selected_language.get()
+
+    # Le message d'indisponibilité du portrait doit suivre la langue | The portrait unavailable message must follow the language
+    try:
+        refresh_portrait_option()
+    except NameError:
+        pass      # appelé avant la création des widgets | called before the widgets exist
 
 
 def change_language(*args):
@@ -852,29 +877,127 @@ def render_energy_preview(portrait, stops):
 preview_window = None
 
 
+def find_preview_source():
+    # Portrait importé à côté de la palette (repli hors ligne) | Imported portrait next to the palette (offline fallback)
+    import glob as _glob
+    if not uexp_file_path:
+        return None
+    matches = _glob.glob(os.path.join(
+        os.path.dirname(uexp_file_path), "*_CSP.png"))
+    return matches[0] if matches else None
+
+
+def load_portrait_source():
+    """
+    Portrait d'origine en pleine résolution. Le fichier livré à côté de la
+    palette est utilisé en priorité : il évite toute dépendance au jeu, à
+    Oodle et à FModel. Le .pak du jeu ne sert que de secours.
+
+    Original portrait at full resolution. The file shipped next to the
+    palette is preferred: it avoids any dependency on the game, on Oodle
+    and on FModel. The game .pak is only a fallback.
+    """
+    source = find_preview_source()
+    if source:
+        try:
+            return Image.open(source).convert("RGBA")
+        except OSError as e:
+            print(f"Portrait illisible ({source}) : {e}")
+    name = portrait_file_name()
+    if name and portraits_module is not None:
+        try:
+            pak = get_game_pak()
+            if pak is not None:
+                image = portraits_module.decode_csp(pak.read_file(name))
+                if image is not None:
+                    return image
+        except (FileNotFoundError, RuntimeError, OSError, ValueError) as e:
+            print(f"Portrait non lu depuis le pak ({name}) : {e}")
+    return None
+
+
+_portrait_manifest = None
+
+
+def load_portrait_manifest():
+    """
+    En-têtes de textures livrés avec l'outil (145 octets par portrait).
+    Ils permettent de reconstruire un .uexp sans lire le jeu.
+
+    Texture headers shipped with the tool (145 bytes per portrait). They
+    allow rebuilding a .uexp without reading the game.
+    """
+    global _portrait_manifest
+    if _portrait_manifest is None:
+        path = os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), "portrait_headers.json")
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                _portrait_manifest = json.load(f)
+        except (OSError, ValueError):
+            _portrait_manifest = {}
+    return _portrait_manifest
+
+
+def flatten_source_colors(image, colors=256):
+    """
+    Regroupe les couleurs de la source avant recoloration.
+
+    La texture du jeu contient du bruit de compression : sans ce
+    regroupement, deux pixels voisins d'un même aplat tombent sur des
+    slots de palette différents et le résultat est moucheté. L'image
+    reste en pleine résolution ; seule la décision d'appariement est
+    stabilisée.
+
+    Groups the source colors before recoloring.
+
+    The game texture carries compression noise: without this grouping,
+    two neighbouring pixels of the same flat area land on different
+    palette slots and the result comes out speckled. The image stays at
+    full resolution; only the matching decision is stabilized.
+    """
+    rgb = image.convert("RGB").quantize(
+        colors=colors, method=Image.FASTOCTREE).convert("RGB")
+    flattened = rgb.convert("RGBA")
+    flattened.putalpha(image.getchannel("A"))
+    return flattened
+
+
+def build_skin_preview_image():
+    """
+    Construit l'image d'aperçu du skin, en pleine résolution du jeu.
+    C'est aussi l'image écrite dans le portrait de sélection, afin que
+    l'aperçu corresponde exactement au résultat.
+
+    Builds the skin preview image at the game's full resolution. This is
+    also the image written into the character-select portrait, so the
+    preview matches the result exactly.
+    """
+    image = load_portrait_source()
+    if image is None:
+        return None
+    return recolor_preview_image(flatten_source_colors(image),
+                                 get_preview_recolor_map())
+
+
 def show_preview():
     # Affiche le portrait du jeu recoloré avec les couleurs saisies | Shows the in-game portrait recolored with the entered colors
     global preview_window
     if not uexp_file_path:
         return
-    import glob as _glob
-    csp_files = _glob.glob(os.path.join(
-        os.path.dirname(uexp_file_path), "*_CSP.png"))
     is_energy = file_type_codes.get(selected_file_type.get()) == 'PE'
-    if not csp_files and not is_energy:
-        messagebox.showinfo(translations[current_language]['preview'],
-                            translations[current_language]['preview_unavailable'])
-        return
     try:
         root.config(cursor="wait")
         root.update()
         if is_energy:
-            portrait = Image.open(csp_files[0]).convert(
-                "RGBA") if csp_files else None
-            im = render_energy_preview(portrait, get_element_ramp())
+            im = render_energy_preview(
+                load_portrait_source(), get_element_ramp())
         else:
-            im = Image.open(csp_files[0]).convert("RGBA")
-            im = recolor_preview_image(im, get_preview_recolor_map())
+            im = build_skin_preview_image()
+        if im is None:
+            messagebox.showinfo(translations[current_language]['preview'],
+                                translations[current_language]['preview_unavailable'])
+            return
         if preview_window is not None and preview_window.winfo_exists():
             preview_window.destroy()
         preview_window = tk.Toplevel(root)
@@ -1220,10 +1343,154 @@ def replace_colors_in_uexp():
         with open(modified_uexp_path, 'wb') as f:
             f.write(uexp_bytes)
 
+        # Portrait de sélection : recoloré et ajouté au même dossier de staging | Character-select portrait: recolored and added to the same staging folder
+        if replace_portrait_var.get():
+            build_recolored_portrait(output_folder_path)
+
         ask_for_pak_directory_and_create(unrealpak_folder_path)
     except Exception as e:
         messagebox.showerror(
             translations[current_language]['error_title'], str(e))
+
+
+def portrait_file_name():
+    """
+    Nom du fichier portrait correspondant à la sélection, déduit du .uexp
+    de palette : PS_For_Ranger_Neutral.uexp -> T_For_Ranger_Neutral_CSP.uexp
+
+    Portrait file name for the current selection, derived from the palette
+    .uexp: PS_For_Ranger_Neutral.uexp -> T_For_Ranger_Neutral_CSP.uexp
+    """
+    if not uexp_file_path:
+        return None
+    stem = os.path.splitext(os.path.basename(uexp_file_path))[0]
+    parts = stem.split('_')
+    if len(parts) != 4:
+        return None
+    return 'T_' + '_'.join(parts[1:]) + '_CSP.uexp'
+
+
+def find_game_pak_file():
+    # Le .pak principal du jeu, qui contient les portraits | The game's main .pak, which holds the portraits
+    paks = find_game_paks_dir()
+    if not paks:
+        return None
+    for name in os.listdir(paks):
+        if name.lower().endswith('.pak') and 'windows' in name.lower():
+            return os.path.join(paks, name)
+    return None
+
+
+def fmodel_search_dirs():
+    # Emplacements où chercher la DLL Oodle installée par FModel | Places to look for the Oodle DLL installed by FModel
+    dirs = []
+    if fmodel_path:
+        exe_dir = os.path.dirname(fmodel_path)
+        dirs += [os.path.join(exe_dir, "Output"), exe_dir]
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+    dirs.append(os.path.join(app_dir, "FModel", "Output"))
+    dirs.append(os.path.join(app_dir, "FModel"))
+    appdata = os.environ.get('APPDATA')
+    if appdata:
+        cfg = os.path.join(appdata, "FModel", "AppSettings.json")
+        try:
+            with open(cfg, 'r', encoding='utf-8') as f:
+                output = json.load(f).get("OutputDirectory")
+            if output:
+                dirs.append(output)
+        except (OSError, ValueError):
+            pass
+    return [d for d in dirs if d and os.path.isdir(d)]
+
+
+def portrait_support_status():
+    """
+    Vérifie que le remplacement de portrait est possible.
+    Renvoie (disponible, message d'explication).
+
+    Checks whether portrait replacement is possible.
+    Returns (available, explanation message).
+    """
+    if portraits_module is None:
+        return False, translations[current_language]['portrait_no_module']
+    name = portrait_file_name()
+    # Cas normal : en-tête livré + portrait livré, aucun accès au jeu | Normal case: shipped header + shipped portrait, no game access
+    if name and name in load_portrait_manifest() and find_preview_source():
+        return True, ""
+    # Secours : lire la texture directement dans le .pak (nécessite Oodle) | Fallback: read the texture straight from the .pak (needs Oodle)
+    if find_game_pak_file() and portraits_module.find_oodle_dll(fmodel_search_dirs()):
+        return True, ""
+    return False, translations[current_language]['portrait_no_data']
+
+
+_game_pak_cache = {}
+
+
+def get_game_pak():
+    # L'index du pak est coûteux à lire : on le garde en mémoire | The pak index is costly to read: keep it in memory
+    pak_path = find_game_pak_file()
+    if not pak_path:
+        return None
+    if pak_path not in _game_pak_cache:
+        dll = portraits_module.find_oodle_dll(fmodel_search_dirs())
+        _game_pak_cache[pak_path] = portraits_module.GamePak(
+            pak_path, portraits_module.Oodle(dll) if dll else None)
+    return _game_pak_cache[pak_path]
+
+
+def build_recolored_portrait(output_folder_path):
+    """
+    Écrit l'image d'aperçu du skin dans le portrait de sélection.
+
+    Le .uexp d'origine est lu dans le .pak du jeu pour en conserver
+    l'en-tête et la taille exacte ; seuls les pixels viennent de l'aperçu.
+    Recoloriser l'aperçu (déjà aplati en 256 couleurs) donne des aplats
+    nets, là où la texture pleine résolution produit des taches.
+
+    Writes the skin preview image into the character-select portrait.
+
+    The original .uexp is read from the game .pak to keep its header and
+    exact size; only the pixels come from the preview. Recoloring the
+    preview (already flattened to 256 colours) gives clean flat areas,
+    whereas the full-resolution texture comes out speckled.
+    """
+    name = portrait_file_name()
+    if not name:
+        return False
+
+    recolored = build_skin_preview_image()
+    if recolored is None:
+        print("Aucune image d'aperçu disponible pour cette sélection.")
+        return False
+
+    entry = load_portrait_manifest().get(name)
+    if entry:
+        # Chemin normal : tout est livré avec l'outil | Normal path: everything ships with the tool
+        import base64
+        patched = portraits_module.build_csp_uexp(
+            base64.b64decode(entry['wrapper']), recolored, entry['side'])
+    else:
+        # Secours : relire la texture d'origine dans le .pak du jeu | Fallback: re-read the original texture from the game .pak
+        pak = get_game_pak()
+        if pak is None:
+            print(f"Aucun en-tête connu pour {name} et pak indisponible.")
+            return False
+        try:
+            original_uexp = pak.read_file(name)
+        except (FileNotFoundError, RuntimeError, OSError) as e:
+            print(f"Portrait introuvable dans le pak : {name} ({e})")
+            return False
+        if portraits_module.csp_layout(original_uexp) is None:
+            print(f"Disposition de texture non prise en charge : {name}")
+            return False
+        patched = portraits_module.encode_csp(original_uexp, recolored)
+
+    os.makedirs(output_folder_path, exist_ok=True)
+    destination = os.path.join(output_folder_path, name)
+    with open(destination, 'wb') as f:
+        f.write(patched)
+    print(f"Portrait recoloré écrit : {destination}")
+    return True
 
 
 def default_mods_folder():
@@ -1714,6 +1981,8 @@ def parse_pak_overrides(pak_path):
             kind = translations[current_language]['file_type_energy']
         elif name.startswith('PS_'):
             kind = translations[current_language]['file_type_skin']
+        elif name.startswith('T_') and '_CSP' in name:
+            kind = translations[current_language]['file_type_portrait']
         else:
             kind = name.split('_')[0]
 
@@ -1813,6 +2082,8 @@ def describe_pak_file(full_path):
         kind = translations[current_language]['file_type_energy']
     elif name.startswith('PS_'):
         kind = translations[current_language]['file_type_skin']
+    elif name.startswith('T_') and '_CSP' in name:
+        kind = translations[current_language]['file_type_portrait']
     else:
         kind = name.split('_')[0]
     character = skin = palette = '?'
@@ -2148,9 +2419,83 @@ def update_mod_button_state():
         pass
 
 
+def show_installed_portrait_preview(pak_path, character, skin, palette, parent):
+    """
+    Compare le portrait d'origine (lu dans le pak du jeu) avec celui
+    installé par le mod.
+
+    Compares the original portrait (read from the game pak) with the one
+    installed by the mod.
+    """
+    import tempfile
+    game_pak = get_game_pak()
+    work = tempfile.mkdtemp(prefix="colorswap_csp_")
+    try:
+        extract_pak(pak_path, work)
+        modified_path = None
+        for dirpath, dirnames, filenames in os.walk(work):
+            for name in filenames:
+                if name.startswith('T_') and name.endswith('_CSP.uexp'):
+                    modified_path = os.path.join(dirpath, name)
+                    break
+        if not modified_path:
+            messagebox.showinfo(translations[current_language]['preview'],
+                                translations[current_language]['preview_unavailable'],
+                                parent=parent)
+            return
+        with open(modified_path, 'rb') as f:
+            after_image = portraits_module.decode_csp(f.read())
+        before_image = None
+        if game_pak is not None:
+            try:
+                before_image = portraits_module.decode_csp(
+                    game_pak.read_file(os.path.basename(modified_path)))
+            except (FileNotFoundError, RuntimeError, OSError):
+                before_image = None
+    except (OSError, subprocess.SubprocessError, ValueError) as e:
+        messagebox.showerror(
+            translations[current_language]['error_title'], str(e), parent=parent)
+        return
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+    if after_image is None:
+        messagebox.showinfo(translations[current_language]['preview'],
+                            translations[current_language]['preview_unavailable'],
+                            parent=parent)
+        return
+
+    window = tk.Toplevel(parent)
+    window.title(translations[current_language]['preview_title'].format(
+        character, skin, palette))
+    window.configure(bg="#f2f2f2")
+    tk.Label(window, text=translations[current_language]['file_type_portrait'],
+             font=("Arial", 9), bg="#f2f2f2").pack(pady=(8, 2))
+    row = tk.Frame(window, bg="#f2f2f2")
+    row.pack(padx=10, pady=5)
+    for title_key, img in (('override_before', before_image),
+                           ('override_after', after_image)):
+        if img is None:
+            continue
+        column = tk.Frame(row, bg="#f2f2f2")
+        column.pack(side='left', padx=8)
+        tk.Label(column, text=translations[current_language][title_key],
+                 font=("Arial", 10, "bold"), bg="#f2f2f2").pack()
+        shown = img.copy()
+        shown.thumbnail((360, 360), Image.LANCZOS)
+        photo = ImageTk.PhotoImage(shown)
+        label = tk.Label(column, image=photo, bg="#f2f2f2")
+        label.image = photo
+        label.pack()
+
+
 def show_override_preview(pak_path, character, skin, palette, kind, parent):
     # Aperçu avant/après d'un remplacement installé | Before/after preview of an installed override
     import tempfile
+    if kind == translations[current_language]['file_type_portrait']:
+        show_installed_portrait_preview(
+            pak_path, character, skin, palette, parent)
+        return
     is_energy = kind == translations[current_language]['file_type_energy']
     prefix = 'PE_' if is_energy else 'PS_'
     base_json, base_uexp = find_base_files(character, skin, palette, prefix)
@@ -2555,6 +2900,34 @@ load_mod_button = tk.Button(action_frame, command=load_installed_mod_values,
                             font=("Arial", 10), bg="#009688", fg="white")
 load_mod_button.grid(row=0, column=2, padx=5, pady=2)
 load_mod_button.grid_remove()
+
+# Remplace aussi le portrait de sélection avec les mêmes couleurs | Also replaces the character-select portrait with the same colors
+replace_portrait_var = tk.BooleanVar(value=False)
+portrait_check = tk.Checkbutton(action_frame, variable=replace_portrait_var,
+                                font=("Arial", 9), bg="#f2f2f2",
+                                activebackground="#f2f2f2")
+portrait_check.grid(row=0, column=3, padx=(12, 5), pady=2)
+
+portrait_status_label = tk.Label(action_frame, font=("Arial", 8),
+                                 bg="#f2f2f2", fg="#B00020")
+portrait_status_label.grid(row=1, column=0, columnspan=4)
+portrait_status_label.grid_remove()
+
+
+def refresh_portrait_option():
+    # Griser l'option et expliquer pourquoi si le portrait est inaccessible | Grey the option out and explain why when the portrait is unreachable
+    available, reason = portrait_support_status()
+    if available:
+        portrait_check.config(state='normal')
+        portrait_status_label.grid_remove()
+    else:
+        replace_portrait_var.set(False)
+        portrait_check.config(state='disabled')
+        portrait_status_label.config(text=reason)
+        portrait_status_label.grid()
+
+
+refresh_portrait_option()
 
 # Mise à jour initiale des textes | Initial text update
 update_texts()
