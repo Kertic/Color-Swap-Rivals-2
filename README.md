@@ -13,6 +13,8 @@ setup.bat
 
 `setup.bat` installs anything missing: **Python 3** + the **Pillow** library, the **.NET 8 Desktop Runtime**, and the latest **FModel** release (downloaded into the tool's `FModel/` subfolder, used by the Update Game Data button). Anything already present is detected and skipped, so it's safe to re-run. Python and .NET are installed with winget (built into Windows 10/11); the .NET step may show a UAC prompt.
 
+If winget's package source is broken, setup repairs it with `winget source reset` and retries; failing that it downloads the official installer from python.org instead. You should not need to fix winget yourself.
+
 Setup also records the Python interpreter it found in `python_path.txt`, which `Start.vbs` and `run_importer.bat` use directly. This sidesteps a common Windows problem: the Microsoft Store's placeholder `python.exe` in `WindowsApps` often shadows a real install on `PATH` and fails with *"Python was not found; run without arguments to install from the Microsoft Store"*. If you ever see that, run `setup.bat` again.
 
 ## Getting Started

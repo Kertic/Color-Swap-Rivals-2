@@ -55,6 +55,47 @@ function Update-SessionPath {
 # ---------------------------------------------------------------- winget check
 $winget = Get-Command winget -ErrorAction SilentlyContinue
 
+function Install-PythonViaWinget {
+    # Renvoie $true si winget a réellement réussi | Returns $true only if winget actually succeeded
+    Write-Host "Installing Python 3.12 via winget..."
+    winget install --id Python.Python.3.12 --silent --accept-package-agreements --accept-source-agreements
+    if ($LASTEXITCODE -eq 0) { return $true }
+
+    # 0x8a15000f and friends: the winget package source index is broken.
+    # Resetting the sources fixes it far more often than reinstalling winget.
+    Write-Host "winget failed (exit $LASTEXITCODE). Repairing its package sources..." -ForegroundColor Yellow
+    winget source reset --force | Out-Null
+    winget source update | Out-Null
+    Write-Host "Retrying..."
+    winget install --id Python.Python.3.12 --silent --accept-package-agreements --accept-source-agreements
+    return ($LASTEXITCODE -eq 0)
+}
+
+function Install-PythonDirect {
+    # Repli sans winget : installeur officiel python.org | winget-free fallback: the official python.org installer
+    $version = "3.12.6"
+    $url = "https://www.python.org/ftp/python/$version/python-$version-amd64.exe"
+    $installer = Join-Path $env:TEMP "python-$version-amd64.exe"
+    Write-Host "Downloading the official Python $version installer from python.org..."
+    try {
+        Invoke-WebRequest $url -OutFile $installer -UseBasicParsing
+    } catch {
+        Write-Host "Download failed: $($_.Exception.Message)" -ForegroundColor Yellow
+        return $false
+    }
+    Write-Host "Running the installer (per-user, no admin rights needed)..."
+    # InstallLauncher gives us the py launcher, which never resolves to the
+    # Microsoft Store stub.
+    $p = Start-Process $installer -Wait -PassThru -ArgumentList @(
+        "/quiet", "InstallAllUsers=0", "PrependPath=1", "Include_launcher=1", "Include_test=0")
+    Remove-Item $installer -ErrorAction SilentlyContinue
+    if ($p.ExitCode -ne 0) {
+        Write-Host "Installer exited with code $($p.ExitCode)." -ForegroundColor Yellow
+        return $false
+    }
+    return $true
+}
+
 # ---------------------------------------------------------------- Python
 Write-Step "Python"
 $python = $null
@@ -66,19 +107,33 @@ if (Test-Path $embedded) {
     $python = Find-Python
     if ($python) {
         Write-Host "Found Python: $python"
-    } elseif (-not $winget) {
-        Write-Host "Python is not installed and winget is unavailable." -ForegroundColor Red
-        Write-Host "Install Python 3 from https://www.python.org/downloads/ then re-run setup.bat."
     } else {
-        Write-Host "Installing Python 3.12 via winget..."
-        winget install --id Python.Python.3.12 --silent --accept-package-agreements --accept-source-agreements
+        $installed = $false
+        if ($winget) {
+            $installed = Install-PythonViaWinget
+            if (-not $installed) {
+                Write-Host "winget could not install Python - its package source is unavailable." -ForegroundColor Yellow
+                Write-Host "Falling back to a direct download instead."
+            }
+        } else {
+            Write-Host "winget is not available on this system." -ForegroundColor Yellow
+            Write-Host "Falling back to a direct download instead."
+        }
+        if (-not $installed) { $installed = Install-PythonDirect }
+
         Update-SessionPath
         $python = Find-Python
         if ($python) {
-            Write-Host "Installed: $python"
-        } else {
-            Write-Host "Python was installed but could not be located." -ForegroundColor Yellow
+            Write-Host "Installed: $python" -ForegroundColor Green
+        } elseif ($installed) {
+            # Installé mais pas encore visible dans cette session | Installed but not yet visible in this session
+            Write-Host "Python was installed but is not visible in this window yet." -ForegroundColor Yellow
             Write-Host "Close this window, open a new one, and run setup.bat again."
+        } else {
+            Write-Host "Could not install Python automatically." -ForegroundColor Red
+            Write-Host "Install it manually from https://www.python.org/downloads/"
+            Write-Host "  - tick 'Add python.exe to PATH' in the installer"
+            Write-Host "then run setup.bat again."
         }
     }
 }
@@ -130,6 +185,13 @@ if ($dotnetOk) {
 } else {
     Write-Host "Installing via winget (may show a UAC prompt)..."
     winget install --id Microsoft.DotNet.DesktopRuntime.8 --silent --accept-package-agreements --accept-source-agreements
+    if ($LASTEXITCODE -ne 0) {
+        # Sans blocage : le runtime ne sert qu'à FModel, donc à la réparation | Not a blocker: the runtime is only needed by FModel, i.e. for repairs
+        Write-Host "winget could not install it (exit $LASTEXITCODE)." -ForegroundColor Yellow
+        Write-Host "This is only needed for the 'Update Game Data' repair flow -"
+        Write-Host "everything else works without it. To install it later:"
+        Write-Host "  https://dotnet.microsoft.com/download/dotnet/8.0"
+    }
 }
 
 # ---------------------------------------------------------------- FModel
