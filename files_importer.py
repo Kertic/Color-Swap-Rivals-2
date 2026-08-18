@@ -7,9 +7,90 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+# La console Windows est souvent en cp1252 : les flèches "→" et autres caractères | The Windows console is often cp1252: the "→" arrows and other non-cp1252
+# non-cp1252 des messages feraient planter print() (UnicodeEncodeError) dès qu'un | characters in messages would crash print() (UnicodeEncodeError) as soon as a
+# fichier est copié. On bascule les flux en UTF-8 tolérant. | file is copied. Switch the streams to tolerant UTF-8.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 # Mis à True par --verbose : affiche une ligne [SKIP] par fichier rejeté avec | Set to True by --verbose: prints one [SKIP] line per rejected file with
 # la raison précise. Sans ça, seul un résumé des motifs de rejet est affiché. | the exact reason. Without it, only a summary of rejection reasons is shown.
 VERBOSE = False
+
+# Langue des messages de log. L'appli la règle via files_importer.LANG avant | Log message language. The app sets it via files_importer.LANG before calling
+# run_import ; un lancement autonome la lit dans config.pkl. Défaut : anglais. | run_import; a standalone run reads it from config.pkl. Default: English.
+LANG = "en"
+
+_MESSAGES = {
+    "outputs_found":    {"en": "FModel output(s) found: {}",
+                         "fr": "Sorties FModel détectées : {}"},
+    "shared_found":     {"en": "Shared skins found: {}",
+                         "fr": "Skins partagés trouvés : {}"},
+    "src_not_found":    {"en": "Source folder not found, skipping: {}",
+                         "fr": "Dossier source introuvable, ignoré : {}"},
+    "up_to_date":       {"en": "Up to date: {}",
+                         "fr": "Déjà à jour : {}"},
+    "done":             {"en": "Done. {} file(s) copied/updated, {} already up to date.",
+                         "fr": "Terminé. {} fichier(s) copié(s)/mis à jour, {} déjà à jour."},
+    "portraits_copied": {"en": "Portraits copied (full resolution): {}",
+                         "fr": "Portraits copiés (pleine résolution) : {}"},
+    "headers_saved":    {"en": "Portrait headers saved: {}",
+                         "fr": "En-têtes de portraits enregistrés : {}"},
+    "skipped_summary":  {"en": "[{}] {} file(s) skipped by filter -> {}",
+                         "fr": "[{}] {} fichier(s) ignoré(s) par filtre -> {}"},
+    "no_export":        {"en": "[ERROR] No FModel export found. Locations checked:",
+                         "fr": "[ERREUR] Aucun export FModel trouvé. Emplacements testés :"},
+    "detected_outputs": {"en": "FModel output(s) detected ({}):",
+                         "fr": "Sorties FModel détectées ({}) :"},
+    "export_hint":      {"en": "Export the files from FModel first:",
+                         "fr": "Exportez d'abord les fichiers depuis FModel :"},
+}
+
+# Étapes d'export affichées quand aucun export n'est trouvé. | Export steps shown when no export is found.
+_EXPORT_STEPS = {
+    "en": [
+        "  1. Load the Rivals2 .pak (UE5_4, .usmap mappings loaded)",
+        "  2. Right-click the Rivals2/Content/Characters folder",
+        "     -> Export Folder > Properties (.json)",
+        "     -> Export Folder > Raw Data (.uasset)  [includes the .uexp]",
+        "     -> Export Folder > Textures (.png)  [needed for the _CSP portraits]",
+        "  3. Do the same for Rivals2/Content/Platforms",
+        "  4. Re-run this script (run_importer.bat); add --verbose for per-file skip detail",
+    ],
+    "fr": [
+        "  1. Chargez le .pak Rivals2 (UE5_4, mappings .usmap charges)",
+        "  2. Clic droit sur le dossier Rivals2/Content/Characters",
+        "     -> Export Folder > Properties (.json)",
+        "     -> Export Folder > Raw Data (.uasset)  [inclut les .uexp]",
+        "     -> Export Folder > Textures (.png)  [necessaire pour les portraits _CSP]",
+        "  3. Faites de meme pour Rivals2/Content/Platforms",
+        "  4. Relancez ce script (run_importer.bat), ajoutez --verbose pour le detail des fichiers ignores",
+    ],
+}
+
+
+def _t(key, *args):
+    # Message localisé selon LANG, repli sur l'anglais puis sur la clé. | Message localized by LANG, falling back to English then to the key.
+    entry = _MESSAGES.get(key, {})
+    text = entry.get(LANG) or entry.get("en") or key
+    return text.format(*args) if args else text
+
+
+def _detect_lang():
+    # Lancement autonome : reprendre la langue choisie dans l'appli (config.pkl). | Standalone run: reuse the language chosen in the app (config.pkl).
+    cfg = Path(__file__).resolve().parent / "config.pkl"
+    try:
+        import pickle
+        with open(cfg, "rb") as f:
+            lang = pickle.load(f).get("selected_language")
+        if lang in ("en", "fr"):
+            return lang
+    except Exception:
+        pass
+    return "en"
 
 
 def _skip(counter, reason, path, detail=""):
@@ -25,7 +106,7 @@ def _print_skip_summary(label, counter):
         return
     total = sum(counter.values())
     detail = ", ".join(f"{reason}={n}" for reason, n in counter.most_common())
-    print(f"[{label}] {total} file(s) skipped by filter -> {detail}")
+    print(_t("skipped_summary", label, total, detail))
 
 # -------- CONFIG --------
 # Détection automatique du dossier de sortie de FModel. | Automatic detection of FModel's output folder.
@@ -107,6 +188,67 @@ def refresh_paths():
     PLATFORM_ROOT = FMODEL_OUTPUT / "Exports" / "Rivals2" / "Content" / "Platforms"
 
 
+def _use_output(out):
+    # Rebranche les racines sur un dossier de sortie FModel précis. | Rebinds the roots onto one specific FModel output folder.
+    global FMODEL_OUTPUT, SOURCE_ROOT, PLATFORM_ROOT
+    FMODEL_OUTPUT = Path(out)
+    SOURCE_ROOT = FMODEL_OUTPUT / "Exports" / "Rivals2" / "Content" / "Characters"
+    PLATFORM_ROOT = FMODEL_OUTPUT / "Exports" / "Rivals2" / "Content" / "Platforms"
+
+
+def _all_fmodel_outputs():
+    # Rassemble TOUS les dossiers de sortie FModel qui contiennent vraiment un | Gathers EVERY FModel output folder that actually holds a Rivals2 export.
+    # export Rivals2. Un export finit souvent éclaté : Properties/Raw Data d'un | An export often ends up split: Properties/Raw Data on one side, Textures on
+    # côté, Textures de l'autre (instance FModel portable ayant posé son Output à | the other (a portable FModel instance that dropped its Output next to itself,
+    # côté d'elle, ex. un zip extrait dans Downloads). On les réunit tous pour | e.g. a zip unpacked in Downloads). We union them all so a single import
+    # qu'un seul import récupère tout, où que ça se trouve. | picks everything up, wherever it lives.
+    roots = []
+    seen = set()
+
+    def add(base):
+        if not base:
+            return
+        base = Path(base)
+        key = os.path.normcase(str(base))
+        if key in seen:
+            return
+        seen.add(key)
+        if (base / "Exports" / "Rivals2" / "Content" / "Characters").exists():
+            roots.append(base)
+
+    add(_appsettings_output())
+    for c in _CANDIDATE_OUTPUTS:
+        add(c)
+    # Instance FModel embarquée avec l'outil | FModel instance bundled with the tool
+    add(Path(__file__).resolve().parent / "FModel" / "Output")
+    # Instances FModel portables (zip extrait) : un Output posé sous un dossier | Portable FModel instances (unpacked zip): an Output sitting under a folder in
+    # de Downloads / Desktop, ou directement à la racine de ces dossiers. | Downloads / Desktop, or directly at the root of those folders.
+    profile = Path(os.environ.get("USERPROFILE", ""))
+    for area in ("Downloads", "Desktop"):
+        base = profile / area
+        add(base / "Output")
+        try:
+            for entry in base.iterdir():
+                if entry.is_dir():
+                    add(entry / "Output")
+        except OSError:
+            pass
+    return roots
+
+
+def _copy_if_newer(src, dest):
+    # Copie sans jamais écraser une destination plus récente. Indispensable quand | Copies without ever clobbering a newer destination. Essential when importing
+    # on importe depuis plusieurs exports (certains plus anciens) : le fichier le | from several exports (some older than others): the freshest file wins no
+    # plus frais gagne, quel que soit l'ordre de traitement. | matter the processing order.
+    src = Path(src)
+    dest = Path(dest)
+    if dest.exists() and src.stat().st_mtime <= dest.stat().st_mtime:
+        return False
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dest)
+    return True
+
+
 FMODEL_OUTPUT = _resolve_fmodel_output()
 SOURCE_ROOT = FMODEL_OUTPUT / "Exports" / "Rivals2" / "Content" / "Characters"
 
@@ -120,17 +262,23 @@ PLATFORM_ROOT = FMODEL_OUTPUT / "Exports" / "Rivals2" / "Content" / "Platforms"
 
 
 def run_import():
-    # Point d'entrée utilisé par l'application : lance tout l'import | Entry point used by the application: runs the whole import
-    # et retourne le nombre de fichiers copiés par catégorie. | and returns the number of files copied per category.
-    refresh_paths()
-    if not SOURCE_ROOT.exists():
+    # Point d'entrée de l'application : importe depuis TOUTES les sorties FModel | App entry point: imports from EVERY discovered FModel output (properties, raw
+    # découvertes (properties, raw data, textures — même éclatées entre plusieurs | data, textures — even when split across several instances) and returns the
+    # instances) et renvoie le total copié par catégorie. | total copied per category.
+    roots = _all_fmodel_outputs()
+    if not roots:
         return None
-    return {
-        'platforms': platProcess(),
-        'characters': characters(),
-        'shared': shared(),
-        'portraits': csp_portraits(),
-    }
+    print("[INFO] " + _t("outputs_found", len(roots)))
+    for r in roots:
+        print(f"        - {r}")
+    totals = {'platforms': 0, 'characters': 0, 'shared': 0, 'portraits': 0}
+    for out in roots:
+        _use_output(out)
+        totals['platforms'] += platProcess()
+        totals['characters'] += characters()
+        totals['shared'] += shared()
+        totals['portraits'] += csp_portraits()
+    return totals
 
 
 def platProcess():
@@ -178,11 +326,9 @@ def platProcess():
                 / file
             )
 
-            dest_path.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file_path, dest_path)
-            copied += 1
-
-            print(f"Copied platform file: {file_path} → {dest_path}")
+            if _copy_if_newer(file_path, dest_path):
+                copied += 1
+                print(f"Copied platform file: {file_path} → {dest_path}")
     _print_skip_summary("platforms", skips)
     return copied
 
@@ -265,11 +411,9 @@ def characters():
             relative_path = file_path.relative_to(SOURCE_ROOT)
             dest_path = DEST_ROOT / relative_path
 
-            dest_path.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(file_path, dest_path)
-            copied += 1
-
-            print(f"Copied: {file_path} → {dest_path}")
+            if _copy_if_newer(file_path, dest_path):
+                copied += 1
+                print(f"Copied: {file_path} → {dest_path}")
     _print_skip_summary("characters:files", skips)
     _print_skip_summary("characters:folders", dir_skips)
     return copied
@@ -311,13 +455,13 @@ def shared():
     skips = Counter()
 
     folders = _shared_folders()
-    print(f"[INFO] Shared skins found: {', '.join(folders) if folders else '(none)'}")
+    print("[INFO] " + _t("shared_found", ', '.join(folders) if folders else '(none)'))
 
     for folder in folders:
         src_folder = SOURCE_ROOT / "Shared" / folder
 
         if not src_folder.exists():
-            print(f"[WARN]  Source folder not found, skipping: {src_folder}")
+            print("[WARN]  " + _t("src_not_found", src_folder))
             continue
 
         for file in src_folder.iterdir():
@@ -347,7 +491,7 @@ def shared():
  
             if dest_file.exists():
                 if file.stat().st_mtime <= dest_file.stat().st_mtime:
-                    print(f"[SKIP]  Up to date: {dest_file.relative_to(DEST_ROOT)}")
+                    print("[SKIP]  " + _t("up_to_date", dest_file.relative_to(DEST_ROOT)))
                     skipped += 1
                     continue
                 print(f"[UPDATE] {file.name}  →  .../{folder}/Data/Palettes/{color}/")
@@ -357,7 +501,7 @@ def shared():
             shutil.copy2(file, dest_file)
             copied += 1
  
-    print(f"\nDone. {copied} file(s) copied/updated, {skipped} already up to date.")
+    print("\n" + _t("done", copied, skipped))
     _print_skip_summary("shared", skips)
     return copied
 
@@ -389,6 +533,12 @@ def csp_portraits():
         except ValueError:
             manifest = {}
 
+    # Skins partagés : leur palette éditable vit une seule fois dans Shared/, | Shared skins: their editable palette lives once under Shared/, never under
+    # jamais sous le personnage. characters() ne crée donc aucun dossier de | the character. So characters() creates no palette folder for a character
+    # palette pour un personnage qui n'a que ce skin partagé (fichier CS_ seul, | that only has this shared skin (a lone CS_ blueprint, which is not an
+    # non éditable) — et son portrait par personnage était alors ignoré ci-dessous. | editable palette) — and its per-character portrait was then dropped below.
+    shared_skins = {s.casefold() for s in _shared_folders()}
+
     for root, dirs, files in os.walk(SOURCE_ROOT):
         for file in files:
             if not file.endswith("_CSP.png"):
@@ -397,9 +547,17 @@ def csp_portraits():
             dest = DEST_ROOT / src.relative_to(SOURCE_ROOT)
             # ne copier que là où l'outil a déjà des données de palette | only copy where the tool already has palette data
             if not dest.parent.is_dir():
-                continue
-            shutil.copy2(src, dest)
-            copied += 1
+                # Exception pour les skins partagés : créer le dossier pour que le | Exception for shared skins: create the folder so the per-character
+                # portrait par personnage serve l'aperçu roster (l'édition, elle, | portrait can feed the whole-roster preview (editing still happens on
+                # se fait sur la palette unique de Shared/). Un skin normal sans | the single palette under Shared/). A normal skin with no editable
+                # palette éditable reste ignoré, pour ne pas créer de faux dossiers. | palette stays skipped, to avoid creating phantom skin folders.
+                rel_parts = src.relative_to(SOURCE_ROOT).parts
+                is_shared_skin = (len(rel_parts) >= 3 and rel_parts[1] == "Skins"
+                                  and rel_parts[2].casefold() in shared_skins)
+                if not is_shared_skin:
+                    continue
+            if _copy_if_newer(src, dest):
+                copied += 1
 
             # En-tête/fin de la texture correspondante | Header/trailer of the matching texture
             uexp = src.with_suffix(".uexp")
@@ -418,8 +576,8 @@ def csp_portraits():
     if manifest:
         MANIFEST_PATH.write_text(json.dumps(manifest, indent=0, sort_keys=True),
                                  encoding="utf-8")
-    print(f"Portraits copiés (pleine résolution) : {copied}")
-    print(f"En-têtes de portraits enregistrés : {len(manifest)}")
+    print(_t("portraits_copied", copied))
+    print(_t("headers_saved", len(manifest)))
     return copied
 
 
@@ -429,22 +587,28 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Import FModel-exported game data into Base_pas_edit.")
     parser.add_argument("--verbose", action="store_true",
                          help="Print one [SKIP] line per file rejected by a filter, not just the summary counts.")
+    parser.add_argument("--lang", choices=("en", "fr"),
+                         help="Log language. Defaults to the app's saved language (config.pkl), else English.")
     args = parser.parse_args()
     VERBOSE = args.verbose
+    LANG = args.lang or _detect_lang()
 
-    print(f"Dossier de sortie FModel detecte : {FMODEL_OUTPUT}")
-    if not SOURCE_ROOT.exists():
-        print(f"[ERREUR] Aucun export trouve ici : {SOURCE_ROOT}")
-        print("Exportez d'abord les fichiers depuis FModel :")
-        print("  1. Chargez le .pak Rivals2 (UE5_4, mappings .usmap charges)")
-        print("  2. Clic droit sur le dossier Rivals2/Content/Characters")
-        print("     -> Save Folder's Packages Properties (.json)")
-        print("     -> Save Folder's Packages Raw Data (.uexp)")
-        print("     -> Save Folder's Packages Textures (.png)  [necessaire pour les portraits _CSP]")
-        print("  3. Faites de meme pour Rivals2/Content/Platforms")
-        print("  4. Relancez ce script (run_importer.bat), ajoutez --verbose pour le detail des fichiers ignores")
+    outputs = _all_fmodel_outputs()
+    if not outputs:
+        print(_t("no_export"))
+        for c in ([_appsettings_output()] + _CANDIDATE_OUTPUTS):
+            if c:
+                print(f"     - {c}")
+        print(_t("export_hint"))
+        for line in _EXPORT_STEPS.get(LANG, _EXPORT_STEPS["en"]):
+            print(line)
         sys.exit(1)
-    platProcess()
-    characters()
-    shared()
-    csp_portraits()
+    print(_t("detected_outputs", len(outputs)))
+    for o in outputs:
+        print(f"   - {o}")
+    for out in outputs:
+        _use_output(out)
+        platProcess()
+        characters()
+        shared()
+        csp_portraits()
