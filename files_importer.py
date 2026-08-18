@@ -254,27 +254,45 @@ def characters():
     return copied
 
 
-FOLDERS = ["Retro", "Champion"]
- 
-# Matches: PE_Cha_Retro_Red.uasset  /  PS_Cha_Champion_Blue.uasset  etc.
-PATTERN = re.compile(r"^(PE|PS)_Cha_(?P<folder>Retro|Champion)_(?P<color>.+)\.(uexp|json)$")
- 
- 
+# Skins partagés : certains skins (Retro, Champion, Goo, ...) n'ont pas de | Shared skins: some skins (Retro, Champion, Goo, ...) have no per-character
+# fichier PS_ par personnage. Leurs couleurs de skin vivent une seule fois dans | PS_ file. Their skin colors live exactly once under
+# Characters/Shared/<Skin>/ et servent à tous les personnages qui ont ce skin. | Characters/Shared/<Skin>/ and serve every character that has that skin.
+#
+# Matches: PE_Cha_Retro_Red.json / PS_Cha_Champion_Blue.uexp / PS_Cha_Goo_Neutral.json
+# Le token personnage ("Cha") n'est plus figé, et le nom du skin n'est plus une | The character token ("Cha") is no longer fixed, and the skin name is no longer
+# alternance codée en dur : il est vérifié contre le nom du dossier réel. | a hardcoded alternation: it is checked against the real folder name.
+PATTERN = re.compile(
+    r"^(?P<type>PE|PS)_(?P<cha>[A-Za-z0-9]+)_(?P<folder>[A-Za-z0-9]+)_(?P<color>.+)\.(uexp|json)$"
+)
+
+# Utilisé seulement si Characters/Shared/ est absent de l'export. | Only used when Characters/Shared/ is missing from the export.
+FALLBACK_FOLDERS = ["Retro", "Champion"]
+
+
+def _shared_folders():
+    # Découvre les skins partagés au lieu de les coder en dur : tout dossier de | Discovers shared skins instead of hardcoding them: any folder under
+    # Characters/Shared/ contenant vraiment des palettes PE_/PS_ compte. | Characters/Shared/ that actually holds PE_/PS_ palettes counts.
+    root = SOURCE_ROOT / "Shared"
+    if not root.exists():
+        return list(FALLBACK_FOLDERS)
+    found = []
+    for entry in sorted(root.iterdir()):
+        if not entry.is_dir():
+            continue
+        if any(PATTERN.match(f.name) for f in entry.iterdir() if f.is_file()):
+            found.append(entry.name)
+    return found or list(FALLBACK_FOLDERS)
+
+
 def shared():
     copied = 0
     skipped = 0
     skips = Counter()
 
-    # Dossiers présents dans Characters/Shared/ mais pas dans FOLDERS : utile pour | Folders present in Characters/Shared/ but not in FOLDERS: useful to
-    # repérer un skin partagé (comme Retro/Champion) qui n'a pas été ajouté ici. | spot a shared skin (like Retro/Champion) that hasn't been added here.
-    shared_root = SOURCE_ROOT / "Shared"
-    if shared_root.exists():
-        on_disk = {p.name for p in shared_root.iterdir() if p.is_dir()}
-        unhandled = sorted(on_disk - set(FOLDERS))
-        if unhandled and VERBOSE:
-            print(f"[INFO] Shared/ folders not in FOLDERS (ignored): {unhandled}")
+    folders = _shared_folders()
+    print(f"[INFO] Shared skins found: {', '.join(folders) if folders else '(none)'}")
 
-    for folder in FOLDERS:
+    for folder in folders:
         src_folder = SOURCE_ROOT / "Shared" / folder
 
         if not src_folder.exists():
@@ -288,7 +306,15 @@ def shared():
             match = PATTERN.match(file.name)
             if not match:
                 _skip(skips, "pattern_mismatch", file,
-                      f"doesn't match PE|PS_Cha_{folder}_<color>.(uexp|json)")
+                      f"doesn't match PE|PS_<cha>_{folder}_<color>.(uexp|json)")
+                continue
+
+            # Le nom du skin dans le fichier doit correspondre au dossier. La | The skin name in the filename must match the folder. The comparison is
+            # comparaison ignore la casse : un dossier "Goo" et un fichier | case-insensitive, so a "Goo" folder and a "...goo..." filename still
+            # "...goo..." se retrouvent quand même. | find each other.
+            if match.group("folder").casefold() != folder.casefold():
+                _skip(skips, "skin_mismatch", file,
+                      f"got '{match.group('folder')}', folder is '{folder}'")
                 continue
 
             color = match.group("color")
