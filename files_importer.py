@@ -4,15 +4,50 @@ import re
 import json
 import shutil
 import sys
+from collections import Counter
 from pathlib import Path
+
+# Mis à True par --verbose : affiche une ligne [SKIP] par fichier rejeté avec | Set to True by --verbose: prints one [SKIP] line per rejected file with
+# la raison précise. Sans ça, seul un résumé des motifs de rejet est affiché. | the exact reason. Without it, only a summary of rejection reasons is shown.
+VERBOSE = False
+
+
+def _skip(counter, reason, path, detail=""):
+    # Comptabilise + (en mode verbose) affiche pourquoi un fichier n'a pas été importé. | Tallies + (in verbose mode) prints why a file wasn't imported.
+    counter[reason] += 1
+    if VERBOSE:
+        suffix = f" ({detail})" if detail else ""
+        print(f"[SKIP] {reason}{suffix}: {path}")
+
+
+def _print_skip_summary(label, counter):
+    if not counter:
+        return
+    total = sum(counter.values())
+    detail = ", ".join(f"{reason}={n}" for reason, n in counter.most_common())
+    print(f"[{label}] {total} file(s) skipped by filter -> {detail}")
 
 # -------- CONFIG --------
 # Détection automatique du dossier de sortie de FModel. | Automatic detection of FModel's output folder.
 # On teste plusieurs emplacements et on garde celui qui contient réellement | Several locations are tested and we keep the one that actually holds
 # les exports Rivals2 (peu importe où FModel a été configuré). | the Rivals2 exports (wherever FModel was configured).
-_CANDIDATE_OUTPUTS = [
-    Path(os.environ.get("USERPROFILE", "")) / "Documents" / "FModel" / "Output",
-]
+def _documents_roots():
+    # OneDrive "Known Folder Move" fait pointer le dossier spécial Documents vers | OneDrive "Known Folder Move" repoints the special Documents folder to
+    # OneDrive\Documents, mais laisse l'ancien %USERPROFILE%\Documents en place | OneDrive\Documents, but leaves the old %USERPROFILE%\Documents folder in place
+    # (souvent vide). Un chemin construit à la main depuis USERPROFILE seul rate | (often empty). A path built by hand from USERPROFILE alone misses that
+    # donc ce déplacement : on liste les deux. | move, so both are listed here.
+    profile = Path(os.environ.get("USERPROFILE", ""))
+    roots = [profile / "Documents"]
+    for var in ("OneDrive", "OneDriveConsumer", "OneDriveCommercial"):
+        onedrive = os.environ.get(var)
+        if onedrive:
+            candidate = Path(onedrive) / "Documents"
+            if candidate not in roots:
+                roots.append(candidate)
+    return roots
+
+
+_CANDIDATE_OUTPUTS = [root / "FModel" / "Output" for root in _documents_roots()]
 
 
 def _appsettings_output():
@@ -79,6 +114,7 @@ def run_import():
 
 def platProcess():
     copied = 0
+    skips = Counter()
     for root, dirs, files in os.walk(PLATFORM_ROOT):
         root_path = Path(root)
 
@@ -93,17 +129,20 @@ def platProcess():
             name, ext = file_path.stem, file_path.suffix
 
             if ext not in {".json", ".uexp"}:
+                _skip(skips, "extension", file_path, ext or "no extension")
                 continue
 
             parts = name.split("_")
 
             # Expected: PS_Pla_Skinname_Palette
             if len(parts) != 4:
+                _skip(skips, "segment_count", file_path, f"{len(parts)} segments, expected 4")
                 continue
 
             prefix, pla, skinname, palette = parts
 
             if prefix != "PS":
+                _skip(skips, "prefix", file_path, f"got '{prefix}', expected 'PS'")
                 continue
 
             # Build destination path
@@ -123,11 +162,14 @@ def platProcess():
             copied += 1
 
             print(f"Copied platform file: {file_path} → {dest_path}")
+    _print_skip_summary("platforms", skips)
     return copied
 
 
 def characters():
     copied = 0
+    skips = Counter()
+    dir_skips = Counter()
     for root, dirs, files in os.walk(SOURCE_ROOT):
         root_path = Path(root)
 
@@ -140,7 +182,18 @@ def characters():
         except ValueError:
             continue
 
+        # Ne signaler que les dossiers situés sous .../Skins/... : le reste | Only flag folders that sit under .../Skins/... : everything else
+        # (Animation, Attacks, Taunts, UI, VFX, ...) est volontairement hors | (Animation, Attacks, Taunts, UI, VFX, ...) is intentionally out of
+        # périmètre depuis toujours, le signaler serait du bruit. | scope and always has been — flagging it would just be noise.
+        char_dir_parts = parts[idx + 1:]
+        in_skins_tree = len(char_dir_parts) >= 2 and char_dir_parts[1] == "Skins"
+
         if len(parts) < idx + 7:
+            # Dossier trop court pour être une palette (ex: .../Skins/Mired/ sans | Folder too shallow to be a palette folder (e.g. .../Skins/Mired/ with
+            # sous-dossier Data/Palettes/... en dessous). | no Data/Palettes/... underneath it).
+            if files and in_skins_tree:
+                _skip(dir_skips, "not_a_palette_folder", root_path,
+                      f"{len(parts) - idx - 1} segment(s) under Characters, expected 6")
             continue
 
         if (
@@ -148,42 +201,56 @@ def characters():
             or parts[idx + 4] != "Data"
             or parts[idx + 5] != "Palettes"
         ):
+            if files and in_skins_tree:
+                _skip(dir_skips, "folder_shape", root_path,
+                      f"expected .../Skins/<skin>/Data/Palettes/<palette>, got '{'/'.join(parts[idx+1:idx+7])}'")
             continue
 
         character = parts[idx + 1]
         skin = parts[idx + 3]
         palette = parts[idx + 6]
 
-        char_prefix = 'Lar' if character == 'LaReina' else character[:3] 
+        char_prefix = 'Lar' if character == 'LaReina' else character[:3]
 
         for file in files:
             file_path = root_path / file
             name, ext = file_path.stem, file_path.suffix
 
             if ext not in ALLOWED_EXTENSIONS:
+                _skip(skips, "extension", file_path, ext or "no extension")
                 continue
 
             segments = name.split("_")
             if len(segments) != 4:
+                _skip(skips, "segment_count", file_path, f"{len(segments)} segments, expected 4")
                 continue
 
             prefix, cha, skin_name, palette_name = segments
 
-            if (
-                prefix in ALLOWED_PREFIXES
-                and cha == char_prefix
-                and skin_name == skin
-                and palette_name == palette
-            ):
-                # Build destination path
-                relative_path = file_path.relative_to(SOURCE_ROOT)
-                dest_path = DEST_ROOT / relative_path
+            if prefix not in ALLOWED_PREFIXES:
+                _skip(skips, "prefix", file_path, f"got '{prefix}', expected one of {sorted(ALLOWED_PREFIXES)}")
+                continue
+            if cha != char_prefix:
+                _skip(skips, "cha_token", file_path, f"got '{cha}', expected '{char_prefix}' for character '{character}'")
+                continue
+            if skin_name != skin:
+                _skip(skips, "skin_mismatch", file_path, f"got '{skin_name}', folder is '{skin}'")
+                continue
+            if palette_name != palette:
+                _skip(skips, "palette_mismatch", file_path, f"got '{palette_name}', folder is '{palette}'")
+                continue
 
-                dest_path.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(file_path, dest_path)
-                copied += 1
+            # Build destination path
+            relative_path = file_path.relative_to(SOURCE_ROOT)
+            dest_path = DEST_ROOT / relative_path
 
-                print(f"Copied: {file_path} → {dest_path}")
+            dest_path.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(file_path, dest_path)
+            copied += 1
+
+            print(f"Copied: {file_path} → {dest_path}")
+    _print_skip_summary("characters:files", skips)
+    _print_skip_summary("characters:folders", dir_skips)
     return copied
 
 
@@ -196,22 +263,34 @@ PATTERN = re.compile(r"^(PE|PS)_Cha_(?P<folder>Retro|Champion)_(?P<color>.+)\.(u
 def shared():
     copied = 0
     skipped = 0
- 
+    skips = Counter()
+
+    # Dossiers présents dans Characters/Shared/ mais pas dans FOLDERS : utile pour | Folders present in Characters/Shared/ but not in FOLDERS: useful to
+    # repérer un skin partagé (comme Retro/Champion) qui n'a pas été ajouté ici. | spot a shared skin (like Retro/Champion) that hasn't been added here.
+    shared_root = SOURCE_ROOT / "Shared"
+    if shared_root.exists():
+        on_disk = {p.name for p in shared_root.iterdir() if p.is_dir()}
+        unhandled = sorted(on_disk - set(FOLDERS))
+        if unhandled and VERBOSE:
+            print(f"[INFO] Shared/ folders not in FOLDERS (ignored): {unhandled}")
+
     for folder in FOLDERS:
         src_folder = SOURCE_ROOT / "Shared" / folder
- 
+
         if not src_folder.exists():
             print(f"[WARN]  Source folder not found, skipping: {src_folder}")
             continue
- 
+
         for file in src_folder.iterdir():
             if not file.is_file():
                 continue
- 
+
             match = PATTERN.match(file.name)
             if not match:
+                _skip(skips, "pattern_mismatch", file,
+                      f"doesn't match PE|PS_Cha_{folder}_<color>.(uexp|json)")
                 continue
- 
+
             color = match.group("color")
  
             dest_dir = DEST_ROOT / "Shared" / "Skins" / folder / "Data" / "Palettes" / color
@@ -232,6 +311,7 @@ def shared():
             copied += 1
  
     print(f"\nDone. {copied} file(s) copied/updated, {skipped} already up to date.")
+    _print_skip_summary("shared", skips)
     return copied
 
 
@@ -297,6 +377,14 @@ def csp_portraits():
 
 
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Import FModel-exported game data into Base_pas_edit.")
+    parser.add_argument("--verbose", action="store_true",
+                         help="Print one [SKIP] line per file rejected by a filter, not just the summary counts.")
+    args = parser.parse_args()
+    VERBOSE = args.verbose
+
     print(f"Dossier de sortie FModel detecte : {FMODEL_OUTPUT}")
     if not SOURCE_ROOT.exists():
         print(f"[ERREUR] Aucun export trouve ici : {SOURCE_ROOT}")
@@ -304,9 +392,10 @@ if __name__ == "__main__":
         print("  1. Chargez le .pak Rivals2 (UE5_4, mappings .usmap charges)")
         print("  2. Clic droit sur le dossier Rivals2/Content/Characters")
         print("     -> Save Folder's Packages Properties (.json)")
-        print("     -> Save Folder's Packages Textures / Raw Data (.uexp)")
+        print("     -> Save Folder's Packages Raw Data (.uexp)")
+        print("     -> Save Folder's Packages Textures (.png)  [necessaire pour les portraits _CSP]")
         print("  3. Faites de meme pour Rivals2/Content/Platforms")
-        print("  4. Relancez ce script (run_importer.bat)")
+        print("  4. Relancez ce script (run_importer.bat), ajoutez --verbose pour le detail des fichiers ignores")
         sys.exit(1)
     platProcess()
     characters()
