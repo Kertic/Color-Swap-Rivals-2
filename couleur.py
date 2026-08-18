@@ -405,6 +405,11 @@ def get_output_and_unrealpak_dirs():
                     unrealpak_folder_path,
                     "Rivals2", "Content", "Platforms", "RetroBacker"
                 )
+            case 'GouDefault':
+                output_folder_path = os.path.join(
+                    unrealpak_folder_path,
+                    "Rivals2", "Content", "Platforms", "GouieDefault"
+                )
             case 'Default' if color=='Red' and Primal_platform==True:
                 output_folder_path = os.path.join(
                     unrealpak_folder_path,
@@ -1231,6 +1236,8 @@ def load_uexp():
             uexp_filename = f"{file_type_code}_Pla_FoodFight_{color}.uexp"
         elif skin == 'LaReinaDefault':
             uexp_filename = f"{file_type_code}_Pla_LarDefault_{color}.uexp"
+        elif skin == 'GouieDefault':
+            uexp_filename = f"{file_type_code}_Pla_GouDefault_{color}.uexp"
         elif skin == 'RetroBacker':
             uexp_filename = f"{file_type_code}_Pla_Retro_{color}.uexp"
         elif skin == 'Primal' and color == 'Red':
