@@ -98,10 +98,13 @@ Requirements: [FModel](https://fmodel.app) (free) and the `.usmap` mappings file
 3. In FModel's file tree, right-click `Rivals2/Content/Characters`:
    - **Save Folder's Packages Properties (.json)**
    - **Save Folder's Packages Raw Data (.uexp)**
+   - **Save Folder's Packages Textures (.png)** - only needed for the `_CSP` skin preview portraits; skip it and the palettes/skins themselves still import fine, but `Replace portrait` and the Preview thumbnails won't have anything to work with for skins you haven't exported textures for before.
    Repeat for `Rivals2/Content/Platforms`.
 4. Close FModel and click **OK** in the tool. Everything imports automatically (palettes, platforms, shared skins, preview portraits) and a summary is shown. Restart the tool to see new characters.
 
-`run_importer.bat` does the same import from the command line if you prefer.
+`run_importer.bat` does the same import from the command line if you prefer (pass `--verbose` to see exactly why any given file was skipped, e.g. `run_importer.bat --verbose`).
+
+> If a character or skin you expect isn't showing up after an import, it usually means those files simply weren't in the FModel export - re-check that you exported `Rivals2/Content/Characters` **after** loading a `.pak` that actually contains it (a very recently added skin may not be in your installed game version yet), and that you didn't miss the Properties/Raw Data steps above for that folder.
 
 ## Notes & Known Limitations
 
@@ -113,6 +116,13 @@ Requirements: [FModel](https://fmodel.app) (free) and the `.usmap` mappings file
 - `Upack/[character]_P` is a staging folder that accumulates every palette you export for that character, which is how a single `.pak` can cover several palettes at once. Removing an override through **Installed Mods** prunes this folder too, so the removal sticks across future exports.
 
 ## Changelog
+
+### 2026-08-17 - Importer fixes
+
+- **Shared skins are now discovered instead of hardcoded.** `files_importer.py` only ever imported `Retro` and `Champion` out of `Characters/Shared/`, so the **Goo** skin (shown in game as *Mired*) never got its skin colors imported: like Retro/Champion it has no per-character `PS_` file, and its one shared `PS_Cha_Goo_*` set lives in `Characters/Shared/Goo/`. The result was a skin that offered *Element/Energy* but no *Skin* option. Any folder under `Characters/Shared/` holding `PE_`/`PS_` palettes is now picked up automatically, and the filename pattern no longer hardcodes the `Cha` character token or the skin name.
+- Fixed `files_importer.py`'s FModel-output auto-detection: it built the default `Documents\FModel\Output` path from `%USERPROFILE%` alone, which misses OneDrive's "Known Folder Move" (Documents redirected to `OneDrive\Documents` while the old physical folder is left behind, often empty). The importer now checks both locations and picks whichever actually has the export.
+- `files_importer.py` / `run_importer.bat` now accept a `--verbose` flag, and always print a per-reason summary count of skipped files (extension, segment count, prefix, character token, skin/palette mismatch, unmatched folder shape) so a skin or character that fails to import is self-diagnosing instead of silently vanishing.
+- Documented the **Save Folder's Packages Textures (.png)** export step, needed for `_CSP` skin preview portraits - previously only Properties/Raw Data were mentioned, so a properties-only export would silently leave portraits stale.
 
 ### 2026-08-12 - New features
 
