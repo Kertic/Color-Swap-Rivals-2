@@ -70,6 +70,9 @@ translations = {
         'preview_unavailable': "Aucune image d'aperçu disponible pour cette sélection.",
         'preview_note': "Aperçu approximatif généré à partir du portrait du jeu.",
         'preview_energy_note': "Aperçu approximatif de l'effet énergie (dégradé Element0 → Element6).",
+        'preview_shared_note': "Aperçu du skin partagé sur chaque personnage qui le possède.",
+        'preview_shared_none': ("Aucun portrait de personnage trouvé pour ce skin partagé.\n"
+                                "Utilisez « Mettre à jour les données du jeu » pour les importer."),
         'preset_adapt_prompt': ("Ce preset est pour {} / {} mais la sélection actuelle est {} / {}.\n\n"
                                 "Voulez-vous l'adapter à la sélection actuelle ?\n"
                                 "Les couleurs seront réparties automatiquement (même nom d'abord, "
@@ -87,6 +90,7 @@ translations = {
                                 "2. Dans l'arborescence, clic droit sur Rivals2/Content/Characters :\n"
                                 "    - Export Folder > Properties (.json)\n"
                                 "    - Export Folder > Raw Data (.uasset) — inclut les .uexp\n"
+                                "    - Export Folder > Textures (.png) — requis pour les aperçus\n"
                                 "    Idem pour Rivals2/Content/Platforms.\n\n"
                                 "3. Fermez FModel puis cliquez sur OK ci-dessous pour importer."),
         'update_no_exports': "Aucun export FModel trouvé. Refaites l'export puis réessayez.",
@@ -166,6 +170,9 @@ translations = {
         'preview_unavailable': "No preview image available for this selection.",
         'preview_note': "Approximate preview generated from the in-game portrait.",
         'preview_energy_note': "Approximate energy effect preview (Element0 → Element6 gradient).",
+        'preview_shared_note': "Shared skin previewed on every character that has it.",
+        'preview_shared_none': ("No character portraits found for this shared skin.\n"
+                                "Use \"Update Game Data\" to import them."),
         'preset_adapt_prompt': ("This preset is for {} / {} but the current selection is {} / {}.\n\n"
                                 "Apply it adapted to the current selection?\n"
                                 "Colors will be assigned automatically (matching names first, "
@@ -183,6 +190,7 @@ translations = {
                                 "2. In the file tree, right-click Rivals2/Content/Characters:\n"
                                 "    - Export Folder > Properties (.json)\n"
                                 "    - Export Folder > Raw Data (.uasset) — includes the .uexp\n"
+                                "    - Export Folder > Textures (.png) — needed for skin previews\n"
                                 "    Do the same for Rivals2/Content/Platforms.\n\n"
                                 "3. Close FModel, then click OK below to import."),
         'update_no_exports': "No FModel exports found. Redo the export and try again.",
@@ -985,12 +993,124 @@ def build_skin_preview_image():
                                  get_preview_recolor_map())
 
 
+def shared_skin_portraits(skin, color):
+    # Portraits par personnage d'un skin partagé. Un skin comme Goo/Retro n'a | Per-character portraits of a shared skin. A skin like Goo/Retro has no
+    # pas de portrait propre, mais chaque personnage qui le possède a son | portrait of its own, but every character that has it owns its imported
+    # T_<Cha>_<Skin>_<Color>_CSP.png importé sous son dossier. On les rassemble | T_<Cha>_<Skin>_<Color>_CSP.png under its own folder. We gather them so the
+    # pour prévisualiser le skin partagé sur tout le roster concerné. | shared skin can be previewed across the whole affected roster.
+    import glob as _glob
+    chars_root = os.path.join(os.path.dirname(
+        os.path.abspath(__file__)), BASE_DIR)
+    pattern = os.path.join(chars_root, "*", "Skins", skin, "Data",
+                           "Palettes", color, f"T_*_{skin}_{color}_CSP.png")
+    found = []
+    for path in _glob.glob(pattern):
+        parts = os.path.normpath(path).split(os.sep)
+        try:
+            character = parts[parts.index("Skins") - 1]
+        except ValueError:
+            character = os.path.basename(os.path.dirname(path))
+        found.append((character, path))
+    found.sort(key=lambda cp: cp[0].lower())
+    return found
+
+
+def build_shared_preview_images(max_side=256):
+    # Recolore le portrait de chaque personnage avec la palette partagée éditée. | Recolors each character's portrait with the edited shared palette.
+    # On réduit d'abord la vignette : la recoloration est en Python pur et une | The thumbnail is downscaled first: recoloring is pure Python and a full-res
+    # image pleine résolution par personnage serait lente sans gain visible ici. | image per character would be slow with no visible gain for a gallery cell.
+    mapping = get_preview_recolor_map()
+    results = []
+    for character, path in shared_skin_portraits(selected_skin.get(),
+                                                 selected_color.get()):
+        try:
+            im = Image.open(path).convert("RGBA")
+        except OSError as e:
+            print(f"Portrait illisible ({path}) : {e}")
+            continue
+        if max(im.size) > max_side:
+            im.thumbnail((max_side, max_side), Image.LANCZOS)
+        results.append((character,
+                        recolor_preview_image(flatten_source_colors(im), mapping)))
+    return results
+
+
+def show_shared_preview():
+    # Galerie défilante : le skin partagé recoloré sur chaque personnage. | Scrollable gallery: the shared skin recolored on every character.
+    global preview_window
+    images = build_shared_preview_images()
+    if not images:
+        messagebox.showinfo(translations[current_language]['preview'],
+                            translations[current_language]['preview_shared_none'])
+        return
+    if preview_window is not None and preview_window.winfo_exists():
+        preview_window.destroy()
+    preview_window = tk.Toplevel(root)
+    preview_window.title(translations[current_language]['preview_title'].format(
+        selected_character.get(), selected_skin.get(), selected_color.get()))
+    preview_window.configure(bg="#f2f2f2")
+
+    note = tk.Label(preview_window, text=translations[current_language]['preview_shared_note'],
+                    font=("Arial", 8), bg="#f2f2f2", fg="#666666")
+    note.pack(side="bottom", pady=(2, 8))
+
+    canvas = tk.Canvas(preview_window, bg="#f2f2f2", highlightthickness=0)
+    scrollbar = tk.Scrollbar(preview_window, orient="vertical",
+                             command=canvas.yview)
+    grid_frame = tk.Frame(canvas, bg="#f2f2f2")
+    grid_frame.bind("<Configure>",
+                    lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+    canvas.create_window((0, 0), window=grid_frame, anchor="nw")
+    canvas.configure(yscrollcommand=scrollbar.set)
+
+    photos = []
+    columns = 4
+    for i, (character, im) in enumerate(images):
+        photo = ImageTk.PhotoImage(im)
+        photos.append(photo)
+        cell = tk.Frame(grid_frame, bg="#f2f2f2")
+        cell.grid(row=i // columns, column=i % columns, padx=8, pady=8)
+        tk.Label(cell, image=photo, bg="#f2f2f2").pack()
+        tk.Label(cell, text=character, font=("Arial", 9),
+                 bg="#f2f2f2", fg="#333333").pack(pady=(4, 0))
+    preview_window.photos = photos  # référence anti-GC | anti-GC reference
+
+    scrollbar.pack(side="right", fill="y")
+    canvas.pack(side="left", fill="both", expand=True, padx=10, pady=10)
+
+    # Fenêtre de taille raisonnable (au plus 3 rangées visibles) + molette. | Reasonably sized window (at most 3 rows visible) + mouse wheel.
+    cell_w = images[0][1].width + 32
+    cell_h = images[0][1].height + 44
+    rows = (len(images) + columns - 1) // columns
+    width = min(columns, len(images)) * cell_w + 44
+    height = min(3, rows) * cell_h + 60
+    preview_window.geometry(f"{int(width)}x{int(height)}")
+
+    def _on_wheel(e):
+        canvas.yview_scroll(int(-1 * (e.delta / 120)), "units")
+    canvas.bind("<Enter>", lambda e: canvas.bind_all("<MouseWheel>", _on_wheel))
+    canvas.bind("<Leave>", lambda e: canvas.unbind_all("<MouseWheel>"))
+
+
 def show_preview():
     # Affiche le portrait du jeu recoloré avec les couleurs saisies | Shows the in-game portrait recolored with the entered colors
     global preview_window
     if not uexp_file_path:
         return
     is_energy = file_type_codes.get(selected_file_type.get()) == 'PE'
+    # Skin partagé (couleurs) : le prévisualiser sur tout le roster concerné, | Shared skin (colors): preview it across the whole affected roster, since
+    # puisqu'une seule palette repeint chaque personnage qui a ce skin. | a single palette repaints every character that has this skin.
+    if selected_character.get() == 'Shared' and not is_energy:
+        try:
+            root.config(cursor="wait")
+            root.update()
+            show_shared_preview()
+        except Exception as e:
+            messagebox.showerror(
+                translations[current_language]['error_title'], str(e))
+        finally:
+            root.config(cursor="")
+        return
     try:
         root.config(cursor="wait")
         root.update()
@@ -1612,6 +1732,27 @@ def update_selected_character_icon(*args):
     update_skin_menu()
 
 
+def skin_has_editable_palette(character_name, skin_name):
+    # Vrai si le skin a une vraie palette éditable (fichier PE_/PS_). Les skins | True if the skin has a real editable palette (a PE_/PS_ file). Shared skins
+    # partagés importés uniquement comme portraits (T_*_CSP, sans palette par | imported only as portraits (T_*_CSP, with no per-character palette) have none:
+    # personnage) n'en ont pas : ils s'éditent via le personnage « Shared » et ne | they are edited through the "Shared" character and must not show up as a
+    # doivent pas apparaître comme un skin éditable ici (sinon menu vide + blocage). | selectable skin here (otherwise: empty menus and a stuck-looking UI).
+    base = os.path.join(BASE_DIR, character_name, 'Skins', skin_name)
+    palettes = os.path.join(base, 'Data', 'Palettes')
+    if not os.path.isdir(palettes):
+        # Forme spéciale (ex. Ranno/DartFrog range ses .uexp directement sous Data/). | Special shape (e.g. Ranno/DartFrog keeps its .uexp directly under Data/).
+        data = os.path.join(base, 'Data')
+        if os.path.isdir(data):
+            return any(f.startswith(('PE_', 'PS_')) for f in os.listdir(data))
+        return True  # structure inconnue : ne pas filtrer | unknown structure: don't filter
+    for color in os.listdir(palettes):
+        color_dir = os.path.join(palettes, color)
+        if os.path.isdir(color_dir) and any(
+                f.startswith(('PE_', 'PS_')) for f in os.listdir(color_dir)):
+            return True
+    return False
+
+
 def update_skin_menu(*args):
     # Met à jour le menu des skins en fonction du personnage sélectionné | Updates the skin menu based on the selected character
     character_name = selected_character.get()
@@ -1619,6 +1760,12 @@ def update_skin_menu(*args):
     if os.path.exists(skins_path):
         skins = [name for name in os.listdir(
             skins_path) if os.path.isdir(os.path.join(skins_path, name))]
+        # Masquer les skins partagés importés seulement comme portraits : sans | Hide shared skins imported only as portraits: with no editable palette they
+        # palette éditable ils ouvrent un skin vide. Le personnage « Shared » les | open an empty skin. The "Shared" character keeps them for editing the shared
+        # garde pour éditer la palette partagée. | palette.
+        if character_name != 'Shared':
+            skins = [s for s in skins
+                     if skin_has_editable_palette(character_name, s)]
         # Trier les skins pour un affichage cohérent | Sort the skins for consistent display
         skins.sort()
         # Effacer les anciennes options du menu | Clear the menu's previous options
@@ -1948,6 +2095,8 @@ def update_game_data():
             sys.path.insert(0, app_dir)
         import files_importer
         importlib.reload(files_importer)
+        # Les logs de l'importeur suivent la langue de l'appli | The importer's logs follow the app's language
+        files_importer.LANG = current_language
         counts = files_importer.run_import()
     except Exception as e:
         messagebox.showerror(
