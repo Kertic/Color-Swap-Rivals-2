@@ -78,6 +78,27 @@ def _resolve_fmodel_output():
     return candidates[0]
 
 
+def canonical_output():
+    # Chemin de sortie unique à imposer à FModel, pour que FModel écrive et que | The single output folder to pin FModel to, so that FModel writes and the
+    # l'importeur lise au même endroit — Properties (.json) ET Raw Data (.uexp). | importer reads from one place — both Properties (.json) AND Raw Data (.uexp).
+    resolved = _resolve_fmodel_output()
+    # Si un dossier résolu contient déjà des exports, il fait référence. | If a resolved folder already holds exports, it is authoritative.
+    if (resolved / "Exports").exists():
+        return resolved
+    # Sinon, viser le vrai dossier Documents de Windows, ce que FModel choisit | Otherwise target Windows' real Documents folder, which is what FModel picks
+    # de lui-même. Avec OneDrive KFM, Documents est redirigé vers OneDrive\Documents ; | on its own. With OneDrive KFM, Documents is redirected to OneDrive\Documents;
+    # sans OneDrive, c'est %USERPROFILE%\Documents. On ne prend la branche OneDrive | without OneDrive, it's %USERPROFILE%\Documents. The OneDrive branch is only
+    # que si ce dossier Documents existe vraiment (OneDrive gère bien Documents). | taken when that Documents folder truly exists (OneDrive really owns Documents).
+    for var in ("OneDrive", "OneDriveConsumer", "OneDriveCommercial"):
+        onedrive = os.environ.get(var)
+        if onedrive and (Path(onedrive) / "Documents").is_dir():
+            return Path(onedrive) / "Documents" / "FModel" / "Output"
+    profile = os.environ.get("USERPROFILE")
+    if profile:
+        return Path(profile) / "Documents" / "FModel" / "Output"
+    return resolved
+
+
 def refresh_paths():
     # Re-résout les chemins FModel (utile quand l'export vient d'être fait) | Re-resolves the FModel paths (useful right after an export)
     global FMODEL_OUTPUT, SOURCE_ROOT, PLATFORM_ROOT

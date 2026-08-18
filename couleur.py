@@ -85,8 +85,8 @@ translations = {
                                 "    Activez ensuite \"Local Mapping File\" dans Settings et glissez-y\n"
                                 "    le fichier .usmap fourni dans le dossier de cet outil.\n\n"
                                 "2. Dans l'arborescence, clic droit sur Rivals2/Content/Characters :\n"
-                                "    - Save Folder's Packages Properties (.json)\n"
-                                "    - Save Folder's Packages Raw Data (.uexp)\n"
+                                "    - Export Folder > Properties (.json)\n"
+                                "    - Export Folder > Raw Data (.uasset) — inclut les .uexp\n"
                                 "    Idem pour Rivals2/Content/Platforms.\n\n"
                                 "3. Fermez FModel puis cliquez sur OK ci-dessous pour importer."),
         'update_no_exports': "Aucun export FModel trouvé. Refaites l'export puis réessayez.",
@@ -181,8 +181,8 @@ translations = {
                                 "    Then enable \"Local Mapping File\" in Settings and drag in the\n"
                                 "    .usmap file shipped in this tool's folder.\n\n"
                                 "2. In the file tree, right-click Rivals2/Content/Characters:\n"
-                                "    - Save Folder's Packages Properties (.json)\n"
-                                "    - Save Folder's Packages Raw Data (.uexp)\n"
+                                "    - Export Folder > Properties (.json)\n"
+                                "    - Export Folder > Raw Data (.uasset) — includes the .uexp\n"
                                 "    Do the same for Rivals2/Content/Platforms.\n\n"
                                 "3. Close FModel, then click OK below to import."),
         'update_no_exports': "No FModel exports found. Redo the export and try again.",
@@ -1888,22 +1888,39 @@ def update_game_data():
         fmodel_path = chosen
         save_config()
 
-    # 2. Pré-configurer FModel au premier lancement (chemins jeu + sortie) | 2. Pre-configure FModel on first launch (game + output paths)
+    # 2. Aligner la config FModel : forcer OutputDirectory sur le dossier que | 2. Align FModel's config: pin OutputDirectory to the folder the importer
+    #    l'importeur va lire, pour que Properties (.json) ET Raw Data (.uexp) | will read, so Properties (.json) AND Raw Data (.uexp) land together. This
+    #    atterrissent ensemble. Réécrit à chaque fois : une OutputDirectory | is rewritten every launch: a stale OutputDirectory (e.g. the empty, OneDrive-
+    #    périmée (ex. dossier Documents local vide, ignoré par FModel qui utilise | blind local Documents path that FModel ignores in favour of OneDrive\Documents)
+    #    OneDrive\Documents) ne serait sinon jamais corrigée. | would otherwise never be corrected.
     appdata = os.environ.get('APPDATA')
     if appdata:
+        try:
+            if app_dir not in sys.path:
+                sys.path.insert(0, app_dir)
+            import files_importer as _fi
+            output_dir = str(_fi.canonical_output())
+        except Exception:
+            output_dir = os.path.join(os.path.expanduser(
+                "~"), "Documents", "FModel", "Output")
         fmodel_cfg = os.path.join(appdata, "FModel", "AppSettings.json")
         paks = find_game_paks_dir()
-        if paks and not os.path.exists(fmodel_cfg):
-            try:
-                os.makedirs(os.path.dirname(fmodel_cfg), exist_ok=True)
-                output_dir = os.path.join(os.path.expanduser(
-                    "~"), "Documents", "FModel", "Output")
-                os.makedirs(output_dir, exist_ok=True)
-                with open(fmodel_cfg, 'w', encoding='utf-8') as f:
-                    json.dump({"GameDirectory": paks,
-                               "OutputDirectory": output_dir}, f, indent=2)
-            except OSError:
-                pass  # FModel se configurera manuellement
+        try:
+            settings = {}
+            if os.path.exists(fmodel_cfg):
+                with open(fmodel_cfg, 'r', encoding='utf-8') as f:
+                    settings = json.load(f)
+            if not isinstance(settings, dict):
+                settings = {}
+            if paks:
+                settings['GameDirectory'] = paks
+            settings['OutputDirectory'] = output_dir
+            os.makedirs(os.path.dirname(fmodel_cfg), exist_ok=True)
+            os.makedirs(output_dir, exist_ok=True)
+            with open(fmodel_cfg, 'w', encoding='utf-8') as f:
+                json.dump(settings, f, indent=2)
+        except (OSError, ValueError):
+            pass  # FModel se configurera manuellement | FModel will fall back to manual config
 
     # 3. Lancer FModel et afficher les instructions (l'utilisateur exporte puis valide) | 3. Launch FModel and show the instructions (the user exports, then confirms)
     try:
