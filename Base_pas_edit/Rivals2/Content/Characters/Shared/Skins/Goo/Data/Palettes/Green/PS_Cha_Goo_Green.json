@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Cha_Goo_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Shared/Goo/PS_Cha_Goo_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Cha_Goo_Green_C'Default__PS_Cha_Goo_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Shared/Goo/PS_Cha_Goo_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Cha_Goo_Green_C",
+    "Name": "Default__PS_Cha_Goo_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Shared/Goo/PS_Cha_Goo_Green.PS_Cha_Goo_Green_C'",
+    "Package": "Rivals2/Content/Characters/Shared/Goo/PS_Cha_Goo_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Goo",
+          "Value": {
+            "R": 0.0,
+            "G": 0.254,
+            "B": 0.127,
+            "A": 1.0,
+            "Hex": "008A64"
+          }
+        },
+        {
+          "Key": "GooHighlight",
+          "Value": {
+            "R": 0.027321,
+            "G": 0.814847,
+            "B": 0.184826,
+            "A": 1.0,
+            "Hex": "2EE977"
+          }
+        },
+        {
+          "Key": "Skeleton",
+          "Value": {
+            "R": 0.729412,
+            "G": 0.8,
+            "B": 0.556863,
+            "A": 1.0,
+            "Hex": "DEE8C5"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.013889,
+            "G": 0.013889,
+            "B": 0.013889,
+            "A": 1.0,
+            "Hex": "1F1F1F"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 1.0,
+            "G": 0.033,
+            "B": 0.033,
+            "A": 1.0,
+            "Hex": "FF3333"
+          }
+        },
+        {
+          "Key": "SkeletonDark",
+          "Value": {
+            "R": 0.013889,
+            "G": 0.013889,
+            "B": 0.013889,
+            "A": 1.0,
+            "Hex": "1F1F1F"
+          }
+        }
+      ]
+    }
+  }
+]
