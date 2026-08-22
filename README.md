@@ -11,11 +11,9 @@ cd Color-Swap-Rivals-2
 setup.bat
 ```
 
-`setup.bat` installs anything missing: **Python 3** + the **Pillow** library, the **.NET 8 Desktop Runtime**, and the latest **FModel** release (downloaded into the tool's `FModel/` subfolder, used by the Update Game Data button). Anything already present is detected and skipped, so it's safe to re-run. Python and .NET are installed with winget (built into Windows 10/11); the .NET step may show a UAC prompt.
+`setup.bat` installs anything missing: its **own local Python 3.12** (with the **Pillow** library) into the tool's folder, the **.NET 8 Desktop Runtime**, and the latest **FModel** release (into the tool's `FModel/` subfolder, used by the Update Game Data button). Anything already present is detected and skipped, so it's safe to re-run. The .NET step uses winget (built into Windows 10/11) and may show a UAC prompt.
 
-If winget's package source is broken, setup repairs it with `winget source reset` and retries; failing that it downloads the official installer from python.org instead. You should not need to fix winget yourself.
-
-Setup also records the Python interpreter it found in `python_path.txt`, which `Start.vbs` and `run_importer.bat` use directly. This sidesteps a common Windows problem: the Microsoft Store's placeholder `python.exe` in `WindowsApps` often shadows a real install on `PATH` and fails with *"Python was not found; run without arguments to install from the Microsoft Store"*. If you ever see that, run `setup.bat` again.
+The tool runs on that bundled Python and never touches whatever Python you may already have installed. This is deliberate: a system Python can be a version the tool's interface doesn't support (for example Python 3.14 ships a newer Tk that breaks the UI), or be missing `tkinter`/`Pillow` entirely. Keeping a known-good copy in the tool folder avoids all of it - if the tool ever fails to launch, run `setup.bat` again to repair the local Python.
 
 ## Getting Started
 

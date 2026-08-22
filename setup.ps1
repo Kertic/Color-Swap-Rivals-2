@@ -1,5 +1,5 @@
 # Color-Swap-Rivals-2 prerequisite installer
-# Installs: Python 3 (+ Pillow), .NET 8 Desktop Runtime, FModel.
+# Installs: a local, self-contained Python 3.12 (+ Pillow), .NET 8 Desktop Runtime, FModel.
 # Run via setup.bat, or:  powershell -ExecutionPolicy Bypass -File setup.ps1
 
 # Native tools (winget, python) write to stderr on harmless conditions, which
@@ -10,157 +10,108 @@ $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 function Write-Step($msg) { Write-Host "`n=== $msg ===" -ForegroundColor Cyan }
 
-function Test-PythonExe($exe) {
-    # A real Python 3 interpreter, not the Microsoft Store placeholder
-    if (-not $exe) { return $false }
-    if (-not (Test-Path $exe)) { return $false }
-    if ($exe -like "*\WindowsApps\*") { return $false }
-    $major = & $exe -c "import sys; print(sys.version_info.major)"
-    return ($LASTEXITCODE -eq 0 -and $major -eq "3")
-}
+# The tool always runs on its OWN bundled Python, never the user's system
+# install. Recent system Pythons break the UI (e.g. Python 3.14 ships Tcl/Tk 9,
+# which the tkinter build here needs), and a system Python may be missing
+# tkinter or a working Pillow entirely. Keeping our own copy sidesteps all of it.
+$localPythonDir = Join-Path $root "python-3.12.6.amd64"
+$localPythonExe = Join-Path $localPythonDir "python.exe"
 
-function Find-Python {
-    # 1) The py launcher resolves real installs and never the Store stub
-    $pyCmd = Get-Command py.exe -ErrorAction SilentlyContinue
-    if ($pyCmd) {
-        $resolved = & $pyCmd.Source -3 -c "import sys; print(sys.executable)"
-        if ($LASTEXITCODE -eq 0 -and $resolved) {
-            $resolved = $resolved.Trim()
-            if (Test-PythonExe $resolved) { return $resolved }
-        }
-    }
-    # 2) python.exe entries on PATH, skipping the Store alias
-    foreach ($cmd in @(Get-Command python.exe -All -ErrorAction SilentlyContinue)) {
-        if (Test-PythonExe $cmd.Source) { return $cmd.Source }
-    }
-    # 3) Standard install locations
-    $patterns = @(
-        (Join-Path $env:LOCALAPPDATA "Programs\Python\Python3*\python.exe"),
-        (Join-Path $env:ProgramFiles "Python3*\python.exe"),
-        "C:\Python3*\python.exe"
-    )
-    foreach ($pattern in $patterns) {
-        foreach ($file in @(Get-ChildItem $pattern -ErrorAction SilentlyContinue | Sort-Object FullName -Descending)) {
-            if (Test-PythonExe $file.FullName) { return $file.FullName }
-        }
-    }
-    return $null
-}
-
-function Update-SessionPath {
-    $env:Path = [Environment]::GetEnvironmentVariable("Path", "Machine") + ";" +
-                [Environment]::GetEnvironmentVariable("Path", "User")
-}
-
-# ---------------------------------------------------------------- winget check
-$winget = Get-Command winget -ErrorAction SilentlyContinue
-
-function Install-PythonViaWinget {
-    # Renvoie $true si winget a réellement réussi | Returns $true only if winget actually succeeded
-    Write-Host "Installing Python 3.12 via winget..."
-    winget install --id Python.Python.3.12 --silent --accept-package-agreements --accept-source-agreements
-    if ($LASTEXITCODE -eq 0) { return $true }
-
-    # 0x8a15000f and friends: the winget package source index is broken.
-    # Resetting the sources fixes it far more often than reinstalling winget.
-    Write-Host "winget failed (exit $LASTEXITCODE). Repairing its package sources..." -ForegroundColor Yellow
-    winget source reset --force | Out-Null
-    winget source update | Out-Null
-    Write-Host "Retrying..."
-    winget install --id Python.Python.3.12 --silent --accept-package-agreements --accept-source-agreements
+function Test-LocalPython {
+    # Utilisable = présent ET capable d'importer tkinter (le maillon qui casse | Usable = present AND able to import tkinter (the piece that breaks on recent
+    # sur les Python système récents). | system Pythons).
+    if (-not (Test-Path $localPythonExe)) { return $false }
+    & $localPythonExe -c "import tkinter" 2>$null
     return ($LASTEXITCODE -eq 0)
 }
 
-function Install-PythonDirect {
-    # Repli sans winget : installeur officiel python.org | winget-free fallback: the official python.org installer
-    $version = "3.12.6"
-    $url = "https://www.python.org/ftp/python/$version/python-$version-amd64.exe"
-    $installer = Join-Path $env:TEMP "python-$version-amd64.exe"
-    Write-Host "Downloading the official Python $version installer from python.org..."
+function Install-LocalPython {
+    # Installe un Python 3.12 autonome DANS le dossier de l'outil. On utilise les | Installs a self-contained Python 3.12 INTO the tool's folder. We use the
+    # builds "python-build-standalone" : un CPython relogeable qui embarque | "python-build-standalone" builds: a relocatable CPython that bundles tkinter
+    # tkinter ET pip, sans installateur, sans admin, sans toucher au PATH. | AND pip, with no installer, no admin rights, and no PATH changes.
+    if (-not (Get-Command tar -ErrorAction SilentlyContinue)) {
+        Write-Host "The 'tar' command is required to unpack Python and was not found." -ForegroundColor Yellow
+        Write-Host "It ships with Windows 10 (1803+) and Windows 11 - update Windows and retry."
+        return $false
+    }
     try {
-        Invoke-WebRequest $url -OutFile $installer -UseBasicParsing
+        $headers = @{ "User-Agent" = "Color-Swap-Rivals-2-setup" }
+        $rel = Invoke-RestMethod "https://api.github.com/repos/astral-sh/python-build-standalone/releases/latest" -Headers $headers
+        $asset = $rel.assets | Where-Object {
+            $_.name -match '^cpython-3\.12\.\d+\+.*-x86_64-pc-windows-msvc-install_only\.tar\.gz$'
+        } | Select-Object -First 1
+        if (-not $asset) {
+            Write-Host "No suitable Python 3.12 build was found in the latest release." -ForegroundColor Yellow
+            return $false
+        }
+        $archive = Join-Path $env:TEMP "cpython-local.tar.gz"
+        Write-Host "Downloading $($asset.name)..."
+        Invoke-WebRequest $asset.browser_download_url -OutFile $archive -Headers $headers
+        # L'archive contient un dossier racine "python" : on extrait dans un | The archive contains a top-level "python" folder: extract into a temp dir,
+        # dossier temporaire puis on le renomme vers python-3.12.6.amd64. | then rename it to python-3.12.6.amd64.
+        $staging = Join-Path $env:TEMP ("cpython-local-" + [guid]::NewGuid().ToString("N"))
+        New-Item -ItemType Directory -Force -Path $staging | Out-Null
+        tar -xf $archive -C $staging
+        $inner = Join-Path $staging "python"
+        if (-not (Test-Path (Join-Path $inner "python.exe"))) {
+            Write-Host "The downloaded Python archive had an unexpected layout." -ForegroundColor Yellow
+            return $false
+        }
+        if (Test-Path $localPythonDir) { Remove-Item -Recurse -Force $localPythonDir }
+        Move-Item $inner $localPythonDir
+        Remove-Item $archive -Force -ErrorAction SilentlyContinue
+        Remove-Item $staging -Recurse -Force -ErrorAction SilentlyContinue
+        return $true
     } catch {
         Write-Host "Download failed: $($_.Exception.Message)" -ForegroundColor Yellow
         return $false
     }
-    Write-Host "Running the installer (per-user, no admin rights needed)..."
-    # InstallLauncher gives us the py launcher, which never resolves to the
-    # Microsoft Store stub.
-    $p = Start-Process $installer -Wait -PassThru -ArgumentList @(
-        "/quiet", "InstallAllUsers=0", "PrependPath=1", "Include_launcher=1", "Include_test=0")
-    Remove-Item $installer -ErrorAction SilentlyContinue
-    if ($p.ExitCode -ne 0) {
-        Write-Host "Installer exited with code $($p.ExitCode)." -ForegroundColor Yellow
-        return $false
-    }
-    return $true
 }
 
-# ---------------------------------------------------------------- Python
-Write-Step "Python"
-$python = $null
-$embedded = Join-Path $root "python-3.12.6.amd64\python.exe"
-if (Test-Path $embedded) {
-    Write-Host "Embedded Python found - nothing to install."
-    $python = $embedded
+# ---------------------------------------------------------------- Python (local, self-contained)
+Write-Step "Python (local, self-contained)"
+if (Test-LocalPython) {
+    Write-Host "Local Python already present - nothing to install."
 } else {
-    $python = Find-Python
-    if ($python) {
-        Write-Host "Found Python: $python"
+    if (Test-Path $localPythonExe) {
+        Write-Host "Local Python is present but not working; reinstalling..." -ForegroundColor Yellow
     } else {
-        $installed = $false
-        if ($winget) {
-            $installed = Install-PythonViaWinget
-            if (-not $installed) {
-                Write-Host "winget could not install Python - its package source is unavailable." -ForegroundColor Yellow
-                Write-Host "Falling back to a direct download instead."
-            }
-        } else {
-            Write-Host "winget is not available on this system." -ForegroundColor Yellow
-            Write-Host "Falling back to a direct download instead."
-        }
-        if (-not $installed) { $installed = Install-PythonDirect }
-
-        Update-SessionPath
-        $python = Find-Python
-        if ($python) {
-            Write-Host "Installed: $python" -ForegroundColor Green
-        } elseif ($installed) {
-            # Installé mais pas encore visible dans cette session | Installed but not yet visible in this session
-            Write-Host "Python was installed but is not visible in this window yet." -ForegroundColor Yellow
-            Write-Host "Close this window, open a new one, and run setup.bat again."
-        } else {
-            Write-Host "Could not install Python automatically." -ForegroundColor Red
-            Write-Host "Install it manually from https://www.python.org/downloads/"
-            Write-Host "  - tick 'Add python.exe to PATH' in the installer"
-            Write-Host "then run setup.bat again."
-        }
+        Write-Host "Installing a self-contained Python 3.12 (with tkinter) into the tool folder..."
+    }
+    if ((Install-LocalPython) -and (Test-LocalPython)) {
+        Write-Host "Local Python installed to $localPythonDir" -ForegroundColor Green
+    } else {
+        Write-Host "Could not set up the local Python automatically." -ForegroundColor Red
+        Write-Host "Check your internet connection and run setup.bat again."
     }
 }
+$python = if (Test-Path $localPythonExe) { $localPythonExe } else { $null }
 
-# Record the interpreter so Start.vbs / run_importer.bat do not depend on PATH
-# (where the Microsoft Store stub often shadows the real python.exe).
+# Record the local interpreter so run_importer.bat can find it directly.
 $pythonPathFile = Join-Path $root "python_path.txt"
-if ($python -and (Test-Path $python)) {
+if ($python) {
     # No BOM: Set-Content -Encoding UTF8 prepends one under PowerShell 5.1,
     # which ends up inside the path when .bat/.vbs read the file back.
     [System.IO.File]::WriteAllText($pythonPathFile, $python,
         (New-Object System.Text.UTF8Encoding $false))
-    Write-Host "Recorded interpreter in python_path.txt"
 }
 
-# ---------------------------------------------------------------- Pillow
+# ---------------------------------------------------------------- Pillow (into the local Python)
 Write-Step "Pillow (image library)"
 if (-not $python) {
-    Write-Host "Skipped - no Python available yet." -ForegroundColor Yellow
+    Write-Host "Skipped - the local Python is not set up yet." -ForegroundColor Yellow
 } else {
-    # find_spec instead of a plain import: no traceback printed when missing
-    $hasPillow = & $python -c "import importlib.util; print('ok' if importlib.util.find_spec('PIL') else 'no')"
-    if ($LASTEXITCODE -eq 0 -and $hasPillow -eq "ok") {
+    # Tester l'import réel utilisé par l'outil (Image + ImageTk), pas seulement | Test the real import the tool uses (Image + ImageTk), not just that PIL is
+    # que PIL existe : ImageTk dépend de tkinter et peut échouer seul. | present: ImageTk depends on tkinter and can fail on its own.
+    & $python -c "from PIL import Image, ImageTk" 2>$null
+    if ($LASTEXITCODE -eq 0) {
         Write-Host "Already installed."
     } else {
-        Write-Host "Installing Pillow..."
+        Write-Host "Installing Pillow into the local Python..."
+        & $python -m pip --version 2>$null
+        if ($LASTEXITCODE -ne 0) { & $python -m ensurepip --upgrade | Out-Null }
         & $python -m pip install --quiet --upgrade pillow
+        & $python -c "from PIL import Image, ImageTk" 2>$null
         if ($LASTEXITCODE -eq 0) {
             Write-Host "Pillow installed."
         } else {
@@ -168,6 +119,9 @@ if (-not $python) {
         }
     }
 }
+
+# winget is used only by the .NET step below (Python no longer needs it).
+$winget = Get-Command winget -ErrorAction SilentlyContinue
 
 # ---------------------------------------------------------------- .NET runtime (FModel dependency)
 Write-Step ".NET 8 Desktop Runtime (needed by FModel)"
@@ -227,6 +181,6 @@ Write-Step "Done"
 if ($python) {
     Write-Host "Launch the tool with Start.vbs." -ForegroundColor Green
 } else {
-    Write-Host "Install Python 3, then run setup.bat again before using Start.vbs." -ForegroundColor Yellow
+    Write-Host "The local Python did not install. Fix your connection and run setup.bat again before using Start.vbs." -ForegroundColor Yellow
 }
 Write-Host "The 'Update Game Data' button will find FModel in the FModel subfolder automatically."
