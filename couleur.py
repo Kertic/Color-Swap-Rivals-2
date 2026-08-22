@@ -2977,7 +2977,7 @@ selected_language.set(next(
 language_menu = tk.OptionMenu(
     header_frame, selected_language, *language_options.keys())
 language_menu.grid(row=0, column=0, padx=5, pady=5, sticky="w")
-selected_language.trace('w', change_language)
+selected_language.trace_add('write', change_language)
 
 # Label pour afficher l'icône sélectionnée | Label showing the selected icon
 selected_character_icon_label = tk.Label(header_frame, bg="#f2f2f2")
@@ -2998,17 +2998,17 @@ file_type_label.grid(row=0, column=8, padx=2, pady=5, sticky="e")
 
 # Menu déroulant pour le personnage avec icônes | Dropdown menu for the character, with icons
 character_menu = create_character_menu(characters)
-selected_character.trace("w", update_selected_character_icon)
+selected_character.trace_add("write", update_selected_character_icon)
 
 # Menu pour le skin | Menu for the skin
 skin_menu = tk.OptionMenu(header_frame, selected_skin, '')
 skin_menu.grid(row=0, column=5, padx=2, pady=5, sticky="w")
-selected_skin.trace('w', update_color_menu)
+selected_skin.trace_add('write', update_color_menu)
 
 # Menus déroulants pour la couleur et le type de fichier | Dropdown menus for the color and the file type
 color_menu = tk.OptionMenu(header_frame, selected_color, '')
 color_menu.grid(row=0, column=7, padx=2, pady=5, sticky="w")
-selected_color.trace('w', update_file_type_menu)
+selected_color.trace_add('write', update_file_type_menu)
 
 file_type_menu = tk.OptionMenu(header_frame, selected_file_type, '')
 file_type_menu.grid(row=0, column=9, padx=2, pady=5, sticky="w")
@@ -3017,10 +3017,10 @@ file_type_menu.grid(row=0, column=9, padx=2, pady=5, sticky="w")
 selected_character.set(characters[0])
 
 # Lier les variables de sélection à la fonction de changement | Bind the selection variables to the change handler
-selected_character.trace('w', on_selection_change)
-selected_skin.trace('w', on_selection_change)
-selected_color.trace('w', on_selection_change)
-selected_file_type.trace('w', on_selection_change)
+selected_character.trace_add('write', on_selection_change)
+selected_skin.trace_add('write', on_selection_change)
+selected_color.trace_add('write', on_selection_change)
+selected_file_type.trace_add('write', on_selection_change)
 
 # Mettre à jour l'icône du personnage initial | Update the initial character's icon
 update_selected_character_icon()
