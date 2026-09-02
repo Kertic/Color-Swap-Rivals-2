@@ -13,6 +13,7 @@ import pickle
 import threading
 from PIL import Image, ImageTk
 import sys
+from pathlib import Path
 
 try:
     import portraits as portraits_module
@@ -27,6 +28,7 @@ BASE_DIR = r"Base_pas_edit\Rivals2\Content\Characters"
 unrealpak_script_path = None
 mods_folder_path = None
 fmodel_path = None
+output_folder_path = None
 json_data = None
 uexp_file_path = None
 color_entries = {}
@@ -40,6 +42,7 @@ translations = {
     'fr': {
         'title': "ROA 2 Colorswap",
         'configure_mods': "Configurer le dossier Mods",
+        'configure_fmodel_output': "Configurer l'output FModel",
         'save_preset': "Sauvegarder Preset",
         'load_preset': "Charger Preset",
         'replace_colors': "Remplacer les couleurs",
@@ -58,6 +61,7 @@ translations = {
         'json_not_found': "Fichier JSON introuvable : {}",
         'unexpected_json_format': "Format JSON inattendu.",
         'mods_configured': "Dossier mods configuré.",
+        'FModel_output_configured': "Output FModel configuré",
         'pak_not_found': "Le fichier .pak n'a pas été trouvé.",
         'script_execution_failed': "Échec de l'exécution du script : {}",
         'pak_creation_failed': "Échec de la création du .pak : {}",
@@ -124,6 +128,7 @@ translations = {
         'portrait_no_oodle': "Portrait indisponible : lancez setup.bat (FModel fournit la DLL Oodle).",
         'portrait_no_data': "Portrait indisponible : données manquantes, utilisez « Mettre à jour les données du jeu ».",
         'choose_mods_folder': "Choisir le dossier Mods du jeu",
+        'choose_FModel_output_folder': "Choisir le dossier d'output FModel",
         'overrides_preview': "Aperçu avant/après",
         'overrides_partial_removed': "{} remplacement(s) retiré(s). {} pak(s) reconstruit(s), {} supprimé(s).",
         'override_before': "Avant (jeu d'origine)",
@@ -140,6 +145,7 @@ translations = {
     'en': {
         'title': "ROA 2 Colorswap",
         'configure_mods': "Configure Mods Folder",
+        'configure_fmodel_output': "Configure FModel output",
         'save_preset': "Save Preset",
         'load_preset': "Load Preset",
         'replace_colors': "Replace Colors",
@@ -158,6 +164,7 @@ translations = {
         'json_not_found': "JSON file not found: {}",
         'unexpected_json_format': "Unexpected JSON format.",
         'mods_configured': "Mods folder configured.",
+        'FModel_output_configured': "FModel output configured",
         'pak_not_found': "The .pak file was not found.",
         'script_execution_failed': "Script execution failed: {}",
         'pak_creation_failed': "Failed to create .pak: {}",
@@ -224,6 +231,7 @@ translations = {
         'portrait_no_oodle': "Portrait unavailable: run setup.bat (FModel provides the Oodle DLL).",
         'portrait_no_data': "Portrait unavailable: data missing, use \"Update Game Data\" to restore it.",
         'choose_mods_folder': "Choose the game's Mods folder",
+        'choose_FModel_output_folder': "Select the FModel output folder",
         'overrides_preview': "Preview Before/After",
         'overrides_partial_removed': "{} override(s) removed. {} pak(s) rebuilt, {} deleted.",
         'override_before': "Before (original game)",
@@ -249,6 +257,7 @@ def update_texts():
 
     # Mettre à jour les textes des widgets | Update the widget texts
     config_button.config(text=translations[current_language]['configure_mods'])
+    config_button2.config(text=translations[current_language]['configure_fmodel_output'])
     save_preset_button.config(
         text=translations[current_language]['save_preset'])
     load_preset_button.config(
@@ -296,7 +305,8 @@ def save_config():
         'unrealpak_script_path': unrealpak_script_path,
         'mods_folder_path': mods_folder_path,
         'selected_language': current_language,
-        'fmodel_path': fmodel_path
+        'fmodel_path': fmodel_path,
+        'fmodel_output_path': fmodel_output_path,
     }
     with open(CONFIG_FILE, 'wb') as f:
         pickle.dump(config, f)
@@ -304,7 +314,7 @@ def save_config():
 
 def load_config():
     # Chargement de la configuration depuis le fichier pickle | Load the configuration from the pickle file
-    global unrealpak_script_path, mods_folder_path, preset_dir, current_language, fmodel_path
+    global unrealpak_script_path, mods_folder_path, preset_dir, current_language, fmodel_path, fmodel_output_path
     project_root = os.path.dirname(
         os.path.abspath(__file__))  # Chemin du projet racine | Project root path
 
@@ -325,6 +335,7 @@ def load_config():
             mods_folder_path = config.get('mods_folder_path')
             current_language = config.get('selected_language', 'fr')
             fmodel_path = config.get('fmodel_path')
+            fmodel_output_path = config.get('fmodel_output_path')
 
 
 def get_output_and_unrealpak_dirs():
@@ -1649,6 +1660,24 @@ def configure_script_and_mods_folder():
     save_config()
     messagebox.showinfo(translations[current_language]['success_title'],
                         translations[current_language]['mods_configured'])
+
+
+def configure_FModel_export_folder():
+    # Permet à l'utilisateur de sélectionner le dossier d'output FModel | Lets the user select the FModel output folder
+    global fmodel_output_path
+    # Démarrer la sélection dans le dossier output FModel détecté automatiquement | Start the picker in the auto-detected FModel output folder
+    initial = fmodel_output_path if fmodel_output_path and os.path.isdir(
+        fmodel_output_path) else default_mods_folder()
+    # Demander uniquement le dossier mods | Ask only for the mods folder
+    chosen = filedialog.askdirectory(
+        title=translations[current_language]['choose_FModel_output_folder'],
+        initialdir=initial or os.path.expanduser("~"))
+    if not chosen:
+        return
+    fmodel_output_path = chosen
+    save_config()
+    messagebox.showinfo(translations[current_language]['success_title'],
+                        translations[current_language]['FModel_output_configured'])
 
 
 def ask_for_pak_directory_and_create(unrealpak_folder_path):
@@ -3031,7 +3060,10 @@ update_skin_menu()
 # Bouton unique de configuration pour UnrealPak et Mods | Single configuration button for UnrealPak and Mods
 config_button = tk.Button(header_frame, command=configure_script_and_mods_folder,
                           font=("Arial", 10), bg="#FFC107", fg="black")
-config_button.grid(row=1, column=0, columnspan=10, pady=10)
+config_button2 = tk.Button(header_frame, command=configure_FModel_export_folder,
+                          font=("Arial", 10), bg = "#BBBBBB", fg="black")
+config_button.grid(row=1, column=0, columnspan=10, pady=7)
+config_button2.grid(row=1, column=5, columnspan=10, pady=7)
 
 # Boutons pour sauvegarder et charger des presets | Buttons to save and load presets
 save_preset_button = tk.Button(header_frame, command=save_preset,

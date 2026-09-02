@@ -6,6 +6,7 @@ import shutil
 import sys
 from collections import Counter
 from pathlib import Path
+import pickle
 
 # La console Windows est souvent en cp1252 : les flèches "→" et autres caractères | The Windows console is often cp1252: the "→" arrows and other non-cp1252
 # non-cp1252 des messages feraient planter print() (UnicodeEncodeError) dès qu'un | characters in messages would crash print() (UnicodeEncodeError) as soon as a
@@ -70,6 +71,8 @@ _EXPORT_STEPS = {
         "  4. Relancez ce script (run_importer.bat), ajoutez --verbose pour le detail des fichiers ignores",
     ],
 }
+
+CONFIG_FILE = 'config.pkl'
 
 
 def _t(key, *args):
@@ -180,10 +183,23 @@ def canonical_output():
     return resolved
 
 
-def refresh_paths():
+CONFIG_FILE = 'config.pkl'
+
+def load_config_basic():
+    if os.path.exists(CONFIG_FILE):
+        with open(CONFIG_FILE, 'rb') as f:
+            config = pickle.load(f)
+            fmodel_output_path = config.get("fmodel_output_path")
+    try:
+        return Path(fmodel_output_path)
+    except UnboundLocalError :
+        return None
+
+
+def refresh_paths(fmodel_output_path): #should be a str(for os.path)
     # Re-résout les chemins FModel (utile quand l'export vient d'être fait) | Re-resolves the FModel paths (useful right after an export)
     global FMODEL_OUTPUT, SOURCE_ROOT, PLATFORM_ROOT
-    FMODEL_OUTPUT = _resolve_fmodel_output()
+    FMODEL_OUTPUT = load_config_basic()
     SOURCE_ROOT = FMODEL_OUTPUT / "Exports" / "Rivals2" / "Content" / "Characters"
     PLATFORM_ROOT = FMODEL_OUTPUT / "Exports" / "Rivals2" / "Content" / "Platforms"
 
@@ -261,11 +277,18 @@ ALLOWED_EXTENSIONS = {".json", ".uexp"}
 PLATFORM_ROOT = FMODEL_OUTPUT / "Exports" / "Rivals2" / "Content" / "Platforms"
 
 
-def run_import():
+def run_import(fmodel_output_path: str=None):
     # Point d'entrée de l'application : importe depuis TOUTES les sorties FModel | App entry point: imports from EVERY discovered FModel output (properties, raw
     # découvertes (properties, raw data, textures — même éclatées entre plusieurs | data, textures — even when split across several instances) and returns the
     # instances) et renvoie le total copié par catégorie. | total copied per category.
-    roots = _all_fmodel_outputs()
+
+    if fmodel_output_path is None : 
+        fmodel_output_path=load_config_basic()
+
+    refresh_paths(fmodel_output_path)
+
+    roots = [fmodel_output_path]
+
     if not roots:
         return None
     print("[INFO] " + _t("outputs_found", len(roots)))
