@@ -59,6 +59,8 @@ translations = {
         'unexpected_json_format': "Format JSON inattendu.",
         'mods_configured': "Dossier mods configuré.",
         'pak_not_found': "Le fichier .pak n'a pas été trouvé.",
+        'mods_not_configured': ("Dossier Mods introuvable. Cliquez d'abord sur le bouton jaune "
+                                "« Configurer le dossier Mods » et sélectionnez le dossier Mods de Rivals 2."),
         'script_execution_failed': "Échec de l'exécution du script : {}",
         'pak_creation_failed': "Échec de la création du .pak : {}",
         'game_not_closed': "Vérifiez que le jeu est bien fermé",
@@ -159,6 +161,8 @@ translations = {
         'unexpected_json_format': "Unexpected JSON format.",
         'mods_configured': "Mods folder configured.",
         'pak_not_found': "The .pak file was not found.",
+        'mods_not_configured': ("Mods folder not set. Click the yellow \"Configure Mods Folder\" "
+                                "button first and pick your Rivals 2 Mods folder."),
         'script_execution_failed': "Script execution failed: {}",
         'pak_creation_failed': "Failed to create .pak: {}",
         'game_not_closed': "Make sure the game is closed",
@@ -1653,6 +1657,19 @@ def configure_script_and_mods_folder():
 
 def ask_for_pak_directory_and_create(unrealpak_folder_path):
     # Exécute UnrealPak pour créer le fichier .pak et le déplace dans le dossier mods | Runs UnrealPak to create the .pak file and moves it to the mods folder
+    global mods_folder_path
+    # Sans dossier Mods, le déplacement final planterait sur un chemin None. On | Without a Mods folder the final move would crash on a None path. Auto-detect
+    # le détecte automatiquement (dossier Mods du jeu) ; si le jeu est introuvable, | it (the game's Mods folder); if the game can't be found, tell the user to set
+    # on demande à l'utilisateur de le configurer plutôt qu'une erreur obscure. | it via the button instead of showing a cryptic error.
+    if not mods_folder_path or not os.path.isdir(mods_folder_path):
+        auto = default_mods_folder()
+        if auto:
+            mods_folder_path = auto
+            save_config()
+        else:
+            messagebox.showerror(translations[current_language]['error_title'],
+                                 translations[current_language]['mods_not_configured'])
+            return
     character = selected_character.get()
     # Construire le chemin du dossier de sortie pour UnrealPak basé sur le personnage sélectionné | Build the UnrealPak output folder path from the selected character
     unrealpak_folder_path = os.path.join(
