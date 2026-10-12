@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Cla_Cyber_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Red/PE_Cla_Cyber_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Cla_Cyber_Red_C'Default__PE_Cla_Cyber_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Red/PE_Cla_Cyber_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Cla_Cyber_Red_C",
+    "Name": "Default__PE_Cla_Cyber_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Red/PE_Cla_Cyber_Red.PE_Cla_Cyber_Red_C'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Red/PE_Cla_Cyber_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 1.0,
+            "G": 0.127,
+            "B": 0.141549,
+            "A": 1.0,
+            "Hex": "FF6469"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 1.0,
+            "G": 0.015,
+            "B": 0.031415,
+            "A": 1.0,
+            "Hex": "FF2031"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.682292,
+            "G": 0.003554,
+            "B": 0.014866,
+            "A": 1.0,
+            "Hex": "D80B20"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.23,
+            "G": 0.001198,
+            "B": 0.005011,
+            "A": 1.0,
+            "Hex": "84030F"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

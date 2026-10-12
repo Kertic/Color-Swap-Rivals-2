@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Eta_Mecha_White_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Etalus/Skins/Mecha/Data/Palettes/White/PS_Eta_Mecha_White",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Eta_Mecha_White_C'Default__PS_Eta_Mecha_White_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Etalus/Skins/Mecha/Data/Palettes/White/PS_Eta_Mecha_White.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Eta_Mecha_White_C",
+    "Name": "Default__PS_Eta_Mecha_White_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Etalus/Skins/Mecha/Data/Palettes/White/PS_Eta_Mecha_White.PS_Eta_Mecha_White_C'",
+    "Package": "Rivals2/Content/Characters/Etalus/Skins/Mecha/Data/Palettes/White/PS_Eta_Mecha_White",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.514918,
+            "G": 0.584078,
+            "B": 0.57758,
+            "A": 1.0,
+            "Hex": "BEC9C8"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.516,
+            "G": 0.015374,
+            "B": 0.022635,
+            "A": 1.0,
+            "Hex": "BE2129"
+          }
+        },
+        {
+          "Key": "Core",
+          "Value": {
+            "R": 0.015876,
+            "G": 0.02014,
+            "B": 0.027,
+            "A": 1.0,
+            "Hex": "21262D"
+          }
+        },
+        {
+          "Key": "Tracks",
+          "Value": {
+            "R": 0.093434,
+            "G": 0.110134,
+            "B": 0.137,
+            "A": 1.0,
+            "Hex": "565D67"
+          }
+        },
+        {
+          "Key": "Armor",
+          "Value": {
+            "R": 0.009134,
+            "G": 0.111932,
+            "B": 0.445201,
+            "A": 1.0,
+            "Hex": "185EB2"
+          }
+        },
+        {
+          "Key": "ArmorAccent",
+          "Value": {
+            "R": 0.961,
+            "G": 0.3844,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FBA700"
+          }
+        },
+        {
+          "Key": "Glow",
+          "Value": {
+            "R": 0.0,
+            "G": 0.845,
+            "B": 0.845,
+            "A": 1.0,
+            "Hex": "00EDED"
+          }
+        },
+        {
+          "Key": "Rockets",
+          "Value": {
+            "R": 0.516,
+            "G": 0.015374,
+            "B": 0.022635,
+            "A": 1.0,
+            "Hex": "BE2129"
+          }
+        },
+        {
+          "Key": "GunBarrel",
+          "Value": {
+            "R": 0.009134,
+            "G": 0.111932,
+            "B": 0.445201,
+            "A": 1.0,
+            "Hex": "185EB2"
+          }
+        },
+        {
+          "Key": "Icicle",
+          "Value": {
+            "R": 0.514918,
+            "G": 0.584078,
+            "B": 0.57758,
+            "A": 1.0,
+            "Hex": "BEC9C8"
+          }
+        }
+      ]
+    }
+  }
+]

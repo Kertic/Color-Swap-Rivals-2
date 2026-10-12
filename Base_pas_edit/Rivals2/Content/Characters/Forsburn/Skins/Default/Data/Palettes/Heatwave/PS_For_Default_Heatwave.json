@@ -1,0 +1,178 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_For_Default_Heatwave_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Default/Data/Palettes/Heatwave/PS_For_Default_Heatwave",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_For_Default_Heatwave_C'Default__PS_For_Default_Heatwave_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Forsburn/Skins/Default/Data/Palettes/Heatwave/PS_For_Default_Heatwave.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_For_Default_Heatwave_C",
+    "Name": "Default__PS_For_Default_Heatwave_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Default/Data/Palettes/Heatwave/PS_For_Default_Heatwave.PS_For_Default_Heatwave_C'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Default/Data/Palettes/Heatwave/PS_For_Default_Heatwave",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.099899,
+            "G": 0.102242,
+            "B": 0.074214,
+            "A": 1.0,
+            "Hex": "595A4D"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.337094,
+            "G": 0.345,
+            "B": 0.250424,
+            "A": 1.0,
+            "Hex": "9D9F89"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.041038,
+            "G": 0.042,
+            "B": 0.030486,
+            "A": 1.0,
+            "Hex": "393A30"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 1.0,
+            "G": 0.298739,
+            "B": 0.043735,
+            "A": 1.0,
+            "Hex": "FF953B"
+          }
+        },
+        {
+          "Key": "Hair2",
+          "Value": {
+            "R": 0.582,
+            "G": 0.098649,
+            "B": 0.007566,
+            "A": 1.0,
+            "Hex": "C95815"
+          }
+        },
+        {
+          "Key": "Cape",
+          "Value": {
+            "R": 0.004706,
+            "G": 0.007499,
+            "B": 0.181,
+            "A": 1.0,
+            "Hex": "0E1576"
+          }
+        },
+        {
+          "Key": "Bone",
+          "Value": {
+            "R": 0.411,
+            "G": 0.383181,
+            "B": 0.330855,
+            "A": 1.0,
+            "Hex": "ACA79C"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.276,
+            "G": 0.010406,
+            "B": 0.002208,
+            "A": 1.0,
+            "Hex": "8F1A07"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 1.0,
+            "G": 0.397517,
+            "B": 0.023,
+            "A": 1.0,
+            "Hex": "FFA92A"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 1.0,
+            "G": 0.397517,
+            "B": 0.023,
+            "A": 1.0,
+            "Hex": "FFA92A"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "ClothTrim",
+          "Value": {
+            "R": 0.06,
+            "G": 0.003138,
+            "B": 0.001383,
+            "A": 1.0,
+            "Hex": "450A04"
+          }
+        },
+        {
+          "Key": "Belt",
+          "Value": {
+            "R": 0.006754,
+            "G": 0.006365,
+            "B": 0.008,
+            "A": 1.0,
+            "Hex": "131216"
+          }
+        },
+        {
+          "Key": "White",
+          "Value": {
+            "R": 0.88368,
+            "G": 0.88368,
+            "B": 0.88368,
+            "A": 1.0,
+            "Hex": "F2F2F2"
+          }
+        }
+      ]
+    }
+  }
+]

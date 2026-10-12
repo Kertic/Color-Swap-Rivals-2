@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Sla_Genesis_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Genesis/Data/Palettes/Green/PE_Sla_Genesis_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Sla_Genesis_Green_C'Default__PE_Sla_Genesis_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Slade/Skins/Genesis/Data/Palettes/Green/PE_Sla_Genesis_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Sla_Genesis_Green_C",
+    "Name": "Default__PE_Sla_Genesis_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Slade/Skins/Genesis/Data/Palettes/Green/PE_Sla_Genesis_Green.PE_Sla_Genesis_Green_C'",
+    "Package": "Rivals2/Content/Characters/Slade/Skins/Genesis/Data/Palettes/Green/PE_Sla_Genesis_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.00606,
+            "G": 0.183,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "127700"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.013702,
+            "G": 0.012983,
+            "B": 0.015209,
+            "A": 1.0,
+            "Hex": "1F1E21"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.035136,
+            "G": 0.033292,
+            "B": 0.039,
+            "A": 1.0,
+            "Hex": "343337"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.00606,
+            "G": 0.183,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "127700"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.035136,
+            "G": 0.033292,
+            "B": 0.039,
+            "A": 1.0,
+            "Hex": "343337"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.013702,
+            "G": 0.012983,
+            "B": 0.015209,
+            "A": 1.0,
+            "Hex": "1F1E21"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 0.593333,
+            "G": 0.89,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "CBF300"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gou_Champion_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Champion/Data/Palettes/Red/PS_Gou_Champion_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gou_Champion_Red_C'Default__PS_Gou_Champion_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Champion/Data/Palettes/Red/PS_Gou_Champion_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gou_Champion_Red_C",
+    "Name": "Default__PS_Gou_Champion_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Champion/Data/Palettes/Red/PS_Gou_Champion_Red.PS_Gou_Champion_Red_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Champion/Data/Palettes/Red/PS_Gou_Champion_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Bone",
+          "Value": {
+            "R": 0.584078,
+            "G": 0.205079,
+            "B": 0.332452,
+            "A": 1.0,
+            "Hex": "C97D9C"
+          }
+        },
+        {
+          "Key": "Bill",
+          "Value": {
+            "R": 0.48515,
+            "G": 0.242281,
+            "B": 0.061246,
+            "A": 1.0,
+            "Hex": "B98746"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.042311,
+            "G": 0.015209,
+            "B": 0.024158,
+            "A": 1.0,
+            "Hex": "3A212B"
+          }
+        },
+        {
+          "Key": "GooGlow",
+          "Value": {
+            "R": 0.371238,
+            "G": 0.0,
+            "B": 0.0185,
+            "A": 1.0,
+            "Hex": "A40025"
+          }
+        },
+        {
+          "Key": "Goo",
+          "Value": {
+            "R": 0.046875,
+            "G": 0.003662,
+            "B": 0.019164,
+            "A": 1.0,
+            "Hex": "3D0C25"
+          }
+        },
+        {
+          "Key": "GooHighlight",
+          "Value": {
+            "R": 0.088542,
+            "G": 0.018908,
+            "B": 0.0419,
+            "A": 1.0,
+            "Hex": "542539"
+          }
+        },
+        {
+          "Key": "SocketR",
+          "Value": {
+            "R": 0.013889,
+            "G": 0.013889,
+            "B": 0.013889,
+            "A": 1.0,
+            "Hex": "1F1F1F"
+          }
+        },
+        {
+          "Key": "SocketL",
+          "Value": {
+            "R": 0.013889,
+            "G": 0.013889,
+            "B": 0.013889,
+            "A": 1.0,
+            "Hex": "1F1F1F"
+          }
+        },
+        {
+          "Key": "IrisR",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.391572,
+            "B": 0.06301,
+            "A": 1.0,
+            "Hex": "E9A847"
+          }
+        },
+        {
+          "Key": "IrisL",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.391572,
+            "B": 0.06301,
+            "A": 1.0,
+            "Hex": "E9A847"
+          }
+        }
+      ]
+    }
+  }
+]

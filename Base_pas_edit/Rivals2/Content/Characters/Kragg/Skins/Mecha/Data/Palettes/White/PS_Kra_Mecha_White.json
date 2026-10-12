@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Kra_Mecha_White_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Kragg/Skins/Mecha/Data/Palettes/White/PS_Kra_Mecha_White",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Kra_Mecha_White_C'Default__PS_Kra_Mecha_White_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Kragg/Skins/Mecha/Data/Palettes/White/PS_Kra_Mecha_White.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Kra_Mecha_White_C",
+    "Name": "Default__PS_Kra_Mecha_White_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Kragg/Skins/Mecha/Data/Palettes/White/PS_Kra_Mecha_White.PS_Kra_Mecha_White_C'",
+    "Package": "Rivals2/Content/Characters/Kragg/Skins/Mecha/Data/Palettes/White/PS_Kra_Mecha_White",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Rubber",
+          "Value": {
+            "R": 0.034071,
+            "G": 0.036983,
+            "B": 0.041667,
+            "A": 1.0,
+            "Hex": "333639"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.5625,
+            "G": 0.528516,
+            "B": 0.477539,
+            "A": 1.0,
+            "Hex": "C6C0B8"
+          }
+        },
+        {
+          "Key": "Shell",
+          "Value": {
+            "R": 0.5625,
+            "G": 0.528516,
+            "B": 0.477539,
+            "A": 1.0,
+            "Hex": "C6C0B8"
+          }
+        },
+        {
+          "Key": "Inner Metal",
+          "Value": {
+            "R": 0.009134,
+            "G": 0.111932,
+            "B": 0.445201,
+            "A": 1.0,
+            "Hex": "185EB2"
+          }
+        },
+        {
+          "Key": "Eye Glow",
+          "Value": {
+            "R": 0.0,
+            "G": 0.478833,
+            "B": 0.845,
+            "A": 1.0,
+            "Hex": "00B8ED"
+          }
+        },
+        {
+          "Key": "Shell Accent",
+          "Value": {
+            "R": 0.516,
+            "G": 0.232312,
+            "B": 0.015374,
+            "A": 1.0,
+            "Hex": "BE8421"
+          }
+        },
+        {
+          "Key": "Chest",
+          "Value": {
+            "R": 0.042311,
+            "G": 0.064803,
+            "B": 0.520996,
+            "A": 1.0,
+            "Hex": "3A48BF"
+          }
+        },
+        {
+          "Key": "Horn",
+          "Value": {
+            "R": 0.514918,
+            "G": 0.015209,
+            "B": 0.022174,
+            "A": 1.0,
+            "Hex": "BE2129"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.5625,
+            "G": 0.528516,
+            "B": 0.477539,
+            "A": 1.0,
+            "Hex": "C6C0B8"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.514918,
+            "G": 0.015209,
+            "B": 0.022174,
+            "A": 1.0,
+            "Hex": "BE2129"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -9,7 +9,7 @@
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -220,6 +220,56 @@
             "B": 0.361307,
             "A": 1.0,
             "Hex": "FEA4A2"
+          }
+        },
+        {
+          "Key": "ClothingTrim",
+          "Value": {
+            "R": 0.615,
+            "G": 0.528285,
+            "B": 0.528285,
+            "A": 0.999,
+            "Hex": "CEC0C0"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.716,
+            "G": 0.692372,
+            "B": 0.692372,
+            "A": 0.999,
+            "Hex": "DCD9D9"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 0.615,
+            "G": 0.528285,
+            "B": 0.528285,
+            "A": 0.999,
+            "Hex": "CEC0C0"
+          }
+        },
+        {
+          "Key": "Eyes",
+          "Value": {
+            "R": 0.061068,
+            "G": 0.102508,
+            "B": 0.55834,
+            "A": 1.0,
+            "Hex": "465AC5"
+          }
+        },
+        {
+          "Key": "Eyebrows",
+          "Value": {
+            "R": 0.068,
+            "G": 0.041791,
+            "B": 0.042363,
+            "A": 1.0,
+            "Hex": "4A393A"
           }
         }
       ]

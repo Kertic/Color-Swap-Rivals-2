@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Cla_Cyber_Purple_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Purple/PE_Cla_Cyber_Purple",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Cla_Cyber_Purple_C'Default__PE_Cla_Cyber_Purple_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Purple/PE_Cla_Cyber_Purple.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Cla_Cyber_Purple_C",
+    "Name": "Default__PE_Cla_Cyber_Purple_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Purple/PE_Cla_Cyber_Purple.PE_Cla_Cyber_Purple_C'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Purple/PE_Cla_Cyber_Purple",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.139833,
+            "G": 0.007499,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "6815FF"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.046096,
+            "G": 0.003832,
+            "B": 0.511,
+            "A": 1.0,
+            "Hex": "3C0CBE"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.008568,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "9D17FF"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.09272,
+            "G": 0.002356,
+            "B": 0.275,
+            "A": 1.0,
+            "Hex": "56078F"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Abs_Mecha_PortPriority_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/PortPriority/PS_Abs_Mecha_PortPriority",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Abs_Mecha_PortPriority_C'Default__PS_Abs_Mecha_PortPriority_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/PortPriority/PS_Abs_Mecha_PortPriority.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Abs_Mecha_PortPriority_C",
+    "Name": "Default__PS_Abs_Mecha_PortPriority_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/PortPriority/PS_Abs_Mecha_PortPriority.PS_Abs_Mecha_PortPriority_C'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/PortPriority/PS_Abs_Mecha_PortPriority",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Rubber",
+          "Value": {
+            "R": 0.162029,
+            "G": 0.016807,
+            "B": 0.017642,
+            "A": 1.0,
+            "Hex": "702324"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.052861,
+            "B": 0.078187,
+            "A": 1.0,
+            "Hex": "E9414F"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 1.0,
+            "G": 0.027321,
+            "B": 0.059511,
+            "A": 1.0,
+            "Hex": "FF2E45"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.768151,
+            "G": 0.723055,
+            "B": 0.723055,
+            "A": 1.0,
+            "Hex": "E3DDDD"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.095307,
+            "G": 0.061246,
+            "B": 0.06301,
+            "A": 1.0,
+            "Hex": "574647"
+          }
+        },
+        {
+          "Key": "LightPanels",
+          "Value": {
+            "R": 0.14996,
+            "G": 0.000607,
+            "B": 0.001518,
+            "A": 1.0,
+            "Hex": "6C0205"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.219526,
+            "G": 0.013702,
+            "B": 0.028426,
+            "A": 1.0,
+            "Hex": "811F2F"
+          }
+        },
+        {
+          "Key": "EmissiveColor",
+          "Value": {
+            "R": 0.964686,
+            "G": 0.913099,
+            "B": 0.913099,
+            "A": 1.0,
+            "Hex": "FBF5F5"
+          }
+        }
+      ]
+    }
+  }
+]

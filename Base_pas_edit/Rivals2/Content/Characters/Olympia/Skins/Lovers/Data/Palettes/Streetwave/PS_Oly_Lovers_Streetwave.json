@@ -1,0 +1,278 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Oly_Lovers_Streetwave_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Olympia/Skins/Lovers/Data/Palettes/Streetwave/PS_Oly_Lovers_Streetwave",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Oly_Lovers_Streetwave_C'Default__PS_Oly_Lovers_Streetwave_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Olympia/Skins/Lovers/Data/Palettes/Streetwave/PS_Oly_Lovers_Streetwave.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Oly_Lovers_Streetwave_C",
+    "Name": "Default__PS_Oly_Lovers_Streetwave_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Olympia/Skins/Lovers/Data/Palettes/Streetwave/PS_Oly_Lovers_Streetwave.PS_Oly_Lovers_Streetwave_C'",
+    "Package": "Rivals2/Content/Characters/Olympia/Skins/Lovers/Data/Palettes/Streetwave/PS_Oly_Lovers_Streetwave",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Necklace",
+          "Value": {
+            "R": 0.270833,
+            "G": 0.102973,
+            "B": 0.031033,
+            "A": 1.0,
+            "Hex": "8E5A31"
+          }
+        },
+        {
+          "Key": "Jacket",
+          "Value": {
+            "R": 0.985269,
+            "G": 1.0,
+            "B": 0.988951,
+            "A": 1.0,
+            "Hex": "FEFFFE"
+          }
+        },
+        {
+          "Key": "Glove/Shoe",
+          "Value": {
+            "R": 0.713542,
+            "G": 0.402031,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "DCAA00"
+          }
+        },
+        {
+          "Key": "Glove/Shoe Trim",
+          "Value": {
+            "R": 0.014448,
+            "G": 0.019,
+            "B": 0.014742,
+            "A": 1.0,
+            "Hex": "202520"
+          }
+        },
+        {
+          "Key": "Pant",
+          "Value": {
+            "R": 0.932292,
+            "G": 0.525281,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "F8C000"
+          }
+        },
+        {
+          "Key": "Clothing Trim",
+          "Value": {
+            "R": 0.014448,
+            "G": 0.019,
+            "B": 0.014742,
+            "A": 1.0,
+            "Hex": "202520"
+          }
+        },
+        {
+          "Key": "Belt",
+          "Value": {
+            "R": 0.014448,
+            "G": 0.019,
+            "B": 0.014742,
+            "A": 1.0,
+            "Hex": "202520"
+          }
+        },
+        {
+          "Key": "Shoe Tongue",
+          "Value": {
+            "R": 0.505208,
+            "G": 0.500345,
+            "B": 0.471511,
+            "A": 1.0,
+            "Hex": "BDBCB7"
+          }
+        },
+        {
+          "Key": "Shirt",
+          "Value": {
+            "R": 0.014448,
+            "G": 0.019,
+            "B": 0.014742,
+            "A": 1.0,
+            "Hex": "202520"
+          }
+        },
+        {
+          "Key": "Necklace Crystal",
+          "Value": {
+            "R": 1.0,
+            "G": 0.187821,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FF7800"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.0,
+            "G": 0.296138,
+            "B": 0.254152,
+            "A": 1.0,
+            "Hex": "00948A"
+          }
+        },
+        {
+          "Key": "Earhair",
+          "Value": {
+            "R": 0.0,
+            "G": 0.296138,
+            "B": 0.254152,
+            "A": 1.0,
+            "Hex": "00948A"
+          }
+        },
+        {
+          "Key": "HairDye",
+          "Value": {
+            "R": 0.0,
+            "G": 0.214667,
+            "B": 0.322,
+            "A": 1.0,
+            "Hex": "00809A"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.0,
+            "G": 0.296138,
+            "B": 0.254152,
+            "A": 1.0,
+            "Hex": "00948A"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.021219,
+            "G": 0.066626,
+            "B": 0.171441,
+            "A": 1.0,
+            "Hex": "284973"
+          }
+        },
+        {
+          "Key": "Paws",
+          "Value": {
+            "R": 0.021219,
+            "G": 0.066626,
+            "B": 0.171441,
+            "A": 1.0,
+            "Hex": "284973"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.00755,
+            "G": 0.023706,
+            "B": 0.061,
+            "A": 1.0,
+            "Hex": "152A46"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.015996,
+            "G": 0.011612,
+            "B": 0.012286,
+            "A": 1.0,
+            "Hex": "221C1D"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.021219,
+            "G": 0.066626,
+            "B": 0.171441,
+            "A": 1.0,
+            "Hex": "284973"
+          }
+        },
+        {
+          "Key": "ClothingTrim",
+          "Value": {
+            "R": 0.014448,
+            "G": 0.019,
+            "B": 0.014742,
+            "A": 1.0,
+            "Hex": "202520"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 0.999996,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "ScleraShading",
+          "Value": {
+            "R": 0.278,
+            "G": 0.194322,
+            "B": 0.194322,
+            "A": 1.0,
+            "Hex": "907A7A"
+          }
+        },
+        {
+          "Key": "Eyes",
+          "Value": {
+            "R": 0.050577,
+            "G": 0.093207,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "3F56FF"
+          }
+        },
+        {
+          "Key": "Eyebrows",
+          "Value": {
+            "R": 0.00755,
+            "G": 0.023706,
+            "B": 0.061,
+            "A": 1.0,
+            "Hex": "152A46"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -9,7 +9,7 @@
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -27,7 +27,7 @@
   {
     "Type": "PS_For_Undead_Neutral_C",
     "Name": "Default__PS_For_Undead_Neutral_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Undead/Data/Palettes/Neutral/PS_For_Undead_Neutral.PS_For_Undead_Neutral_C'",
     "Package": "Rivals2/Content/Characters/Forsburn/Skins/Undead/Data/Palettes/Neutral/PS_For_Undead_Neutral",
     "Properties": {
@@ -130,6 +130,26 @@
             "B": 1.0,
             "A": 1.0,
             "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 0.105205,
+            "G": 1.0,
+            "B": 0.582429,
+            "A": 1.0,
+            "Hex": "5BFFC9"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 0.105205,
+            "G": 1.0,
+            "B": 0.582429,
+            "A": 1.0,
+            "Hex": "5BFFC9"
           }
         }
       ]

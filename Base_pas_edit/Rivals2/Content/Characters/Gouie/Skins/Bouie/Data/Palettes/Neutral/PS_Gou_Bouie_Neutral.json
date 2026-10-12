@@ -1,0 +1,188 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gou_Bouie_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Bouie/Data/Palettes/Neutral/PS_Gou_Bouie_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gou_Bouie_Neutral_C'Default__PS_Gou_Bouie_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Bouie/Data/Palettes/Neutral/PS_Gou_Bouie_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gou_Bouie_Neutral_C",
+    "Name": "Default__PS_Gou_Bouie_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Bouie/Data/Palettes/Neutral/PS_Gou_Bouie_Neutral.PS_Gou_Bouie_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Bouie/Data/Palettes/Neutral/PS_Gou_Bouie_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Bone",
+          "Value": {
+            "R": 0.453125,
+            "G": 0.453125,
+            "B": 0.453125,
+            "A": 1.0,
+            "Hex": "B4B4B4"
+          }
+        },
+        {
+          "Key": "Bill",
+          "Value": {
+            "R": 0.078,
+            "G": 0.053775,
+            "B": 0.035412,
+            "A": 1.0,
+            "Hex": "4F4135"
+          }
+        },
+        {
+          "Key": "Tail",
+          "Value": {
+            "R": 0.036458,
+            "G": 0.021082,
+            "B": 0.018229,
+            "A": 1.0,
+            "Hex": "352824"
+          }
+        },
+        {
+          "Key": "GooGlow",
+          "Value": {
+            "R": 0.223958,
+            "G": 1.0,
+            "B": 0.574859,
+            "A": 1.0,
+            "Hex": "82FFC8"
+          }
+        },
+        {
+          "Key": "Goo",
+          "Value": {
+            "R": 0.0,
+            "G": 0.557292,
+            "B": 0.251989,
+            "A": 1.0,
+            "Hex": "00C589"
+          }
+        },
+        {
+          "Key": "GooHighlight",
+          "Value": {
+            "R": 0.0,
+            "G": 1.0,
+            "B": 0.504341,
+            "A": 1.0,
+            "Hex": "00FFBC"
+          }
+        },
+        {
+          "Key": "SocketR",
+          "Value": {
+            "R": 0.013889,
+            "G": 0.013889,
+            "B": 0.013889,
+            "A": 1.0,
+            "Hex": "1F1F1F"
+          }
+        },
+        {
+          "Key": "SocketL",
+          "Value": {
+            "R": 0.013889,
+            "G": 0.013889,
+            "B": 0.013889,
+            "A": 1.0,
+            "Hex": "1F1F1F"
+          }
+        },
+        {
+          "Key": "IrisR",
+          "Value": {
+            "R": 0.0,
+            "G": 1.0,
+            "B": 0.424895,
+            "A": 1.0,
+            "Hex": "00FFAE"
+          }
+        },
+        {
+          "Key": "IrisL",
+          "Value": {
+            "R": 0.0,
+            "G": 1.0,
+            "B": 0.424895,
+            "A": 1.0,
+            "Hex": "00FFAE"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.399848,
+            "G": 0.572917,
+            "B": 0.496163,
+            "A": 1.0,
+            "Hex": "AAC8BB"
+          }
+        },
+        {
+          "Key": "EyeHole",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Beak",
+          "Value": {
+            "R": 0.0625,
+            "G": 0.030155,
+            "B": 0.028375,
+            "A": 1.0,
+            "Hex": "46302F"
+          }
+        },
+        {
+          "Key": "Stitches",
+          "Value": {
+            "R": 0.03125,
+            "G": 0.016357,
+            "B": 0.011393,
+            "A": 1.0,
+            "Hex": "31221B"
+          }
+        },
+        {
+          "Key": "Eyes",
+          "Value": {
+            "R": 0.0,
+            "G": 1.0,
+            "B": 0.424895,
+            "A": 1.0,
+            "Hex": "00FFAE"
+          }
+        }
+      ]
+    }
+  }
+]

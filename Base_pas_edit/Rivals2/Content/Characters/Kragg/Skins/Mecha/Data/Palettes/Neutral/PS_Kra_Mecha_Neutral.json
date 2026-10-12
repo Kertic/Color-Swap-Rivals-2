@@ -9,7 +9,7 @@
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -73,13 +73,13 @@
           }
         },
         {
-          "Key": "Eyes",
+          "Key": "Eye Glow",
           "Value": {
             "R": 0.0,
-            "G": 0.055659,
-            "B": 0.109375,
+            "G": 0.505926,
+            "B": 1.0,
             "A": 1.0,
-            "Hex": "00425D"
+            "Hex": "00BDFF"
           }
         },
         {
@@ -93,13 +93,43 @@
           }
         },
         {
-          "Key": "Eye Glow",
+          "Key": "Chest",
           "Value": {
-            "R": 0.0,
-            "G": 0.505926,
-            "B": 1.0,
+            "R": 0.23074,
+            "G": 0.097587,
+            "B": 0.051269,
             "A": 1.0,
-            "Hex": "00BDFF"
+            "Hex": "845840"
+          }
+        },
+        {
+          "Key": "Horn",
+          "Value": {
+            "R": 0.23074,
+            "G": 0.097587,
+            "B": 0.051269,
+            "A": 1.0,
+            "Hex": "845840"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.191202,
+            "G": 0.467784,
+            "B": 0.078187,
+            "A": 1.0,
+            "Hex": "79B64F"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.502887,
+            "G": 0.502887,
+            "B": 0.502887,
+            "A": 1.0,
+            "Hex": "BCBCBC"
           }
         }
       ]

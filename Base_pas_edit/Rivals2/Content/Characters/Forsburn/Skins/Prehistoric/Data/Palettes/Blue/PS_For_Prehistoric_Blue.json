@@ -9,7 +9,7 @@
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -27,7 +27,7 @@
   {
     "Type": "PS_For_Prehistoric_Blue_C",
     "Name": "Default__PS_For_Prehistoric_Blue_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Prehistoric/Data/Palettes/Blue/PS_For_Prehistoric_Blue.PS_For_Prehistoric_Blue_C'",
     "Package": "Rivals2/Content/Characters/Forsburn/Skins/Prehistoric/Data/Palettes/Blue/PS_For_Prehistoric_Blue",
     "Properties": {
@@ -174,6 +174,26 @@
         },
         {
           "Key": "Mask Eyes",
+          "Value": {
+            "R": 0.450786,
+            "G": 0.012286,
+            "B": 0.144128,
+            "A": 1.0,
+            "Hex": "B31D6A"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 0.450786,
+            "G": 0.012286,
+            "B": 0.144128,
+            "A": 1.0,
+            "Hex": "B31D6A"
+          }
+        },
+        {
+          "Key": "IrisLeft",
           "Value": {
             "R": 0.450786,
             "G": 0.012286,

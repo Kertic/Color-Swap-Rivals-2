@@ -9,7 +9,7 @@
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -27,7 +27,7 @@
   {
     "Type": "PS_For_Krampus_Neutral_C",
     "Name": "Default__PS_For_Krampus_Neutral_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Krampus/Data/Palettes/Neutral/PS_For_Krampus_Neutral.PS_For_Krampus_Neutral_C'",
     "Package": "Rivals2/Content/Characters/Forsburn/Skins/Krampus/Data/Palettes/Neutral/PS_For_Krampus_Neutral",
     "Properties": {
@@ -193,17 +193,7 @@
           }
         },
         {
-          "Key": "Pupil",
-          "Value": {
-            "R": 0.0,
-            "G": 0.0,
-            "B": 0.0,
-            "A": 1.0,
-            "Hex": "000000"
-          }
-        },
-        {
-          "Key": "Iris",
+          "Key": "IrisLeft",
           "Value": {
             "R": 0.683,
             "G": 0.014343,
@@ -213,13 +203,13 @@
           }
         },
         {
-          "Key": "Scelera",
+          "Key": "IrisRight",
           "Value": {
-            "R": 1.0,
-            "G": 1.0,
-            "B": 1.0,
+            "R": 0.683,
+            "G": 0.014343,
+            "B": 0.014343,
             "A": 1.0,
-            "Hex": "FFFFFF"
+            "Hex": "D81F1F"
           }
         }
       ]

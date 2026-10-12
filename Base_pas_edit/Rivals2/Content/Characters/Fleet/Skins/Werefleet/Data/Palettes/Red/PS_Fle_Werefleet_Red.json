@@ -1,0 +1,278 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Fle_Werefleet_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Werefleet/Data/Palettes/Red/PS_Fle_Werefleet_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Fle_Werefleet_Red_C'Default__PS_Fle_Werefleet_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Fleet/Skins/Werefleet/Data/Palettes/Red/PS_Fle_Werefleet_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Fle_Werefleet_Red_C",
+    "Name": "Default__PS_Fle_Werefleet_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Fleet/Skins/Werefleet/Data/Palettes/Red/PS_Fle_Werefleet_Red.PS_Fle_Werefleet_Red_C'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Werefleet/Data/Palettes/Red/PS_Fle_Werefleet_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.348958,
+            "G": 0.061795,
+            "B": 0.061799,
+            "A": 1.0,
+            "Hex": "A04646"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.863157,
+            "G": 0.791298,
+            "B": 0.552011,
+            "A": 1.0,
+            "Hex": "EFE6C4"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.041667,
+            "G": 0.013889,
+            "B": 0.018237,
+            "A": 1.0,
+            "Hex": "391F24"
+          }
+        },
+        {
+          "Key": "Paws",
+          "Value": {
+            "R": 0.381326,
+            "G": 0.122139,
+            "B": 0.122139,
+            "A": 1.0,
+            "Hex": "A66262"
+          }
+        },
+        {
+          "Key": "Shirt",
+          "Value": {
+            "R": 0.052083,
+            "G": 0.052083,
+            "B": 0.052083,
+            "A": 1.0,
+            "Hex": "404040"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.192708,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "790000"
+          }
+        },
+        {
+          "Key": "Chain",
+          "Value": {
+            "R": 0.202441,
+            "G": 0.325018,
+            "B": 0.390625,
+            "A": 1.0,
+            "Hex": "7C9BA8"
+          }
+        },
+        {
+          "Key": "Cape",
+          "Value": {
+            "R": 0.028042,
+            "G": 0.023519,
+            "B": 0.088542,
+            "A": 1.0,
+            "Hex": "2E2A54"
+          }
+        },
+        {
+          "Key": "BowWraps",
+          "Value": {
+            "R": 0.326389,
+            "G": 0.233756,
+            "B": 0.186635,
+            "A": 1.0,
+            "Hex": "9B8578"
+          }
+        },
+        {
+          "Key": "BowGem",
+          "Value": {
+            "R": 0.296875,
+            "G": 0.002397,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "940700"
+          }
+        },
+        {
+          "Key": "Wood",
+          "Value": {
+            "R": 0.332452,
+            "G": 0.102242,
+            "B": 0.057805,
+            "A": 1.0,
+            "Hex": "9C5A44"
+          }
+        },
+        {
+          "Key": "Bow",
+          "Value": {
+            "R": 0.019008,
+            "G": 0.023534,
+            "B": 0.026042,
+            "A": 1.0,
+            "Hex": "252A2C"
+          }
+        },
+        {
+          "Key": "BowMetal",
+          "Value": {
+            "R": 0.162241,
+            "G": 0.183895,
+            "B": 0.246527,
+            "A": 1.0,
+            "Hex": "707788"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.533277,
+            "G": 0.099899,
+            "B": 0.346704,
+            "A": 1.0,
+            "Hex": "C1599F"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 0.313043,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FF9800"
+          }
+        },
+        {
+          "Key": "RightIris",
+          "Value": {
+            "R": 1.0,
+            "G": 0.313043,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FF9800"
+          }
+        },
+        {
+          "Key": "LeftIris",
+          "Value": {
+            "R": 1.0,
+            "G": 0.313043,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "FF9800"
+          }
+        },
+        {
+          "Key": "Apple",
+          "Value": {
+            "R": 0.904661,
+            "G": 0.195222,
+            "B": 0.009867,
+            "A": 1.0,
+            "Hex": "F47A19"
+          }
+        },
+        {
+          "Key": "Meat",
+          "Value": {
+            "R": 0.114322,
+            "G": 0.140625,
+            "B": 0.054199,
+            "A": 1.0,
+            "Hex": "5F6942"
+          }
+        },
+        {
+          "Key": "Peach",
+          "Value": {
+            "R": 0.930111,
+            "G": 0.327656,
+            "B": 0.215861,
+            "A": 1.0,
+            "Hex": "F79B80"
+          }
+        },
+        {
+          "Key": "Fang",
+          "Value": {
+            "R": 1.0,
+            "G": 0.895402,
+            "B": 0.625,
+            "A": 1.0,
+            "Hex": "FFF3CF"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.036458,
+            "G": 0.008355,
+            "B": 0.008355,
+            "A": 1.0,
+            "Hex": "351616"
+          }
+        },
+        {
+          "Key": "Ear",
+          "Value": {
+            "R": 0.901042,
+            "G": 0.286268,
+            "B": 0.286268,
+            "A": 1.0,
+            "Hex": "F49292"
+          }
+        },
+        {
+          "Key": "InnerMouth",
+          "Value": {
+            "R": 0.250158,
+            "G": 0.066626,
+            "B": 0.124772,
+            "A": 1.0,
+            "Hex": "894963"
+          }
+        }
+      ]
+    }
+  }
+]

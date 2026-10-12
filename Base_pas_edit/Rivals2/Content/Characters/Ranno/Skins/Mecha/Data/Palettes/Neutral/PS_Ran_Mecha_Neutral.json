@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Ran_Mecha_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Ranno/Skins/Mecha/Data/Palettes/Neutral/PS_Ran_Mecha_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Ran_Mecha_Neutral_C'Default__PS_Ran_Mecha_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Ranno/Skins/Mecha/Data/Palettes/Neutral/PS_Ran_Mecha_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Ran_Mecha_Neutral_C",
+    "Name": "Default__PS_Ran_Mecha_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Ranno/Skins/Mecha/Data/Palettes/Neutral/PS_Ran_Mecha_Neutral.PS_Ran_Mecha_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Ranno/Skins/Mecha/Data/Palettes/Neutral/PS_Ran_Mecha_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "EmissBase",
+          "Value": {
+            "R": 0.508881,
+            "G": 0.097864,
+            "B": 0.005595,
+            "A": 1.0,
+            "Hex": "BD5811"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.049707,
+            "G": 0.048172,
+            "B": 0.049707,
+            "A": 1.0,
+            "Hex": "3F3E3F"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.08022,
+            "G": 0.434154,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "50B0FF"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.009134,
+            "G": 0.049707,
+            "B": 0.168269,
+            "A": 1.0,
+            "Hex": "183F72"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.366253,
+            "G": 0.361307,
+            "B": 0.366253,
+            "A": 1.0,
+            "Hex": "A3A2A3"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.928,
+            "G": 0.205428,
+            "B": 0.005568,
+            "A": 1.0,
+            "Hex": "F77D10"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.162029,
+            "G": 0.152926,
+            "B": 0.152926,
+            "A": 1.0,
+            "Hex": "706D6D"
+          }
+        },
+        {
+          "Key": "SashCore",
+          "Value": {
+            "R": 0.088196,
+            "G": 0.1,
+            "B": 0.0638,
+            "A": 1.0,
+            "Hex": "545947"
+          }
+        },
+        {
+          "Key": "SashPlating",
+          "Value": {
+            "R": 0.095662,
+            "G": 0.612,
+            "B": 0.004543,
+            "A": 1.0,
+            "Hex": "57CE0E"
+          }
+        },
+        {
+          "Key": "Emissive",
+          "Value": {
+            "R": 0.508881,
+            "G": 0.097864,
+            "B": 0.005595,
+            "A": 1.0,
+            "Hex": "BD5811"
+          }
+        }
+      ]
+    }
+  }
+]

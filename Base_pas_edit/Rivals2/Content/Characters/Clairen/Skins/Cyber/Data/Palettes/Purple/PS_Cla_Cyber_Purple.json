@@ -1,0 +1,238 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Cla_Cyber_Purple_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Purple/PS_Cla_Cyber_Purple",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Cla_Cyber_Purple_C'Default__PS_Cla_Cyber_Purple_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Purple/PS_Cla_Cyber_Purple.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Cla_Cyber_Purple_C",
+    "Name": "Default__PS_Cla_Cyber_Purple_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Purple/PS_Cla_Cyber_Purple.PS_Cla_Cyber_Purple_C'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Cyber/Data/Palettes/Purple/PS_Cla_Cyber_Purple",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.102034,
+            "B": 0.075187,
+            "A": 1.0,
+            "Hex": "9D5A4D"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.561,
+            "G": 0.350438,
+            "B": 0.245157,
+            "A": 1.0,
+            "Hex": "C6A088"
+          }
+        },
+        {
+          "Key": "Nose",
+          "Value": {
+            "R": 0.020833,
+            "G": 0.020415,
+            "B": 0.020399,
+            "A": 1.0,
+            "Hex": "272727"
+          }
+        },
+        {
+          "Key": "Circuits",
+          "Value": {
+            "R": 0.010417,
+            "G": 0.009332,
+            "B": 0.009342,
+            "A": 1.0,
+            "Hex": "1A1818"
+          }
+        },
+        {
+          "Key": "Nails",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.008568,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "9D17FF"
+          }
+        },
+        {
+          "Key": "Clothing",
+          "Value": {
+            "R": 0.020833,
+            "G": 0.020415,
+            "B": 0.020399,
+            "A": 1.0,
+            "Hex": "272727"
+          }
+        },
+        {
+          "Key": "Pattern",
+          "Value": {
+            "R": 0.189458,
+            "G": 0.007499,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "7815FF"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.102034,
+            "B": 0.075187,
+            "A": 1.0,
+            "Hex": "9D5A4D"
+          }
+        },
+        {
+          "Key": "Glow",
+          "Value": {
+            "R": 0.139833,
+            "G": 0.007499,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "6815FF"
+          }
+        },
+        {
+          "Key": "Cape",
+          "Value": {
+            "R": 0.084,
+            "G": 0.02542,
+            "B": 0.018732,
+            "A": 1.0,
+            "Hex": "522C25"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.008568,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "9D17FF"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.008568,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "9D17FF"
+          }
+        },
+        {
+          "Key": "Eyebrows",
+          "Value": {
+            "R": 0.020833,
+            "G": 0.020415,
+            "B": 0.020399,
+            "A": 1.0,
+            "Hex": "272727"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.752942,
+            "G": 0.760525,
+            "B": 0.752942,
+            "A": 1.0,
+            "Hex": "E1E2E1"
+          }
+        },
+        {
+          "Key": "Visor",
+          "Value": {
+            "R": 0.020833,
+            "G": 0.020415,
+            "B": 0.020399,
+            "A": 1.0,
+            "Hex": "272727"
+          }
+        },
+        {
+          "Key": "Sword",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.102034,
+            "B": 0.075187,
+            "A": 1.0,
+            "Hex": "9D5A4D"
+          }
+        },
+        {
+          "Key": "Grip",
+          "Value": {
+            "R": 0.020833,
+            "G": 0.020415,
+            "B": 0.020399,
+            "A": 1.0,
+            "Hex": "272727"
+          }
+        },
+        {
+          "Key": "Laser",
+          "Value": {
+            "R": 0.139833,
+            "G": 0.007499,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "6815FF"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.337164,
+            "G": 0.008568,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "9D17FF"
+          }
+        },
+        {
+          "Key": "Hair2",
+          "Value": {
+            "R": 0.139833,
+            "G": 0.007499,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "6815FF"
+          }
+        }
+      ]
+    }
+  }
+]

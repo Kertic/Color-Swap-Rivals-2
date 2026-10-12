@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Lox_Plushie_Blue_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Plushie/Data/Palettes/Blue/PE_Lox_Plushie_Blue",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Lox_Plushie_Blue_C'Default__PE_Lox_Plushie_Blue_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Loxodont/Skins/Plushie/Data/Palettes/Blue/PE_Lox_Plushie_Blue.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Lox_Plushie_Blue_C",
+    "Name": "Default__PE_Lox_Plushie_Blue_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Loxodont/Skins/Plushie/Data/Palettes/Blue/PE_Lox_Plushie_Blue.PE_Lox_Plushie_Blue_C'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Plushie/Data/Palettes/Blue/PE_Lox_Plushie_Blue",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.004527,
+            "G": 0.030096,
+            "B": 0.083333,
+            "A": 1.0,
+            "Hex": "0E3051"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.003806,
+            "G": 0.097717,
+            "B": 0.239583,
+            "A": 1.0,
+            "Hex": "0C5886"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.063872,
+            "G": 0.034444,
+            "B": 0.083333,
+            "A": 1.0,
+            "Hex": "473451"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.201881,
+            "G": 0.314791,
+            "B": 0.672443,
+            "A": 1.0,
+            "Hex": "7C98D6"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.123163,
+            "G": 0.30172,
+            "B": 0.450786,
+            "A": 1.0,
+            "Hex": "6295B3"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 0.697199,
+            "G": 0.751779,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "DAE1FF"
+          }
+        }
+      ]
+    }
+  }
+]

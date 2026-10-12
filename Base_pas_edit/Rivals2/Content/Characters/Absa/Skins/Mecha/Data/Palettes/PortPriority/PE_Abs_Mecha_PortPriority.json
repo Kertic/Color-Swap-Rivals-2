@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Abs_Mecha_PortPriority_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/PortPriority/PE_Abs_Mecha_PortPriority",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Abs_Mecha_PortPriority_C'Default__PE_Abs_Mecha_PortPriority_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/PortPriority/PE_Abs_Mecha_PortPriority.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Abs_Mecha_PortPriority_C",
+    "Name": "Default__PE_Abs_Mecha_PortPriority_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/PortPriority/PE_Abs_Mecha_PortPriority.PE_Abs_Mecha_PortPriority_C'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/PortPriority/PE_Abs_Mecha_PortPriority",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.14996,
+            "G": 0.000607,
+            "B": 0.001518,
+            "A": 1.0,
+            "Hex": "6C0205"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.595,
+            "G": 0.016256,
+            "B": 0.035409,
+            "A": 1.0,
+            "Hex": "CB2235"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.841,
+            "G": 0.079054,
+            "B": 0.104378,
+            "A": 1.0,
+            "Hex": "ED4F5B"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.991102,
+            "G": 0.196238,
+            "B": 0.239981,
+            "A": 1.0,
+            "Hex": "FE7A86"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 0.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "00FFFF"
+          }
+        }
+      ]
+    }
+  }
+]

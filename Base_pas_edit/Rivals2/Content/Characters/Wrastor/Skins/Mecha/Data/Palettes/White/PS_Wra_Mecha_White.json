@@ -1,0 +1,158 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Wra_Mecha_White_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Mecha/Data/Palettes/White/PS_Wra_Mecha_White",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Wra_Mecha_White_C'Default__PS_Wra_Mecha_White_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Wrastor/Skins/Mecha/Data/Palettes/White/PS_Wra_Mecha_White.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Wra_Mecha_White_C",
+    "Name": "Default__PS_Wra_Mecha_White_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Wrastor/Skins/Mecha/Data/Palettes/White/PS_Wra_Mecha_White.PS_Wra_Mecha_White_C'",
+    "Package": "Rivals2/Content/Characters/Wrastor/Skins/Mecha/Data/Palettes/White/PS_Wra_Mecha_White",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Wing",
+          "Value": {
+            "R": 0.00792,
+            "G": 0.072468,
+            "B": 0.36,
+            "A": 1.0,
+            "Hex": "154CA2"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.514918,
+            "G": 0.584078,
+            "B": 0.57758,
+            "A": 1.0,
+            "Hex": "BEC9C8"
+          }
+        },
+        {
+          "Key": "Beak",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.366253,
+            "B": 0.061246,
+            "A": 1.0,
+            "Hex": "E9A346"
+          }
+        },
+        {
+          "Key": "Scarf",
+          "Value": {
+            "R": 0.514918,
+            "G": 0.584078,
+            "B": 0.57758,
+            "A": 1.0,
+            "Hex": "BEC9C8"
+          }
+        },
+        {
+          "Key": "Joints",
+          "Value": {
+            "R": 0.035408,
+            "G": 0.037489,
+            "B": 0.043,
+            "A": 1.0,
+            "Hex": "35363A"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.516,
+            "G": 0.015374,
+            "B": 0.022635,
+            "A": 1.0,
+            "Hex": "BE2129"
+          }
+        },
+        {
+          "Key": "Warheads",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.366253,
+            "B": 0.061246,
+            "A": 1.0,
+            "Hex": "E9A346"
+          }
+        },
+        {
+          "Key": "Lights",
+          "Value": {
+            "R": 0.0,
+            "G": 0.651,
+            "B": 0.27125,
+            "A": 1.0,
+            "Hex": "00D38E"
+          }
+        },
+        {
+          "Key": "Emissive",
+          "Value": {
+            "R": 0.0,
+            "G": 0.651,
+            "B": 0.27125,
+            "A": 1.0,
+            "Hex": "00D38E"
+          }
+        },
+        {
+          "Key": "Legs",
+          "Value": {
+            "R": 0.814847,
+            "G": 0.366253,
+            "B": 0.061246,
+            "A": 1.0,
+            "Hex": "E9A346"
+          }
+        },
+        {
+          "Key": "White",
+          "Value": {
+            "R": 0.514918,
+            "G": 0.584078,
+            "B": 0.57758,
+            "A": 1.0,
+            "Hex": "BEC9C8"
+          }
+        },
+        {
+          "Key": "Wings",
+          "Value": {
+            "R": 0.00792,
+            "G": 0.072468,
+            "B": 0.36,
+            "A": 1.0,
+            "Hex": "154CA2"
+          }
+        }
+      ]
+    }
+  }
+]

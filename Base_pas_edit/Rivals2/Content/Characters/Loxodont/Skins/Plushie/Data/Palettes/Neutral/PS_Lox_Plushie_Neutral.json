@@ -1,0 +1,278 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Lox_Plushie_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Plushie/Data/Palettes/Neutral/PS_Lox_Plushie_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Lox_Plushie_Neutral_C'Default__PS_Lox_Plushie_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Loxodont/Skins/Plushie/Data/Palettes/Neutral/PS_Lox_Plushie_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Lox_Plushie_Neutral_C",
+    "Name": "Default__PS_Lox_Plushie_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Loxodont/Skins/Plushie/Data/Palettes/Neutral/PS_Lox_Plushie_Neutral.PS_Lox_Plushie_Neutral_C'",
+    "Package": "Rivals2/Content/Characters/Loxodont/Skins/Plushie/Data/Palettes/Neutral/PS_Lox_Plushie_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.258183,
+            "G": 0.291771,
+            "B": 0.391572,
+            "A": 1.0,
+            "Hex": "8B93A8"
+          }
+        },
+        {
+          "Key": "Ears",
+          "Value": {
+            "R": 0.327778,
+            "G": 0.212231,
+            "B": 0.187821,
+            "A": 1.0,
+            "Hex": "9B7F78"
+          }
+        },
+        {
+          "Key": "Tusks",
+          "Value": {
+            "R": 0.366253,
+            "G": 0.366253,
+            "B": 0.327778,
+            "A": 1.0,
+            "Hex": "A3A39B"
+          }
+        },
+        {
+          "Key": "Stitches",
+          "Value": {
+            "R": 0.198069,
+            "G": 0.119538,
+            "B": 0.14996,
+            "A": 1.0,
+            "Hex": "7B616C"
+          }
+        },
+        {
+          "Key": "Details",
+          "Value": {
+            "R": 0.124772,
+            "G": 0.090842,
+            "B": 0.088656,
+            "A": 1.0,
+            "Hex": "635554"
+          }
+        },
+        {
+          "Key": "Button",
+          "Value": {
+            "R": 0.672443,
+            "G": 0.278894,
+            "B": 0.109462,
+            "A": 1.0,
+            "Hex": "D6905D"
+          }
+        },
+        {
+          "Key": "Tag",
+          "Value": {
+            "R": 0.637597,
+            "G": 0.64448,
+            "B": 0.658375,
+            "A": 1.0,
+            "Hex": "D1D2D4"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 0.016807,
+            "G": 0.015996,
+            "B": 0.016807,
+            "A": 1.0,
+            "Hex": "232223"
+          }
+        },
+        {
+          "Key": "Iris",
+          "Value": {
+            "R": 0.585069,
+            "G": 0.310532,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "C99700"
+          }
+        },
+        {
+          "Key": "Axe Blade",
+          "Value": {
+            "R": 0.545724,
+            "G": 0.545724,
+            "B": 0.545724,
+            "A": 1.0,
+            "Hex": "C3C3C3"
+          }
+        },
+        {
+          "Key": "Axe Head",
+          "Value": {
+            "R": 0.396755,
+            "G": 0.014444,
+            "B": 0.029557,
+            "A": 1.0,
+            "Hex": "A92030"
+          }
+        },
+        {
+          "Key": "Axe Trim",
+          "Value": {
+            "R": 0.597202,
+            "G": 0.417885,
+            "B": 0.076185,
+            "A": 1.0,
+            "Hex": "CBAD4E"
+          }
+        },
+        {
+          "Key": "Axe Wraps",
+          "Value": {
+            "R": 0.205079,
+            "G": 0.061246,
+            "B": 0.039546,
+            "A": 1.0,
+            "Hex": "7D4638"
+          }
+        },
+        {
+          "Key": "Axe Handle",
+          "Value": {
+            "R": 0.799103,
+            "G": 0.341914,
+            "B": 0.341914,
+            "A": 1.0,
+            "Hex": "E79E9E"
+          }
+        },
+        {
+          "Key": "Cloth",
+          "Value": {
+            "R": 0.122139,
+            "G": 0.035601,
+            "B": 0.023153,
+            "A": 1.0,
+            "Hex": "62352A"
+          }
+        },
+        {
+          "Key": "Cloth Accent",
+          "Value": {
+            "R": 0.450786,
+            "G": 0.016807,
+            "B": 0.033105,
+            "A": 1.0,
+            "Hex": "B32333"
+          }
+        },
+        {
+          "Key": "Cloth Trim",
+          "Value": {
+            "R": 0.571125,
+            "G": 0.386429,
+            "B": 0.074214,
+            "A": 1.0,
+            "Hex": "C7A74D"
+          }
+        },
+        {
+          "Key": "Lavapoolbase",
+          "Value": {
+            "R": 0.096155,
+            "G": 0.108664,
+            "B": 0.145833,
+            "A": 1.0,
+            "Hex": "575D6B"
+          }
+        },
+        {
+          "Key": "Lavatrim",
+          "Value": {
+            "R": 0.597202,
+            "G": 0.417885,
+            "B": 0.076185,
+            "A": 1.0,
+            "Hex": "CBAD4E"
+          }
+        },
+        {
+          "Key": "LavaStitches",
+          "Value": {
+            "R": 0.450786,
+            "G": 0.244536,
+            "B": 0.120282,
+            "A": 1.0,
+            "Hex": "B38861"
+          }
+        },
+        {
+          "Key": "ThroneBase",
+          "Value": {
+            "R": 0.122139,
+            "G": 0.035601,
+            "B": 0.023153,
+            "A": 1.0,
+            "Hex": "62352A"
+          }
+        },
+        {
+          "Key": "ThroneAccent1",
+          "Value": {
+            "R": 0.450786,
+            "G": 0.016807,
+            "B": 0.033105,
+            "A": 1.0,
+            "Hex": "B32333"
+          }
+        },
+        {
+          "Key": "ThroneAccent2",
+          "Value": {
+            "R": 0.571125,
+            "G": 0.386429,
+            "B": 0.074214,
+            "A": 1.0,
+            "Hex": "C7A74D"
+          }
+        },
+        {
+          "Key": "ThroneAccent3",
+          "Value": {
+            "R": 0.258183,
+            "G": 0.291771,
+            "B": 0.391572,
+            "A": 1.0,
+            "Hex": "8B93A8"
+          }
+        }
+      ]
+    }
+  }
+]

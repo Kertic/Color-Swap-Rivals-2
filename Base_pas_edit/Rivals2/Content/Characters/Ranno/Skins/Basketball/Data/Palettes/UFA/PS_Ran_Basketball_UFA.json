@@ -2,9 +2,8 @@
   {
     "Type": "BlueprintGeneratedClass",
     "Name": "PS_Ran_Basketball_UFA_C",
-    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "Class": "UScriptClass'BlueprintGeneratedClass'",
-    "Package": "Rivals2/Content/Characters/Ranno/Skins/Basketball/Data/Palettes/UFA/PS_Ran_Basketball_UFA",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
     "SuperStruct": {
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
@@ -27,9 +26,8 @@
   {
     "Type": "PS_Ran_Basketball_UFA_C",
     "Name": "Default__PS_Ran_Basketball_UFA_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Ranno/Skins/Basketball/Data/Palettes/UFA/PS_Ran_Basketball_UFA.PS_Ran_Basketball_UFA_C'",
-    "Package": "Rivals2/Content/Characters/Ranno/Skins/Basketball/Data/Palettes/UFA/PS_Ran_Basketball_UFA",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Properties": {
       "CustomColorSlotDefinitions": [
         {

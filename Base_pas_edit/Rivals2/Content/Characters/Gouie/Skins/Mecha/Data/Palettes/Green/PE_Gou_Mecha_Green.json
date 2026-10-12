@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Gou_Mecha_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Mecha/Data/Palettes/Green/PE_Gou_Mecha_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Gou_Mecha_Green_C'Default__PE_Gou_Mecha_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Mecha/Data/Palettes/Green/PE_Gou_Mecha_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Gou_Mecha_Green_C",
+    "Name": "Default__PE_Gou_Mecha_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Mecha/Data/Palettes/Green/PE_Gou_Mecha_Green.PE_Gou_Mecha_Green_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Mecha/Data/Palettes/Green/PE_Gou_Mecha_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.118606,
+            "G": 0.333333,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "619C00"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.115625,
+            "G": 0.770833,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "5FE400"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.380469,
+            "G": 1.0,
+            "B": 0.046875,
+            "A": 1.0,
+            "Hex": "A6FF3D"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.580825,
+            "G": 1.0,
+            "B": 0.371238,
+            "A": 1.0,
+            "Hex": "C9FFA4"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        }
+      ]
+    }
+  }
+]

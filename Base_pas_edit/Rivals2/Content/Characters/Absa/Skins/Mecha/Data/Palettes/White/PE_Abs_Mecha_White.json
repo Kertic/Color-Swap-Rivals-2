@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Abs_Mecha_White_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/White/PE_Abs_Mecha_White",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Abs_Mecha_White_C'Default__PE_Abs_Mecha_White_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/White/PE_Abs_Mecha_White.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Abs_Mecha_White_C",
+    "Name": "Default__PE_Abs_Mecha_White_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/White/PE_Abs_Mecha_White.PE_Abs_Mecha_White_C'",
+    "Package": "Rivals2/Content/Characters/Absa/Skins/Mecha/Data/Palettes/White/PE_Abs_Mecha_White",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.78125,
+            "G": 0.052897,
+            "B": 0.526326,
+            "A": 1.0,
+            "Hex": "E541C0"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.78125,
+            "G": 0.184375,
+            "B": 0.572343,
+            "A": 1.0,
+            "Hex": "E577C7"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 1.0,
+            "G": 0.354167,
+            "B": 0.666319,
+            "A": 1.0,
+            "Hex": "FFA1D5"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 1.0,
+            "G": 0.631,
+            "B": 0.80935,
+            "A": 1.0,
+            "Hex": "FFD0E9"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 1.0,
+            "G": 0.354167,
+            "B": 0.666319,
+            "A": 1.0,
+            "Hex": "FFA1D5"
+          }
+        }
+      ]
+    }
+  }
+]

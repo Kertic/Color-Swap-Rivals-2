@@ -9,7 +9,7 @@
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -27,7 +27,7 @@
   {
     "Type": "PS_For_Quilted_Red_C",
     "Name": "Default__PS_For_Quilted_Red_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Quilted/Data/Palettes/Red/PS_For_Quilted_Red.PS_For_Quilted_Red_C'",
     "Package": "Rivals2/Content/Characters/Forsburn/Skins/Quilted/Data/Palettes/Red/PS_For_Quilted_Red",
     "Properties": {
@@ -220,6 +220,26 @@
             "B": 0.345313,
             "A": 1.0,
             "Hex": "C3809F"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 1.0,
+            "G": 0.0,
+            "B": 0.078669,
+            "A": 1.0,
+            "Hex": "FF004F"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 1.0,
+            "G": 0.0,
+            "B": 0.078669,
+            "A": 1.0,
+            "Hex": "FF004F"
           }
         }
       ]

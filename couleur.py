@@ -28,6 +28,7 @@ BASE_DIR = r"Base_pas_edit\Rivals2\Content\Characters"
 unrealpak_script_path = None
 mods_folder_path = None
 fmodel_path = None
+fmodel_output_path = None
 output_folder_path = None
 json_data = None
 uexp_file_path = None

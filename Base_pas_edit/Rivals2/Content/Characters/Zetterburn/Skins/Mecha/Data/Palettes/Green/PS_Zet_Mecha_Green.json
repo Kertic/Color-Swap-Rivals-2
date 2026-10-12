@@ -1,0 +1,138 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Zet_Mecha_Green_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Zetterburn/Skins/Mecha/Data/Palettes/Green/PS_Zet_Mecha_Green",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Zet_Mecha_Green_C'Default__PS_Zet_Mecha_Green_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Zetterburn/Skins/Mecha/Data/Palettes/Green/PS_Zet_Mecha_Green.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Zet_Mecha_Green_C",
+    "Name": "Default__PS_Zet_Mecha_Green_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Zetterburn/Skins/Mecha/Data/Palettes/Green/PS_Zet_Mecha_Green.PS_Zet_Mecha_Green_C'",
+    "Package": "Rivals2/Content/Characters/Zetterburn/Skins/Mecha/Data/Palettes/Green/PS_Zet_Mecha_Green",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Underbody",
+          "Value": {
+            "R": 0.077341,
+            "G": 0.072843,
+            "B": 0.099899,
+            "A": 1.0,
+            "Hex": "4E4C59"
+          }
+        },
+        {
+          "Key": "MetalTrim",
+          "Value": {
+            "R": 0.424805,
+            "G": 0.502106,
+            "B": 0.755208,
+            "A": 1.0,
+            "Hex": "AEBCE2"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.102369,
+            "G": 0.161458,
+            "B": 0.047092,
+            "A": 1.0,
+            "Hex": "5A703D"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.6875,
+            "G": 0.657734,
+            "B": 0.626628,
+            "A": 1.0,
+            "Hex": "D8D4D0"
+          }
+        },
+        {
+          "Key": "Claws",
+          "Value": {
+            "R": 0.515625,
+            "G": 0.346475,
+            "B": 0.104736,
+            "A": 1.0,
+            "Hex": "BE9F5B"
+          }
+        },
+        {
+          "Key": "BodyAccent",
+          "Value": {
+            "R": 0.053614,
+            "G": 0.041016,
+            "B": 0.125,
+            "A": 1.0,
+            "Hex": "413963"
+          }
+        },
+        {
+          "Key": "EmissiveBG",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "TrimAccent",
+          "Value": {
+            "R": 0.287441,
+            "G": 0.024158,
+            "B": 0.06301,
+            "A": 1.0,
+            "Hex": "922B47"
+          }
+        },
+        {
+          "Key": "EmissiveColor",
+          "Value": {
+            "R": 0.567138,
+            "G": 1.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "C7FF00"
+          }
+        },
+        {
+          "Key": "Hair",
+          "Value": {
+            "R": 0.472619,
+            "G": 0.578125,
+            "B": 0.207764,
+            "A": 1.0,
+            "Hex": "B7C87E"
+          }
+        }
+      ]
+    }
+  }
+]

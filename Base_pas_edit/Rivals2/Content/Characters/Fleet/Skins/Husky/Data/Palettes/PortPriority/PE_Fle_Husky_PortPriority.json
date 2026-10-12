@@ -1,0 +1,118 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Fle_Husky_PortPriority_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Husky/Data/Palettes/PortPriority/PE_Fle_Husky_PortPriority",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Fle_Husky_PortPriority_C'Default__PE_Fle_Husky_PortPriority_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Fleet/Skins/Husky/Data/Palettes/PortPriority/PE_Fle_Husky_PortPriority.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Fle_Husky_PortPriority_C",
+    "Name": "Default__PE_Fle_Husky_PortPriority_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Fleet/Skins/Husky/Data/Palettes/PortPriority/PE_Fle_Husky_PortPriority.PE_Fle_Husky_PortPriority_C'",
+    "Package": "Rivals2/Content/Characters/Fleet/Skins/Husky/Data/Palettes/PortPriority/PE_Fle_Husky_PortPriority",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.0,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "000000"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.07036,
+            "G": 0.038204,
+            "B": 0.304987,
+            "A": 1.0,
+            "Hex": "4B3796"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.208637,
+            "G": 0.057805,
+            "B": 0.887923,
+            "A": 1.0,
+            "Hex": "7E44F2"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.4425,
+            "G": 0.331,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "B29CFF"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.863157,
+            "G": 0.637597,
+            "B": 0.887923,
+            "A": 1.0,
+            "Hex": "EFD1F2"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 0.592275,
+            "G": 0.11925,
+            "B": 0.954,
+            "A": 1.0,
+            "Hex": "CB61FA"
+          }
+        },
+        {
+          "Key": "Element7",
+          "Value": {
+            "R": 0.292463,
+            "G": 0.108683,
+            "B": 0.433,
+            "A": 1.0,
+            "Hex": "935DB0"
+          }
+        }
+      ]
+    }
+  }
+]

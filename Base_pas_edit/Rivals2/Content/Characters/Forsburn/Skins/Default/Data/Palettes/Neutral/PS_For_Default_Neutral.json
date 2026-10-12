@@ -9,7 +9,7 @@
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -27,7 +27,7 @@
   {
     "Type": "PS_For_Default_Neutral_C",
     "Name": "Default__PS_For_Default_Neutral_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Default/Data/Palettes/Neutral/PS_For_Default_Neutral.PS_For_Default_Neutral_C'",
     "Package": "Rivals2/Content/Characters/Forsburn/Skins/Default/Data/Palettes/Neutral/PS_For_Default_Neutral",
     "Properties": {
@@ -105,21 +105,41 @@
         {
           "Key": "Cloth",
           "Value": {
-            "R": 0.030713,
-            "G": 0.020289,
-            "B": 0.025187,
+            "R": 0.040915,
+            "G": 0.025187,
+            "B": 0.030713,
             "A": 1.0,
-            "Hex": "31272C"
+            "Hex": "392C31"
           }
         },
         {
-          "Key": "Eyes",
+          "Key": "IrisRight",
           "Value": {
-            "R": 0.904661,
-            "G": 0.417885,
-            "B": 0.0,
+            "R": 1.0,
+            "G": 0.015209,
+            "B": 0.01096,
             "A": 1.0,
-            "Hex": "F4AD00"
+            "Hex": "FF211B"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 1.0,
+            "G": 0.015209,
+            "B": 0.01096,
+            "A": 1.0,
+            "Hex": "FF211B"
+          }
+        },
+        {
+          "Key": "Sclera",
+          "Value": {
+            "R": 1.0,
+            "G": 1.0,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "FFFFFF"
           }
         },
         {
@@ -140,16 +160,6 @@
             "B": 0.024305,
             "A": 1.0,
             "Hex": "27262B"
-          }
-        },
-        {
-          "Key": "Mask Eyes",
-          "Value": {
-            "R": 1.0,
-            "G": 0.015209,
-            "B": 0.01096,
-            "A": 1.0,
-            "Hex": "FF211B"
           }
         },
         {

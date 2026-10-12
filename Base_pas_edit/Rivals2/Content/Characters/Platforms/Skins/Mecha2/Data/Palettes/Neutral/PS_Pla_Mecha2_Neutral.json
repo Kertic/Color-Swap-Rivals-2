@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Pla_Mecha2_Neutral_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Platforms/Mecha2/PS_Pla_Mecha2_Neutral",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Pla_Mecha2_Neutral_C'Default__PS_Pla_Mecha2_Neutral_C'",
+      "ObjectPath": "Rivals2/Content/Platforms/Mecha2/PS_Pla_Mecha2_Neutral.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Pla_Mecha2_Neutral_C",
+    "Name": "Default__PS_Pla_Mecha2_Neutral_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Platforms/Mecha2/PS_Pla_Mecha2_Neutral.PS_Pla_Mecha2_Neutral_C'",
+    "Package": "Rivals2/Content/Platforms/Mecha2/PS_Pla_Mecha2_Neutral",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "CustomColor0",
+          "Value": {
+            "R": 0.074214,
+            "G": 0.124772,
+            "B": 0.06301,
+            "A": 1.0,
+            "Hex": "4D6347"
+          }
+        },
+        {
+          "Key": "CustomColor1",
+          "Value": {
+            "R": 0.019976,
+            "G": 0.026042,
+            "B": 0.023356,
+            "A": 1.0,
+            "Hex": "262C2A"
+          }
+        },
+        {
+          "Key": "CustomColor2",
+          "Value": {
+            "R": 0.130332,
+            "G": 0.136851,
+            "B": 0.145833,
+            "A": 1.0,
+            "Hex": "65676B"
+          }
+        },
+        {
+          "Key": "CustomColor3",
+          "Value": {
+            "R": 0.089355,
+            "G": 0.091959,
+            "B": 0.09375,
+            "A": 1.0,
+            "Hex": "545556"
+          }
+        },
+        {
+          "Key": "CustomColor4",
+          "Value": {
+            "R": 0.020833,
+            "G": 0.020833,
+            "B": 0.019473,
+            "A": 1.0,
+            "Hex": "272726"
+          }
+        },
+        {
+          "Key": "CustomColor5",
+          "Value": {
+            "R": 0.783538,
+            "G": 0.445201,
+            "B": 0.012983,
+            "A": 1.0,
+            "Hex": "E5B21E"
+          }
+        },
+        {
+          "Key": "CustomColorX",
+          "Value": {
+            "R": 0.322917,
+            "G": 0.0,
+            "B": 0.020527,
+            "A": 1.0,
+            "Hex": "9A0027"
+          }
+        }
+      ]
+    }
+  }
+]

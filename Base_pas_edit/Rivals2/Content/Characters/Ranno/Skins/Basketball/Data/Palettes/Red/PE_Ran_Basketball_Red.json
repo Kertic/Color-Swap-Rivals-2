@@ -13,7 +13,7 @@
       "ObjectName": "BlueprintGeneratedClass'PE_Ran_Basketball_Neutral_C'",
       "ObjectPath": "Rivals2/Content/Characters/Ranno/Skins/Basketball/Data/Palettes/Neutral/PE_Ran_Basketball_Neutral.0"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"

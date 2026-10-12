@@ -9,7 +9,7 @@
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -27,7 +27,7 @@
   {
     "Type": "PS_For_Ranger_Blue_C",
     "Name": "Default__PS_For_Ranger_Blue_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Ranger/Data/Palettes/Blue/PS_For_Ranger_Blue.PS_For_Ranger_Blue_C'",
     "Package": "Rivals2/Content/Characters/Forsburn/Skins/Ranger/Data/Palettes/Blue/PS_For_Ranger_Blue",
     "Properties": {
@@ -133,27 +133,7 @@
           }
         },
         {
-          "Key": "Sclera",
-          "Value": {
-            "R": 1.0,
-            "G": 1.0,
-            "B": 1.0,
-            "A": 1.0,
-            "Hex": "FFFFFF"
-          }
-        },
-        {
-          "Key": "ScleraShading",
-          "Value": {
-            "R": 0.22,
-            "G": 0.22,
-            "B": 0.22,
-            "A": 1.0,
-            "Hex": "818181"
-          }
-        },
-        {
-          "Key": "Iris",
+          "Key": "IrisRight",
           "Value": {
             "R": 0.151481,
             "G": 0.652,
@@ -163,13 +143,13 @@
           }
         },
         {
-          "Key": "Pupil",
+          "Key": "IrisLeft",
           "Value": {
-            "R": 0.0,
-            "G": 0.0,
-            "B": 0.0,
+            "R": 0.151481,
+            "G": 0.652,
+            "B": 0.01304,
             "A": 1.0,
-            "Hex": "000000"
+            "Hex": "6CD31E"
           }
         },
         {

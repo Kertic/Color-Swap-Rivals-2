@@ -1,0 +1,98 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_Cla_Ranger_Fusion_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Ranger/Data/Palettes/Fusion/PE_Cla_Ranger_Fusion",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_Cla_Ranger_Fusion_C'Default__PE_Cla_Ranger_Fusion_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Clairen/Skins/Ranger/Data/Palettes/Fusion/PE_Cla_Ranger_Fusion.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_Cla_Ranger_Fusion_C",
+    "Name": "Default__PE_Cla_Ranger_Fusion_C",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Clairen/Skins/Ranger/Data/Palettes/Fusion/PE_Cla_Ranger_Fusion.PE_Cla_Ranger_Fusion_C'",
+    "Package": "Rivals2/Content/Characters/Clairen/Skins/Ranger/Data/Palettes/Fusion/PE_Cla_Ranger_Fusion",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 0.0,
+            "G": 0.35,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "00A0FF"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.943,
+            "G": 0.97376,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "F9FDFF"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.958333,
+            "G": 0.958333,
+            "B": 0.958333,
+            "A": 1.0,
+            "Hex": "FBFBFB"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.010212,
+            "G": 0.794948,
+            "B": 0.851,
+            "A": 1.0,
+            "Hex": "19E7EE"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.712,
+            "G": 0.8464,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "DCEDFF"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.973445,
+            "G": 0.205079,
+            "B": 0.665387,
+            "A": 1.0,
+            "Hex": "FC7DD5"
+          }
+        }
+      ]
+    }
+  }
+]

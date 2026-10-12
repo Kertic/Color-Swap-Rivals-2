@@ -9,7 +9,7 @@
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -27,7 +27,7 @@
   {
     "Type": "PS_Fle_Husky_Red_C",
     "Name": "Default__PS_Fle_Husky_Red_C",
-    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Fleet/Skins/Husky/Data/Palettes/Red/PS_Fle_Husky_Red.PS_Fle_Husky_Red_C'",
     "Package": "Rivals2/Content/Characters/Fleet/Skins/Husky/Data/Palettes/Red/PS_Fle_Husky_Red",
     "Properties": {
@@ -73,6 +73,16 @@
           }
         },
         {
+          "Key": "Paws",
+          "Value": {
+            "R": 0.462077,
+            "G": 0.194618,
+            "B": 0.184475,
+            "A": 1.0,
+            "Hex": "B57A77"
+          }
+        },
+        {
           "Key": "Pants",
           "Value": {
             "R": 0.5,
@@ -110,6 +120,16 @@
             "B": 0.088,
             "A": 1.0,
             "Hex": "7C4554"
+          }
+        },
+        {
+          "Key": "Buckle",
+          "Value": {
+            "R": 0.244,
+            "G": 0.2464,
+            "B": 0.25,
+            "A": 1.0,
+            "Hex": "878889"
           }
         },
         {

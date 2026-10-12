@@ -1,0 +1,168 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PS_Gou_Mecha_Red_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Mecha/Data/Palettes/Red/PS_Gou_Mecha_Red",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PS_Gou_Mecha_Red_C'Default__PS_Gou_Mecha_Red_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Gouie/Skins/Mecha/Data/Palettes/Red/PS_Gou_Mecha_Red.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PS_Gou_Mecha_Red_C",
+    "Name": "Default__PS_Gou_Mecha_Red_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Gouie/Skins/Mecha/Data/Palettes/Red/PS_Gou_Mecha_Red.PS_Gou_Mecha_Red_C'",
+    "Package": "Rivals2/Content/Characters/Gouie/Skins/Mecha/Data/Palettes/Red/PS_Gou_Mecha_Red",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Goo",
+          "Value": {
+            "R": 0.044686,
+            "G": 0.015462,
+            "B": 0.098958,
+            "A": 1.0,
+            "Hex": "3B2158"
+          }
+        },
+        {
+          "Key": "GooHighlight",
+          "Value": {
+            "R": 0.0625,
+            "G": 0.003581,
+            "B": 0.030094,
+            "A": 1.0,
+            "Hex": "460B30"
+          }
+        },
+        {
+          "Key": "Eyes",
+          "Value": {
+            "R": 0.645139,
+            "G": 0.239583,
+            "B": 1.0,
+            "A": 1.0,
+            "Hex": "D286FF"
+          }
+        },
+        {
+          "Key": "Body",
+          "Value": {
+            "R": 0.375,
+            "G": 0.039063,
+            "B": 0.053804,
+            "A": 1.0,
+            "Hex": "A53741"
+          }
+        },
+        {
+          "Key": "Metal",
+          "Value": {
+            "R": 0.239583,
+            "G": 0.209635,
+            "B": 0.210134,
+            "A": 1.0,
+            "Hex": "867E7E"
+          }
+        },
+        {
+          "Key": "Rubber",
+          "Value": {
+            "R": 0.036458,
+            "G": 0.031165,
+            "B": 0.031165,
+            "A": 1.0,
+            "Hex": "353131"
+          }
+        },
+        {
+          "Key": "Visor",
+          "Value": {
+            "R": 0.021701,
+            "G": 0.015625,
+            "B": 0.041667,
+            "A": 1.0,
+            "Hex": "282139"
+          }
+        },
+        {
+          "Key": "EmissiveBackground",
+          "Value": {
+            "R": 0.005208,
+            "G": 0.004264,
+            "B": 0.003798,
+            "A": 1.0,
+            "Hex": "100D0C"
+          }
+        },
+        {
+          "Key": "Emissive",
+          "Value": {
+            "R": 0.075337,
+            "G": 0.021566,
+            "B": 0.828125,
+            "A": 1.0,
+            "Hex": "4D28EB"
+          }
+        },
+        {
+          "Key": "Hands",
+          "Value": {
+            "R": 0.375,
+            "G": 0.039063,
+            "B": 0.053804,
+            "A": 1.0,
+            "Hex": "A53741"
+          }
+        },
+        {
+          "Key": "Head",
+          "Value": {
+            "R": 0.375,
+            "G": 0.039063,
+            "B": 0.053804,
+            "A": 1.0,
+            "Hex": "A53741"
+          }
+        },
+        {
+          "Key": "Tubes",
+          "Value": {
+            "R": 0.375,
+            "G": 0.039063,
+            "B": 0.053804,
+            "A": 1.0,
+            "Hex": "A53741"
+          }
+        },
+        {
+          "Key": "Pants",
+          "Value": {
+            "R": 0.375,
+            "G": 0.039063,
+            "B": 0.053804,
+            "A": 1.0,
+            "Hex": "A53741"
+          }
+        }
+      ]
+    }
+  }
+]

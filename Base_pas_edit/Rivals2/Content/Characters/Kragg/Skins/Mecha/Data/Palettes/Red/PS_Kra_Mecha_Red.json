@@ -9,7 +9,7 @@
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -27,7 +27,7 @@
   {
     "Type": "PS_Kra_Mecha_Red_C",
     "Name": "Default__PS_Kra_Mecha_Red_C",
-    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Flags": "RF_Public | RF_Transactional | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
     "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Kragg/Skins/Mecha/Data/Palettes/Red/PS_Kra_Mecha_Red.PS_Kra_Mecha_Red_C'",
     "Package": "Rivals2/Content/Characters/Kragg/Skins/Mecha/Data/Palettes/Red/PS_Kra_Mecha_Red",
     "Properties": {
@@ -73,13 +73,13 @@
           }
         },
         {
-          "Key": "Eyes",
+          "Key": "Eye Glow",
           "Value": {
-            "R": 0.0,
-            "G": 0.055659,
-            "B": 0.109375,
+            "R": 0.015996,
+            "G": 0.287441,
+            "B": 0.205079,
             "A": 1.0,
-            "Hex": "00425D"
+            "Hex": "22927D"
           }
         },
         {
@@ -93,13 +93,43 @@
           }
         },
         {
-          "Key": "Eye Glow",
+          "Key": "Chest",
           "Value": {
-            "R": 0.015996,
-            "G": 0.287441,
-            "B": 0.205079,
+            "R": 0.557292,
+            "G": 0.025252,
+            "B": 0.01161,
             "A": 1.0,
-            "Hex": "22927D"
+            "Hex": "C52C1C"
+          }
+        },
+        {
+          "Key": "Horn",
+          "Value": {
+            "R": 0.557292,
+            "G": 0.025252,
+            "B": 0.01161,
+            "A": 1.0,
+            "Hex": "C52C1C"
+          }
+        },
+        {
+          "Key": "Trim",
+          "Value": {
+            "R": 0.692708,
+            "G": 0.193226,
+            "B": 0.018039,
+            "A": 1.0,
+            "Hex": "D97A24"
+          }
+        },
+        {
+          "Key": "Belly",
+          "Value": {
+            "R": 0.84375,
+            "G": 0.84375,
+            "B": 0.84375,
+            "A": 1.0,
+            "Hex": "EDEDED"
           }
         }
       ]

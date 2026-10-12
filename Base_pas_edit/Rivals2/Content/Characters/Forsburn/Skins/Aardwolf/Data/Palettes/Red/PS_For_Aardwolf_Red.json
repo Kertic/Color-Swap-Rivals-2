@@ -9,7 +9,7 @@
       "ObjectName": "Class'RivalsColorPalette'",
       "ObjectPath": "/Script/Rivals2"
     },
-    "ClassFlags": "CLASS_ReplicationDataIsSetUp | CLASS_CompiledFromBlueprint",
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
     "ClassWithin": {
       "ObjectName": "Class'Object'",
       "ObjectPath": "/Script/CoreUObject"
@@ -140,6 +140,26 @@
             "B": 0.253787,
             "A": 1.0,
             "Hex": "9F978A"
+          }
+        },
+        {
+          "Key": "IrisLeft",
+          "Value": {
+            "R": 0.690972,
+            "G": 0.66554,
+            "B": 0.18234,
+            "A": 1.0,
+            "Hex": "D9D576"
+          }
+        },
+        {
+          "Key": "IrisRight",
+          "Value": {
+            "R": 0.690972,
+            "G": 0.66554,
+            "B": 0.18234,
+            "A": 1.0,
+            "Hex": "D9D576"
           }
         }
       ]
