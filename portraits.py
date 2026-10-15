@@ -4,11 +4,11 @@ Lecture et réécriture des portraits de sélection (textures CSP).
 Reading and rewriting character-select portraits (CSP textures).
 
 Les portraits ne sont pas livrés avec l'outil : ils sont lus à la demande
-dans le .pak du jeu (index UE5 v11, blocs compressés en Oodle), recolorés,
+dans le .pak du jeu (index UE5 v12, blocs compressés en Oodle), recolorés,
 puis ré-encodés en DXT5 et réinjectés dans un .uexp de taille identique.
 
 Portraits are not shipped with the tool: they are read on demand from the
-game's .pak (UE5 v11 index, Oodle-compressed blocks), recolored, then
+game's .pak (UE5 v12 index, Oodle-compressed blocks), recolored, then
 re-encoded to DXT5 and spliced back into a .uexp of identical size.
 """
 import ctypes
@@ -21,8 +21,10 @@ from PIL import Image
 
 # Un .uexp de texture CSP est : en-tête + données DXT5 + fin de bloc
 # A CSP texture .uexp is: header + DXT5 payload + trailer
-CSP_HEADER_LEN = 117
+CSP_HEADER_LEN = 113
 CSP_TRAILER_LEN = 28
+# Avant UE5.8, l'en-tête comptait 4 octets de plus | Before UE5.8 the header was 4 bytes longer
+LEGACY_CSP_HEADER_LEN = 117
 SUPPORTED_SIDES = (256, 512, 1024, 2048)
 
 
@@ -391,17 +393,36 @@ def encode_dxt5(image):
 
 def csp_wrapper(uexp):
     """
-    Extrait l'en-tête et la fin d'un .uexp de portrait (145 octets au
+    Extrait l'en-tête et la fin d'un .uexp de portrait (141 octets au
     total). Conservés dans le manifeste, ils suffisent à reconstruire le
     fichier sans jamais relire le jeu.
 
-    Extracts the header and trailer of a portrait .uexp (145 bytes in
+    Extracts the header and trailer of a portrait .uexp (141 bytes in
     total). Stored in the manifest, they are enough to rebuild the file
     without ever reading the game again.
     """
     if csp_layout(uexp) is None:
         return None
     return uexp[:CSP_HEADER_LEN] + uexp[-CSP_TRAILER_LEN:]
+
+
+def upgrade_csp(uexp, wrapper):
+    """
+    Porte un .uexp de portrait d'une ancienne version du moteur vers la
+    disposition actuelle : les pixels sont repris tels quels, seuls
+    l'en-tête et la fin viennent de `wrapper`. Renvoie None si impossible.
+
+    Carries a portrait .uexp from an older engine version over to the
+    current layout: the pixels are kept as they are, only the header and
+    trailer come from `wrapper`. Returns None when that is not possible.
+    """
+    if wrapper is None or len(wrapper) != CSP_HEADER_LEN + CSP_TRAILER_LEN:
+        return None
+    payload = uexp[LEGACY_CSP_HEADER_LEN:len(uexp) - CSP_TRAILER_LEN]
+    side = int(round(len(payload) ** 0.5))
+    if side * side != len(payload) or side not in SUPPORTED_SIDES:
+        return None
+    return wrapper[:CSP_HEADER_LEN] + payload + wrapper[CSP_HEADER_LEN:]
 
 
 def build_csp_uexp(wrapper, image, side):

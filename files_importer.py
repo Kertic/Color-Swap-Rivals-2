@@ -53,7 +53,7 @@ _MESSAGES = {
 # Étapes d'export affichées quand aucun export n'est trouvé. | Export steps shown when no export is found.
 _EXPORT_STEPS = {
     "en": [
-        "  1. Load the Rivals2 .pak (UE5_4, .usmap mappings loaded)",
+        "  1. Load the Rivals2 .pak (UE5_8, .usmap mappings loaded)",
         "  2. Right-click the Rivals2/Content/Characters folder",
         "     -> Export Folder > Properties (.json)",
         "     -> Export Folder > Raw Data (.uasset)  [includes the .uexp]",
@@ -62,7 +62,7 @@ _EXPORT_STEPS = {
         "  4. Re-run this script (run_importer.bat); add --verbose for per-file skip detail",
     ],
     "fr": [
-        "  1. Chargez le .pak Rivals2 (UE5_4, mappings .usmap charges)",
+        "  1. Chargez le .pak Rivals2 (UE5_8, mappings .usmap charges)",
         "  2. Clic droit sur le dossier Rivals2/Content/Characters",
         "     -> Export Folder > Properties (.json)",
         "     -> Export Folder > Raw Data (.uasset)  [inclut les .uexp]",
@@ -138,7 +138,7 @@ def _appsettings_output():
     # Lit OutputDirectory depuis la config de FModel si disponible | Reads OutputDirectory from FModel's own config if available
     cfg = Path(os.environ.get("APPDATA", "")) / "FModel" / "AppSettings.json"
     try:
-        out = json.loads(cfg.read_text(encoding="utf-8")).get("OutputDirectory")
+        out = json.loads(cfg.read_text(encoding="utf-8-sig")).get("OutputDirectory")
         return Path(out) if out else None
     except Exception:
         return None
@@ -530,21 +530,25 @@ def shared():
 
 
 MANIFEST_PATH = Path(__file__).resolve().parent / "portrait_headers.json"
+# Disposition d'un .uexp de portrait en UE5.8 (voir portraits.py) | Layout of a portrait .uexp on UE5.8 (see portraits.py)
+CSP_HEADER_LEN = 113
+CSP_TRAILER_LEN = 28
+CSP_WRAPPER_LEN = CSP_HEADER_LEN + CSP_TRAILER_LEN
 
 
 def csp_portraits():
     """
     Copie les portraits en pleine résolution et enregistre, pour chacun,
-    les 145 octets d'en-tête/fin de sa texture.
+    les 141 octets d'en-tête/fin de sa texture.
 
-    Ces 145 octets permettent de reconstruire le .uexp hors ligne : l'outil
+    Ces 141 octets permettent de reconstruire le .uexp hors ligne : l'outil
     n'a alors besoin ni du .pak du jeu ni de FModel pour remplacer un
     portrait.
 
     Copies the portraits at full resolution and records, for each one, the
-    145 header/trailer bytes of its texture.
+    141 header/trailer bytes of its texture.
 
-    Those 145 bytes are what makes rebuilding the .uexp offline possible:
+    Those 141 bytes are what makes rebuilding the .uexp offline possible:
     the tool then needs neither the game .pak nor FModel to replace a
     portrait.
     """
@@ -555,6 +559,9 @@ def csp_portraits():
             manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
         except ValueError:
             manifest = {}
+    # Écarter les en-têtes d'une ancienne version du moteur (taille différente) | Drop headers left over from an older engine version (different size)
+    manifest = {name: entry for name, entry in manifest.items()
+                if len(base64.b64decode(entry.get("wrapper", ""))) == CSP_WRAPPER_LEN}
 
     # Skins partagés : leur palette éditable vit une seule fois dans Shared/, | Shared skins: their editable palette lives once under Shared/, never under
     # jamais sous le personnage. characters() ne crée donc aucun dossier de | the character. So characters() creates no palette folder for a character
@@ -587,12 +594,12 @@ def csp_portraits():
             if not uexp.exists():
                 continue
             data = uexp.read_bytes()
-            payload = len(data) - 145
+            payload = len(data) - CSP_WRAPPER_LEN
             side = int(round(payload ** 0.5))
             if side * side != payload or side not in (256, 512, 1024, 2048):
                 continue        # mipmaps ou format inattendu | mip chain or unexpected format
             manifest[uexp.name] = {
-                "wrapper": base64.b64encode(data[:117] + data[-28:]).decode("ascii"),
+                "wrapper": base64.b64encode(data[:CSP_HEADER_LEN] + data[-CSP_TRAILER_LEN:]).decode("ascii"),
                 "side": side,
             }
 

@@ -91,7 +91,7 @@ translations = {
                                  "ou téléchargez-le d'abord sur https://fmodel.app"),
         'update_instructions': ("FModel va s'ouvrir. Faites ceci dans FModel :\n\n"
                                 "1. Au premier lancement : Directory > Selector > \"Add Undetected Game\",\n"
-                                "    nom \"Rivals2\", dossier Paks du jeu, bouton +, puis version UE5_4.\n"
+                                "    nom \"Rivals2\", dossier Paks du jeu, bouton +, puis version UE5_8.\n"
                                 "    Activez ensuite \"Local Mapping File\" dans Settings et glissez-y\n"
                                 "    le fichier .usmap fourni dans le dossier de cet outil.\n\n"
                                 "2. Dans l'arborescence, clic droit sur Rivals2/Content/Characters :\n"
@@ -144,6 +144,16 @@ translations = {
         'overrides_close_game': "Fermez le jeu avant de supprimer des mods (les fichiers sont verrouillés).",
         'overrides_removed': "{} fichier(s) .pak envoyé(s) à la corbeille.",
         'overrides_remove_failed': "Suppression impossible. Vérifiez que le jeu est fermé.",
+        'outdated_title': "Mods d'une ancienne version du jeu",
+        'outdated_prompt': ("{} mod(s) installé(s) ont été créés pour l'ancienne version du moteur du jeu "
+                            "et ne sont plus compatibles :\n\n{}\n\n"
+                            "Les convertir vers la version actuelle ? Vos couleurs sont conservées et "
+                            "les fichiers d'origine vont à la Corbeille."),
+        'outdated_converted': "{} remplacement(s) converti(s) dans {} mod(s). Les fichiers d'origine sont dans la Corbeille.",
+        'outdated_dropped': ("\n\n{} remplacement(s) n'ont pas pu être convertis, car le jeu a modifié "
+                             "les couleurs de ces palettes. Ils sont à recréer :\n{}"),
+        'outdated_close_game': ("Des mods créés pour l'ancienne version du moteur du jeu ont été détectés. "
+                                "Fermez le jeu puis relancez l'outil pour les convertir."),
     },
     'en': {
         'title': "ROA 2 Colorswap",
@@ -196,7 +206,7 @@ translations = {
                                  "or download it first from https://fmodel.app"),
         'update_instructions': ("FModel will open. Do the following in FModel:\n\n"
                                 "1. First launch only: Directory > Selector > \"Add Undetected Game\",\n"
-                                "    name \"Rivals2\", the game's Paks folder, + button, then UE version UE5_4.\n"
+                                "    name \"Rivals2\", the game's Paks folder, + button, then UE version UE5_8.\n"
                                 "    Then enable \"Local Mapping File\" in Settings and drag in the\n"
                                 "    .usmap file shipped in this tool's folder.\n\n"
                                 "2. In the file tree, right-click Rivals2/Content/Characters:\n"
@@ -249,6 +259,16 @@ translations = {
         'overrides_close_game': "Close the game before removing mods (the files are locked).",
         'overrides_removed': "{} .pak file(s) sent to the Recycle Bin.",
         'overrides_remove_failed': "Removal failed. Make sure the game is closed.",
+        'outdated_title': "Mods from an older game version",
+        'outdated_prompt': ("{} installed mod(s) were built for the game's previous engine version "
+                            "and are no longer compatible:\n\n{}\n\n"
+                            "Convert them to the current version? Your colors are kept and the "
+                            "original files go to the Recycle Bin."),
+        'outdated_converted': "{} override(s) converted across {} mod(s). The original files are in the Recycle Bin.",
+        'outdated_dropped': ("\n\n{} override(s) could not be converted because the game changed "
+                             "those palettes' colors. They need to be rebuilt:\n{}"),
+        'outdated_close_game': ("Mods built for the game's previous engine version were detected. "
+                                "Close the game, then restart the tool to convert them."),
     }
 }
 
@@ -950,10 +970,10 @@ _portrait_manifest = None
 
 def load_portrait_manifest():
     """
-    En-têtes de textures livrés avec l'outil (145 octets par portrait).
+    En-têtes de textures livrés avec l'outil (141 octets par portrait).
     Ils permettent de reconstruire un .uexp sans lire le jeu.
 
-    Texture headers shipped with the tool (145 bytes per portrait). They
+    Texture headers shipped with the tool (141 bytes per portrait). They
     allow rebuilding a .uexp without reading the game.
     """
     global _portrait_manifest
@@ -965,6 +985,14 @@ def load_portrait_manifest():
                 _portrait_manifest = json.load(f)
         except (OSError, ValueError):
             _portrait_manifest = {}
+        if portraits_module is not None:
+            # Ignorer les en-têtes d'une ancienne version du moteur : le portrait | Ignore headers from an older engine version: the portrait
+            # est alors relu dans le .pak du jeu. | is then re-read from the game .pak instead.
+            expected = -(-(portraits_module.CSP_HEADER_LEN
+                           + portraits_module.CSP_TRAILER_LEN) // 3) * 4
+            _portrait_manifest = {
+                name: entry for name, entry in _portrait_manifest.items()
+                if len(entry.get('wrapper', '')) == expected}
     return _portrait_manifest
 
 
@@ -1537,7 +1565,7 @@ def fmodel_search_dirs():
     if appdata:
         cfg = os.path.join(appdata, "FModel", "AppSettings.json")
         try:
-            with open(cfg, 'r', encoding='utf-8') as f:
+            with open(cfg, 'r', encoding='utf-8-sig') as f:
                 output = json.load(f).get("OutputDirectory")
             if output:
                 dirs.append(output)
@@ -2109,7 +2137,7 @@ def update_game_data():
         try:
             settings = {}
             if os.path.exists(fmodel_cfg):
-                with open(fmodel_cfg, 'r', encoding='utf-8') as f:
+                with open(fmodel_cfg, 'r', encoding='utf-8-sig') as f:
                     settings = json.load(f)
             if not isinstance(settings, dict):
                 settings = {}
@@ -2450,6 +2478,278 @@ def remove_overrides_from_pak(pak_path, targets):
         shutil.rmtree(work, ignore_errors=True)
 
 
+# Les différences entre versions du moteur tiennent toutes dans les premiers | The differences between engine versions all sit within the first bytes of a
+# octets d'un .uexp de palette ; aucune vraie couleur n'y commence. | palette .uexp; no real color starts there.
+PALETTE_HEADER_HEX = 128
+
+
+def base_uexp_index():
+    # Chemins des .uexp d'origine, par nom de fichier (un nom peut exister deux fois) | Paths of the original .uexp files, by file name (a name can exist twice)
+    index = {}
+    for dirpath, dirnames, filenames in os.walk(BASE_DIR):
+        for name in filenames:
+            if name.endswith('.uexp'):
+                index.setdefault(name, []).append(os.path.join(dirpath, name))
+    return index
+
+
+def is_outdated_uexp(path, index):
+    """
+    Vrai si ce .uexp a été bâti pour une ancienne version du moteur.
+    Modifier une couleur ne change jamais la taille d'un fichier : une
+    taille différente de l'original trahit donc un autre format.
+
+    True when this .uexp was built for an older engine version. Editing a
+    color never changes a file's size, so a size that differs from the
+    original gives away another format.
+    """
+    name = os.path.basename(path)
+    if name in index:
+        size = os.path.getsize(path)
+        return all(os.path.getsize(base) != size for base in index[name])
+    if name.startswith('T_') and name.endswith('_CSP.uexp') and portraits_module is not None:
+        with open(path, 'rb') as f:
+            return portraits_module.csp_layout(f.read()) is None
+    return False
+
+
+def outdated_files(folder, index):
+    found = []
+    for dirpath, dirnames, filenames in os.walk(folder):
+        for name in filenames:
+            full = os.path.join(dirpath, name)
+            if name.endswith('.uexp') and is_outdated_uexp(full, index):
+                found.append(full)
+    return found
+
+
+def upgrade_palette_uexp(old, base_uexp_path):
+    """
+    Reporte les couleurs d'un .uexp de palette d'une ancienne version du
+    moteur dans le fichier d'origine actuel. Renvoie None si, couleurs
+    mises à part, les deux fichiers ne se superposent pas (le jeu a alors
+    modifié les couleurs de cette palette).
+
+    Carries the colors of a palette .uexp from an older engine version
+    over into the current original file. Returns None when, colors aside,
+    the two files do not line up (the game changed this palette's color
+    slots in that case).
+    """
+    with open(base_uexp_path[:-len('.uexp')] + '.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    with open(base_uexp_path, 'rb') as f:
+        base_hex = f.read().hex().upper()
+    old_hex = old.hex().upper()
+    shift = len(old_hex) - len(base_hex)
+
+    # Mêmes positions que celles utilisées pour remplacer les couleurs | Same positions as the ones used when replacing colors
+    slots = []
+    position = 0
+    for entry in data:
+        if "Properties" not in entry or "CustomColorSlotDefinitions" not in entry["Properties"]:
+            continue
+        for color in entry["Properties"]["CustomColorSlotDefinitions"]:
+            value = color["Value"]
+            original = (invert_hex(precise_float_to_hex(value["R"]))
+                        + invert_hex(precise_float_to_hex(value["G"]))
+                        + invert_hex(precise_float_to_hex(value["B"])))
+            found = base_hex.find(original, position)
+            if found == -1:
+                continue
+            position = found + len(original)
+            if found >= PALETTE_HEADER_HEX:
+                slots.append((found, len(original)))
+
+    upgraded = []
+    cursor = PALETTE_HEADER_HEX
+    for found, length in slots:
+        if old_hex[cursor + shift:found + shift] != base_hex[cursor:found]:
+            return None
+        upgraded.append(base_hex[cursor:found])
+        upgraded.append(old_hex[found + shift:found + shift + length])
+        cursor = found + length
+    if not slots or old_hex[cursor + shift:] != base_hex[cursor:]:
+        return None
+    return bytes.fromhex(base_hex[:PALETTE_HEADER_HEX] + ''.join(upgraded) + base_hex[cursor:])
+
+
+def upgrade_uexp(path, index):
+    # Contenu converti d'un .uexp périmé, ou None si la conversion est impossible | Converted contents of an outdated .uexp, or None when it can't be converted
+    name = os.path.basename(path)
+    with open(path, 'rb') as f:
+        old = f.read()
+    if name in index:
+        for base in index[name]:
+            upgraded = upgrade_palette_uexp(old, base)
+            if upgraded is not None:
+                return upgraded
+        return None
+    entry = load_portrait_manifest().get(name)
+    if not entry or portraits_module is None:
+        return None
+    import base64
+    return portraits_module.upgrade_csp(old, base64.b64decode(entry['wrapper']))
+
+
+def upgrade_tree(folder, index):
+    """
+    Convertit sur place les .uexp périmés d'un dossier. Ceux qui ne peuvent
+    pas l'être sont retirés, pour ne jamais laisser un ancien format dans
+    un pak. Renvoie (nombre converti, noms retirés).
+
+    Converts a folder's outdated .uexp files in place. Those that can't be
+    converted are removed, so an old-format file never ends up in a pak.
+    Returns (number converted, names removed).
+    """
+    converted = 0
+    dropped = []
+    for path in outdated_files(folder, index):
+        upgraded = upgrade_uexp(path, index)
+        if upgraded is None:
+            os.remove(path)
+            dropped.append(os.path.basename(path))
+        else:
+            with open(path, 'wb') as f:
+                f.write(upgraded)
+            converted += 1
+    return converted, dropped
+
+
+def upgrade_pak(pak_path, index):
+    """
+    Convertit un pak installé vers la version actuelle du moteur : il est
+    extrait, converti puis reconstruit, comme pour retirer un remplacement.
+    L'original part à la Corbeille. Renvoie (nombre converti, noms retirés).
+
+    Converts an installed pak to the current engine version: it is
+    extracted, converted and rebuilt, the same way an override is removed.
+    The original goes to the Recycle Bin. Returns (number converted,
+    names removed).
+    """
+    import tempfile
+    prefix = pak_mount_point(pak_path).replace('../', '').strip('/')
+    work = tempfile.mkdtemp(prefix="colorswap_upgrade_")
+    try:
+        # Extraire directement dans l'arborescence complète (le montage est retiré à l'extraction) | Extract straight into the full tree (extraction strips the mount point)
+        staging = os.path.join(
+            work, os.path.splitext(os.path.basename(pak_path))[0])
+        root_dir = os.path.join(staging, *prefix.split('/')) if prefix else staging
+        extract_pak(pak_path, root_dir)
+        converted, dropped = upgrade_tree(staging, index)
+
+        rebuilt = None
+        if any(filenames for _d, _s, filenames in os.walk(staging)):
+            rebuilt = os.path.join(work, "rebuilt.pak")
+            build_pak_from_staging(staging, rebuilt)
+            if not os.path.exists(rebuilt):
+                raise OSError(rebuilt)
+        if not send_to_recycle_bin([pak_path]):
+            raise OSError(pak_path)
+        if rebuilt:
+            shutil.copy2(rebuilt, pak_path)
+        return converted, dropped
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+
+def find_outdated_mods(index):
+    # Renvoie (paks installés, dossiers de staging) d'une ancienne version du moteur | Returns (installed paks, staging folders) left over from an older engine version
+    import tempfile
+    upack_dir = os.path.dirname(unrealpak_script_path)
+    staging = []
+    if os.path.isdir(upack_dir):
+        for name in sorted(os.listdir(upack_dir)):
+            full = os.path.join(upack_dir, name)
+            if name.endswith('_P') and os.path.isdir(full) and outdated_files(full, index):
+                staging.append(full)
+
+    paks = []
+    for pak in list_mod_paks():
+        # N'extraire que les paks qui touchent des fichiers gérés par l'outil | Only extract paks touching files this tool manages
+        names = [full.rsplit('/', 1)[-1] for full in pak_full_paths(pak)]
+        if not any(n in index or n.endswith('_CSP.uexp') for n in names):
+            continue
+        work = tempfile.mkdtemp(prefix="colorswap_check_")
+        try:
+            extract_pak(pak, work)
+            if outdated_files(work, index):
+                paks.append(pak)
+        except (OSError, subprocess.SubprocessError):
+            pass  # pak illisible par UnrealPak : on n'y touche pas | pak UnrealPak can't read: leave it alone
+        finally:
+            shutil.rmtree(work, ignore_errors=True)
+    return paks, staging
+
+
+def check_outdated_mods():
+    """
+    Au démarrage : propose de convertir les mods créés avant une mise à
+    jour du moteur. Les dossiers de staging sont convertis avec eux : ils
+    s'accumulent, donc sans cela le prochain export mélangerait anciens et
+    nouveaux fichiers.
+
+    At startup: offers to convert mods built before an engine update. The
+    staging folders are converted along with them: they accumulate, so
+    without this the next export would mix old-format files with new ones.
+    """
+    found = []
+
+    def scan():
+        try:
+            index = base_uexp_index()
+            found.append((index,) + find_outdated_mods(index))
+        except OSError:
+            found.append(({}, [], []))
+
+    def poll():
+        if not found:
+            root.after(200, poll)
+            return
+        index, paks, staging = found[0]
+        if not paks and not staging:
+            return
+        if paks and is_game_running():
+            messagebox.showwarning(translations[current_language]['outdated_title'],
+                                   translations[current_language]['outdated_close_game'])
+            return
+        if paks and not messagebox.askyesno(
+                translations[current_language]['outdated_title'],
+                translations[current_language]['outdated_prompt'].format(
+                    len(paks), '\n'.join(os.path.basename(p) for p in paks))):
+            return
+
+        converted = 0
+        dropped = []
+        try:
+            root.config(cursor="wait")
+            root.update()
+            for pak in paks:
+                done, lost = upgrade_pak(pak, index)
+                converted += done
+                dropped += lost
+            for folder in staging:
+                upgrade_tree(folder, index)
+        except (OSError, subprocess.SubprocessError, ValueError) as e:
+            messagebox.showerror(
+                translations[current_language]['error_title'], str(e))
+            return
+        finally:
+            root.config(cursor="")
+        update_mod_button_state()
+        if paks:
+            message = translations[current_language]['outdated_converted'].format(
+                converted, len(paks))
+            if dropped:
+                message += translations[current_language]['outdated_dropped'].format(
+                    len(dropped), '\n'.join(dropped))
+            messagebox.showinfo(
+                translations[current_language]['outdated_title'], message)
+
+    # Extraire un pak prend environ une seconde : hors du fil de l'interface | Extracting a pak takes about a second: keep it off the UI thread
+    threading.Thread(target=scan, daemon=True).start()
+    poll()
+
+
 def linear_to_srgb_bytes(r, g, b):
     # Inverse de hex_to_linear_rgb : linéaire -> octets sRGB | Inverse of hex_to_linear_rgb: linear -> sRGB bytes
     def encode(value):
@@ -2491,7 +2791,10 @@ def read_override_colors(base_json_path, base_uexp_path, modified_uexp_path):
             if found == -1:
                 continue
             position = found + len(original)
-            chunk = mod_hex[found:found + len(original)]
+            # Un mod d'une ancienne version du moteur a un en-tête plus long : | A mod from an older engine version has a longer header:
+            # ses couleurs sont décalées d'autant. | its colors sit that much further along.
+            shift = len(mod_hex) - len(base_hex)
+            chunk = mod_hex[found + shift:found + shift + len(original)]
             if len(chunk) < len(original):
                 continue
             floats = []
@@ -3157,5 +3460,8 @@ update_texts()
 
 # Gérer la fermeture de l'application | Handle application shutdown
 root.protocol("WM_DELETE_WINDOW", on_closing)
+
+# Une fois la fenêtre affichée, signaler les mods d'une ancienne version du moteur | Once the window is up, flag mods left over from an older engine version
+root.after(300, check_outdated_mods)
 
 root.mainloop()

@@ -92,7 +92,7 @@ The **Update Game Data** button lets you refresh the tool's game files yourself 
 Requirements: [FModel](https://fmodel.app) (free) and the `.usmap` mappings file (one ships in this folder; a game engine update may require a fresh one from the [Rivals 2 Modding Discord](https://discord.com/invite/tFdrmRQP8F)).
 
 1. Click **Update Game Data**. The first time, you'll be asked to locate `FModel.exe` (remembered afterwards). The tool pre-configures FModel's game/output paths and launches it.
-2. First FModel launch only: `Directory > Selector > "Add Undetected Game"` - name it `Rivals2`, point it at the game's `Paks` folder, click `+`, and set the UE version to `GAME_UE5_4`. Then in Settings, enable **Local Mapping File** and drag in the `.usmap` from this folder.
+2. First FModel launch only: `Directory > Selector > "Add Undetected Game"` - name it `Rivals2`, point it at the game's `Paks` folder, click `+`, and set the UE version to `GAME_UE5_8`. Then in Settings, enable **Local Mapping File** and drag in the `.usmap` from this folder.
 3. In FModel's file tree, right-click `Rivals2/Content/Characters`:
    - **Save Folder's Packages Properties (.json)**
    - **Save Folder's Packages Raw Data (.uexp)**
@@ -114,6 +114,18 @@ Requirements: [FModel](https://fmodel.app) (free) and the `.usmap` mappings file
 - `Upack/[character]_P` is a staging folder that accumulates every palette you export for that character, which is how a single `.pak` can cover several palettes at once. Removing an override through **Installed Mods** prunes this folder too, so the removal sticks across future exports.
 
 ## Changelog
+
+### 2026-10-12 - Unreal Engine 5.8 compatibility
+
+Rivals 2 moved from Unreal Engine 5.4 to 5.8, which changed the layout of every game file the tool touches. **Mods built before this update are not compatible with the current game, but the tool converts them for you.**
+
+- **Old mods are converted at startup.** If your Mods folder still holds paks built for the previous engine version, the tool lists them and offers to convert them. Your colors (and any replaced portrait) are carried over into the new file layout, the pak is rebuilt in place, and the original goes to the Recycle Bin. The `Upack/[character]_P` staging folders are converted with them, so a later export never bundles old-format files with new ones.
+- A few palettes had their color slots changed by the game itself in this patch (77 of roughly 2,200). Overrides for those can't be carried over automatically; the tool names them so you can rebuild them.
+- **Load Installed Mod Colors** and **Preview Before/After** now read mods from the previous engine version correctly.
+- **Portrait replacement updated for the 5.8 texture layout.** `portrait_headers.json` was regenerated from the 5.8 game, and headers from an older engine version are now ignored rather than written into a mod.
+- Preview portraits added for the new skins and palettes (Gold palettes, Clairen Cyber, Gouie Mecha/Bouie, and others).
+- Fixed FModel's settings never being read: FModel saves `AppSettings.json` with a UTF-8 byte-order mark, which made the tool silently skip pre-configuring FModel in **Update Game Data** and miss FModel's output folder when looking for the Oodle library.
+- Game data refreshed and the mappings file replaced with `Rivals2-5.8.0-0+UE5-5418fa4e.usmap`; FModel's UE version for the game is now `GAME_UE5_8`.
 
 ### 2026-08-17 - Importer fixes
 
