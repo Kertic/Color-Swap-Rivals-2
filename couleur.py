@@ -20,7 +20,43 @@ try:
 except ImportError:      # portraits.py absent : l'option est simplement désactivée | portraits.py missing: the option is just disabled
     portraits_module = None
 
+try:
+    import game_data as game_data_module
+except ImportError:      # game_data.py absent : retour au flux FModel | game_data.py missing: fall back to the FModel flow
+    game_data_module = None
+
 CONFIG_FILE = 'config.pkl'
+
+# Journal colorswap.log à côté de l'outil : garde une trace de ce qui se passe | Log file colorswap.log next to the tool: keeps a record of what happens
+# hors écran (conversions, UnrealPak, Corbeille) et de toute exception. | off-screen (conversions, UnrealPak, Recycle Bin) and of every exception.
+import logging
+from logging.handlers import RotatingFileHandler
+
+LOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "colorswap.log")
+log = logging.getLogger("colorswap")
+log.setLevel(logging.INFO)
+try:
+    _log_handler = RotatingFileHandler(LOG_FILE, maxBytes=1_000_000, backupCount=1, encoding='utf-8')
+    _log_handler.setFormatter(logging.Formatter(
+        "%(asctime)s.%(msecs)03d [%(threadName)s] %(levelname)s %(message)s", "%Y-%m-%d %H:%M:%S"))
+    log.addHandler(_log_handler)
+except OSError:
+    pass  # dossier en lecture seule : pas de journal | read-only folder: no log
+
+
+def _log_uncaught(exc_type, exc, tb):
+    log.critical("Exception non gérée | Unhandled exception", exc_info=(exc_type, exc, tb))
+    sys.__excepthook__(exc_type, exc, tb)
+
+
+def _log_thread_exception(args):
+    log.error("Exception dans le fil %s | Exception in thread %s",
+              args.thread.name if args.thread else '?', args.thread.name if args.thread else '?',
+              exc_info=(args.exc_type, args.exc_value, args.exc_traceback))
+
+
+sys.excepthook = _log_uncaught
+threading.excepthook = _log_thread_exception
 
 BASE_DIR = r"Base_pas_edit\Rivals2\Content\Characters"
 
@@ -29,6 +65,7 @@ unrealpak_script_path = None
 mods_folder_path = None
 fmodel_path = None
 fmodel_output_path = None
+declined_data_hash = None   # version du jeu pour laquelle la mise à jour a été refusée | game version the update was declined for
 output_folder_path = None
 json_data = None
 uexp_file_path = None
@@ -152,6 +189,20 @@ translations = {
         'outdated_converted': "{} remplacement(s) converti(s) dans {} mod(s). Les fichiers d'origine sont dans la Corbeille.",
         'outdated_dropped': ("\n\n{} remplacement(s) n'ont pas pu être convertis, car le jeu a modifié "
                              "les couleurs de ces palettes. Ils sont à recréer :\n{}"),
+        'outdated_converting': "Conversion des mods... {}/{} : {}",
+        'data_progress_start': "Lecture des fichiers du jeu...",
+        'data_progress_palettes': "Lecture des palettes... {}/{}",
+        'data_progress_import': "Rangement des palettes...",
+        'data_progress_portraits': "Mise à jour des portraits... {}/{}",
+        'data_outdated_title': "Données du jeu à mettre à jour",
+        'data_outdated_prompt': ("Rivals 2 a été mis à jour depuis la création des données de cet outil.\n\n"
+                                 "Mettre à jour les données depuis le jeu installé ? Cela prend environ "
+                                 "une minute et ne nécessite pas FModel."),
+        'data_updated': ("Données du jeu mises à jour depuis le jeu installé.\n\n"
+                         "{} palette(s) ajoutée(s), {} modifiée(s).\n{} portrait(s) ajouté(s), {} mis à jour."),
+        'data_already_current': "Les données de l'outil correspondent déjà au jeu installé.",
+        'data_restart': "\n\nRelancez l'outil pour voir les nouveaux personnages et skins.",
+        'data_failures': "\n\n{} palette(s) illisible(s) : voir colorswap.log.",
         'outdated_close_game': ("Des mods créés pour l'ancienne version du moteur du jeu ont été détectés. "
                                 "Fermez le jeu puis relancez l'outil pour les convertir."),
     },
@@ -267,6 +318,20 @@ translations = {
         'outdated_converted': "{} override(s) converted across {} mod(s). The original files are in the Recycle Bin.",
         'outdated_dropped': ("\n\n{} override(s) could not be converted because the game changed "
                              "those palettes' colors. They need to be rebuilt:\n{}"),
+        'outdated_converting': "Converting mods... {}/{}: {}",
+        'data_progress_start': "Reading the game files...",
+        'data_progress_palettes': "Reading palettes... {}/{}",
+        'data_progress_import': "Filing palettes...",
+        'data_progress_portraits': "Updating portraits... {}/{}",
+        'data_outdated_title': "Game data needs updating",
+        'data_outdated_prompt': ("Rivals 2 has been updated since this tool's game data was made.\n\n"
+                                 "Update the data from your installed game now? It takes about a minute "
+                                 "and doesn't need FModel."),
+        'data_updated': ("Game data updated from the installed game.\n\n"
+                         "{} palette(s) added, {} changed.\n{} portrait(s) added, {} updated."),
+        'data_already_current': "The tool's game data already matches the installed game.",
+        'data_restart': "\n\nRestart the tool to see new characters and skins.",
+        'data_failures': "\n\n{} palette(s) could not be read: see colorswap.log.",
         'outdated_close_game': ("Mods built for the game's previous engine version were detected. "
                                 "Close the game, then restart the tool to convert them."),
     }
@@ -332,6 +397,7 @@ def save_config():
         'selected_language': current_language,
         'fmodel_path': fmodel_path,
         'fmodel_output_path': fmodel_output_path,
+        'declined_data_hash': declined_data_hash,
     }
     with open(CONFIG_FILE, 'wb') as f:
         pickle.dump(config, f)
@@ -340,6 +406,7 @@ def save_config():
 def load_config():
     # Chargement de la configuration depuis le fichier pickle | Load the configuration from the pickle file
     global unrealpak_script_path, mods_folder_path, preset_dir, current_language, fmodel_path, fmodel_output_path
+    global declined_data_hash
     project_root = os.path.dirname(
         os.path.abspath(__file__))  # Chemin du projet racine | Project root path
 
@@ -361,6 +428,7 @@ def load_config():
             current_language = config.get('selected_language', 'fr')
             fmodel_path = config.get('fmodel_path')
             fmodel_output_path = config.get('fmodel_output_path')
+            declined_data_hash = config.get('declined_data_hash')
 
 
 def get_output_and_unrealpak_dirs():
@@ -2100,6 +2168,12 @@ def update_game_data():
                              translations[current_language]['update_importer_missing'])
         return
 
+    # Chemin normal : lire directement le .pak du jeu, sans FModel | Normal path: read the game .pak directly, without FModel
+    if game_data_source() is not None:
+        run_builtin_update()
+        return
+    log.info("Mise à jour intégrée indisponible, passage par FModel | Built-in update unavailable, using FModel")
+
     # 1. Trouver FModel.exe (mémorisé dans la config après le premier choix) | 1. Find FModel.exe (remembered in the config after the first pick)
     if not fmodel_path or not os.path.exists(fmodel_path):
         # setup.ps1 installe FModel dans le sous-dossier FModel de l'outil | setup.ps1 installs FModel into the tool's FModel subfolder
@@ -2292,9 +2366,14 @@ def send_to_recycle_bin(paths):
     if not paths:
         return True
     buffer = '\0'.join(paths) + '\0\0'
-    op = _SHFILEOPSTRUCTW(None, 3, buffer, None, 0x0040 | 0x0010 | 0x0004,
+    # FOF_NOERRORUI (0x0400) : sans lui, une erreur ouvre une boîte modale qui peut | FOF_NOERRORUI (0x0400): without it, an error opens a modal box that can end
+    # finir derrière le jeu et bloquer l'outil ; l'échec est signalé par le code retour. | up behind the game and block the tool; failure is reported by the return code.
+    op = _SHFILEOPSTRUCTW(None, 3, buffer, None, 0x0040 | 0x0010 | 0x0004 | 0x0400,
                           False, None, None)
-    return ctypes.windll.shell32.SHFileOperationW(ctypes.byref(op)) == 0
+    start = time.time()
+    code = ctypes.windll.shell32.SHFileOperationW(ctypes.byref(op))
+    log.info("Corbeille | Recycle Bin: %s -> code %s (%.1f s)", paths, code, time.time() - start)
+    return code == 0
 
 
 def list_mod_paks():
@@ -2364,12 +2443,37 @@ def unrealpak_exe_path():
     return os.path.join(os.path.dirname(unrealpak_script_path), "UnrealPak.exe")
 
 
+def run_unrealpak(args, **kwargs):
+    """
+    Lance UnrealPak.exe avec une limite de temps et journalise durée et
+    résultat. Un délai dépassé lève subprocess.TimeoutExpired (une
+    SubprocessError) au lieu de figer l'outil.
+
+    Runs UnrealPak.exe with a time limit and logs duration and outcome. A
+    timeout raises subprocess.TimeoutExpired (a SubprocessError) instead of
+    freezing the tool.
+    """
+    command = [unrealpak_exe_path()] + list(args)
+    start = time.time()
+    try:
+        result = subprocess.run(command, check=True, capture_output=True, text=True, timeout=120,
+                                creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0), **kwargs)
+    except subprocess.CalledProcessError as e:
+        log.error("UnrealPak %s : code %s après %.1f s | exit code %s after %.1f s\n%s%s",
+                  args, e.returncode, time.time() - start, e.returncode, time.time() - start,
+                  (e.stdout or '')[-2000:], (e.stderr or '')[-2000:])
+        raise
+    except subprocess.TimeoutExpired:
+        log.error("UnrealPak %s : délai dépassé | timed out after %.0f s", args, time.time() - start)
+        raise
+    log.info("UnrealPak %s : %.1f s", args, time.time() - start)
+    return result
+
+
 def extract_pak(pak_path, dest_dir):
     # Extrait un pak ; les chemins produits sont relatifs au point de montage | Extracts a pak; the resulting paths are relative to the mount point
     os.makedirs(dest_dir, exist_ok=True)
-    subprocess.run([unrealpak_exe_path(), pak_path, "-extract", dest_dir],
-                   check=True, capture_output=True, text=True,
-                   creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+    run_unrealpak([pak_path, "-extract", dest_dir])
 
 
 def build_pak_from_staging(staging_dir, out_pak):
@@ -2378,9 +2482,7 @@ def build_pak_from_staging(staging_dir, out_pak):
     filelist = os.path.join(upack_dir, "filelist.txt")
     with open(filelist, 'w') as f:
         f.write(f'"{staging_dir}\\*.*" "..\\..\\..\\*.*"\n')
-    subprocess.run([unrealpak_exe_path(), out_pak, f"-create={filelist}", "-compress"],
-                   check=True, capture_output=True, text=True, cwd=upack_dir,
-                   creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+    run_unrealpak([out_pak, f"-create={filelist}", "-compress"], cwd=upack_dir)
 
 
 def staging_dir_for_pak(pak_path):
@@ -2606,9 +2708,11 @@ def upgrade_tree(folder, index):
     for path in outdated_files(folder, index):
         upgraded = upgrade_uexp(path, index)
         if upgraded is None:
+            log.warning("Conversion impossible, fichier retiré | Can't convert, file removed: %s", path)
             os.remove(path)
             dropped.append(os.path.basename(path))
         else:
+            log.info("Converti | Converted: %s", path)
             with open(path, 'wb') as f:
                 f.write(upgraded)
             converted += 1
@@ -2681,73 +2785,256 @@ def find_outdated_mods(index):
     return paks, staging
 
 
+def run_with_progress(title, work, on_done):
+    """
+    Exécute work(report) hors du fil de l'interface, avec une petite fenêtre
+    de progression ; report(texte) met son texte à jour. La fenêtre
+    principale est inerte pendant ce temps mais continue de se redessiner.
+    on_done(résultat, erreur) est appelé ensuite sur le fil de l'interface.
+
+    Runs work(report) off the UI thread with a small progress window;
+    report(text) updates its text. The main window is inert meanwhile but
+    keeps repainting. on_done(result, error) is then called on the UI
+    thread.
+    """
+    state = {}
+
+    def report(text):
+        state['text'] = text
+
+    def runner():
+        # SHFileOperation (Corbeille) attend COM initialisé sur son fil | SHFileOperation (Recycle Bin) expects COM initialised on its thread
+        try:
+            ctypes.windll.ole32.CoInitialize(None)
+        except OSError:
+            pass
+        try:
+            state['result'] = (work(report), None)
+        except Exception as e:  # toute erreur est journalisée et montrée | any failure is logged and shown
+            log.exception("Échec de la tâche de fond | Background task failed")
+            state['result'] = (None, e)
+
+    try:
+        root.attributes('-disabled', True)
+    except tk.TclError:
+        pass
+    window = tk.Toplevel(root)
+    window.title(title)
+    window.transient(root)
+    window.resizable(False, False)
+    window.protocol("WM_DELETE_WINDOW", lambda: None)
+    label = tk.Label(window, padx=24, pady=16, width=60, anchor='w')
+    label.pack()
+    root.config(cursor="wait")
+    threading.Thread(target=runner, name="background", daemon=True).start()
+
+    def poll():
+        if 'text' in state:
+            label.config(text=state['text'])
+        if 'result' not in state:
+            root.after(200, poll)
+            return
+        window.destroy()
+        root.config(cursor="")
+        try:
+            root.attributes('-disabled', False)
+        except tk.TclError:
+            pass
+        on_done(*state['result'])
+
+    poll()
+
+
+def logged_dialog(kind, title, message):
+    # Boîte rattachée à la fenêtre (elle reste devant), journalisée | Box attached to the window (so it stays in front), logged
+    log.info("Boîte affichée | Dialog shown: %s", message.split('\n')[0])
+    start = time.time()
+    answer = getattr(messagebox, kind)(title, message, parent=root)
+    log.info("Boîte fermée après %.1f s | Dialog closed after %.1f s -> %s",
+             time.time() - start, time.time() - start, answer)
+    return answer
+
+
+def game_data_source():
+    # Le .pak du jeu prêt à lire (DLL Oodle comprise), ou None | The game .pak ready to read (Oodle DLL included), or None
+    if portraits_module is None or game_data_module is None:
+        return None
+    try:
+        pak = get_game_pak()
+    except OSError:
+        log.exception("Pak ou Oodle inutilisable | Pak or Oodle unusable")
+        return None
+    return pak if pak is not None and pak.oodle is not None else None
+
+
+def run_builtin_update(then=None):
+    """
+    Met à jour les données de l'outil depuis le .pak du jeu (game_data.py),
+    en arrière-plan, puis affiche un résumé. `then` est appelé à la fin.
+
+    Updates the tool's data from the game .pak (game_data.py) in the
+    background, then shows a summary. `then` is called at the end.
+    """
+    pak = game_data_source()
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+    texts = translations[current_language]
+
+    def work(report):
+        import importlib
+        if app_dir not in sys.path:
+            sys.path.insert(0, app_dir)
+        import files_importer
+        importlib.reload(files_importer)
+        files_importer.LANG = current_language
+
+        def progress(step):
+            kind, done, total = step
+            report(texts['data_progress_' + kind].format(done, total))
+        return game_data_module.update_game_data(pak, app_dir, files_importer, progress)
+
+    def done(summary, error):
+        global _portrait_manifest
+        _portrait_manifest = None          # relire les en-têtes mis à jour | re-read the refreshed headers
+        refresh_portrait_option()
+        if error is not None:
+            logged_dialog('showerror', texts['error_title'], str(error))
+        else:
+            p = summary['portraits']
+            if not (summary['added'] or summary['changed'] or p['added'] or p['updated']):
+                message = texts['data_already_current']
+            else:
+                message = texts['data_updated'].format(len(summary['added']), len(summary['changed']),
+                                                       p['added'], p['updated'])
+            if summary['added']:
+                message += texts['data_restart']
+            if summary['failures']:
+                message += texts['data_failures'].format(len(summary['failures']))
+            logged_dialog('showinfo', texts['update_data'], message)
+        if then:
+            then()
+
+    run_with_progress(texts['update_data'], work, done)
+
+
+def check_game_data(then):
+    """
+    Au démarrage : si le jeu installé a changé depuis la création des données
+    de l'outil (empreinte de l'index du .pak), propose de les mettre à jour.
+    Un refus est mémorisé pour cette version du jeu. `then` suit dans tous
+    les cas : la conversion des mods a besoin de données à jour.
+
+    At startup: when the installed game changed since the tool's data was
+    made (fingerprint of the .pak index), offers to update it. Declining is
+    remembered for that game version. `then` always follows: converting
+    mods needs up-to-date data.
+    """
+    global declined_data_hash
+    pak = game_data_source()
+    if pak is None:
+        log.info("Vérification des données impossible (pak ou Oodle introuvable) | "
+                 "Can't check game data (pak or Oodle not found)")
+        then()
+        return
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+    try:
+        current = pak.index_hash()
+        up_to_date = game_data_module.is_up_to_date(app_dir, pak)
+    except (OSError, RuntimeError):
+        log.exception("Lecture de la version du jeu impossible | Can't read the game version")
+        then()
+        return
+    log.info("Données du jeu à jour : %s (index %s) | Game data up to date: %s",
+             up_to_date, current, up_to_date)
+    if up_to_date or declined_data_hash == current:
+        then()
+        return
+    texts = translations[current_language]
+    if not logged_dialog('askyesno', texts['data_outdated_title'], texts['data_outdated_prompt']):
+        declined_data_hash = current
+        save_config()
+        then()
+        return
+    run_builtin_update(then=then)
+
+
 def check_outdated_mods():
     """
     Au démarrage : propose de convertir les mods créés avant une mise à
     jour du moteur. Les dossiers de staging sont convertis avec eux : ils
     s'accumulent, donc sans cela le prochain export mélangerait anciens et
-    nouveaux fichiers.
+    nouveaux fichiers. L'analyse comme la conversion tournent hors du fil
+    de l'interface (environ deux secondes par pak).
 
     At startup: offers to convert mods built before an engine update. The
     staging folders are converted along with them: they accumulate, so
     without this the next export would mix old-format files with new ones.
+    Both the scan and the conversion run off the UI thread (about two
+    seconds per pak).
     """
-    found = []
+    state = {}
+    texts = translations[current_language]
 
     def scan():
+        start = time.time()
+        log.info("Recherche de mods d'une ancienne version | Scanning for outdated mods in %s", mods_folder_path)
         try:
             index = base_uexp_index()
-            found.append((index,) + find_outdated_mods(index))
+            paks, staging = find_outdated_mods(index)
+            state['scan'] = (index, paks, staging)
         except OSError:
-            found.append(({}, [], []))
+            log.exception("Échec de l'analyse | Scan failed")
+            state['scan'] = ({}, [], [])
+        log.info("Analyse terminée en %.1f s | Scan done in %.1f s: paks=%s staging=%s",
+                 time.time() - start, time.time() - start,
+                 [os.path.basename(p) for p in state['scan'][1]],
+                 [os.path.basename(p) for p in state['scan'][2]])
 
-    def poll():
-        if not found:
-            root.after(200, poll)
+    def poll_scan():
+        if 'scan' not in state:
+            root.after(200, poll_scan)
             return
-        index, paks, staging = found[0]
+        index, paks, staging = state['scan']
         if not paks and not staging:
             return
         if paks and is_game_running():
-            messagebox.showwarning(translations[current_language]['outdated_title'],
-                                   translations[current_language]['outdated_close_game'])
+            logged_dialog('showwarning', texts['outdated_title'], texts['outdated_close_game'])
             return
-        if paks and not messagebox.askyesno(
-                translations[current_language]['outdated_title'],
-                translations[current_language]['outdated_prompt'].format(
-                    len(paks), '\n'.join(os.path.basename(p) for p in paks))):
+        if paks and not logged_dialog('askyesno', texts['outdated_title'], texts['outdated_prompt'].format(
+                len(paks), '\n'.join(os.path.basename(p) for p in paks))):
             return
 
-        converted = 0
-        dropped = []
-        try:
-            root.config(cursor="wait")
-            root.update()
-            for pak in paks:
+        def convert(report):
+            converted, dropped = 0, []
+            for i, pak in enumerate(paks, 1):
+                report(texts['outdated_converting'].format(i, len(paks), os.path.basename(pak)))
+                start = time.time()
                 done, lost = upgrade_pak(pak, index)
                 converted += done
                 dropped += lost
+                log.info("Pak converti en %.1f s | Pak converted in %.1f s: %s (%s converted, dropped %s)",
+                         time.time() - start, time.time() - start, pak, done, lost)
             for folder in staging:
                 upgrade_tree(folder, index)
-        except (OSError, subprocess.SubprocessError, ValueError) as e:
-            messagebox.showerror(
-                translations[current_language]['error_title'], str(e))
-            return
-        finally:
-            root.config(cursor="")
-        update_mod_button_state()
-        if paks:
-            message = translations[current_language]['outdated_converted'].format(
-                converted, len(paks))
-            if dropped:
-                message += translations[current_language]['outdated_dropped'].format(
-                    len(dropped), '\n'.join(dropped))
-            messagebox.showinfo(
-                translations[current_language]['outdated_title'], message)
+            return converted, dropped
 
-    # Extraire un pak prend environ une seconde : hors du fil de l'interface | Extracting a pak takes about a second: keep it off the UI thread
-    threading.Thread(target=scan, daemon=True).start()
-    poll()
+        def finished(result, error):
+            update_mod_button_state()
+            if error is not None:
+                logged_dialog('showerror', texts['error_title'], str(error))
+                return
+            converted, dropped = result
+            log.info("Conversion terminée | Conversion finished: %s converted, dropped %s", converted, dropped)
+            if not paks:
+                return
+            message = texts['outdated_converted'].format(converted, len(paks))
+            if dropped:
+                message += texts['outdated_dropped'].format(len(dropped), '\n'.join(dropped))
+            logged_dialog('showinfo', texts['outdated_title'], message)
+
+        run_with_progress(texts['outdated_title'], convert, finished)
+
+    threading.Thread(target=scan, name="outdated-scan", daemon=True).start()
+    poll_scan()
 
 
 def linear_to_srgb_bytes(r, g, b):
@@ -3286,6 +3573,16 @@ def on_closing():
 
 # Créer la fenêtre Tkinter | Create the Tkinter window
 root = tk.Tk()
+
+
+def _log_tk_exception(exc_type, exc, tb):
+    # Les exceptions des rappels Tk ne remontent pas à sys.excepthook | Tk callback exceptions never reach sys.excepthook
+    log.error("Exception dans un rappel Tk | Exception in Tk callback", exc_info=(exc_type, exc, tb))
+    import traceback
+    traceback.print_exception(exc_type, exc, tb)
+
+
+root.report_callback_exception = _log_tk_exception
 root.title(translations[current_language]['title'])
 root.geometry("900x600")
 root.configure(bg="#f2f2f2")
@@ -3311,6 +3608,7 @@ last_change_time = 0
 
 # Charger la configuration au démarrage | Load the configuration at startup
 load_config()
+log.info("Démarrage | Startup: Python %s, mods folder %s", sys.version.split()[0], mods_folder_path)
 
 # Charger les icônes et les personnages | Load the icons and the characters
 characters = load_character_icons()
@@ -3462,6 +3760,6 @@ update_texts()
 root.protocol("WM_DELETE_WINDOW", on_closing)
 
 # Une fois la fenêtre affichée, signaler les mods d'une ancienne version du moteur | Once the window is up, flag mods left over from an older engine version
-root.after(300, check_outdated_mods)
+root.after(300, lambda: check_game_data(then=check_outdated_mods))
 
 root.mainloop()
