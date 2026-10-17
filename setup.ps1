@@ -29,10 +29,18 @@ function Install-LocalPython {
     # Installe un Python 3.12 autonome DANS le dossier de l'outil. On utilise les | Installs a self-contained Python 3.12 INTO the tool's folder. We use the
     # builds "python-build-standalone" : un CPython relogeable qui embarque | "python-build-standalone" builds: a relocatable CPython that bundles tkinter
     # tkinter ET pip, sans installateur, sans admin, sans toucher au PATH. | AND pip, with no installer, no admin rights, and no PATH changes.
-    if (-not (Get-Command tar -ErrorAction SilentlyContinue)) {
-        Write-Host "The 'tar' command is required to unpack Python and was not found." -ForegroundColor Yellow
-        Write-Host "It ships with Windows 10 (1803+) and Windows 11 - update Windows and retry."
-        return $false
+    # Toujours le tar de Windows (bsdtar) : le tar GNU de Git for Windows, s'il passe | Always Windows' own tar (bsdtar): Git for Windows' GNU tar, when it comes
+    # en premier dans le PATH (terminal Git Bash...), lit « C:\... » comme un hôte | first on the PATH (Git Bash terminal...), reads "C:\..." as a remote host
+    # distant et échoue (« Cannot connect to C: resolve failed »). | and fails ("Cannot connect to C: resolve failed").
+    $tar = Join-Path $env:SystemRoot "System32\tar.exe"
+    if (-not (Test-Path $tar)) {
+        $found = Get-Command tar -ErrorAction SilentlyContinue
+        if (-not $found) {
+            Write-Host "The 'tar' command is required to unpack Python and was not found." -ForegroundColor Yellow
+            Write-Host "It ships with Windows 10 (1803+) and Windows 11 - update Windows and retry."
+            return $false
+        }
+        $tar = $found.Source
     }
     try {
         $headers = @{ "User-Agent" = "Color-Swap-Rivals-2-setup" }
@@ -44,22 +52,34 @@ function Install-LocalPython {
             Write-Host "No suitable Python 3.12 build was found in the latest release." -ForegroundColor Yellow
             return $false
         }
-        $archive = Join-Path $env:TEMP "cpython-local.tar.gz"
-        Write-Host "Downloading $($asset.name)..."
-        Invoke-WebRequest $asset.browser_download_url -OutFile $archive -Headers $headers
         # L'archive contient un dossier racine "python" : on extrait dans un | The archive contains a top-level "python" folder: extract into a temp dir,
         # dossier temporaire puis on le renomme vers python-3.12.6.amd64. | then rename it to python-3.12.6.amd64.
         $staging = Join-Path $env:TEMP ("cpython-local-" + [guid]::NewGuid().ToString("N"))
         New-Item -ItemType Directory -Force -Path $staging | Out-Null
-        tar -xf $archive -C $staging
+        $archive = Join-Path $staging "cpython-local.tar.gz"
+        Write-Host "Downloading $($asset.name)..."
+        Invoke-WebRequest $asset.browser_download_url -OutFile $archive -Headers $headers
+        Write-Host "Unpacking..."
+        # Chemin relatif depuis le dossier temporaire : aucun « C: » que tar puisse mal lire | Relative path from inside the temp folder: no "C:" for any tar to misread
+        Push-Location $staging
+        try {
+            $tarOutput = & $tar -xf "cpython-local.tar.gz" 2>&1
+            $tarExit = $LASTEXITCODE
+        } finally {
+            Pop-Location
+        }
+        if ($tarExit -ne 0) {
+            Write-Host "Unpacking Python failed (tar exit $tarExit, using $tar):" -ForegroundColor Yellow
+            $tarOutput | ForEach-Object { Write-Host "  $_" }
+            return $false
+        }
         $inner = Join-Path $staging "python"
         if (-not (Test-Path (Join-Path $inner "python.exe"))) {
-            Write-Host "The downloaded Python archive had an unexpected layout." -ForegroundColor Yellow
+            Write-Host "The downloaded Python archive had an unexpected layout (no python\python.exe inside)." -ForegroundColor Yellow
             return $false
         }
         if (Test-Path $localPythonDir) { Remove-Item -Recurse -Force $localPythonDir }
         Move-Item $inner $localPythonDir
-        Remove-Item $archive -Force -ErrorAction SilentlyContinue
         Remove-Item $staging -Recurse -Force -ErrorAction SilentlyContinue
         return $true
     } catch {
@@ -81,8 +101,8 @@ if (Test-LocalPython) {
     if ((Install-LocalPython) -and (Test-LocalPython)) {
         Write-Host "Local Python installed to $localPythonDir" -ForegroundColor Green
     } else {
-        Write-Host "Could not set up the local Python automatically." -ForegroundColor Red
-        Write-Host "Check your internet connection and run setup.bat again."
+        Write-Host "Could not set up the local Python automatically (see the message above)." -ForegroundColor Red
+        Write-Host "Fix the problem shown and run setup.bat again."
     }
 }
 $python = if (Test-Path $localPythonExe) { $localPythonExe } else { $null }
@@ -181,6 +201,6 @@ Write-Step "Done"
 if ($python) {
     Write-Host "Launch the tool with Start.vbs." -ForegroundColor Green
 } else {
-    Write-Host "The local Python did not install. Fix your connection and run setup.bat again before using Start.vbs." -ForegroundColor Yellow
+    Write-Host "The local Python did not install (see the Python step above). Fix that and run setup.bat again before using Start.vbs." -ForegroundColor Yellow
 }
 Write-Host "The 'Update Game Data' button will find FModel in the FModel subfolder automatically."
