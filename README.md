@@ -80,6 +80,7 @@ From that window you can:
 - **Preview Before/After** - see the selected override rendered both ways: the original game colors next to the colors your installed mod actually applies, read straight out of the pak. It also reports how many color slots really changed. Works for both Skin and Element/Energy overrides.
 - **Remove Selected** - removes **only the highlighted overrides**, not the whole file. If a pak covers several palettes (say Blue and Neutral), removing Blue rebuilds the pak with Neutral intact. When the last override in a pak is removed, the pak itself is deleted.
 - **Remove All** - clear every mod and start fresh.
+- **Reinstall Mods** - rebuild every installed mod. Each mod is moved out of the Mods folder, rebuilt (anything from an older engine version is converted on the way) and put back; the originals go to the Recycle Bin, and a mod that fails is put back untouched. Paks made by other tools are left alone.
 
 Deleted paks go to the **Recycle Bin**, not a permanent delete, so you can restore a mod if you remove it by mistake.
 
@@ -122,6 +123,12 @@ If the game or the Oodle library can't be found, the button falls back to the ol
 - `Upack/[character]_P` is a staging folder that accumulates every palette you export for that character, which is how a single `.pak` can cover several palettes at once. Removing an override through **Installed Mods** prunes this folder too, so the removal sticks across future exports.
 
 ## Changelog
+
+### 2026-10-16 - Pak reader and Reinstall Mods
+
+- **pakfile.py**: the tool now reads `.pak` files itself (the version 4 paks built by the bundled UnrealPak, and the game's version 12 format); extraction, the Installed Mods list and override detection all use it, with UnrealPak as a fallback. Mods are still built by UnrealPak as version 4: a version 12 writer is included, but the game mounts version 12 mod paks without reading any file from them, while version 4 paks work.
+- New **Reinstall Mods** button in Installed Mods (see above).
+- Since UE5.8, Rivals 2 shows an "Unsupported mod files" prompt for any pak that isn't part of the game, including mods from this tool. Click **Yes** to load them, or add `-AllowUnknownPaks` to the game's Steam launch options to skip the prompt.
 
 ### 2026-10-12 - Unreal Engine 5.8 compatibility
 

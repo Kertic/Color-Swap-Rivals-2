@@ -21,6 +21,11 @@ except ImportError:      # portraits.py absent : l'option est simplement désact
     portraits_module = None
 
 try:
+    import pakfile
+except ImportError:      # pakfile.py absent : UnrealPak seul | pakfile.py missing: UnrealPak only
+    pakfile = None
+
+try:
     import game_data as game_data_module
 except ImportError:      # game_data.py absent : retour au flux FModel | game_data.py missing: fall back to the FModel flow
     game_data_module = None
@@ -190,6 +195,16 @@ translations = {
         'outdated_dropped': ("\n\n{} remplacement(s) n'ont pas pu être convertis, car le jeu a modifié "
                              "les couleurs de ces palettes. Ils sont à recréer :\n{}"),
         'outdated_converting': "Conversion des mods... {}/{} : {}",
+        'reinstall_mods': "Réinstaller les mods",
+        'reinstall_confirm': ("Reconstruire les {} mod(s) installé(s) ?\n\n"
+                              "Chaque mod est sorti du dossier Mods, reconstruit puis remis en place ; "
+                              "les originaux vont à la Corbeille."),
+        'reinstall_progress': "Réinstallation... {}/{} : {}",
+        'reinstall_done': "{} mod(s) réinstallé(s). Les originaux sont dans la Corbeille.",
+        'reinstall_skipped': "\n\nNon gérés par l'outil, laissés tels quels :\n{}",
+        'reinstall_dropped': "\n\nRemplacements impossibles à convertir, retirés :\n{}",
+        'reinstall_failed': "\n\nÉchecs (mod d'origine remis en place) :\n{}",
+        'reinstall_backup_kept': "\n\nLes originaux n'ont pas pu aller à la Corbeille ; ils sont ici :\n{}",
         'data_progress_start': "Lecture des fichiers du jeu...",
         'data_progress_palettes': "Lecture des palettes... {}/{}",
         'data_progress_import': "Rangement des palettes...",
@@ -319,6 +334,16 @@ translations = {
         'outdated_dropped': ("\n\n{} override(s) could not be converted because the game changed "
                              "those palettes' colors. They need to be rebuilt:\n{}"),
         'outdated_converting': "Converting mods... {}/{}: {}",
+        'reinstall_mods': "Reinstall Mods",
+        'reinstall_confirm': ("Rebuild all {} installed mod(s)?\n\n"
+                              "Each mod is moved out of the Mods folder, rebuilt and put back; "
+                              "the originals go to the Recycle Bin."),
+        'reinstall_progress': "Reinstalling... {}/{}: {}",
+        'reinstall_done': "{} mod(s) reinstalled. The originals are in the Recycle Bin.",
+        'reinstall_skipped': "\n\nNot managed by this tool, left as they are:\n{}",
+        'reinstall_dropped': "\n\nOverrides that couldn't be converted, removed:\n{}",
+        'reinstall_failed': "\n\nFailed (original mod put back):\n{}",
+        'reinstall_backup_kept': "\n\nThe originals couldn't go to the Recycle Bin; they are here:\n{}",
         'data_progress_start': "Reading the game files...",
         'data_progress_palettes': "Reading palettes... {}/{}",
         'data_progress_import': "Filing palettes...",
@@ -1806,8 +1831,8 @@ def ask_for_pak_directory_and_create(unrealpak_folder_path):
 
     try:
         # Exécuter UnrealPak-With-Compression.bat en utilisant le dossier unrealpak_folder_path | Run UnrealPak-With-Compression.bat using the unrealpak_folder_path folder
-        subprocess.run(
-            [unrealpak_script_path, unrealpak_folder_path], check=True)
+        # Même constructeur que partout ailleurs, au format choisi | Same builder as everywhere else, in the chosen format
+        build_pak_from_staging(unrealpak_folder_path, unrealpak_folder_path + ".pak")
         time.sleep(0.2)  # Pause pour s'assurer que le fichier est créé | Pause to make sure the file has been created
 
         # Rechercher le fichier .pak dans le répertoire UnrealPak | Look for the .pak file in the UnrealPak directory
@@ -2266,6 +2291,17 @@ def update_game_data():
 PAK_PATH_RE = re.compile(rb"[0-9A-Za-z_./\-]{5,}")
 
 
+def open_pak(pak_path):
+    # Pak ouvert avec pakfile, ou None s'il est illisible (anciennes méthodes alors) | Pak opened with pakfile, or None when unreadable (old methods are used then)
+    if pakfile is None:
+        return None
+    try:
+        return pakfile.PakReader(pak_path)
+    except (pakfile.PakError, OSError, struct.error, IndexError, KeyError) as e:
+        log.warning("Pak illisible par pakfile | Pak unreadable by pakfile: %s (%s)", pak_path, e)
+        return None
+
+
 def parse_pak_overrides(pak_path):
     """
     Lit l'index d'un .pak (non chiffré) et renvoie la liste des remplacements
@@ -2277,6 +2313,16 @@ def parse_pak_overrides(pak_path):
     (character, skin, palette, type). The index stores paths as ASCII, so
     they are extracted directly, which stays valid across pak versions.
     """
+    # Lecture de l'index par pakfile (indispensable pour les paks version 12, | Reading the index with pakfile (required for version 12 paks, whose
+    # dont l'index range dossiers et noms séparément) | index stores folders and names separately)
+    if open_pak(pak_path) is not None:
+        results = []
+        for full in pak_full_paths(pak_path):
+            key = describe_pak_file(full)
+            if full.endswith(('.uexp', '.uasset', '.ubulk')) and key not in results:
+                results.append(key)
+        return results
+
     try:
         with open(pak_path, 'rb') as f:
             data = f.read()
@@ -2389,6 +2435,9 @@ def list_mod_paks():
 
 def pak_mount_point(pak_path):
     # Renvoie le point de montage brut du pak (ex: ../../../Rivals2/Content/...) | Returns the pak's raw mount point (e.g. ../../../Rivals2/Content/...)
+    reader = open_pak(pak_path)
+    if reader is not None:
+        return reader.mount
     try:
         with open(pak_path, 'rb') as f:
             data = f.read()
@@ -2473,11 +2522,22 @@ def run_unrealpak(args, **kwargs):
 def extract_pak(pak_path, dest_dir):
     # Extrait un pak ; les chemins produits sont relatifs au point de montage | Extracts a pak; the resulting paths are relative to the mount point
     os.makedirs(dest_dir, exist_ok=True)
+    reader = open_pak(pak_path)
+    if reader is not None:
+        try:
+            count = reader.extract_all(dest_dir)
+            log.info("Pak extrait par pakfile | Pak extracted by pakfile: %s (v%s, %s file(s))",
+                     pak_path, reader.version, count)
+            return
+        except pakfile.PakError as e:
+            log.warning("pakfile n'a pas pu extraire, UnrealPak prend le relais | pakfile couldn't extract, "
+                        "falling back to UnrealPak: %s (%s)", pak_path, e)
     run_unrealpak([pak_path, "-extract", dest_dir])
 
 
 def build_pak_from_staging(staging_dir, out_pak):
-    # Reconstruit un pak à partir d'un dossier de staging complet | Rebuilds a pak from a complete staging folder
+    # Reconstruit un pak à partir d'un dossier de staging complet, avec UnrealPak (version 4) : | Rebuilds a pak from a complete staging folder with UnrealPak (version 4):
+    # le jeu monte aussi les paks version 12 de pakfile.write_pak, mais n'y lit aucun fichier. | the game also mounts pakfile.write_pak's version 12 paks, but reads no file from them.
     upack_dir = os.path.dirname(unrealpak_script_path)
     filelist = os.path.join(upack_dir, "filelist.txt")
     with open(filelist, 'w') as f:
@@ -2719,41 +2779,109 @@ def upgrade_tree(folder, index):
     return converted, dropped
 
 
-def upgrade_pak(pak_path, index):
+def repack_pak(src_pak, dest_pak, index):
     """
-    Convertit un pak installé vers la version actuelle du moteur : il est
-    extrait, converti puis reconstruit, comme pour retirer un remplacement.
-    L'original part à la Corbeille. Renvoie (nombre converti, noms retirés).
+    Reconstruit src_pak dans dest_pak : extraction,
+    conversion des fichiers d'une ancienne version du moteur, puis
+    construction. Si plus rien ne reste, dest_pak n'est pas créé.
+    Renvoie (nombre converti, noms retirés).
 
-    Converts an installed pak to the current engine version: it is
-    extracted, converted and rebuilt, the same way an override is removed.
-    The original goes to the Recycle Bin. Returns (number converted,
+    Rebuilds src_pak into dest_pak: extraction,
+    conversion of files from an older engine version, then building. When
+    nothing is left, dest_pak is not created. Returns (number converted,
     names removed).
     """
     import tempfile
-    prefix = pak_mount_point(pak_path).replace('../', '').strip('/')
-    work = tempfile.mkdtemp(prefix="colorswap_upgrade_")
+    prefix = pak_mount_point(src_pak).replace('../', '').strip('/')
+    work = tempfile.mkdtemp(prefix="colorswap_repack_")
     try:
         # Extraire directement dans l'arborescence complète (le montage est retiré à l'extraction) | Extract straight into the full tree (extraction strips the mount point)
-        staging = os.path.join(
-            work, os.path.splitext(os.path.basename(pak_path))[0])
+        staging = os.path.join(work, os.path.splitext(os.path.basename(dest_pak))[0])
         root_dir = os.path.join(staging, *prefix.split('/')) if prefix else staging
-        extract_pak(pak_path, root_dir)
+        extract_pak(src_pak, root_dir)
         converted, dropped = upgrade_tree(staging, index)
-
-        rebuilt = None
         if any(filenames for _d, _s, filenames in os.walk(staging)):
             rebuilt = os.path.join(work, "rebuilt.pak")
             build_pak_from_staging(staging, rebuilt)
             if not os.path.exists(rebuilt):
                 raise OSError(rebuilt)
+            shutil.copy2(rebuilt, dest_pak)
+        return converted, dropped
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+
+def upgrade_pak(pak_path, index):
+    """
+    Convertit un pak installé vers la version actuelle du moteur ; l'original
+    part à la Corbeille. Renvoie (nombre converti, noms retirés).
+
+    Converts an installed pak to the current engine version; the original
+    goes to the Recycle Bin. Returns (number converted, names removed).
+    """
+    import tempfile
+    work = tempfile.mkdtemp(prefix="colorswap_upgrade_")
+    try:
+        rebuilt = os.path.join(work, os.path.basename(pak_path))
+        converted, dropped = repack_pak(pak_path, rebuilt, index)
         if not send_to_recycle_bin([pak_path]):
             raise OSError(pak_path)
-        if rebuilt:
+        if os.path.exists(rebuilt):
             shutil.copy2(rebuilt, pak_path)
         return converted, dropped
     finally:
         shutil.rmtree(work, ignore_errors=True)
+
+
+def reinstall_mods(report):
+    """
+    Réinstalle tous les mods gérés par l'outil : chaque pak
+    est sorti du dossier Mods, reconstruit (fichiers d'une ancienne version
+    convertis au passage) puis remis à sa place. En cas d'échec l'original
+    est remis tel quel ; sinon il part à la Corbeille.
+    Renvoie (réinstallés, ignorés, retirés, échecs, dossier de secours gardé).
+
+    Reinstalls every mod managed by the tool: each pak
+    is moved out of the Mods folder, rebuilt (files from an older engine
+    version converted on the way) and put back in place. On failure the
+    original is put back as it was; otherwise it goes to the Recycle Bin.
+    Returns (reinstalled, skipped, removed, failures, backup folder kept).
+    """
+    import tempfile
+    texts = translations[current_language]
+    index = base_uexp_index()
+    backup_root = tempfile.mkdtemp(prefix="colorswap_reinstall_")
+    done, skipped, dropped, failed = [], [], [], []
+    paks = list_mod_paks()
+    log.info("Réinstallation de %s pak(s) | Reinstalling %s pak(s)", len(paks), len(paks))
+    for i, pak in enumerate(paks, 1):
+        label = os.path.relpath(pak, mods_folder_path)
+        report(texts['reinstall_progress'].format(i, len(paks), label))
+        names = [full.rsplit('/', 1)[-1] for full in pak_full_paths(pak)]
+        if open_pak(pak) is None or not any(n in index or n.endswith('_CSP.uexp') for n in names):
+            skipped.append(label)
+            continue
+        backup = os.path.join(backup_root, label)
+        os.makedirs(os.path.dirname(backup), exist_ok=True)
+        shutil.move(pak, backup)                 # le mod quitte le dossier Mods | the mod leaves the Mods folder
+        try:
+            _converted, lost = repack_pak(backup, pak, index)
+            dropped += lost
+            done.append(label)
+            log.info("Réinstallé | Reinstalled: %s", pak)
+        except (OSError, subprocess.SubprocessError, ValueError, KeyError) as e:
+            log.exception("Réinstallation impossible, original remis | Reinstall failed, original put back: %s", pak)
+            if os.path.exists(pak):
+                os.remove(pak)
+            shutil.move(backup, pak)
+            failed.append(f"{label}: {e}")
+    kept = None
+    originals = [os.path.join(backup_root, label) for label in done]
+    if originals and not send_to_recycle_bin(originals):
+        kept = backup_root
+    if kept is None:
+        shutil.rmtree(backup_root, ignore_errors=True)
+    return done, skipped, dropped, failed, kept
 
 
 def find_outdated_mods(index):
@@ -3117,6 +3245,12 @@ def find_base_files(character, skin, palette, prefix):
 
 def pak_full_paths(pak_path):
     # Chemins complets (montage + entrées) contenus dans un pak | Full paths (mount + entries) held inside a pak
+    reader = open_pak(pak_path)
+    if reader is not None:
+        mount = reader.mount.replace('../', '').strip('/')
+        if not mount:
+            return list(reader.files)
+        return [(mount + '/' + rel).replace('//', '/') for rel in reader.files]
     try:
         with open(pak_path, 'rb') as f:
             data = f.read()
@@ -3545,6 +3679,49 @@ def show_overrides():
                                  parent=overrides_window)
         refresh()
 
+    def reinstall():
+        texts = translations[current_language]
+        paks = list_mod_paks()
+        if not paks:
+            return
+        if not messagebox.askyesno(texts['reinstall_mods'],
+                                   texts['reinstall_confirm'].format(len(paks)),
+                                   parent=overrides_window):
+            return
+        if is_game_running():
+            messagebox.showerror(texts['error_title'], texts['overrides_close_game'], parent=overrides_window)
+            return
+        try:
+            overrides_window.attributes('-disabled', True)
+        except tk.TclError:
+            pass
+
+        def finished(result, error):
+            try:
+                overrides_window.attributes('-disabled', False)
+            except tk.TclError:
+                pass
+            refresh()
+            update_mod_button_state()
+            if error is not None:
+                messagebox.showerror(texts['error_title'], str(error), parent=overrides_window)
+                return
+            done, skipped, dropped, failed, kept = result
+            message = texts['reinstall_done'].format(len(done))
+            if skipped:
+                message += texts['reinstall_skipped'].format('\n'.join(skipped))
+            if dropped:
+                message += texts['reinstall_dropped'].format('\n'.join(dropped))
+            if failed:
+                message += texts['reinstall_failed'].format('\n'.join(failed))
+            if kept:
+                message += texts['reinstall_backup_kept'].format(kept)
+            log.info("Réinstallation terminée | Reinstall finished: %s done, skipped %s, dropped %s, failed %s",
+                     len(done), skipped, dropped, failed)
+            messagebox.showinfo(texts['reinstall_mods'], message, parent=overrides_window)
+
+        run_with_progress(texts['reinstall_mods'], reinstall_mods, finished)
+
     button_bar = tk.Frame(overrides_window, bg="#f2f2f2")
     button_bar.pack(fill="x", padx=10, pady=8)
     tk.Button(button_bar, text=translations[current_language]['overrides_refresh'],
@@ -3555,6 +3732,9 @@ def show_overrides():
     tk.Button(button_bar, text=translations[current_language]['overrides_preview'],
               command=preview_selected, font=("Arial", 9),
               bg="#9C27B0", fg="white").pack(side='left', padx=5)
+    tk.Button(button_bar, text=translations[current_language]['reinstall_mods'],
+              command=reinstall, font=("Arial", 9),
+              bg="#009688", fg="white").pack(side='left', padx=5)
     tk.Button(button_bar, text=translations[current_language]['overrides_remove_selected'],
               command=remove_selected, font=("Arial", 9),
               bg="#FF9800", fg="white").pack(side='right', padx=5)
