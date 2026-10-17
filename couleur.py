@@ -20,7 +20,48 @@ try:
 except ImportError:      # portraits.py absent : l'option est simplement désactivée | portraits.py missing: the option is just disabled
     portraits_module = None
 
+try:
+    import pakfile
+except ImportError:      # pakfile.py absent : UnrealPak seul | pakfile.py missing: UnrealPak only
+    pakfile = None
+
+try:
+    import game_data as game_data_module
+except ImportError:      # game_data.py absent : retour au flux FModel | game_data.py missing: fall back to the FModel flow
+    game_data_module = None
+
 CONFIG_FILE = 'config.pkl'
+
+# Journal colorswap.log à côté de l'outil : garde une trace de ce qui se passe | Log file colorswap.log next to the tool: keeps a record of what happens
+# hors écran (conversions, UnrealPak, Corbeille) et de toute exception. | off-screen (conversions, UnrealPak, Recycle Bin) and of every exception.
+import logging
+from logging.handlers import RotatingFileHandler
+
+LOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "colorswap.log")
+log = logging.getLogger("colorswap")
+log.setLevel(logging.INFO)
+try:
+    _log_handler = RotatingFileHandler(LOG_FILE, maxBytes=1_000_000, backupCount=1, encoding='utf-8')
+    _log_handler.setFormatter(logging.Formatter(
+        "%(asctime)s.%(msecs)03d [%(threadName)s] %(levelname)s %(message)s", "%Y-%m-%d %H:%M:%S"))
+    log.addHandler(_log_handler)
+except OSError:
+    pass  # dossier en lecture seule : pas de journal | read-only folder: no log
+
+
+def _log_uncaught(exc_type, exc, tb):
+    log.critical("Exception non gérée | Unhandled exception", exc_info=(exc_type, exc, tb))
+    sys.__excepthook__(exc_type, exc, tb)
+
+
+def _log_thread_exception(args):
+    log.error("Exception dans le fil %s | Exception in thread %s",
+              args.thread.name if args.thread else '?', args.thread.name if args.thread else '?',
+              exc_info=(args.exc_type, args.exc_value, args.exc_traceback))
+
+
+sys.excepthook = _log_uncaught
+threading.excepthook = _log_thread_exception
 
 BASE_DIR = r"Base_pas_edit\Rivals2\Content\Characters"
 
@@ -29,6 +70,7 @@ unrealpak_script_path = None
 mods_folder_path = None
 fmodel_path = None
 fmodel_output_path = None
+declined_data_hash = None   # version du jeu pour laquelle la mise à jour a été refusée | game version the update was declined for
 output_folder_path = None
 json_data = None
 uexp_file_path = None
@@ -91,7 +133,7 @@ translations = {
                                  "ou téléchargez-le d'abord sur https://fmodel.app"),
         'update_instructions': ("FModel va s'ouvrir. Faites ceci dans FModel :\n\n"
                                 "1. Au premier lancement : Directory > Selector > \"Add Undetected Game\",\n"
-                                "    nom \"Rivals2\", dossier Paks du jeu, bouton +, puis version UE5_4.\n"
+                                "    nom \"Rivals2\", dossier Paks du jeu, bouton +, puis version UE5_8.\n"
                                 "    Activez ensuite \"Local Mapping File\" dans Settings et glissez-y\n"
                                 "    le fichier .usmap fourni dans le dossier de cet outil.\n\n"
                                 "2. Dans l'arborescence, clic droit sur Rivals2/Content/Characters :\n"
@@ -144,6 +186,40 @@ translations = {
         'overrides_close_game': "Fermez le jeu avant de supprimer des mods (les fichiers sont verrouillés).",
         'overrides_removed': "{} fichier(s) .pak envoyé(s) à la corbeille.",
         'overrides_remove_failed': "Suppression impossible. Vérifiez que le jeu est fermé.",
+        'outdated_title': "Mods d'une ancienne version du jeu",
+        'outdated_prompt': ("{} mod(s) installé(s) ont été créés pour l'ancienne version du moteur du jeu "
+                            "et ne sont plus compatibles :\n\n{}\n\n"
+                            "Les convertir vers la version actuelle ? Vos couleurs sont conservées et "
+                            "les fichiers d'origine vont à la Corbeille."),
+        'outdated_converted': "{} remplacement(s) converti(s) dans {} mod(s). Les fichiers d'origine sont dans la Corbeille.",
+        'outdated_dropped': ("\n\n{} remplacement(s) n'ont pas pu être convertis, car le jeu a modifié "
+                             "les couleurs de ces palettes. Ils sont à recréer :\n{}"),
+        'outdated_converting': "Conversion des mods... {}/{} : {}",
+        'reinstall_mods': "Réinstaller les mods",
+        'reinstall_confirm': ("Reconstruire les {} mod(s) installé(s) ?\n\n"
+                              "Chaque mod est sorti du dossier Mods, reconstruit puis remis en place ; "
+                              "les originaux vont à la Corbeille."),
+        'reinstall_progress': "Réinstallation... {}/{} : {}",
+        'reinstall_done': "{} mod(s) réinstallé(s). Les originaux sont dans la Corbeille.",
+        'reinstall_skipped': "\n\nNon gérés par l'outil, laissés tels quels :\n{}",
+        'reinstall_dropped': "\n\nRemplacements impossibles à convertir, retirés :\n{}",
+        'reinstall_failed': "\n\nÉchecs (mod d'origine remis en place) :\n{}",
+        'reinstall_backup_kept': "\n\nLes originaux n'ont pas pu aller à la Corbeille ; ils sont ici :\n{}",
+        'data_progress_start': "Lecture des fichiers du jeu...",
+        'data_progress_palettes': "Lecture des palettes... {}/{}",
+        'data_progress_import': "Rangement des palettes...",
+        'data_progress_portraits': "Mise à jour des portraits... {}/{}",
+        'data_outdated_title': "Données du jeu à mettre à jour",
+        'data_outdated_prompt': ("Rivals 2 a été mis à jour depuis la création des données de cet outil.\n\n"
+                                 "Mettre à jour les données depuis le jeu installé ? Cela prend environ "
+                                 "une minute et ne nécessite pas FModel."),
+        'data_updated': ("Données du jeu mises à jour depuis le jeu installé.\n\n"
+                         "{} palette(s) ajoutée(s), {} modifiée(s).\n{} portrait(s) ajouté(s), {} mis à jour."),
+        'data_already_current': "Les données de l'outil correspondent déjà au jeu installé.",
+        'data_restart': "\n\nRelancez l'outil pour voir les nouveaux personnages et skins.",
+        'data_failures': "\n\n{} palette(s) illisible(s) : voir colorswap.log.",
+        'outdated_close_game': ("Des mods créés pour l'ancienne version du moteur du jeu ont été détectés. "
+                                "Fermez le jeu puis relancez l'outil pour les convertir."),
     },
     'en': {
         'title': "ROA 2 Colorswap",
@@ -196,7 +272,7 @@ translations = {
                                  "or download it first from https://fmodel.app"),
         'update_instructions': ("FModel will open. Do the following in FModel:\n\n"
                                 "1. First launch only: Directory > Selector > \"Add Undetected Game\",\n"
-                                "    name \"Rivals2\", the game's Paks folder, + button, then UE version UE5_4.\n"
+                                "    name \"Rivals2\", the game's Paks folder, + button, then UE version UE5_8.\n"
                                 "    Then enable \"Local Mapping File\" in Settings and drag in the\n"
                                 "    .usmap file shipped in this tool's folder.\n\n"
                                 "2. In the file tree, right-click Rivals2/Content/Characters:\n"
@@ -249,6 +325,40 @@ translations = {
         'overrides_close_game': "Close the game before removing mods (the files are locked).",
         'overrides_removed': "{} .pak file(s) sent to the Recycle Bin.",
         'overrides_remove_failed': "Removal failed. Make sure the game is closed.",
+        'outdated_title': "Mods from an older game version",
+        'outdated_prompt': ("{} installed mod(s) were built for the game's previous engine version "
+                            "and are no longer compatible:\n\n{}\n\n"
+                            "Convert them to the current version? Your colors are kept and the "
+                            "original files go to the Recycle Bin."),
+        'outdated_converted': "{} override(s) converted across {} mod(s). The original files are in the Recycle Bin.",
+        'outdated_dropped': ("\n\n{} override(s) could not be converted because the game changed "
+                             "those palettes' colors. They need to be rebuilt:\n{}"),
+        'outdated_converting': "Converting mods... {}/{}: {}",
+        'reinstall_mods': "Reinstall Mods",
+        'reinstall_confirm': ("Rebuild all {} installed mod(s)?\n\n"
+                              "Each mod is moved out of the Mods folder, rebuilt and put back; "
+                              "the originals go to the Recycle Bin."),
+        'reinstall_progress': "Reinstalling... {}/{}: {}",
+        'reinstall_done': "{} mod(s) reinstalled. The originals are in the Recycle Bin.",
+        'reinstall_skipped': "\n\nNot managed by this tool, left as they are:\n{}",
+        'reinstall_dropped': "\n\nOverrides that couldn't be converted, removed:\n{}",
+        'reinstall_failed': "\n\nFailed (original mod put back):\n{}",
+        'reinstall_backup_kept': "\n\nThe originals couldn't go to the Recycle Bin; they are here:\n{}",
+        'data_progress_start': "Reading the game files...",
+        'data_progress_palettes': "Reading palettes... {}/{}",
+        'data_progress_import': "Filing palettes...",
+        'data_progress_portraits': "Updating portraits... {}/{}",
+        'data_outdated_title': "Game data needs updating",
+        'data_outdated_prompt': ("Rivals 2 has been updated since this tool's game data was made.\n\n"
+                                 "Update the data from your installed game now? It takes about a minute "
+                                 "and doesn't need FModel."),
+        'data_updated': ("Game data updated from the installed game.\n\n"
+                         "{} palette(s) added, {} changed.\n{} portrait(s) added, {} updated."),
+        'data_already_current': "The tool's game data already matches the installed game.",
+        'data_restart': "\n\nRestart the tool to see new characters and skins.",
+        'data_failures': "\n\n{} palette(s) could not be read: see colorswap.log.",
+        'outdated_close_game': ("Mods built for the game's previous engine version were detected. "
+                                "Close the game, then restart the tool to convert them."),
     }
 }
 
@@ -312,6 +422,7 @@ def save_config():
         'selected_language': current_language,
         'fmodel_path': fmodel_path,
         'fmodel_output_path': fmodel_output_path,
+        'declined_data_hash': declined_data_hash,
     }
     with open(CONFIG_FILE, 'wb') as f:
         pickle.dump(config, f)
@@ -320,6 +431,7 @@ def save_config():
 def load_config():
     # Chargement de la configuration depuis le fichier pickle | Load the configuration from the pickle file
     global unrealpak_script_path, mods_folder_path, preset_dir, current_language, fmodel_path, fmodel_output_path
+    global declined_data_hash
     project_root = os.path.dirname(
         os.path.abspath(__file__))  # Chemin du projet racine | Project root path
 
@@ -341,6 +453,7 @@ def load_config():
             current_language = config.get('selected_language', 'fr')
             fmodel_path = config.get('fmodel_path')
             fmodel_output_path = config.get('fmodel_output_path')
+            declined_data_hash = config.get('declined_data_hash')
 
 
 def get_output_and_unrealpak_dirs():
@@ -950,10 +1063,10 @@ _portrait_manifest = None
 
 def load_portrait_manifest():
     """
-    En-têtes de textures livrés avec l'outil (145 octets par portrait).
+    En-têtes de textures livrés avec l'outil (141 octets par portrait).
     Ils permettent de reconstruire un .uexp sans lire le jeu.
 
-    Texture headers shipped with the tool (145 bytes per portrait). They
+    Texture headers shipped with the tool (141 bytes per portrait). They
     allow rebuilding a .uexp without reading the game.
     """
     global _portrait_manifest
@@ -965,6 +1078,14 @@ def load_portrait_manifest():
                 _portrait_manifest = json.load(f)
         except (OSError, ValueError):
             _portrait_manifest = {}
+        if portraits_module is not None:
+            # Ignorer les en-têtes d'une ancienne version du moteur : le portrait | Ignore headers from an older engine version: the portrait
+            # est alors relu dans le .pak du jeu. | is then re-read from the game .pak instead.
+            expected = -(-(portraits_module.CSP_HEADER_LEN
+                           + portraits_module.CSP_TRAILER_LEN) // 3) * 4
+            _portrait_manifest = {
+                name: entry for name, entry in _portrait_manifest.items()
+                if len(entry.get('wrapper', '')) == expected}
     return _portrait_manifest
 
 
@@ -1537,7 +1658,7 @@ def fmodel_search_dirs():
     if appdata:
         cfg = os.path.join(appdata, "FModel", "AppSettings.json")
         try:
-            with open(cfg, 'r', encoding='utf-8') as f:
+            with open(cfg, 'r', encoding='utf-8-sig') as f:
                 output = json.load(f).get("OutputDirectory")
             if output:
                 dirs.append(output)
@@ -1710,8 +1831,8 @@ def ask_for_pak_directory_and_create(unrealpak_folder_path):
 
     try:
         # Exécuter UnrealPak-With-Compression.bat en utilisant le dossier unrealpak_folder_path | Run UnrealPak-With-Compression.bat using the unrealpak_folder_path folder
-        subprocess.run(
-            [unrealpak_script_path, unrealpak_folder_path], check=True)
+        # Même constructeur que partout ailleurs, au format choisi | Same builder as everywhere else, in the chosen format
+        build_pak_from_staging(unrealpak_folder_path, unrealpak_folder_path + ".pak")
         time.sleep(0.2)  # Pause pour s'assurer que le fichier est créé | Pause to make sure the file has been created
 
         # Rechercher le fichier .pak dans le répertoire UnrealPak | Look for the .pak file in the UnrealPak directory
@@ -2072,6 +2193,12 @@ def update_game_data():
                              translations[current_language]['update_importer_missing'])
         return
 
+    # Chemin normal : lire directement le .pak du jeu, sans FModel | Normal path: read the game .pak directly, without FModel
+    if game_data_source() is not None:
+        run_builtin_update()
+        return
+    log.info("Mise à jour intégrée indisponible, passage par FModel | Built-in update unavailable, using FModel")
+
     # 1. Trouver FModel.exe (mémorisé dans la config après le premier choix) | 1. Find FModel.exe (remembered in the config after the first pick)
     if not fmodel_path or not os.path.exists(fmodel_path):
         # setup.ps1 installe FModel dans le sous-dossier FModel de l'outil | setup.ps1 installs FModel into the tool's FModel subfolder
@@ -2109,7 +2236,7 @@ def update_game_data():
         try:
             settings = {}
             if os.path.exists(fmodel_cfg):
-                with open(fmodel_cfg, 'r', encoding='utf-8') as f:
+                with open(fmodel_cfg, 'r', encoding='utf-8-sig') as f:
                     settings = json.load(f)
             if not isinstance(settings, dict):
                 settings = {}
@@ -2164,6 +2291,17 @@ def update_game_data():
 PAK_PATH_RE = re.compile(rb"[0-9A-Za-z_./\-]{5,}")
 
 
+def open_pak(pak_path):
+    # Pak ouvert avec pakfile, ou None s'il est illisible (anciennes méthodes alors) | Pak opened with pakfile, or None when unreadable (old methods are used then)
+    if pakfile is None:
+        return None
+    try:
+        return pakfile.PakReader(pak_path)
+    except (pakfile.PakError, OSError, struct.error, IndexError, KeyError) as e:
+        log.warning("Pak illisible par pakfile | Pak unreadable by pakfile: %s (%s)", pak_path, e)
+        return None
+
+
 def parse_pak_overrides(pak_path):
     """
     Lit l'index d'un .pak (non chiffré) et renvoie la liste des remplacements
@@ -2175,6 +2313,16 @@ def parse_pak_overrides(pak_path):
     (character, skin, palette, type). The index stores paths as ASCII, so
     they are extracted directly, which stays valid across pak versions.
     """
+    # Lecture de l'index par pakfile (indispensable pour les paks version 12, | Reading the index with pakfile (required for version 12 paks, whose
+    # dont l'index range dossiers et noms séparément) | index stores folders and names separately)
+    if open_pak(pak_path) is not None:
+        results = []
+        for full in pak_full_paths(pak_path):
+            key = describe_pak_file(full)
+            if full.endswith(('.uexp', '.uasset', '.ubulk')) and key not in results:
+                results.append(key)
+        return results
+
     try:
         with open(pak_path, 'rb') as f:
             data = f.read()
@@ -2264,9 +2412,14 @@ def send_to_recycle_bin(paths):
     if not paths:
         return True
     buffer = '\0'.join(paths) + '\0\0'
-    op = _SHFILEOPSTRUCTW(None, 3, buffer, None, 0x0040 | 0x0010 | 0x0004,
+    # FOF_NOERRORUI (0x0400) : sans lui, une erreur ouvre une boîte modale qui peut | FOF_NOERRORUI (0x0400): without it, an error opens a modal box that can end
+    # finir derrière le jeu et bloquer l'outil ; l'échec est signalé par le code retour. | up behind the game and block the tool; failure is reported by the return code.
+    op = _SHFILEOPSTRUCTW(None, 3, buffer, None, 0x0040 | 0x0010 | 0x0004 | 0x0400,
                           False, None, None)
-    return ctypes.windll.shell32.SHFileOperationW(ctypes.byref(op)) == 0
+    start = time.time()
+    code = ctypes.windll.shell32.SHFileOperationW(ctypes.byref(op))
+    log.info("Corbeille | Recycle Bin: %s -> code %s (%.1f s)", paths, code, time.time() - start)
+    return code == 0
 
 
 def list_mod_paks():
@@ -2282,6 +2435,9 @@ def list_mod_paks():
 
 def pak_mount_point(pak_path):
     # Renvoie le point de montage brut du pak (ex: ../../../Rivals2/Content/...) | Returns the pak's raw mount point (e.g. ../../../Rivals2/Content/...)
+    reader = open_pak(pak_path)
+    if reader is not None:
+        return reader.mount
     try:
         with open(pak_path, 'rb') as f:
             data = f.read()
@@ -2336,23 +2492,57 @@ def unrealpak_exe_path():
     return os.path.join(os.path.dirname(unrealpak_script_path), "UnrealPak.exe")
 
 
+def run_unrealpak(args, **kwargs):
+    """
+    Lance UnrealPak.exe avec une limite de temps et journalise durée et
+    résultat. Un délai dépassé lève subprocess.TimeoutExpired (une
+    SubprocessError) au lieu de figer l'outil.
+
+    Runs UnrealPak.exe with a time limit and logs duration and outcome. A
+    timeout raises subprocess.TimeoutExpired (a SubprocessError) instead of
+    freezing the tool.
+    """
+    command = [unrealpak_exe_path()] + list(args)
+    start = time.time()
+    try:
+        result = subprocess.run(command, check=True, capture_output=True, text=True, timeout=120,
+                                creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0), **kwargs)
+    except subprocess.CalledProcessError as e:
+        log.error("UnrealPak %s : code %s après %.1f s | exit code %s after %.1f s\n%s%s",
+                  args, e.returncode, time.time() - start, e.returncode, time.time() - start,
+                  (e.stdout or '')[-2000:], (e.stderr or '')[-2000:])
+        raise
+    except subprocess.TimeoutExpired:
+        log.error("UnrealPak %s : délai dépassé | timed out after %.0f s", args, time.time() - start)
+        raise
+    log.info("UnrealPak %s : %.1f s", args, time.time() - start)
+    return result
+
+
 def extract_pak(pak_path, dest_dir):
     # Extrait un pak ; les chemins produits sont relatifs au point de montage | Extracts a pak; the resulting paths are relative to the mount point
     os.makedirs(dest_dir, exist_ok=True)
-    subprocess.run([unrealpak_exe_path(), pak_path, "-extract", dest_dir],
-                   check=True, capture_output=True, text=True,
-                   creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+    reader = open_pak(pak_path)
+    if reader is not None:
+        try:
+            count = reader.extract_all(dest_dir)
+            log.info("Pak extrait par pakfile | Pak extracted by pakfile: %s (v%s, %s file(s))",
+                     pak_path, reader.version, count)
+            return
+        except pakfile.PakError as e:
+            log.warning("pakfile n'a pas pu extraire, UnrealPak prend le relais | pakfile couldn't extract, "
+                        "falling back to UnrealPak: %s (%s)", pak_path, e)
+    run_unrealpak([pak_path, "-extract", dest_dir])
 
 
 def build_pak_from_staging(staging_dir, out_pak):
-    # Reconstruit un pak à partir d'un dossier de staging complet | Rebuilds a pak from a complete staging folder
+    # Reconstruit un pak à partir d'un dossier de staging complet, avec UnrealPak (version 4) : | Rebuilds a pak from a complete staging folder with UnrealPak (version 4):
+    # le jeu monte aussi les paks version 12 de pakfile.write_pak, mais n'y lit aucun fichier. | the game also mounts pakfile.write_pak's version 12 paks, but reads no file from them.
     upack_dir = os.path.dirname(unrealpak_script_path)
     filelist = os.path.join(upack_dir, "filelist.txt")
     with open(filelist, 'w') as f:
         f.write(f'"{staging_dir}\\*.*" "..\\..\\..\\*.*"\n')
-    subprocess.run([unrealpak_exe_path(), out_pak, f"-create={filelist}", "-compress"],
-                   check=True, capture_output=True, text=True, cwd=upack_dir,
-                   creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+    run_unrealpak([out_pak, f"-create={filelist}", "-compress"], cwd=upack_dir)
 
 
 def staging_dir_for_pak(pak_path):
@@ -2450,6 +2640,531 @@ def remove_overrides_from_pak(pak_path, targets):
         shutil.rmtree(work, ignore_errors=True)
 
 
+# Les différences entre versions du moteur tiennent toutes dans les premiers | The differences between engine versions all sit within the first bytes of a
+# octets d'un .uexp de palette ; aucune vraie couleur n'y commence. | palette .uexp; no real color starts there.
+PALETTE_HEADER_HEX = 128
+
+
+def base_uexp_index():
+    # Chemins des .uexp d'origine, par nom de fichier (un nom peut exister deux fois) | Paths of the original .uexp files, by file name (a name can exist twice)
+    index = {}
+    for dirpath, dirnames, filenames in os.walk(BASE_DIR):
+        for name in filenames:
+            if name.endswith('.uexp'):
+                index.setdefault(name, []).append(os.path.join(dirpath, name))
+    return index
+
+
+def is_outdated_uexp(path, index):
+    """
+    Vrai si ce .uexp a été bâti pour une ancienne version du moteur.
+    Modifier une couleur ne change jamais la taille d'un fichier : une
+    taille différente de l'original trahit donc un autre format.
+
+    True when this .uexp was built for an older engine version. Editing a
+    color never changes a file's size, so a size that differs from the
+    original gives away another format.
+    """
+    name = os.path.basename(path)
+    if name in index:
+        size = os.path.getsize(path)
+        return all(os.path.getsize(base) != size for base in index[name])
+    if name.startswith('T_') and name.endswith('_CSP.uexp') and portraits_module is not None:
+        with open(path, 'rb') as f:
+            return portraits_module.csp_layout(f.read()) is None
+    return False
+
+
+def outdated_files(folder, index):
+    found = []
+    for dirpath, dirnames, filenames in os.walk(folder):
+        for name in filenames:
+            full = os.path.join(dirpath, name)
+            if name.endswith('.uexp') and is_outdated_uexp(full, index):
+                found.append(full)
+    return found
+
+
+def upgrade_palette_uexp(old, base_uexp_path):
+    """
+    Reporte les couleurs d'un .uexp de palette d'une ancienne version du
+    moteur dans le fichier d'origine actuel. Renvoie None si, couleurs
+    mises à part, les deux fichiers ne se superposent pas (le jeu a alors
+    modifié les couleurs de cette palette).
+
+    Carries the colors of a palette .uexp from an older engine version
+    over into the current original file. Returns None when, colors aside,
+    the two files do not line up (the game changed this palette's color
+    slots in that case).
+    """
+    with open(base_uexp_path[:-len('.uexp')] + '.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    with open(base_uexp_path, 'rb') as f:
+        base_hex = f.read().hex().upper()
+    old_hex = old.hex().upper()
+    shift = len(old_hex) - len(base_hex)
+
+    # Mêmes positions que celles utilisées pour remplacer les couleurs | Same positions as the ones used when replacing colors
+    slots = []
+    position = 0
+    for entry in data:
+        if "Properties" not in entry or "CustomColorSlotDefinitions" not in entry["Properties"]:
+            continue
+        for color in entry["Properties"]["CustomColorSlotDefinitions"]:
+            value = color["Value"]
+            original = (invert_hex(precise_float_to_hex(value["R"]))
+                        + invert_hex(precise_float_to_hex(value["G"]))
+                        + invert_hex(precise_float_to_hex(value["B"])))
+            found = base_hex.find(original, position)
+            if found == -1:
+                continue
+            position = found + len(original)
+            if found >= PALETTE_HEADER_HEX:
+                slots.append((found, len(original)))
+
+    upgraded = []
+    cursor = PALETTE_HEADER_HEX
+    for found, length in slots:
+        if old_hex[cursor + shift:found + shift] != base_hex[cursor:found]:
+            return None
+        upgraded.append(base_hex[cursor:found])
+        upgraded.append(old_hex[found + shift:found + shift + length])
+        cursor = found + length
+    if not slots or old_hex[cursor + shift:] != base_hex[cursor:]:
+        return None
+    return bytes.fromhex(base_hex[:PALETTE_HEADER_HEX] + ''.join(upgraded) + base_hex[cursor:])
+
+
+def upgrade_uexp(path, index):
+    # Contenu converti d'un .uexp périmé, ou None si la conversion est impossible | Converted contents of an outdated .uexp, or None when it can't be converted
+    name = os.path.basename(path)
+    with open(path, 'rb') as f:
+        old = f.read()
+    if name in index:
+        for base in index[name]:
+            upgraded = upgrade_palette_uexp(old, base)
+            if upgraded is not None:
+                return upgraded
+        return None
+    entry = load_portrait_manifest().get(name)
+    if not entry or portraits_module is None:
+        return None
+    import base64
+    return portraits_module.upgrade_csp(old, base64.b64decode(entry['wrapper']))
+
+
+def upgrade_tree(folder, index):
+    """
+    Convertit sur place les .uexp périmés d'un dossier. Ceux qui ne peuvent
+    pas l'être sont retirés, pour ne jamais laisser un ancien format dans
+    un pak. Renvoie (nombre converti, noms retirés).
+
+    Converts a folder's outdated .uexp files in place. Those that can't be
+    converted are removed, so an old-format file never ends up in a pak.
+    Returns (number converted, names removed).
+    """
+    converted = 0
+    dropped = []
+    for path in outdated_files(folder, index):
+        upgraded = upgrade_uexp(path, index)
+        if upgraded is None:
+            log.warning("Conversion impossible, fichier retiré | Can't convert, file removed: %s", path)
+            os.remove(path)
+            dropped.append(os.path.basename(path))
+        else:
+            log.info("Converti | Converted: %s", path)
+            with open(path, 'wb') as f:
+                f.write(upgraded)
+            converted += 1
+    return converted, dropped
+
+
+def repack_pak(src_pak, dest_pak, index):
+    """
+    Reconstruit src_pak dans dest_pak : extraction,
+    conversion des fichiers d'une ancienne version du moteur, puis
+    construction. Si plus rien ne reste, dest_pak n'est pas créé.
+    Renvoie (nombre converti, noms retirés).
+
+    Rebuilds src_pak into dest_pak: extraction,
+    conversion of files from an older engine version, then building. When
+    nothing is left, dest_pak is not created. Returns (number converted,
+    names removed).
+    """
+    import tempfile
+    prefix = pak_mount_point(src_pak).replace('../', '').strip('/')
+    work = tempfile.mkdtemp(prefix="colorswap_repack_")
+    try:
+        # Extraire directement dans l'arborescence complète (le montage est retiré à l'extraction) | Extract straight into the full tree (extraction strips the mount point)
+        staging = os.path.join(work, os.path.splitext(os.path.basename(dest_pak))[0])
+        root_dir = os.path.join(staging, *prefix.split('/')) if prefix else staging
+        extract_pak(src_pak, root_dir)
+        converted, dropped = upgrade_tree(staging, index)
+        if any(filenames for _d, _s, filenames in os.walk(staging)):
+            rebuilt = os.path.join(work, "rebuilt.pak")
+            build_pak_from_staging(staging, rebuilt)
+            if not os.path.exists(rebuilt):
+                raise OSError(rebuilt)
+            shutil.copy2(rebuilt, dest_pak)
+        return converted, dropped
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+
+def upgrade_pak(pak_path, index):
+    """
+    Convertit un pak installé vers la version actuelle du moteur ; l'original
+    part à la Corbeille. Renvoie (nombre converti, noms retirés).
+
+    Converts an installed pak to the current engine version; the original
+    goes to the Recycle Bin. Returns (number converted, names removed).
+    """
+    import tempfile
+    work = tempfile.mkdtemp(prefix="colorswap_upgrade_")
+    try:
+        rebuilt = os.path.join(work, os.path.basename(pak_path))
+        converted, dropped = repack_pak(pak_path, rebuilt, index)
+        if not send_to_recycle_bin([pak_path]):
+            raise OSError(pak_path)
+        if os.path.exists(rebuilt):
+            shutil.copy2(rebuilt, pak_path)
+        return converted, dropped
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+
+def reinstall_mods(report):
+    """
+    Réinstalle tous les mods gérés par l'outil : chaque pak
+    est sorti du dossier Mods, reconstruit (fichiers d'une ancienne version
+    convertis au passage) puis remis à sa place. En cas d'échec l'original
+    est remis tel quel ; sinon il part à la Corbeille.
+    Renvoie (réinstallés, ignorés, retirés, échecs, dossier de secours gardé).
+
+    Reinstalls every mod managed by the tool: each pak
+    is moved out of the Mods folder, rebuilt (files from an older engine
+    version converted on the way) and put back in place. On failure the
+    original is put back as it was; otherwise it goes to the Recycle Bin.
+    Returns (reinstalled, skipped, removed, failures, backup folder kept).
+    """
+    import tempfile
+    texts = translations[current_language]
+    index = base_uexp_index()
+    backup_root = tempfile.mkdtemp(prefix="colorswap_reinstall_")
+    done, skipped, dropped, failed = [], [], [], []
+    paks = list_mod_paks()
+    log.info("Réinstallation de %s pak(s) | Reinstalling %s pak(s)", len(paks), len(paks))
+    for i, pak in enumerate(paks, 1):
+        label = os.path.relpath(pak, mods_folder_path)
+        report(texts['reinstall_progress'].format(i, len(paks), label))
+        names = [full.rsplit('/', 1)[-1] for full in pak_full_paths(pak)]
+        if open_pak(pak) is None or not any(n in index or n.endswith('_CSP.uexp') for n in names):
+            skipped.append(label)
+            continue
+        backup = os.path.join(backup_root, label)
+        os.makedirs(os.path.dirname(backup), exist_ok=True)
+        shutil.move(pak, backup)                 # le mod quitte le dossier Mods | the mod leaves the Mods folder
+        try:
+            _converted, lost = repack_pak(backup, pak, index)
+            dropped += lost
+            done.append(label)
+            log.info("Réinstallé | Reinstalled: %s", pak)
+        except (OSError, subprocess.SubprocessError, ValueError, KeyError) as e:
+            log.exception("Réinstallation impossible, original remis | Reinstall failed, original put back: %s", pak)
+            if os.path.exists(pak):
+                os.remove(pak)
+            shutil.move(backup, pak)
+            failed.append(f"{label}: {e}")
+    kept = None
+    originals = [os.path.join(backup_root, label) for label in done]
+    if originals and not send_to_recycle_bin(originals):
+        kept = backup_root
+    if kept is None:
+        shutil.rmtree(backup_root, ignore_errors=True)
+    return done, skipped, dropped, failed, kept
+
+
+def find_outdated_mods(index):
+    # Renvoie (paks installés, dossiers de staging) d'une ancienne version du moteur | Returns (installed paks, staging folders) left over from an older engine version
+    import tempfile
+    upack_dir = os.path.dirname(unrealpak_script_path)
+    staging = []
+    if os.path.isdir(upack_dir):
+        for name in sorted(os.listdir(upack_dir)):
+            full = os.path.join(upack_dir, name)
+            if name.endswith('_P') and os.path.isdir(full) and outdated_files(full, index):
+                staging.append(full)
+
+    paks = []
+    for pak in list_mod_paks():
+        # N'extraire que les paks qui touchent des fichiers gérés par l'outil | Only extract paks touching files this tool manages
+        names = [full.rsplit('/', 1)[-1] for full in pak_full_paths(pak)]
+        if not any(n in index or n.endswith('_CSP.uexp') for n in names):
+            continue
+        work = tempfile.mkdtemp(prefix="colorswap_check_")
+        try:
+            extract_pak(pak, work)
+            if outdated_files(work, index):
+                paks.append(pak)
+        except (OSError, subprocess.SubprocessError):
+            pass  # pak illisible par UnrealPak : on n'y touche pas | pak UnrealPak can't read: leave it alone
+        finally:
+            shutil.rmtree(work, ignore_errors=True)
+    return paks, staging
+
+
+def run_with_progress(title, work, on_done):
+    """
+    Exécute work(report) hors du fil de l'interface, avec une petite fenêtre
+    de progression ; report(texte) met son texte à jour. La fenêtre
+    principale est inerte pendant ce temps mais continue de se redessiner.
+    on_done(résultat, erreur) est appelé ensuite sur le fil de l'interface.
+
+    Runs work(report) off the UI thread with a small progress window;
+    report(text) updates its text. The main window is inert meanwhile but
+    keeps repainting. on_done(result, error) is then called on the UI
+    thread.
+    """
+    state = {}
+
+    def report(text):
+        state['text'] = text
+
+    def runner():
+        # SHFileOperation (Corbeille) attend COM initialisé sur son fil | SHFileOperation (Recycle Bin) expects COM initialised on its thread
+        try:
+            ctypes.windll.ole32.CoInitialize(None)
+        except OSError:
+            pass
+        try:
+            state['result'] = (work(report), None)
+        except Exception as e:  # toute erreur est journalisée et montrée | any failure is logged and shown
+            log.exception("Échec de la tâche de fond | Background task failed")
+            state['result'] = (None, e)
+
+    try:
+        root.attributes('-disabled', True)
+    except tk.TclError:
+        pass
+    window = tk.Toplevel(root)
+    window.title(title)
+    window.transient(root)
+    window.resizable(False, False)
+    window.protocol("WM_DELETE_WINDOW", lambda: None)
+    label = tk.Label(window, padx=24, pady=16, width=60, anchor='w')
+    label.pack()
+    root.config(cursor="wait")
+    threading.Thread(target=runner, name="background", daemon=True).start()
+
+    def poll():
+        if 'text' in state:
+            label.config(text=state['text'])
+        if 'result' not in state:
+            root.after(200, poll)
+            return
+        window.destroy()
+        root.config(cursor="")
+        try:
+            root.attributes('-disabled', False)
+        except tk.TclError:
+            pass
+        on_done(*state['result'])
+
+    poll()
+
+
+def logged_dialog(kind, title, message):
+    # Boîte rattachée à la fenêtre (elle reste devant), journalisée | Box attached to the window (so it stays in front), logged
+    log.info("Boîte affichée | Dialog shown: %s", message.split('\n')[0])
+    start = time.time()
+    answer = getattr(messagebox, kind)(title, message, parent=root)
+    log.info("Boîte fermée après %.1f s | Dialog closed after %.1f s -> %s",
+             time.time() - start, time.time() - start, answer)
+    return answer
+
+
+def game_data_source():
+    # Le .pak du jeu prêt à lire (DLL Oodle comprise), ou None | The game .pak ready to read (Oodle DLL included), or None
+    if portraits_module is None or game_data_module is None:
+        return None
+    try:
+        pak = get_game_pak()
+    except OSError:
+        log.exception("Pak ou Oodle inutilisable | Pak or Oodle unusable")
+        return None
+    return pak if pak is not None and pak.oodle is not None else None
+
+
+def run_builtin_update(then=None):
+    """
+    Met à jour les données de l'outil depuis le .pak du jeu (game_data.py),
+    en arrière-plan, puis affiche un résumé. `then` est appelé à la fin.
+
+    Updates the tool's data from the game .pak (game_data.py) in the
+    background, then shows a summary. `then` is called at the end.
+    """
+    pak = game_data_source()
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+    texts = translations[current_language]
+
+    def work(report):
+        import importlib
+        if app_dir not in sys.path:
+            sys.path.insert(0, app_dir)
+        import files_importer
+        importlib.reload(files_importer)
+        files_importer.LANG = current_language
+
+        def progress(step):
+            kind, done, total = step
+            report(texts['data_progress_' + kind].format(done, total))
+        return game_data_module.update_game_data(pak, app_dir, files_importer, progress)
+
+    def done(summary, error):
+        global _portrait_manifest
+        _portrait_manifest = None          # relire les en-têtes mis à jour | re-read the refreshed headers
+        refresh_portrait_option()
+        if error is not None:
+            logged_dialog('showerror', texts['error_title'], str(error))
+        else:
+            p = summary['portraits']
+            if not (summary['added'] or summary['changed'] or p['added'] or p['updated']):
+                message = texts['data_already_current']
+            else:
+                message = texts['data_updated'].format(len(summary['added']), len(summary['changed']),
+                                                       p['added'], p['updated'])
+            if summary['added']:
+                message += texts['data_restart']
+            if summary['failures']:
+                message += texts['data_failures'].format(len(summary['failures']))
+            logged_dialog('showinfo', texts['update_data'], message)
+        if then:
+            then()
+
+    run_with_progress(texts['update_data'], work, done)
+
+
+def check_game_data(then):
+    """
+    Au démarrage : si le jeu installé a changé depuis la création des données
+    de l'outil (empreinte de l'index du .pak), propose de les mettre à jour.
+    Un refus est mémorisé pour cette version du jeu. `then` suit dans tous
+    les cas : la conversion des mods a besoin de données à jour.
+
+    At startup: when the installed game changed since the tool's data was
+    made (fingerprint of the .pak index), offers to update it. Declining is
+    remembered for that game version. `then` always follows: converting
+    mods needs up-to-date data.
+    """
+    global declined_data_hash
+    pak = game_data_source()
+    if pak is None:
+        log.info("Vérification des données impossible (pak ou Oodle introuvable) | "
+                 "Can't check game data (pak or Oodle not found)")
+        then()
+        return
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+    try:
+        current = pak.index_hash()
+        up_to_date = game_data_module.is_up_to_date(app_dir, pak)
+    except (OSError, RuntimeError):
+        log.exception("Lecture de la version du jeu impossible | Can't read the game version")
+        then()
+        return
+    log.info("Données du jeu à jour : %s (index %s) | Game data up to date: %s",
+             up_to_date, current, up_to_date)
+    if up_to_date or declined_data_hash == current:
+        then()
+        return
+    texts = translations[current_language]
+    if not logged_dialog('askyesno', texts['data_outdated_title'], texts['data_outdated_prompt']):
+        declined_data_hash = current
+        save_config()
+        then()
+        return
+    run_builtin_update(then=then)
+
+
+def check_outdated_mods():
+    """
+    Au démarrage : propose de convertir les mods créés avant une mise à
+    jour du moteur. Les dossiers de staging sont convertis avec eux : ils
+    s'accumulent, donc sans cela le prochain export mélangerait anciens et
+    nouveaux fichiers. L'analyse comme la conversion tournent hors du fil
+    de l'interface (environ deux secondes par pak).
+
+    At startup: offers to convert mods built before an engine update. The
+    staging folders are converted along with them: they accumulate, so
+    without this the next export would mix old-format files with new ones.
+    Both the scan and the conversion run off the UI thread (about two
+    seconds per pak).
+    """
+    state = {}
+    texts = translations[current_language]
+
+    def scan():
+        start = time.time()
+        log.info("Recherche de mods d'une ancienne version | Scanning for outdated mods in %s", mods_folder_path)
+        try:
+            index = base_uexp_index()
+            paks, staging = find_outdated_mods(index)
+            state['scan'] = (index, paks, staging)
+        except OSError:
+            log.exception("Échec de l'analyse | Scan failed")
+            state['scan'] = ({}, [], [])
+        log.info("Analyse terminée en %.1f s | Scan done in %.1f s: paks=%s staging=%s",
+                 time.time() - start, time.time() - start,
+                 [os.path.basename(p) for p in state['scan'][1]],
+                 [os.path.basename(p) for p in state['scan'][2]])
+
+    def poll_scan():
+        if 'scan' not in state:
+            root.after(200, poll_scan)
+            return
+        index, paks, staging = state['scan']
+        if not paks and not staging:
+            return
+        if paks and is_game_running():
+            logged_dialog('showwarning', texts['outdated_title'], texts['outdated_close_game'])
+            return
+        if paks and not logged_dialog('askyesno', texts['outdated_title'], texts['outdated_prompt'].format(
+                len(paks), '\n'.join(os.path.basename(p) for p in paks))):
+            return
+
+        def convert(report):
+            converted, dropped = 0, []
+            for i, pak in enumerate(paks, 1):
+                report(texts['outdated_converting'].format(i, len(paks), os.path.basename(pak)))
+                start = time.time()
+                done, lost = upgrade_pak(pak, index)
+                converted += done
+                dropped += lost
+                log.info("Pak converti en %.1f s | Pak converted in %.1f s: %s (%s converted, dropped %s)",
+                         time.time() - start, time.time() - start, pak, done, lost)
+            for folder in staging:
+                upgrade_tree(folder, index)
+            return converted, dropped
+
+        def finished(result, error):
+            update_mod_button_state()
+            if error is not None:
+                logged_dialog('showerror', texts['error_title'], str(error))
+                return
+            converted, dropped = result
+            log.info("Conversion terminée | Conversion finished: %s converted, dropped %s", converted, dropped)
+            if not paks:
+                return
+            message = texts['outdated_converted'].format(converted, len(paks))
+            if dropped:
+                message += texts['outdated_dropped'].format(len(dropped), '\n'.join(dropped))
+            logged_dialog('showinfo', texts['outdated_title'], message)
+
+        run_with_progress(texts['outdated_title'], convert, finished)
+
+    threading.Thread(target=scan, name="outdated-scan", daemon=True).start()
+    poll_scan()
+
+
 def linear_to_srgb_bytes(r, g, b):
     # Inverse de hex_to_linear_rgb : linéaire -> octets sRGB | Inverse of hex_to_linear_rgb: linear -> sRGB bytes
     def encode(value):
@@ -2491,7 +3206,10 @@ def read_override_colors(base_json_path, base_uexp_path, modified_uexp_path):
             if found == -1:
                 continue
             position = found + len(original)
-            chunk = mod_hex[found:found + len(original)]
+            # Un mod d'une ancienne version du moteur a un en-tête plus long : | A mod from an older engine version has a longer header:
+            # ses couleurs sont décalées d'autant. | its colors sit that much further along.
+            shift = len(mod_hex) - len(base_hex)
+            chunk = mod_hex[found + shift:found + shift + len(original)]
             if len(chunk) < len(original):
                 continue
             floats = []
@@ -2527,6 +3245,12 @@ def find_base_files(character, skin, palette, prefix):
 
 def pak_full_paths(pak_path):
     # Chemins complets (montage + entrées) contenus dans un pak | Full paths (mount + entries) held inside a pak
+    reader = open_pak(pak_path)
+    if reader is not None:
+        mount = reader.mount.replace('../', '').strip('/')
+        if not mount:
+            return list(reader.files)
+        return [(mount + '/' + rel).replace('//', '/') for rel in reader.files]
     try:
         with open(pak_path, 'rb') as f:
             data = f.read()
@@ -2955,6 +3679,49 @@ def show_overrides():
                                  parent=overrides_window)
         refresh()
 
+    def reinstall():
+        texts = translations[current_language]
+        paks = list_mod_paks()
+        if not paks:
+            return
+        if not messagebox.askyesno(texts['reinstall_mods'],
+                                   texts['reinstall_confirm'].format(len(paks)),
+                                   parent=overrides_window):
+            return
+        if is_game_running():
+            messagebox.showerror(texts['error_title'], texts['overrides_close_game'], parent=overrides_window)
+            return
+        try:
+            overrides_window.attributes('-disabled', True)
+        except tk.TclError:
+            pass
+
+        def finished(result, error):
+            try:
+                overrides_window.attributes('-disabled', False)
+            except tk.TclError:
+                pass
+            refresh()
+            update_mod_button_state()
+            if error is not None:
+                messagebox.showerror(texts['error_title'], str(error), parent=overrides_window)
+                return
+            done, skipped, dropped, failed, kept = result
+            message = texts['reinstall_done'].format(len(done))
+            if skipped:
+                message += texts['reinstall_skipped'].format('\n'.join(skipped))
+            if dropped:
+                message += texts['reinstall_dropped'].format('\n'.join(dropped))
+            if failed:
+                message += texts['reinstall_failed'].format('\n'.join(failed))
+            if kept:
+                message += texts['reinstall_backup_kept'].format(kept)
+            log.info("Réinstallation terminée | Reinstall finished: %s done, skipped %s, dropped %s, failed %s",
+                     len(done), skipped, dropped, failed)
+            messagebox.showinfo(texts['reinstall_mods'], message, parent=overrides_window)
+
+        run_with_progress(texts['reinstall_mods'], reinstall_mods, finished)
+
     button_bar = tk.Frame(overrides_window, bg="#f2f2f2")
     button_bar.pack(fill="x", padx=10, pady=8)
     tk.Button(button_bar, text=translations[current_language]['overrides_refresh'],
@@ -2965,6 +3732,9 @@ def show_overrides():
     tk.Button(button_bar, text=translations[current_language]['overrides_preview'],
               command=preview_selected, font=("Arial", 9),
               bg="#9C27B0", fg="white").pack(side='left', padx=5)
+    tk.Button(button_bar, text=translations[current_language]['reinstall_mods'],
+              command=reinstall, font=("Arial", 9),
+              bg="#009688", fg="white").pack(side='left', padx=5)
     tk.Button(button_bar, text=translations[current_language]['overrides_remove_selected'],
               command=remove_selected, font=("Arial", 9),
               bg="#FF9800", fg="white").pack(side='right', padx=5)
@@ -2983,6 +3753,16 @@ def on_closing():
 
 # Créer la fenêtre Tkinter | Create the Tkinter window
 root = tk.Tk()
+
+
+def _log_tk_exception(exc_type, exc, tb):
+    # Les exceptions des rappels Tk ne remontent pas à sys.excepthook | Tk callback exceptions never reach sys.excepthook
+    log.error("Exception dans un rappel Tk | Exception in Tk callback", exc_info=(exc_type, exc, tb))
+    import traceback
+    traceback.print_exception(exc_type, exc, tb)
+
+
+root.report_callback_exception = _log_tk_exception
 root.title(translations[current_language]['title'])
 root.geometry("900x600")
 root.configure(bg="#f2f2f2")
@@ -3008,6 +3788,7 @@ last_change_time = 0
 
 # Charger la configuration au démarrage | Load the configuration at startup
 load_config()
+log.info("Démarrage | Startup: Python %s, mods folder %s", sys.version.split()[0], mods_folder_path)
 
 # Charger les icônes et les personnages | Load the icons and the characters
 characters = load_character_icons()
@@ -3157,5 +3938,8 @@ update_texts()
 
 # Gérer la fermeture de l'application | Handle application shutdown
 root.protocol("WM_DELETE_WINDOW", on_closing)
+
+# Une fois la fenêtre affichée, signaler les mods d'une ancienne version du moteur | Once the window is up, flag mods left over from an older engine version
+root.after(300, lambda: check_game_data(then=check_outdated_mods))
 
 root.mainloop()

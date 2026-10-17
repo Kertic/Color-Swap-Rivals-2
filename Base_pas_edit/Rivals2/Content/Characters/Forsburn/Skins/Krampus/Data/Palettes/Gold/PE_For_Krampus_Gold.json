@@ -1,0 +1,108 @@
+[
+  {
+    "Type": "BlueprintGeneratedClass",
+    "Name": "PE_For_Krampus_Gold_C",
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'BlueprintGeneratedClass'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Krampus/Data/Palettes/Gold/PE_For_Krampus_Gold",
+    "SuperStruct": {
+      "ObjectName": "Class'RivalsColorPalette'",
+      "ObjectPath": "/Script/Rivals2"
+    },
+    "ClassFlags": "CLASS_CompiledFromBlueprint",
+    "ClassWithin": {
+      "ObjectName": "Class'Object'",
+      "ObjectPath": "/Script/CoreUObject"
+    },
+    "ClassConfigName": "Engine",
+    "bCooked": true,
+    "ClassDefaultObject": {
+      "ObjectName": "PE_For_Krampus_Gold_C'Default__PE_For_Krampus_Gold_C'",
+      "ObjectPath": "Rivals2/Content/Characters/Forsburn/Skins/Krampus/Data/Palettes/Gold/PE_For_Krampus_Gold.1"
+    },
+    "EditorTags": {
+      "BlueprintType": "BPTYPE_Normal"
+    }
+  },
+  {
+    "Type": "PE_For_Krampus_Gold_C",
+    "Name": "Default__PE_For_Krampus_Gold_C",
+    "Flags": "RF_Public | RF_ClassDefaultObject | RF_ArchetypeObject | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Rivals2/Content/Characters/Forsburn/Skins/Krampus/Data/Palettes/Gold/PE_For_Krampus_Gold.PE_For_Krampus_Gold_C'",
+    "Package": "Rivals2/Content/Characters/Forsburn/Skins/Krampus/Data/Palettes/Gold/PE_For_Krampus_Gold",
+    "Properties": {
+      "CustomColorSlotDefinitions": [
+        {
+          "Key": "Element0",
+          "Value": {
+            "R": 1.0,
+            "G": 0.873552,
+            "B": 0.786755,
+            "A": 1.0,
+            "Hex": "FFF1E6"
+          }
+        },
+        {
+          "Key": "Element1",
+          "Value": {
+            "R": 0.973445,
+            "G": 0.711808,
+            "B": 0.113763,
+            "A": 1.0,
+            "Hex": "FCDC5F"
+          }
+        },
+        {
+          "Key": "Element2",
+          "Value": {
+            "R": 0.758681,
+            "G": 0.270602,
+            "B": 0.031915,
+            "A": 1.0,
+            "Hex": "E28E32"
+          }
+        },
+        {
+          "Key": "Element3",
+          "Value": {
+            "R": 0.272569,
+            "G": 0.071611,
+            "B": 0.0,
+            "A": 1.0,
+            "Hex": "8F4B00"
+          }
+        },
+        {
+          "Key": "Element4",
+          "Value": {
+            "R": 0.758681,
+            "G": 0.270602,
+            "B": 0.031915,
+            "A": 1.0,
+            "Hex": "E28E32"
+          }
+        },
+        {
+          "Key": "Element5",
+          "Value": {
+            "R": 0.973445,
+            "G": 0.711808,
+            "B": 0.113763,
+            "A": 1.0,
+            "Hex": "FCDC5F"
+          }
+        },
+        {
+          "Key": "Element6",
+          "Value": {
+            "R": 1.0,
+            "G": 0.873552,
+            "B": 0.786755,
+            "A": 1.0,
+            "Hex": "FFF1E6"
+          }
+        }
+      ]
+    }
+  }
+]

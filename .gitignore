@@ -1,6 +1,9 @@
 # Per-user configuration (mods folder path, FModel path, language)
 config.pkl
 
+# Diagnostic log written next to the tool
+colorswap.log*
+
 # Python bytecode
 __pycache__/
 *.pyc

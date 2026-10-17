@@ -80,6 +80,7 @@ From that window you can:
 - **Preview Before/After** - see the selected override rendered both ways: the original game colors next to the colors your installed mod actually applies, read straight out of the pak. It also reports how many color slots really changed. Works for both Skin and Element/Energy overrides.
 - **Remove Selected** - removes **only the highlighted overrides**, not the whole file. If a pak covers several palettes (say Blue and Neutral), removing Blue rebuilds the pak with Neutral intact. When the last override in a pak is removed, the pak itself is deleted.
 - **Remove All** - clear every mod and start fresh.
+- **Reinstall Mods** - rebuild every installed mod. Each mod is moved out of the Mods folder, rebuilt (anything from an older engine version is converted on the way) and put back; the originals go to the Recycle Bin, and a mod that fails is put back untouched. Paks made by other tools are left alone.
 
 Deleted paks go to the **Recycle Bin**, not a permanent delete, so you can restore a mod if you remove it by mistake.
 
@@ -87,12 +88,20 @@ Deleted paks go to the **Recycle Bin**, not a permanent delete, so you can resto
 
 ### Update Game Data
 
-The **Update Game Data** button lets you refresh the tool's game files yourself after a game patch (new characters, new skins) - no need to wait for a tool update.
+The **Update Game Data** button refreshes the tool's game files from your installed game after a patch (new characters, skins, palettes or portraits), with no need to wait for a tool update.
 
-Requirements: [FModel](https://fmodel.app) (free) and the `.usmap` mappings file (one ships in this folder; a game engine update may require a fresh one from the [Rivals 2 Modding Discord](https://discord.com/invite/tFdrmRQP8F)).
+**It reads the game files directly; no FModel clicking is needed.** Click the button and the tool reads every palette and character-select portrait out of the game's `.pak`, files them in place, and shows what changed (palettes added or changed, portraits added or updated). Restart the tool afterwards to see new characters. A run takes about a minute the first time and a few seconds when nothing changed.
+
+The tool also checks this at startup. It remembers which game version its data came from (`Base_pas_edit/game_version.json`); when the installed game is newer, it offers to update. If you decline, it won't ask again until the next game update.
+
+Reading the game files needs the Oodle decompression library, which **FModel downloads the first time it runs**. `setup.bat` installs FModel; open it once and the built-in update works from then on.
+
+#### Fallback: exporting with FModel
+
+If the game or the Oodle library can't be found, the button falls back to the older FModel flow:
 
 1. Click **Update Game Data**. The first time, you'll be asked to locate `FModel.exe` (remembered afterwards). The tool pre-configures FModel's game/output paths and launches it.
-2. First FModel launch only: `Directory > Selector > "Add Undetected Game"` - name it `Rivals2`, point it at the game's `Paks` folder, click `+`, and set the UE version to `GAME_UE5_4`. Then in Settings, enable **Local Mapping File** and drag in the `.usmap` from this folder.
+2. First FModel launch only: `Directory > Selector > "Add Undetected Game"` - name it `Rivals2`, point it at the game's `Paks` folder, click `+`, and set the UE version to `GAME_UE5_8`. Then in Settings, enable **Local Mapping File** and drag in the `.usmap` from this folder.
 3. In FModel's file tree, right-click `Rivals2/Content/Characters`:
    - **Save Folder's Packages Properties (.json)**
    - **Save Folder's Packages Raw Data (.uexp)**
@@ -114,6 +123,28 @@ Requirements: [FModel](https://fmodel.app) (free) and the `.usmap` mappings file
 - `Upack/[character]_P` is a staging folder that accumulates every palette you export for that character, which is how a single `.pak` can cover several palettes at once. Removing an override through **Installed Mods** prunes this folder too, so the removal sticks across future exports.
 
 ## Changelog
+
+### 2026-10-16 - Pak reader and Reinstall Mods
+
+- **pakfile.py**: the tool now reads `.pak` files itself (the version 4 paks built by the bundled UnrealPak, and the game's version 12 format); extraction, the Installed Mods list and override detection all use it, with UnrealPak as a fallback. Mods are still built by UnrealPak as version 4: a version 12 writer is included, but the game mounts version 12 mod paks without reading any file from them, while version 4 paks work.
+- New **Reinstall Mods** button in Installed Mods (see above).
+- Since UE5.8, Rivals 2 shows an "Unsupported mod files" prompt for any pak that isn't part of the game, including mods from this tool. Click **Yes** to load them, or add `-AllowUnknownPaks` to the game's Steam launch options to skip the prompt.
+
+### 2026-10-12 - Unreal Engine 5.8 compatibility
+
+Rivals 2 moved from Unreal Engine 5.4 to 5.8, which changed the layout of every game file the tool touches. **Mods built before this update are not compatible with the current game, but the tool converts them for you.**
+
+- **Old mods are converted at startup.** If your Mods folder still holds paks built for the previous engine version, the tool lists them and offers to convert them. Your colors (and any replaced portrait) are carried over into the new file layout, the pak is rebuilt in place, and the original goes to the Recycle Bin. The `Upack/[character]_P` staging folders are converted with them, so a later export never bundles old-format files with new ones.
+- A few palettes had their color slots changed by the game itself in this patch (77 of roughly 2,200). Overrides for those can't be carried over automatically; the tool names them so you can rebuild them.
+- **Load Installed Mod Colors** and **Preview Before/After** now read mods from the previous engine version correctly.
+- The conversion runs in the background with a progress window, so the tool no longer looks frozen (it takes about two seconds per pak).
+- **Update Game Data no longer needs FModel exports.** The tool reads palettes and portraits straight from the game's `.pak`, producing the same files FModel would (checked against all 2,272 palettes FModel had exported), and checks at startup whether the installed game is newer than its data. FModel remains as a fallback.
+- Game data refreshed with it: 13 Forsburn Default palettes and Galvan's Default Gold energy palette were out of date and would have produced broken mods; 10 palettes missing from the previous export were added (mostly Gold palettes), along with 43 portraits; 26 portraits whose art changed were updated.
+- The tool now writes a log, `colorswap.log`, next to `couleur.py`: conversions, UnrealPak runs, Recycle Bin operations, dialogs and any error. Attach it when reporting a problem.
+- **Portrait replacement updated for the 5.8 texture layout.** `portrait_headers.json` was regenerated from the 5.8 game, and headers from an older engine version are now ignored rather than written into a mod.
+- Preview portraits added for the new skins and palettes (Gold palettes, Clairen Cyber, Gouie Mecha/Bouie, and others).
+- Fixed FModel's settings never being read: FModel saves `AppSettings.json` with a UTF-8 byte-order mark, which made the tool silently skip pre-configuring FModel in **Update Game Data** and miss FModel's output folder when looking for the Oodle library.
+- Game data refreshed and the mappings file replaced with `Rivals2-5.8.0-0+UE5-5418fa4e.usmap`; FModel's UE version for the game is now `GAME_UE5_8`.
 
 ### 2026-08-17 - Importer fixes
 

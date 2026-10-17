@@ -4,11 +4,11 @@ Lecture et réécriture des portraits de sélection (textures CSP).
 Reading and rewriting character-select portraits (CSP textures).
 
 Les portraits ne sont pas livrés avec l'outil : ils sont lus à la demande
-dans le .pak du jeu (index UE5 v11, blocs compressés en Oodle), recolorés,
+dans le .pak du jeu (index UE5 v12, blocs compressés en Oodle), recolorés,
 puis ré-encodés en DXT5 et réinjectés dans un .uexp de taille identique.
 
 Portraits are not shipped with the tool: they are read on demand from the
-game's .pak (UE5 v11 index, Oodle-compressed blocks), recolored, then
+game's .pak (UE5 v12 index, Oodle-compressed blocks), recolored, then
 re-encoded to DXT5 and spliced back into a .uexp of identical size.
 """
 import ctypes
@@ -21,8 +21,10 @@ from PIL import Image
 
 # Un .uexp de texture CSP est : en-tête + données DXT5 + fin de bloc
 # A CSP texture .uexp is: header + DXT5 payload + trailer
-CSP_HEADER_LEN = 117
+CSP_HEADER_LEN = 113
 CSP_TRAILER_LEN = 28
+# Avant UE5.8, l'en-tête comptait 4 octets de plus | Before UE5.8 the header was 4 bytes longer
+LEGACY_CSP_HEADER_LEN = 117
 SUPPORTED_SIDES = (256, 512, 1024, 2048)
 
 
@@ -119,7 +121,11 @@ class _Cursor:
             return raw.decode("utf-16-le", "ignore").rstrip("\x00")
         raw = self.b[self.p:self.p + n]
         self.p += n
-        return raw.decode("ascii", "ignore").rstrip("\x00")
+        # Longueur positive : le pak de Rivals 2 y range de l'UTF-8 (ex. « Léon ») | Positive length: Rivals 2's pak stores UTF-8 there (e.g. "Léon")
+        try:
+            return raw.decode("utf-8").rstrip("\x00")
+        except UnicodeDecodeError:
+            return raw.decode("latin-1").rstrip("\x00")
 
 
 class GamePak:
@@ -135,7 +141,9 @@ class GamePak:
         self.path = pak_path
         self.oodle = oodle
         self._entries = None      # {nom de fichier -> (dossier, offset encodé)}
+        self._listing = None      # [(dossier, nom, offset encodé)] : tous, doublons compris | all of them, duplicates included
         self._encoded = None
+        self._index_hash = None
 
     # -- index ------------------------------------------------------------
     def _load_index(self):
@@ -149,6 +157,8 @@ class GamePak:
             if magic != self.MAGIC:
                 raise RuntimeError("pak non reconnu | unrecognized pak")
             index_off, index_size = struct.unpack_from("<QQ", footer, 8)
+            # SHA-1 de l'index : change à chaque mise à jour du jeu | SHA-1 of the index: changes with every game update
+            self._index_hash = footer[24:44].hex()
             f.seek(index_off)
             index = f.read(index_size)
 
@@ -165,6 +175,7 @@ class GamePak:
         self._encoded = index[c.p:c.p + encoded_size]
 
         entries = {}
+        listing = []
         if fdi_off:
             with open(self.path, "rb") as f:
                 f.seek(fdi_off)
@@ -174,8 +185,27 @@ class GamePak:
                 directory = d.fstring()
                 for _ in range(d.i32()):
                     name = d.fstring()
-                    entries.setdefault(name, (directory, d.i32()))
+                    offset = d.i32()
+                    entries.setdefault(name, (directory, offset))
+                    listing.append((directory, name, offset))
         self._entries = entries
+        self._listing = listing
+
+    def index_hash(self):
+        """Empreinte de cette version du jeu. | Fingerprint of this game version."""
+        self._load_index()
+        return self._index_hash
+
+    def listing(self):
+        """
+        Tous les fichiers du pak : [(dossier, nom, offset encodé)]. Un même
+        nom peut apparaître dans plusieurs dossiers.
+
+        Every file in the pak: [(directory, name, encoded offset)]. The same
+        name can appear in several directories.
+        """
+        self._load_index()
+        return self._listing
 
     def has(self, filename):
         self._load_index()
@@ -196,7 +226,28 @@ class GamePak:
         found = self._entries.get(filename)
         if not found:
             raise FileNotFoundError(filename)
-        _directory, encoded_offset = found
+        return self.read_at(found[1])
+
+    def entry_hash(self, encoded_offset):
+        """
+        SHA-1 enregistré dans l'en-tête de l'entrée : il change avec son
+        contenu, et se lit sans rien décompresser.
+
+        SHA-1 stored in the entry header: it changes with the contents and
+        can be read without decompressing anything.
+        """
+        self._load_index()
+        with open(self.path, "rb") as f:
+            f.seek(self._decode_offset(encoded_offset))
+            head = f.read(48)
+        return head[28:48].hex()
+
+    def read_at(self, encoded_offset):
+        """
+        Contenu décompressé de l'entrée à cet offset encodé (voir listing()).
+        Decompressed contents of the entry at this encoded offset (see listing()).
+        """
+        self._load_index()
         entry_offset = self._decode_offset(encoded_offset)
 
         with open(self.path, "rb") as f:
@@ -391,17 +442,36 @@ def encode_dxt5(image):
 
 def csp_wrapper(uexp):
     """
-    Extrait l'en-tête et la fin d'un .uexp de portrait (145 octets au
+    Extrait l'en-tête et la fin d'un .uexp de portrait (141 octets au
     total). Conservés dans le manifeste, ils suffisent à reconstruire le
     fichier sans jamais relire le jeu.
 
-    Extracts the header and trailer of a portrait .uexp (145 bytes in
+    Extracts the header and trailer of a portrait .uexp (141 bytes in
     total). Stored in the manifest, they are enough to rebuild the file
     without ever reading the game again.
     """
     if csp_layout(uexp) is None:
         return None
     return uexp[:CSP_HEADER_LEN] + uexp[-CSP_TRAILER_LEN:]
+
+
+def upgrade_csp(uexp, wrapper):
+    """
+    Porte un .uexp de portrait d'une ancienne version du moteur vers la
+    disposition actuelle : les pixels sont repris tels quels, seuls
+    l'en-tête et la fin viennent de `wrapper`. Renvoie None si impossible.
+
+    Carries a portrait .uexp from an older engine version over to the
+    current layout: the pixels are kept as they are, only the header and
+    trailer come from `wrapper`. Returns None when that is not possible.
+    """
+    if wrapper is None or len(wrapper) != CSP_HEADER_LEN + CSP_TRAILER_LEN:
+        return None
+    payload = uexp[LEGACY_CSP_HEADER_LEN:len(uexp) - CSP_TRAILER_LEN]
+    side = int(round(len(payload) ** 0.5))
+    if side * side != len(payload) or side not in SUPPORTED_SIDES:
+        return None
+    return wrapper[:CSP_HEADER_LEN] + payload + wrapper[CSP_HEADER_LEN:]
 
 
 def build_csp_uexp(wrapper, image, side):
